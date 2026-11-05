@@ -1,0 +1,6 @@
+prototype/eikyouki/eikyouki.db
+prototype/eikyouki/eikyouki.db.tmp
+prototype/eikyouki/eikyouki.db-*
+__pycache__/
+*.pyc
+.DS_Store
