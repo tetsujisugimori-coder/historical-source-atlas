@@ -53,3 +53,6 @@ python prototype/eikyouki/evidence_manifest.py evidence
 独立担当は元HEADで5P2を再現。修正中レビューではNULL閏月のint変換、IDのNUL切断、検査runnerの先行buildなどの反例を指摘し、同反例を修正後再実行する。主担当テストと独立実行を件数として混ぜない。
 
 限定ソフトウェア受入と学術検証完了を分ける。Draft維持、マージ/Pages公開無し。
+
+
+CI初回（84cf587、run 42208828532）は単体/CLIまで成功したが、ubuntu-latestが26.04へ進んでおり固定Playwright1.56.1の対象外でinstallがexit1。ブラウザ段階はSKIPPEDで成功に含めない。ubuntu-24.04へ固定して再実行する。PRイベントではGitHub run自体のhead_shaがmerge commitとなり得るため、checkout実HEADとmanifest/sourceを照合し、artifact名にもPR head SHAを使用する。
