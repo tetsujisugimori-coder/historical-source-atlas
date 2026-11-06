@@ -64,7 +64,7 @@ class Acceptance(unittest.TestCase):
 
     def test_reject_input_mutations_without_replacing_good_db(self):
         cases = [
-            ('work_id','NO_SUCH_WORK'),('edition_id','NO_SUCH_EDITION'),
+            ('date_conversion_source_url','javascript:alert(1)'),('date_conversion_source_url','data:text/html,unsafe'),('date_conversion_source_url','/relative'),('date_conversion_source_url','https://user:pass@example.com'),('date_conversion_source_url','https://example.com\n/path'),('date_conversion_source_url','https://example.com:bad'),('work_id','NO_SUCH_WORK'),('edition_id','NO_SUCH_EDITION'),
             ('chapter_id','missing'),('chapter','changed chapter'),
             ('source_url','https://example.com/different-source'),
             ('julian_start','not-a-date'),('gregorian_start','1437-02-30'),

@@ -59,3 +59,6 @@ CI初回（84cf587、run 42208828532）は単体/CLIまで成功したが、ubun
 
 
 独立候補レビューでsummaryの既定focus輪郭がカードのoverflowで一部clipされるP3を確認。focus-visible輪郭を内側へ描く最小CSSで改善し、最終画像で再確認する。今回の画面変更は日付順、未知/閏月表示、根拠ラベル、出典Tab移動とfocus輪郭に限定する。
+
+
+親側の別環境独立読取で、換算根拠URLのjavascript:入力が受理される追加観察を得た。実ブラウザexploit実行済みとはせず、入力境界で絶対HTTPS・資格情報/制御文字なしへ限定し、javascript/data/相対/資格情報/制御文字/不正portの6反例を追加した。固定のsource_urlは従来どおり章URL完全一致で検査する。

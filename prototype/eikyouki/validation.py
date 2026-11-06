@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+from urllib.parse import urlsplit
 
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
@@ -114,6 +115,17 @@ def validate_record(r):
     for f in ("id", "work_id", "edition_id", "chapter_id"):
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]*", r[f]):
             fail(r, f, "ID must be nonempty ASCII alphanumeric with _ or - separators")
+    url = r["date_conversion_source_url"]
+    if url is not None:
+        try:
+            parts = urlsplit(url)
+            safe = parts.scheme == "https" and parts.hostname and not parts.username and not parts.password
+            safe = safe and not any(ord(c) < 33 or c.isspace() for c in url)
+            _ = parts.port  # malformed ports are not accepted as provenance URLs
+        except ValueError:
+            safe = False
+        if not safe:
+            fail(r, "date_conversion_source_url", "absolute HTTPS URL without credentials/control characters required")
     for f, expected in (("work_id",WORK),("edition_id",EDITION)):
         if r[f] != expected:
             fail(r, f, "unsupported fixed-source affiliation")
