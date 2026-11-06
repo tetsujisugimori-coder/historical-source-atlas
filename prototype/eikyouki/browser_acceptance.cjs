@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),
 const out=path.resolve(process.argv[2]||'evidence/browser');fs.mkdirSync(out,{recursive:true});
 const html=fs.readFileSync(path.join(__dirname,'index.html'));
 const records=JSON.parse(fs.readFileSync(path.join(__dirname,'eikyouki_records.json'),'utf8')).records;
-const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0013','EK-0014');
+const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0017','EK-0013','EK-0014');
 const ids=p=>p.locator('.article .topline').evaluateAll(xs=>xs.map(x=>x.textContent.match(/EK-\d{4}/)[0]));
 const result={classification:'new execution',started:new Date().toISOString(),head:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:__dirname,encoding:'utf8'}).trim(),tree:cp.execFileSync('git',['rev-parse','HEAD^{tree}'],{cwd:__dirname,encoding:'utf8'}).trim(),sourceSha256:crypto.createHash('sha256').update(html).digest('hex'),node:process.version,os:process.platform,cases:[]};
 const server=http.createServer((req,res)=>{if(req.url==='/favicon.ico'){res.writeHead(204);return res.end()}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(html)});
@@ -18,13 +18,13 @@ async function main(){
    p.on('pageerror',e=>c.pageerrors.push({time:new Date().toISOString(),message:e.message}));p.on('console',m=>{if(m.type()==='error')c.consoleErrors.push(m.text())});
    const check=(name,actual,expectedValue)=>{assert.deepEqual(actual,expectedValue,name);c.checks.push({name,actual,expected:expectedValue})};
    try{
-    await p.goto(url);check('15 articles',await p.locator('.article').count(),15);
+    await p.goto(url);check('17 articles',await p.locator('.article').count(),17);
     check('chronological order actual display',await ids(p),expected);
     await p.screenshot({path:path.join(out,`${name}-${width}-date.png`),fullPage:true});
     await p.locator('#sort').click();check('source order',await ids(p),records.map(r=>r.id));check('source aria',await p.locator('#sort').getAttribute('aria-pressed'),'false');
     await p.locator('#sort').click();check('date order toggle',await ids(p),expected);
     await p.locator('#year').selectOption('1437');check('year filter',await ids(p),records.filter(r=>r.western_year===1437).map(r=>r.id));
-    await p.locator('#year').selectOption('all');await p.locator('#chapter').selectOption('hakone');check('chapter filter',await ids(p),['EK-0015']);
+    await p.locator('#year').selectOption('all');await p.locator('#chapter').selectOption('hakone');check('chapter filter',await ids(p),['EK-0015','EK-0016','EK-0017']);
     await p.locator('#chapter').selectOption('all');await p.locator('#search').fill('EK-0015');check('search',await ids(p),['EK-0015']);
     const summary=p.locator('.article summary');await summary.focus();await p.keyboard.press('Enter');check('keyboard detail open',await p.locator('.article').getAttribute('open'),'');
     check('focus after Enter',await p.evaluate(()=>document.activeElement.tagName),'SUMMARY');
