@@ -55,12 +55,26 @@ class Acceptance(unittest.TestCase):
 
     def test_all_36_fields_and_existing_15(self):
         self.assertEqual(36,len(FIELDS))
-        self.assertEqual(15, verify(BASE/'eikyouki_records.json',BASE/'index.html',self.db))
-        # Frozen old input lives in history; only three documented P3 fields may change.
+        self.assertEqual(len(DATA['records']), verify(BASE/'eikyouki_records.json',BASE/'index.html',self.db))
+        # Preserve the frozen original 15 records; compare only their historic 36 fields.
         old = json.loads(subprocess.check_output(['git','show','ec347901dc4b688927bb3002121ff58e6b7dbd40:prototype/eikyouki/eikyouki_records.json'],cwd=BASE,encoding='utf8'))
-        changes = {(r['id'],f) for r,o in zip(DATA['records'],old['records']) for f in FIELDS if r[f]!=o[f]}
+        changes = {(r['id'],f) for r,o in zip(DATA['records'][:len(old['records'])],old['records']) for f in FIELDS if r[f]!=o[f]}
         self.assertEqual({('EK-0010','date_interpretation'),('EK-0010','editorial_note'),('EK-0015','location_in_text'),('EK-0015','editorial_note')}, changes)
-        self.assertEqual([r['id'] for r in old['records']],[r['id'] for r in DATA['records']])
+        self.assertEqual([r['id'] for r in old['records']],[r['id'] for r in DATA['records'][:len(old['records'])]])
+
+
+    def test_new_hakone_articles_remain_distinct_provisional_entries(self):
+        self.assertEqual(17,len(DATA['records']))
+        self.assertEqual(['EK-0016','EK-0017'],[r['id'] for r in DATA['records'][-2:]])
+        self.assertEqual([16,17],[r['source_order'] for r in DATA['records'][-2:]])
+        self.assertEqual(['同九月十日','九月廿七日'],[r['original_date'] for r in DATA['records'][-2:]])
+        self.assertEqual(['1438-10-08','1438-10-25'],[r['gregorian_start'] for r in DATA['records'][-2:]])
+        for article in DATA['records'][-2:]:
+            self.assertEqual('hakone',article['chapter_id'])
+            self.assertEqual('provisional',article['date_conversion_status'])
+            self.assertIsNone(article['full_original_text'])
+            self.assertIsNone(article['research_date_start'])
+            validate_record(article)
 
     def test_reject_input_mutations_without_replacing_good_db(self):
         cases = [
@@ -134,11 +148,11 @@ class Acceptance(unittest.TestCase):
                         if table=='articles':row[columns.index('source_order')]=100
                         with self.assertRaises(sqlite3.IntegrityError):db.execute(sql,row)
             # Independent articles retain equal content/date, distinguished only by ID/order.
-            row=dict(DATA['records'][0],article_id='EK-0016',source_order=16)
+            row=dict(DATA['records'][0],article_id='EK-9999',source_order=9999)
             row['lunar_is_leap']=int(row['lunar_is_leap'])
             db.execute('INSERT INTO articles ('+','.join(ARTICLE_FIELDS)+') VALUES ('+','.join('?' for _ in ARTICLE_FIELDS)+')',[row[k] for k in ARTICLE_FIELDS])
             self.assertEqual(2,db.execute('SELECT COUNT(*) FROM articles WHERE summary=?',(row['summary'],)).fetchone()[0])
-        d=copy.deepcopy(DATA);r=copy.deepcopy(d['records'][0]);r.update(id='EK-0016',source_order=16);d['records'].append(r)
+        d=copy.deepcopy(DATA);r=copy.deepcopy(d['records'][0]);r.update(id='EK-9999',source_order=9999);d['records'].append(r)
         build_database(d,self.db)
         with connection(self.db) as db:compare_connection(d['records'],db)
 
@@ -181,7 +195,7 @@ class Acceptance(unittest.TestCase):
         with connection(self.db) as db:db.execute("DELETE FROM articles WHERE article_id='EK-0015'")
         with self.assertRaises(ValueError):verify(BASE/'eikyouki_records.json',BASE/'index.html',self.db)
         build_database(DATA,self.db)
-        d=copy.deepcopy(DATA);r=copy.deepcopy(d['records'][0]);r.update(id='EK-0016',source_order=16);d['records'].append(r)
+        d=copy.deepcopy(DATA);r=copy.deepcopy(d['records'][0]);r.update(id='EK-9999',source_order=9999);d['records'].append(r)
         build_database(d,self.db)
         with self.assertRaises(ValueError):verify(BASE/'eikyouki_records.json',BASE/'index.html',self.db)
         self.db.unlink()
