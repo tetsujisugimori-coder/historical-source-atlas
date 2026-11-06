@@ -56,3 +56,6 @@ python prototype/eikyouki/evidence_manifest.py evidence
 
 
 CI初回（84cf587、run 42208828532）は単体/CLIまで成功したが、ubuntu-latestが26.04へ進んでおり固定Playwright1.56.1の対象外でinstallがexit1。ブラウザ段階はSKIPPEDで成功に含めない。ubuntu-24.04へ固定して再実行する。PRイベントではGitHub run自体のhead_shaがmerge commitとなり得るため、checkout実HEADとmanifest/sourceを照合し、artifact名にもPR head SHAを使用する。
+
+
+独立候補レビューでsummaryの既定focus輪郭がカードのoverflowで一部clipされるP3を確認。focus-visible輪郭を内側へ描く最小CSSで改善し、最終画像で再確認する。今回の画面変更は日付順、未知/閏月表示、根拠ラベル、出典Tab移動とfocus輪郭に限定する。
