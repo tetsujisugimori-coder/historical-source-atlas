@@ -1,0 +1,501 @@
+{
+  "source": "C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\candidate7c\\prototype\\eikyouki\\index.html",
+  "sha256": "6fa464ddfb2b042db8c3ac139b2689f501f03aad9e5e50125e650c5ee523a667",
+  "playwright": "1.56.1",
+  "cases": [
+    {
+      "engine": "chromium",
+      "width": 390,
+      "errors": [],
+      "document": {
+        "focus": true,
+        "visibility": "visible"
+      },
+      "chronological": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0015",
+        "EK-0013",
+        "EK-0014"
+      ],
+      "sourceOrder": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0013",
+        "EK-0014",
+        "EK-0015"
+      ],
+      "search": [
+        "EK-0015"
+      ],
+      "detailOpen": true,
+      "sourceLink": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "keyboardFocus": {
+        "tag": "SUMMARY",
+        "outline": "solid"
+      },
+      "tabForward": {
+        "tag": "A",
+        "href": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+        "focus": true
+      },
+      "tabBack": {
+        "tag": "SUMMARY",
+        "focus": true
+      },
+      "download": {
+        "note": "試作データ・未校訂。原文全文は未収録。旧暦の日付は保持し、グレゴリオ暦は暫定換算。",
+        "records": [
+          {
+            "id": "EK-0015",
+            "work_id": "EIKYOUKI",
+            "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+            "chapter_id": "hakone",
+            "chapter": "箱根早川尻合戦の事",
+            "source_order": 15,
+            "original_date": "永享十年八月廿九日",
+            "era": "永享",
+            "era_year": 10,
+            "western_year": 1438,
+            "lunar_month": 8,
+            "lunar_day": 29,
+            "date_precision": "day",
+            "date_interpretation": "明記",
+            "date_kind": "document_date",
+            "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+            "location_in_text": null,
+            "people_in_text": "持氏・左少弁資任",
+            "short_locator": "永享十年八月廿九日",
+            "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+            "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+            "full_original_text": null,
+            "entry_status": "仮登録・本文照合待ち",
+            "historic_calendar": "宣明暦",
+            "lunar_is_leap": false,
+            "julian_start": "1438-09-18",
+            "julian_end": "1438-09-18",
+            "gregorian_start": "1438-09-27",
+            "gregorian_end": "1438-09-27",
+            "gregorian_calendar": "先発グレゴリオ暦",
+            "date_conversion_status": "provisional",
+            "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+            "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+            "research_date_start": null,
+            "research_date_end": null,
+            "research_date_basis": null
+          }
+        ]
+      },
+      "emptyCount": 0,
+      "emptyVisible": true,
+      "yearIds": [
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007"
+      ],
+      "chapterIds": [
+        "EK-0015"
+      ],
+      "spaceOpen": true,
+      "overflow": {
+        "scroll": 390,
+        "viewport": 390
+      },
+      "status": "EXECUTED"
+    },
+    {
+      "engine": "chromium",
+      "width": 1280,
+      "errors": [],
+      "document": {
+        "focus": true,
+        "visibility": "visible"
+      },
+      "chronological": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0015",
+        "EK-0013",
+        "EK-0014"
+      ],
+      "sourceOrder": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0013",
+        "EK-0014",
+        "EK-0015"
+      ],
+      "search": [
+        "EK-0015"
+      ],
+      "detailOpen": true,
+      "sourceLink": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "keyboardFocus": {
+        "tag": "SUMMARY",
+        "outline": "solid"
+      },
+      "tabForward": {
+        "tag": "A",
+        "href": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+        "focus": true
+      },
+      "tabBack": {
+        "tag": "SUMMARY",
+        "focus": true
+      },
+      "download": {
+        "note": "試作データ・未校訂。原文全文は未収録。旧暦の日付は保持し、グレゴリオ暦は暫定換算。",
+        "records": [
+          {
+            "id": "EK-0015",
+            "work_id": "EIKYOUKI",
+            "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+            "chapter_id": "hakone",
+            "chapter": "箱根早川尻合戦の事",
+            "source_order": 15,
+            "original_date": "永享十年八月廿九日",
+            "era": "永享",
+            "era_year": 10,
+            "western_year": 1438,
+            "lunar_month": 8,
+            "lunar_day": 29,
+            "date_precision": "day",
+            "date_interpretation": "明記",
+            "date_kind": "document_date",
+            "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+            "location_in_text": null,
+            "people_in_text": "持氏・左少弁資任",
+            "short_locator": "永享十年八月廿九日",
+            "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+            "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+            "full_original_text": null,
+            "entry_status": "仮登録・本文照合待ち",
+            "historic_calendar": "宣明暦",
+            "lunar_is_leap": false,
+            "julian_start": "1438-09-18",
+            "julian_end": "1438-09-18",
+            "gregorian_start": "1438-09-27",
+            "gregorian_end": "1438-09-27",
+            "gregorian_calendar": "先発グレゴリオ暦",
+            "date_conversion_status": "provisional",
+            "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+            "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+            "research_date_start": null,
+            "research_date_end": null,
+            "research_date_basis": null
+          }
+        ]
+      },
+      "emptyCount": 0,
+      "emptyVisible": true,
+      "yearIds": [
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007"
+      ],
+      "chapterIds": [
+        "EK-0015"
+      ],
+      "spaceOpen": true,
+      "overflow": {
+        "scroll": 1280,
+        "viewport": 1280
+      },
+      "status": "EXECUTED"
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "errors": [],
+      "document": {
+        "focus": true,
+        "visibility": "visible"
+      },
+      "chronological": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0015",
+        "EK-0013",
+        "EK-0014"
+      ],
+      "sourceOrder": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0013",
+        "EK-0014",
+        "EK-0015"
+      ],
+      "search": [
+        "EK-0015"
+      ],
+      "detailOpen": true,
+      "sourceLink": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "keyboardFocus": {
+        "tag": "SUMMARY",
+        "outline": "solid"
+      },
+      "tabForward": {
+        "tag": "A",
+        "href": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+        "focus": true
+      },
+      "tabBack": {
+        "tag": "SUMMARY",
+        "focus": true
+      },
+      "download": {
+        "note": "試作データ・未校訂。原文全文は未収録。旧暦の日付は保持し、グレゴリオ暦は暫定換算。",
+        "records": [
+          {
+            "id": "EK-0015",
+            "work_id": "EIKYOUKI",
+            "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+            "chapter_id": "hakone",
+            "chapter": "箱根早川尻合戦の事",
+            "source_order": 15,
+            "original_date": "永享十年八月廿九日",
+            "era": "永享",
+            "era_year": 10,
+            "western_year": 1438,
+            "lunar_month": 8,
+            "lunar_day": 29,
+            "date_precision": "day",
+            "date_interpretation": "明記",
+            "date_kind": "document_date",
+            "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+            "location_in_text": null,
+            "people_in_text": "持氏・左少弁資任",
+            "short_locator": "永享十年八月廿九日",
+            "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+            "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+            "full_original_text": null,
+            "entry_status": "仮登録・本文照合待ち",
+            "historic_calendar": "宣明暦",
+            "lunar_is_leap": false,
+            "julian_start": "1438-09-18",
+            "julian_end": "1438-09-18",
+            "gregorian_start": "1438-09-27",
+            "gregorian_end": "1438-09-27",
+            "gregorian_calendar": "先発グレゴリオ暦",
+            "date_conversion_status": "provisional",
+            "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+            "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+            "research_date_start": null,
+            "research_date_end": null,
+            "research_date_basis": null
+          }
+        ]
+      },
+      "emptyCount": 0,
+      "emptyVisible": true,
+      "yearIds": [
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007"
+      ],
+      "chapterIds": [
+        "EK-0015"
+      ],
+      "spaceOpen": true,
+      "overflow": {
+        "scroll": 390,
+        "viewport": 390
+      },
+      "status": "EXECUTED"
+    },
+    {
+      "engine": "webkit",
+      "width": 1280,
+      "errors": [],
+      "document": {
+        "focus": true,
+        "visibility": "visible"
+      },
+      "chronological": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0015",
+        "EK-0013",
+        "EK-0014"
+      ],
+      "sourceOrder": [
+        "EK-0001",
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007",
+        "EK-0008",
+        "EK-0009",
+        "EK-0010",
+        "EK-0011",
+        "EK-0012",
+        "EK-0013",
+        "EK-0014",
+        "EK-0015"
+      ],
+      "search": [
+        "EK-0015"
+      ],
+      "detailOpen": true,
+      "sourceLink": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "keyboardFocus": {
+        "tag": "SUMMARY",
+        "outline": "solid"
+      },
+      "tabForward": {
+        "tag": "A",
+        "href": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+        "focus": true
+      },
+      "tabBack": {
+        "tag": "SUMMARY",
+        "focus": true
+      },
+      "download": {
+        "note": "試作データ・未校訂。原文全文は未収録。旧暦の日付は保持し、グレゴリオ暦は暫定換算。",
+        "records": [
+          {
+            "id": "EK-0015",
+            "work_id": "EIKYOUKI",
+            "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+            "chapter_id": "hakone",
+            "chapter": "箱根早川尻合戦の事",
+            "source_order": 15,
+            "original_date": "永享十年八月廿九日",
+            "era": "永享",
+            "era_year": 10,
+            "western_year": 1438,
+            "lunar_month": 8,
+            "lunar_day": 29,
+            "date_precision": "day",
+            "date_interpretation": "明記",
+            "date_kind": "document_date",
+            "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+            "location_in_text": null,
+            "people_in_text": "持氏・左少弁資任",
+            "short_locator": "永享十年八月廿九日",
+            "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+            "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+            "full_original_text": null,
+            "entry_status": "仮登録・本文照合待ち",
+            "historic_calendar": "宣明暦",
+            "lunar_is_leap": false,
+            "julian_start": "1438-09-18",
+            "julian_end": "1438-09-18",
+            "gregorian_start": "1438-09-27",
+            "gregorian_end": "1438-09-27",
+            "gregorian_calendar": "先発グレゴリオ暦",
+            "date_conversion_status": "provisional",
+            "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+            "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+            "research_date_start": null,
+            "research_date_end": null,
+            "research_date_basis": null
+          }
+        ]
+      },
+      "emptyCount": 0,
+      "emptyVisible": true,
+      "yearIds": [
+        "EK-0002",
+        "EK-0003",
+        "EK-0004",
+        "EK-0005",
+        "EK-0006",
+        "EK-0007"
+      ],
+      "chapterIds": [
+        "EK-0015"
+      ],
+      "spaceOpen": true,
+      "overflow": {
+        "scroll": 1280,
+        "viewport": 1280
+      },
+      "status": "EXECUTED"
+    }
+  ],
+  "chromium": "141.0.7390.37",
+  "webkit": "26.0"
+}

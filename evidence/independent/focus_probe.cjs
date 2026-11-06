@@ -1,0 +1,9 @@
+const fs=require('fs'),http=require('http'),path=require('path');process.env.PLAYWRIGHT_BROWSERS_PATH='C:/Users/tetsu/AppData/Local/ms-playwright';
+const pw=require('C:/Users/tetsu/Documents/Codex/2026-11-01/task/calculator-memo/e2e/node_modules/playwright-core');
+const html=fs.readFileSync(path.resolve(process.argv[2],'prototype/eikyouki/index.html'));const rows=[];
+const s=http.createServer((req,res)=>{res.setHeader('Content-Type','text/html; charset=utf-8');res.end(html)});
+(async()=>{await new Promise(r=>s.listen(0,'127.0.0.1',r));for(const name of ['chromium','webkit']){const b=await pw[name].launch();for(const condition of ['normal','Alt+Tab','tabindex0']){const p=await b.newPage();await p.goto(`http://127.0.0.1:${s.address().port}`);await p.locator('#search').fill('EK-0015');const summary=p.locator('.article summary');await summary.focus();await p.keyboard.press('Enter');
+ const r={name,condition,version:b.version(),events:[]};await p.evaluate(()=>{window.ev=[];for(const event of ['focusin','focusout','keydown'])document.addEventListener(event,e=>window.ev.push({event,key:e.key,target:e.target.tagName,id:e.target.id,text:e.target.textContent.slice(0,30)}),true)});
+ if(condition==='tabindex0')await p.locator('.details a').evaluateAll(as=>as.forEach(a=>a.tabIndex=0));
+ await p.keyboard.press(condition==='Alt+Tab'?'Alt+Tab':'Tab');r.forward=await p.evaluate(()=>({tag:document.activeElement.tagName,href:document.activeElement.getAttribute('href'),focus:document.hasFocus()}));
+ await p.keyboard.press('Shift+Tab');r.backward=await p.evaluate(()=>({tag:document.activeElement.tagName,href:document.activeElement.getAttribute('href')}));r.events=await p.evaluate(()=>window.ev);rows.push(r);await p.close();}await b.close();}fs.writeFileSync(process.argv[3],JSON.stringify(rows,null,2));console.log(JSON.stringify(rows,null,2));})().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>s.close());

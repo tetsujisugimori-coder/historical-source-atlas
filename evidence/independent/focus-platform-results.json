@@ -1,0 +1,346 @@
+[
+  {
+    "name": "chromium",
+    "condition": "normal",
+    "version": "141.0.7390.37",
+    "events": [
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusout",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusin",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "keydown",
+        "key": "Shift",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "focusout",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "focusin",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      }
+    ],
+    "forward": {
+      "tag": "A",
+      "href": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "focus": true
+    },
+    "backward": {
+      "tag": "SUMMARY",
+      "href": null
+    }
+  },
+  {
+    "name": "chromium",
+    "condition": "Alt+Tab",
+    "version": "141.0.7390.37",
+    "events": [
+      {
+        "event": "keydown",
+        "key": "Alt",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "keydown",
+        "key": "Shift",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusout",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusin",
+        "target": "BUTTON",
+        "id": "export",
+        "text": "表示データをJSON保存"
+      }
+    ],
+    "forward": {
+      "tag": "SUMMARY",
+      "href": null,
+      "focus": true
+    },
+    "backward": {
+      "tag": "BUTTON",
+      "href": null
+    }
+  },
+  {
+    "name": "chromium",
+    "condition": "tabindex0",
+    "version": "141.0.7390.37",
+    "events": [
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusout",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusin",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "keydown",
+        "key": "Shift",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "focusout",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "focusin",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      }
+    ],
+    "forward": {
+      "tag": "A",
+      "href": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "focus": true
+    },
+    "backward": {
+      "tag": "SUMMARY",
+      "href": null
+    }
+  },
+  {
+    "name": "webkit",
+    "condition": "normal",
+    "version": "26.0",
+    "events": [
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusout",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "keydown",
+        "key": "Shift",
+        "target": "BODY",
+        "id": "",
+        "text": "\n史料基点の資料 · PROTOTYPE 01永享記史料の記"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "BODY",
+        "id": "",
+        "text": "\n史料基点の資料 · PROTOTYPE 01永享記史料の記"
+      },
+      {
+        "event": "focusin",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      }
+    ],
+    "forward": {
+      "tag": "BODY",
+      "href": null,
+      "focus": false
+    },
+    "backward": {
+      "tag": "SUMMARY",
+      "href": null
+    }
+  },
+  {
+    "name": "webkit",
+    "condition": "Alt+Tab",
+    "version": "26.0",
+    "events": [
+      {
+        "event": "keydown",
+        "key": "Alt",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusout",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "keydown",
+        "key": "Shift",
+        "target": "BODY",
+        "id": "",
+        "text": "\n史料基点の資料 · PROTOTYPE 01永享記史料の記"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "BODY",
+        "id": "",
+        "text": "\n史料基点の資料 · PROTOTYPE 01永享記史料の記"
+      },
+      {
+        "event": "focusin",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      }
+    ],
+    "forward": {
+      "tag": "BODY",
+      "href": null,
+      "focus": false
+    },
+    "backward": {
+      "tag": "SUMMARY",
+      "href": null
+    }
+  },
+  {
+    "name": "webkit",
+    "condition": "tabindex0",
+    "version": "26.0",
+    "events": [
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusout",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      },
+      {
+        "event": "focusin",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "keydown",
+        "key": "Shift",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "keydown",
+        "key": "Tab",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "focusout",
+        "target": "A",
+        "id": "",
+        "text": "出典の該当章を開く"
+      },
+      {
+        "event": "focusin",
+        "target": "SUMMARY",
+        "id": "",
+        "text": "永享10年8月29日EK-0015引用文書の日付現代暦（先発"
+      }
+    ],
+    "forward": {
+      "tag": "A",
+      "href": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "focus": true
+    },
+    "backward": {
+      "tag": "SUMMARY",
+      "href": null
+    }
+  }
+]

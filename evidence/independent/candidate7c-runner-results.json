@@ -1,0 +1,9 @@
+{
+  "exit": 1,
+  "stdout": "FAIL: 9 test methods; 203 method/subtest records; 2 CLI commands\n",
+  "stderr": "",
+  "before": "2465e09c2a3f576a39aa1d8868b72ed209eea78b9888e5b2d60b002d1b00024b",
+  "after": "2465e09c2a3f576a39aa1d8868b72ed209eea78b9888e5b2d60b002d1b00024b",
+  "preserved": true,
+  "sourceSha256": "ba13effc5537bde5a028144ca860300713074269ff6112c14c20f4cf09262776"
+}

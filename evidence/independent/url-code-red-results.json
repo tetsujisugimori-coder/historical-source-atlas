@@ -1,0 +1,114 @@
+[
+  {
+    "url": "javascript:alert(1)",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "JaVaScRiPt:alert(1)",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": " javascript:alert(1)",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "data:text/html,x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "http://example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "//example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://user:password@example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://@example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com:65536/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com/x\u0000",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com/x\n",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com/x ",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com/path?q=1#part",
+    "expected": true,
+    "accepted": true,
+    "pass": true,
+    "error": null
+  },
+  {
+    "url": "HTTPS://example.com/path",
+    "expected": true,
+    "accepted": true,
+    "pass": true,
+    "error": null
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "supported leap month day29",
+    "expected": true,
+    "accepted": true,
+    "pass": true,
+    "error": null
+  },
+  {
+    "name": "supported leap month day30 does not exist",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0003': lunar_day: day exceeds this anchored lunar month's length"
+  },
+  {
+    "name": "ordinary month cannot reuse leap conversion",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0003': julian_start/end: conversion range contradicts anchored lunar date/precision"
+  },
+  {
+    "name": "leap6 absent even though leap5 exists",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0003': lunar_is_leap: month/leap combination absent from supported anchors"
+  },
+  {
+    "name": "unresolved does not excuse impossible supported date",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0003': lunar_day: day exceeds this anchored lunar month's length"
+  },
+  {
+    "name": "Gregorian ordinal crosscheck + fixed astronomical JDN anchors",
+    "pass": true
+  }
+]
