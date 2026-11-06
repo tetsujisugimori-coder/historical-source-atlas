@@ -1,0 +1,143 @@
+{
+  "cases": [
+    {
+      "engine": "chromium",
+      "width": 390,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": false,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": false
+    },
+    {
+      "engine": "chromium",
+      "width": 1280,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": false,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": false
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": false,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": false
+    },
+    {
+      "engine": "webkit",
+      "width": 1280,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": false,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": false
+    }
+  ],
+  "pass": false,
+  "files": [
+    {
+      "name": "chromium-1280-chronology.png",
+      "sha256": "3cb79b101a6a04ea73f6080834299f2c42b7718a02016bd6589da8e0a4e3879b"
+    },
+    {
+      "name": "chromium-1280-download.json",
+      "sha256": "282c31d11fa85998fe635b47348ac42f53b7bcfc6d625ae48e12e3181eacca35"
+    },
+    {
+      "name": "chromium-1280-filtered.png",
+      "sha256": "6a9269c353e3deb47025fe68d4c5bd176161011a600e5fca41fcc3915f1d697b"
+    },
+    {
+      "name": "chromium-390-chronology.png",
+      "sha256": "51d62f2783ef028732469a711f2c5afdbaa457685e0f465159a7cd58d08b520c"
+    },
+    {
+      "name": "chromium-390-download.json",
+      "sha256": "282c31d11fa85998fe635b47348ac42f53b7bcfc6d625ae48e12e3181eacca35"
+    },
+    {
+      "name": "chromium-390-filtered.png",
+      "sha256": "4af0894d163bf4fd92b8dd7da7faadaaeb630158264576ed63d310bc08a89d2b"
+    },
+    {
+      "name": "results.json",
+      "sha256": "35d5a7473536f7b4383f031c5b0e5736416103979059c45ddcc410441314070a"
+    },
+    {
+      "name": "webkit-1280-chronology.png",
+      "sha256": "18ff16c5b84accf2f41cabab4fadfd1428cfdb745b1fe769c124bfe0d216b662"
+    },
+    {
+      "name": "webkit-1280-download.json",
+      "sha256": "282c31d11fa85998fe635b47348ac42f53b7bcfc6d625ae48e12e3181eacca35"
+    },
+    {
+      "name": "webkit-1280-filtered.png",
+      "sha256": "5bdc73fc7e2758407a03145af3dc35c6ea8f7dc19cc376e6a94a49c34628e0fb"
+    },
+    {
+      "name": "webkit-390-chronology.png",
+      "sha256": "cafe96153e1a2215401ef3090160bf0ef12f9ba07b920d8f56f397195acc64d4"
+    },
+    {
+      "name": "webkit-390-download.json",
+      "sha256": "282c31d11fa85998fe635b47348ac42f53b7bcfc6d625ae48e12e3181eacca35"
+    },
+    {
+      "name": "webkit-390-filtered.png",
+      "sha256": "4ac74ac0eb2c9a2d80fa5472004d00dc68f487695c0556ce82e8ba52447a863d"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "url": "javascript:alert(1)",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "JaVaScRiPt:alert(1)",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": " javascript:alert(1)",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "data:text/html,x",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "http://example.com/x",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "//example.com/x",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "https://user:password@example.com/x",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "https://@example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com:65536/x",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "https://example.com/x\u0000",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "https://example.com/x\n",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "https://example.com/x",
+    "expected": false,
+    "accepted": true,
+    "pass": false,
+    "error": null
+  },
+  {
+    "url": "https://example.com/x",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "https://example.com/x ",
+    "expected": false,
+    "accepted": false,
+    "pass": true,
+    "error": "'EK-0001': date_conversion_source_url: absolute HTTPS URL without credentials/control characters required"
+  },
+  {
+    "url": "https://example.com/path?q=1#part",
+    "expected": true,
+    "accepted": true,
+    "pass": true,
+    "error": null
+  },
+  {
+    "url": "HTTPS://example.com/path",
+    "expected": true,
+    "accepted": true,
+    "pass": true,
+    "error": null
+  }
+]

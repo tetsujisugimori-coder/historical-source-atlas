@@ -1,0 +1,1248 @@
+{
+  "head": "10747ce902087e4a5e08f3d584e3524581678ebd",
+  "tree": "4bfea788c2a150923224587171c7fc580115972c",
+  "dirty": "M .gitattributes\n M .github/workflows/acceptance.yml\n M README.md\n M docs/pr1-remediation.md\n M prototype/eikyouki/README.md\n M prototype/eikyouki/build.py\n M prototype/eikyouki/eikyouki_records.json\n M prototype/eikyouki/index.html\n M prototype/eikyouki/integrity.py\n M prototype/eikyouki/run_checks.py\n M prototype/eikyouki/schema.sql\n M prototype/eikyouki/test_acceptance.py\n M prototype/eikyouki/test_dates.py\n M prototype/eikyouki/validation.py\n?? evidence/checks-candidate-2/\n?? evidence/checks-candidate/\n?? evidence/historical/ci-42208828532-failed.log\n?? evidence/manifest.json",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "os": "Windows-11-10.0.26300-SP0",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\tetsu\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\historical-source-atlas\\prototype\\eikyouki\\test_dates.py"
+      ],
+      "exit": 0,
+      "stdout": "PASS: 15 articles / 36 fields / JSON / HTML / read-only SQLite JOIN\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\historical-source-atlas\\prototype\\eikyouki\\test_sort.cjs"
+      ],
+      "exit": 0,
+      "stdout": "PASS: actual HTML comparator / 3 input orders / chronological and source order / same-day and unknown ties\n",
+      "stderr": ""
+    }
+  ],
+  "tests": [
+    {
+      "test": "test_acceptance.Acceptance.test_all_36_fields_and_existing_15",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_calendars_precision_unknown_and_research",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_check_runner_does_not_regenerate",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': None})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': ''})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': ' \\t\\r\\n'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': '\\x0b'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': '\\u3000'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': 'A\\x00B'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': 'A\\x00#'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': 123})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': b'bytes'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'works', 'invalid': 'EIKYOUKI'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': None})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': ''})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': ' \\t\\r\\n'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': '\\x0b'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': '\\u3000'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': 'A\\x00B'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': 'A\\x00#'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': 123})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': b'bytes'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'editions', 'invalid': 'SHISEKI-SHURAN-12-WIKISOURCE'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': None})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': ''})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': ' \\t\\r\\n'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': '\\x0b'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': '\\u3000'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': 'A\\x00B'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': 'A\\x00#'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': 123})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': b'bytes'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'chapters', 'invalid': 'intro'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': None})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': ''})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': ' \\t\\r\\n'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': '\\x0b'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': '\\u3000'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': 'A\\x00B'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': 'A\\x00#'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': 123})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': b'bytes'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "params": "_OrderedChainMap({'table': 'articles', 'invalid': 'EK-0001'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'chapter_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'source_order'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'original_date'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'era'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'era_year'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'western_year'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'lunar_month'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'lunar_day'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'date_precision'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'date_interpretation'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'date_kind'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'historic_calendar'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'lunar_is_leap'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'julian_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'julian_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'gregorian_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'gregorian_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'gregorian_calendar'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'date_conversion_status'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'date_conversion_source_url'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'date_conversion_note'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'research_date_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'research_date_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'research_date_basis'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'summary'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'location_in_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'people_in_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'short_locator'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'full_original_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'editorial_note'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'entry_status'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'work_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'edition_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'chapter'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "params": "_OrderedChainMap({'field': 'source_url'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'chapter_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'source_order'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'original_date'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'era'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'era_year'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'western_year'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'lunar_month'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'lunar_day'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'date_precision'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'date_interpretation'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'date_kind'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'historic_calendar'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'lunar_is_leap'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'julian_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'julian_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'gregorian_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'gregorian_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'gregorian_calendar'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'date_conversion_status'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'date_conversion_source_url'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'date_conversion_note'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'research_date_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'research_date_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'research_date_basis'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'summary'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'location_in_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'people_in_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'short_locator'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'full_original_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'editorial_note'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'entry_status'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'work_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'edition_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'chapter'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "params": "_OrderedChainMap({'field': 'source_url'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup",
+      "params": "_OrderedChainMap({'stage': 'opened'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup",
+      "params": "_OrderedChainMap({'stage': 'article:EK-0001'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup",
+      "params": "_OrderedChainMap({'stage': 'article:EK-0015'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup",
+      "params": "_OrderedChainMap({'stage': 'validated'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup",
+      "params": "_OrderedChainMap({'stage': 'committed'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup",
+      "params": "_OrderedChainMap({'stage': 'before_replace'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'work_id', 'value': 'NO_SUCH_WORK'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'edition_id', 'value': 'NO_SUCH_EDITION'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'chapter_id', 'value': 'missing'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'chapter', 'value': 'changed chapter'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'source_url', 'value': 'https://example.com/different-source'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'julian_start', 'value': 'not-a-date'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'gregorian_start', 'value': '1437-02-30'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'julian_start', 'value': '2000-01-01'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'gregorian_start', 'value': '2000-01-01'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_month', 'value': 1.5})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_month', 'value': '1'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_month', 'value': True})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'era_year', 'value': -1})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'era_year', 'value': 1.5})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'era_year', 'value': '8'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'era_year', 'value': True})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'western_year', 'value': 'nonsense'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'western_year', 'value': 1436.0})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'western_year', 'value': False})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_is_leap', 'value': 0.8})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_is_leap', 'value': 'false'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_is_leap', 'value': 0})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'date_precision', 'value': 'day'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_day', 'value': 1})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'lunar_is_leap', 'value': True})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'gregorian_end', 'value': '1436-02-01'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'julian_end', 'value': '1436-02-01'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'research_date_start', 'value': 'not-a-date'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'research_date_start', 'value': '1437-02-30'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'date_conversion_status', 'value': 'verified'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'id', 'value': None})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'id', 'value': ''})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'id', 'value': ' \\t\\n'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'id', 'value': 123})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'source_order', 'value': True})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'source_order', 'value': 1.5})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'summary', 'value': None})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'source_order', 'value': 0})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'date_precision', 'value': 'unknown'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'field': 'era', 'value': None})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'chapter_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'source_order'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'original_date'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'era'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'era_year'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'western_year'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'lunar_month'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'lunar_day'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'date_precision'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'date_interpretation'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'date_kind'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'historic_calendar'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'lunar_is_leap'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'julian_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'julian_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'gregorian_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'gregorian_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'gregorian_calendar'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'date_conversion_status'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'date_conversion_source_url'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'date_conversion_note'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'research_date_start'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'research_date_end'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'research_date_basis'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'summary'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'location_in_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'people_in_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'short_locator'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'full_original_text'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'editorial_note'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'entry_status'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'work_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'edition_id'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'chapter'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "params": "_OrderedChainMap({'missing': 'source_url'})",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db",
+      "status": "PASS"
+    },
+    {
+      "test": "test_acceptance.Acceptance.test_script_boundary_escaping",
+      "status": "PASS"
+    }
+  ],
+  "unit_log": "test_all_36_fields_and_existing_15 (test_acceptance.Acceptance.test_all_36_fields_and_existing_15) ... ok\ntest_calendars_precision_unknown_and_research (test_acceptance.Acceptance.test_calendars_precision_unknown_and_research) ... ok\ntest_check_runner_does_not_regenerate (test_acceptance.Acceptance.test_check_runner_does_not_regenerate) ... ok\ntest_direct_id_constraints_and_separate_same_content (test_acceptance.Acceptance.test_direct_id_constraints_and_separate_same_content) ... ok\ntest_each_db_field_mutation_detected_read_only (test_acceptance.Acceptance.test_each_db_field_mutation_detected_read_only) ... ok\ntest_each_html_field_and_missing_extra_duplicate (test_acceptance.Acceptance.test_each_html_field_and_missing_extra_duplicate) ... ok\ntest_failure_stages_preserve_existing_and_cleanup (test_acceptance.Acceptance.test_failure_stages_preserve_existing_and_cleanup) ... ok\ntest_reject_input_mutations_without_replacing_good_db (test_acceptance.Acceptance.test_reject_input_mutations_without_replacing_good_db) ... ok\ntest_script_boundary_escaping (test_acceptance.Acceptance.test_script_boundary_escaping) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 1.649s\n\nOK\n",
+  "methods": 9,
+  "status": "PASS",
+  "source": {
+    "browser_acceptance.cjs": "58b08ec1fc8c43ac49187ffc21741a8dd8cfb6b20656c29c9afd1c65522c1009",
+    "build.py": "f81abcce291a730992c73ac7434e5024484e6e4a6cef8f840d75911cc5c80b98",
+    "eikyouki_records.json": "3f97a1bc94cff1465c2612e750b8efe077adb3c59245b3f8b3dfa4e4f971c5bb",
+    "evidence_manifest.py": "a4a9348c3a2fb284e342d6f9c860dfa4a3f27d1aa1c8cd3ba0ab343a1d2d8edd",
+    "index.html": "6fa464ddfb2b042db8c3ac139b2689f501f03aad9e5e50125e650c5ee523a667",
+    "integrity.py": "dac4d709988b5b1e9b9966bf5501086060e83f32f81b47bd7c9a51bfe44c9231",
+    "run_checks.py": "ba13effc5537bde5a028144ca860300713074269ff6112c14c20f4cf09262776",
+    "schema.sql": "411c176ed5397fd8089e6d3f893985eea11a3e7bd373103fa341fc9a33a4be85",
+    "sync_html.py": "c01af8fe0c63aa8d007860ef6b8bbd4dd02845055545103a5698c48b30cbbff2",
+    "test_acceptance.py": "1297b7148eeee3901bdd5a233e86a5177d8e586f1da3ba1a6c849fa3aef36e56",
+    "test_dates.py": "4e9b3d536ad552a673e8d9ff74820bf8af6d0d723d47ff3ae8cc1453e87f0f5c",
+    "test_sort.cjs": "879c492b9e3c0589940966a6080975d2adbda659c0667c195880c7d750202c38",
+    "validation.py": "6cb3d7ee5acdc0c0ae08dc5af741e2026ff67bc729da3a65bb0351d5c3c97962"
+  }
+}

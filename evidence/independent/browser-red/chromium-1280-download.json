@@ -1,0 +1,43 @@
+{
+  "note": "試作データ・未校訂。原文全文は未収録。旧暦の日付は保持し、グレゴリオ暦は暫定換算。",
+  "records": [
+    {
+      "id": "EK-0015",
+      "work_id": "EIKYOUKI",
+      "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+      "chapter_id": "hakone",
+      "chapter": "箱根早川尻合戦の事",
+      "source_order": 15,
+      "original_date": "永享十年八月廿九日",
+      "era": "永享",
+      "era_year": 10,
+      "western_year": 1438,
+      "lunar_month": 8,
+      "lunar_day": 29,
+      "date_precision": "day",
+      "date_interpretation": "明記",
+      "date_kind": "document_date",
+      "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+      "location_in_text": "京都（文書発給側）",
+      "people_in_text": "持氏・左少弁資任",
+      "short_locator": "永享十年八月廿九日",
+      "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+      "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。",
+      "full_original_text": null,
+      "entry_status": "仮登録・本文照合待ち",
+      "historic_calendar": "宣明暦",
+      "lunar_is_leap": false,
+      "julian_start": "1438-09-18",
+      "julian_end": "1438-09-18",
+      "gregorian_start": "1438-09-27",
+      "gregorian_end": "1438-09-27",
+      "gregorian_calendar": "先発グレゴリオ暦",
+      "date_conversion_status": "provisional",
+      "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+      "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+      "research_date_start": null,
+      "research_date_end": null,
+      "research_date_basis": null
+    }
+  ]
+}

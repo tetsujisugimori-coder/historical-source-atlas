@@ -1,0 +1,1377 @@
+{
+  "classification": "new execution",
+  "started": "2026-11-06T11:13:59.202Z",
+  "head": "ec347901dc4b688927bb3002121ff58e6b7dbd40",
+  "tree": "86469d077c427555337763829df2ebbb6ba4929a",
+  "sourceSha256": "0fedd3fb59e4f52e4134bd3183fd447ec9a89abe623f59bb5763680a0877da09",
+  "node": "v24.20.0",
+  "os": "win32",
+  "cases": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "15 articles",
+          "actual": 15,
+          "expected": 15
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "source order",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "source aria",
+          "actual": "false",
+          "expected": "false"
+        },
+        {
+          "name": "date order toggle",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "year filter",
+          "actual": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ],
+          "expected": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ]
+        },
+        {
+          "name": "chapter filter",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "search",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "keyboard detail open",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "focus after Enter",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "keyboard focus indicator",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "provisional notice",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "source href",
+          "actual": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+          "expected": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事"
+        },
+        {
+          "name": "source safety rel",
+          "actual": "noopener noreferrer",
+          "expected": "noopener noreferrer"
+        },
+        {
+          "name": "Tab to source link",
+          "actual": "A",
+          "expected": "A"
+        },
+        {
+          "name": "Shift Tab to opener",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "download full record",
+          "actual": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ],
+          "expected": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ]
+        },
+        {
+          "name": "no result count",
+          "actual": "0",
+          "expected": "0"
+        },
+        {
+          "name": "empty visible",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "Space detail toggle",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "no horizontal overflow",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "pageerror",
+          "actual": [],
+          "expected": []
+        },
+        {
+          "name": "console errors",
+          "actual": [],
+          "expected": []
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "focus": {
+        "outline": "rgb(16, 16, 16) auto 1px",
+        "rect": {
+          "x": 42,
+          "y": 810.65625,
+          "width": 334,
+          "height": 189.453125,
+          "top": 810.65625,
+          "right": 376,
+          "bottom": 1000.109375,
+          "left": 42
+        },
+        "focusVisible": true
+      },
+      "geometry": {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": []
+      },
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "15 articles",
+          "actual": 15,
+          "expected": 15
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "source order",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "source aria",
+          "actual": "false",
+          "expected": "false"
+        },
+        {
+          "name": "date order toggle",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "year filter",
+          "actual": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ],
+          "expected": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ]
+        },
+        {
+          "name": "chapter filter",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "search",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "keyboard detail open",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "focus after Enter",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "keyboard focus indicator",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "provisional notice",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "source href",
+          "actual": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+          "expected": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事"
+        },
+        {
+          "name": "source safety rel",
+          "actual": "noopener noreferrer",
+          "expected": "noopener noreferrer"
+        },
+        {
+          "name": "Tab to source link",
+          "actual": "A",
+          "expected": "A"
+        },
+        {
+          "name": "Shift Tab to opener",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "download full record",
+          "actual": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ],
+          "expected": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ]
+        },
+        {
+          "name": "no result count",
+          "actual": "0",
+          "expected": "0"
+        },
+        {
+          "name": "empty visible",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "Space detail toggle",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "no horizontal overflow",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "pageerror",
+          "actual": [],
+          "expected": []
+        },
+        {
+          "name": "console errors",
+          "actual": [],
+          "expected": []
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "focus": {
+        "outline": "rgb(16, 16, 16) auto 1px",
+        "rect": {
+          "x": 148,
+          "y": 665.8125,
+          "width": 1021,
+          "height": 144.328125,
+          "top": 665.8125,
+          "right": 1169,
+          "bottom": 810.140625,
+          "left": 148
+        },
+        "focusVisible": true
+      },
+      "geometry": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": []
+      },
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "height": 1000,
+      "version": "26.0",
+      "checks": [
+        {
+          "name": "15 articles",
+          "actual": 15,
+          "expected": 15
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "source order",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "source aria",
+          "actual": "false",
+          "expected": "false"
+        },
+        {
+          "name": "date order toggle",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "year filter",
+          "actual": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ],
+          "expected": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ]
+        },
+        {
+          "name": "chapter filter",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "search",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "keyboard detail open",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "focus after Enter",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "keyboard focus indicator",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "provisional notice",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "source href",
+          "actual": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+          "expected": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事"
+        },
+        {
+          "name": "source safety rel",
+          "actual": "noopener noreferrer",
+          "expected": "noopener noreferrer"
+        },
+        {
+          "name": "Tab to source link",
+          "actual": "A",
+          "expected": "A"
+        },
+        {
+          "name": "Shift Tab to opener",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "download full record",
+          "actual": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ],
+          "expected": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ]
+        },
+        {
+          "name": "no result count",
+          "actual": "0",
+          "expected": "0"
+        },
+        {
+          "name": "empty visible",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "Space detail toggle",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "no horizontal overflow",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "pageerror",
+          "actual": [],
+          "expected": []
+        },
+        {
+          "name": "console errors",
+          "actual": [],
+          "expected": []
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "focus": {
+        "outline": "rgba(52, 132, 228, 0.8) auto 5px",
+        "rect": {
+          "x": 42,
+          "y": 812.1875,
+          "width": 334,
+          "height": 188,
+          "top": 812.1875,
+          "right": 376,
+          "bottom": 1000.1875,
+          "left": 42
+        },
+        "focusVisible": true
+      },
+      "geometry": {
+        "width": 390,
+        "scrollWidth": 390,
+        "overflow": []
+      },
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "width": 1280,
+      "height": 1000,
+      "version": "26.0",
+      "checks": [
+        {
+          "name": "15 articles",
+          "actual": 15,
+          "expected": 15
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "source order",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0013",
+            "EK-0014",
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "source aria",
+          "actual": "false",
+          "expected": "false"
+        },
+        {
+          "name": "date order toggle",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0013",
+            "EK-0014"
+          ]
+        },
+        {
+          "name": "year filter",
+          "actual": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ],
+          "expected": [
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007"
+          ]
+        },
+        {
+          "name": "chapter filter",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "search",
+          "actual": [
+            "EK-0015"
+          ],
+          "expected": [
+            "EK-0015"
+          ]
+        },
+        {
+          "name": "keyboard detail open",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "focus after Enter",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "keyboard focus indicator",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "provisional notice",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "source href",
+          "actual": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+          "expected": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事"
+        },
+        {
+          "name": "source safety rel",
+          "actual": "noopener noreferrer",
+          "expected": "noopener noreferrer"
+        },
+        {
+          "name": "Tab to source link",
+          "actual": "A",
+          "expected": "A"
+        },
+        {
+          "name": "Shift Tab to opener",
+          "actual": "SUMMARY",
+          "expected": "SUMMARY"
+        },
+        {
+          "name": "download full record",
+          "actual": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ],
+          "expected": [
+            {
+              "id": "EK-0015",
+              "work_id": "EIKYOUKI",
+              "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+              "chapter_id": "hakone",
+              "chapter": "箱根早川尻合戦の事",
+              "source_order": 15,
+              "original_date": "永享十年八月廿九日",
+              "era": "永享",
+              "era_year": 10,
+              "western_year": 1438,
+              "lunar_month": 8,
+              "lunar_day": 29,
+              "date_precision": "day",
+              "date_interpretation": "明記",
+              "date_kind": "document_date",
+              "summary": "足利持氏追討に関わる綸旨の日付として、永享十年八月二十九日が載る。",
+              "location_in_text": null,
+              "people_in_text": "持氏・左少弁資任",
+              "short_locator": "永享十年八月廿九日",
+              "source_url": "https://ja.wikisource.org/wiki/永享記#箱根早川尻合戦の事",
+              "editorial_note": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。",
+              "full_original_text": null,
+              "entry_status": "仮登録・本文照合待ち",
+              "historic_calendar": "宣明暦",
+              "lunar_is_leap": false,
+              "julian_start": "1438-09-18",
+              "julian_end": "1438-09-18",
+              "gregorian_start": "1438-09-27",
+              "gregorian_end": "1438-09-27",
+              "gregorian_calendar": "先発グレゴリオ暦",
+              "date_conversion_status": "provisional",
+              "date_conversion_source_url": "https://reki.gozaaru.com/wareki/永享/10",
+              "date_conversion_note": "暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。",
+              "research_date_start": null,
+              "research_date_end": null,
+              "research_date_basis": null
+            }
+          ]
+        },
+        {
+          "name": "no result count",
+          "actual": "0",
+          "expected": "0"
+        },
+        {
+          "name": "empty visible",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "Space detail toggle",
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "name": "no horizontal overflow",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "pageerror",
+          "actual": [],
+          "expected": []
+        },
+        {
+          "name": "console errors",
+          "actual": [],
+          "expected": []
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "focus": {
+        "outline": "rgba(52, 132, 228, 0.8) auto 5px",
+        "rect": {
+          "x": 148,
+          "y": 672,
+          "width": 1021,
+          "height": 143,
+          "top": 672,
+          "right": 1169,
+          "bottom": 815,
+          "left": 148
+        },
+        "focusVisible": true
+      },
+      "geometry": {
+        "width": 1280,
+        "scrollWidth": 1280,
+        "overflow": []
+      },
+      "status": "PASS"
+    }
+  ],
+  "finished": "2026-11-06T11:14:05.165Z",
+  "status": "PASS"
+}

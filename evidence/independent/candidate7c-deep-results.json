@@ -1,0 +1,1000 @@
+{
+  "cases": [
+    {
+      "name": "legitimate_unknown",
+      "pass": true,
+      "value": "valid unknown preserved"
+    },
+    {
+      "name": "all_36_database_fields",
+      "pass": true,
+      "value": [
+        {
+          "field": "id",
+          "reason": "DB: missing/extra IDs"
+        },
+        {
+          "field": "chapter_id",
+          "reason": "DB foreign_key_check failed"
+        },
+        {
+          "field": "source_order",
+          "reason": "DB: EK-0001: source_order: 2 != 1 (type/value)"
+        },
+        {
+          "field": "original_date",
+          "reason": "DB: EK-0001: original_date: 'INDEPENDENT-MUTATION' != '永享八年' (type/value)"
+        },
+        {
+          "field": "era",
+          "reason": "DB: EK-0001: era: 'INDEPENDENT-MUTATION' != '永享' (type/value)"
+        },
+        {
+          "field": "era_year",
+          "reason": "DB: EK-0001: era_year: 2 != 8 (type/value)"
+        },
+        {
+          "field": "western_year",
+          "reason": "DB: EK-0001: western_year: 2 != 1436 (type/value)"
+        },
+        {
+          "field": "lunar_month",
+          "reason": "DB: EK-0001: lunar_month: 1 != None (type/value)"
+        },
+        {
+          "field": "lunar_day",
+          "reason": "DB: EK-0001: lunar_day: 1 != None (type/value)"
+        },
+        {
+          "field": "date_precision",
+          "reason": "DB: EK-0001: date_precision: 'month' != 'year' (type/value)"
+        },
+        {
+          "field": "date_interpretation",
+          "reason": "DB: EK-0001: date_interpretation: 'INDEPENDENT-MUTATION' != '明記' (type/value)"
+        },
+        {
+          "field": "date_kind",
+          "reason": "DB: EK-0001: date_kind: 'INDEPENDENT-MUTATION' != 'described_event' (type/value)"
+        },
+        {
+          "field": "historic_calendar",
+          "reason": "DB: EK-0001: historic_calendar: 'INDEPENDENT-MUTATION' != '宣明暦' (type/value)"
+        },
+        {
+          "field": "lunar_is_leap",
+          "reason": "DB: EK-0001: lunar_is_leap: True != False (type/value)"
+        },
+        {
+          "field": "julian_start",
+          "reason": "DB: EK-0001: julian_start: 'INDEPENDENT-MUTATION' != '1436-01-19' (type/value)"
+        },
+        {
+          "field": "julian_end",
+          "reason": "DB: EK-0001: julian_end: 'INDEPENDENT-MUTATION' != '1437-02-05' (type/value)"
+        },
+        {
+          "field": "gregorian_start",
+          "reason": "DB: EK-0001: gregorian_start: 'INDEPENDENT-MUTATION' != '1436-01-28' (type/value)"
+        },
+        {
+          "field": "gregorian_end",
+          "reason": "DB: EK-0001: gregorian_end: 'INDEPENDENT-MUTATION' != '1437-02-14' (type/value)"
+        },
+        {
+          "field": "gregorian_calendar",
+          "reason": "DB: EK-0001: gregorian_calendar: 'INDEPENDENT-MUTATION' != '先発グレゴリオ暦' (type/value)"
+        },
+        {
+          "field": "date_conversion_status",
+          "reason": "DB: EK-0001: date_conversion_status: 'unresolved' != 'provisional' (type/value)"
+        },
+        {
+          "field": "date_conversion_source_url",
+          "reason": "DB: EK-0001: date_conversion_source_url: 'INDEPENDENT-MUTATION' != 'https://reki.gozaaru.com/wareki/永享/8' (type/value)"
+        },
+        {
+          "field": "date_conversion_note",
+          "reason": "DB: EK-0001: date_conversion_note: 'INDEPENDENT-MUTATION' != '暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。' (type/value)"
+        },
+        {
+          "field": "research_date_start",
+          "reason": "DB: EK-0001: research_date_start: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "research_date_end",
+          "reason": "DB: EK-0001: research_date_end: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "research_date_basis",
+          "reason": "DB: EK-0001: research_date_basis: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "summary",
+          "reason": "DB: EK-0001: summary: 'INDEPENDENT-MUTATION' != '小笠原氏と村上氏が信濃国で合戦に及ぶ。' (type/value)"
+        },
+        {
+          "field": "location_in_text",
+          "reason": "DB: EK-0001: location_in_text: 'INDEPENDENT-MUTATION' != '信濃国' (type/value)"
+        },
+        {
+          "field": "people_in_text",
+          "reason": "DB: EK-0001: people_in_text: 'INDEPENDENT-MUTATION' != '小笠原大膳大夫・村上中務大輔' (type/value)"
+        },
+        {
+          "field": "short_locator",
+          "reason": "DB: EK-0001: short_locator: 'INDEPENDENT-MUTATION' != '永享八年丙辰' (type/value)"
+        },
+        {
+          "field": "full_original_text",
+          "reason": "DB: EK-0001: full_original_text: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "editorial_note",
+          "reason": "DB: EK-0001: editorial_note: 'INDEPENDENT-MUTATION' != '年のみ。勝敗や合戦地の詳細はこの箇所から確定させない。' (type/value)"
+        },
+        {
+          "field": "entry_status",
+          "reason": "DB: EK-0001: entry_status: 'INDEPENDENT-MUTATION' != '仮登録・本文照合待ち' (type/value)"
+        },
+        {
+          "field": "work_id",
+          "reason": "DB foreign_key_check failed"
+        },
+        {
+          "field": "edition_id",
+          "reason": "DB foreign_key_check failed"
+        },
+        {
+          "field": "chapter",
+          "reason": "DB: EK-0001: chapter: 'INDEPENDENT-MUTATION' != '序章' (type/value)"
+        },
+        {
+          "field": "source_url",
+          "reason": "DB: EK-0001: source_url: 'INDEPENDENT-MUTATION' != 'https://ja.wikisource.org/wiki/永享記#永享記' (type/value)"
+        }
+      ]
+    },
+    {
+      "name": "all_36_payload_fields",
+      "pass": true,
+      "value": [
+        {
+          "field": "id",
+          "reason": "HTML: missing/extra IDs"
+        },
+        {
+          "field": "chapter_id",
+          "reason": "HTML: EK-0001: chapter_id: 'INDEPENDENT-MUTATION' != 'intro' (type/value)"
+        },
+        {
+          "field": "source_order",
+          "reason": "HTML: EK-0001: source_order: 99 != 1 (type/value)"
+        },
+        {
+          "field": "original_date",
+          "reason": "HTML: EK-0001: original_date: 'INDEPENDENT-MUTATION' != '永享八年' (type/value)"
+        },
+        {
+          "field": "era",
+          "reason": "HTML: EK-0001: era: 'INDEPENDENT-MUTATION' != '永享' (type/value)"
+        },
+        {
+          "field": "era_year",
+          "reason": "HTML: EK-0001: era_year: 99 != 8 (type/value)"
+        },
+        {
+          "field": "western_year",
+          "reason": "HTML: EK-0001: western_year: 99 != 1436 (type/value)"
+        },
+        {
+          "field": "lunar_month",
+          "reason": "HTML: EK-0001: lunar_month: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "lunar_day",
+          "reason": "HTML: EK-0001: lunar_day: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "date_precision",
+          "reason": "HTML: EK-0001: date_precision: 'INDEPENDENT-MUTATION' != 'year' (type/value)"
+        },
+        {
+          "field": "date_interpretation",
+          "reason": "HTML: EK-0001: date_interpretation: 'INDEPENDENT-MUTATION' != '明記' (type/value)"
+        },
+        {
+          "field": "date_kind",
+          "reason": "HTML: EK-0001: date_kind: 'INDEPENDENT-MUTATION' != 'described_event' (type/value)"
+        },
+        {
+          "field": "historic_calendar",
+          "reason": "HTML: EK-0001: historic_calendar: 'INDEPENDENT-MUTATION' != '宣明暦' (type/value)"
+        },
+        {
+          "field": "lunar_is_leap",
+          "reason": "HTML: EK-0001: lunar_is_leap: True != False (type/value)"
+        },
+        {
+          "field": "julian_start",
+          "reason": "HTML: EK-0001: julian_start: 'INDEPENDENT-MUTATION' != '1436-01-19' (type/value)"
+        },
+        {
+          "field": "julian_end",
+          "reason": "HTML: EK-0001: julian_end: 'INDEPENDENT-MUTATION' != '1437-02-05' (type/value)"
+        },
+        {
+          "field": "gregorian_start",
+          "reason": "HTML: EK-0001: gregorian_start: 'INDEPENDENT-MUTATION' != '1436-01-28' (type/value)"
+        },
+        {
+          "field": "gregorian_end",
+          "reason": "HTML: EK-0001: gregorian_end: 'INDEPENDENT-MUTATION' != '1437-02-14' (type/value)"
+        },
+        {
+          "field": "gregorian_calendar",
+          "reason": "HTML: EK-0001: gregorian_calendar: 'INDEPENDENT-MUTATION' != '先発グレゴリオ暦' (type/value)"
+        },
+        {
+          "field": "date_conversion_status",
+          "reason": "HTML: EK-0001: date_conversion_status: 'INDEPENDENT-MUTATION' != 'provisional' (type/value)"
+        },
+        {
+          "field": "date_conversion_source_url",
+          "reason": "HTML: EK-0001: date_conversion_source_url: 'INDEPENDENT-MUTATION' != 'https://reki.gozaaru.com/wareki/永享/8' (type/value)"
+        },
+        {
+          "field": "date_conversion_note",
+          "reason": "HTML: EK-0001: date_conversion_note: 'INDEPENDENT-MUTATION' != '暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。' (type/value)"
+        },
+        {
+          "field": "research_date_start",
+          "reason": "HTML: EK-0001: research_date_start: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "research_date_end",
+          "reason": "HTML: EK-0001: research_date_end: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "research_date_basis",
+          "reason": "HTML: EK-0001: research_date_basis: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "summary",
+          "reason": "HTML: EK-0001: summary: 'INDEPENDENT-MUTATION' != '小笠原氏と村上氏が信濃国で合戦に及ぶ。' (type/value)"
+        },
+        {
+          "field": "location_in_text",
+          "reason": "HTML: EK-0001: location_in_text: 'INDEPENDENT-MUTATION' != '信濃国' (type/value)"
+        },
+        {
+          "field": "people_in_text",
+          "reason": "HTML: EK-0001: people_in_text: 'INDEPENDENT-MUTATION' != '小笠原大膳大夫・村上中務大輔' (type/value)"
+        },
+        {
+          "field": "short_locator",
+          "reason": "HTML: EK-0001: short_locator: 'INDEPENDENT-MUTATION' != '永享八年丙辰' (type/value)"
+        },
+        {
+          "field": "full_original_text",
+          "reason": "HTML: EK-0001: full_original_text: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "editorial_note",
+          "reason": "HTML: EK-0001: editorial_note: 'INDEPENDENT-MUTATION' != '年のみ。勝敗や合戦地の詳細はこの箇所から確定させない。' (type/value)"
+        },
+        {
+          "field": "entry_status",
+          "reason": "HTML: EK-0001: entry_status: 'INDEPENDENT-MUTATION' != '仮登録・本文照合待ち' (type/value)"
+        },
+        {
+          "field": "work_id",
+          "reason": "HTML: EK-0001: work_id: 'INDEPENDENT-MUTATION' != 'EIKYOUKI' (type/value)"
+        },
+        {
+          "field": "edition_id",
+          "reason": "HTML: EK-0001: edition_id: 'INDEPENDENT-MUTATION' != 'SHISEKI-SHURAN-12-WIKISOURCE' (type/value)"
+        },
+        {
+          "field": "chapter",
+          "reason": "HTML: EK-0001: chapter: 'INDEPENDENT-MUTATION' != '序章' (type/value)"
+        },
+        {
+          "field": "source_url",
+          "reason": "HTML: EK-0001: source_url: 'INDEPENDENT-MUTATION' != 'https://ja.wikisource.org/wiki/永享記#永享記' (type/value)"
+        }
+      ]
+    },
+    {
+      "name": "parsed_HTML_and_JSON_72_mutations",
+      "pass": true,
+      "value": [
+        {
+          "field": "id",
+          "surface": "HTML",
+          "reason": "HTML: invalid/duplicate id None"
+        },
+        {
+          "field": "id",
+          "surface": "JSON",
+          "reason": "None: id: expected nonempty string"
+        },
+        {
+          "field": "chapter_id",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: chapter_id: None != 'intro' (type/value)"
+        },
+        {
+          "field": "chapter_id",
+          "surface": "JSON",
+          "reason": "'EK-0001': chapter_id: expected nonempty string"
+        },
+        {
+          "field": "source_order",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: source_order: None != 1 (type/value)"
+        },
+        {
+          "field": "source_order",
+          "surface": "JSON",
+          "reason": "'EK-0001': source_order: expected integer 1..2147483647, got None"
+        },
+        {
+          "field": "original_date",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: original_date: None != '永享八年' (type/value)"
+        },
+        {
+          "field": "original_date",
+          "surface": "JSON",
+          "reason": "'EK-0001': original_date: expected nonempty string"
+        },
+        {
+          "field": "era",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: era: None != '永享' (type/value)"
+        },
+        {
+          "field": "era",
+          "surface": "JSON",
+          "reason": "'EK-0001': era/western_year: fixed era/year correspondence required"
+        },
+        {
+          "field": "era_year",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: era_year: None != 8 (type/value)"
+        },
+        {
+          "field": "era_year",
+          "surface": "JSON",
+          "reason": "'EK-0001': era_year: inconsistent with year precision"
+        },
+        {
+          "field": "western_year",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: western_year: None != 1436 (type/value)"
+        },
+        {
+          "field": "western_year",
+          "surface": "JSON",
+          "reason": "'EK-0001': era/western_year: fixed era/year correspondence required"
+        },
+        {
+          "field": "lunar_month",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: lunar_month: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "lunar_month",
+          "surface": "JSON",
+          "reason": "'EK-0001': lunar_month: expected integer 1..12, got 'INDEPENDENT-MUTATION'"
+        },
+        {
+          "field": "lunar_day",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: lunar_day: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "lunar_day",
+          "surface": "JSON",
+          "reason": "'EK-0001': lunar_day: expected integer 1..30, got 'INDEPENDENT-MUTATION'"
+        },
+        {
+          "field": "date_precision",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: date_precision: None != 'year' (type/value)"
+        },
+        {
+          "field": "date_precision",
+          "surface": "JSON",
+          "reason": "'EK-0001': date_precision: expected nonempty string"
+        },
+        {
+          "field": "date_interpretation",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: date_interpretation: None != '明記' (type/value)"
+        },
+        {
+          "field": "date_interpretation",
+          "surface": "JSON",
+          "reason": "'EK-0001': date_interpretation: expected nonempty string"
+        },
+        {
+          "field": "date_kind",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: date_kind: None != 'described_event' (type/value)"
+        },
+        {
+          "field": "date_kind",
+          "surface": "JSON",
+          "reason": "'EK-0001': date_kind: expected nonempty string"
+        },
+        {
+          "field": "historic_calendar",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: historic_calendar: None != '宣明暦' (type/value)"
+        },
+        {
+          "field": "historic_calendar",
+          "surface": "JSON",
+          "reason": "'EK-0001': historic_calendar: expected nonempty string"
+        },
+        {
+          "field": "lunar_is_leap",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: lunar_is_leap: None != False (type/value)"
+        },
+        {
+          "field": "lunar_is_leap",
+          "surface": "JSON",
+          "reason": "'EK-0001': lunar_is_leap: known date requires boolean; year precision cannot designate leap month"
+        },
+        {
+          "field": "julian_start",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: julian_start: None != '1436-01-19' (type/value)"
+        },
+        {
+          "field": "julian_start",
+          "surface": "JSON",
+          "reason": "'EK-0001': julian_start/julian_end: both endpoints or both null required"
+        },
+        {
+          "field": "julian_end",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: julian_end: None != '1437-02-05' (type/value)"
+        },
+        {
+          "field": "julian_end",
+          "surface": "JSON",
+          "reason": "'EK-0001': julian_start/julian_end: both endpoints or both null required"
+        },
+        {
+          "field": "gregorian_start",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: gregorian_start: None != '1436-01-28' (type/value)"
+        },
+        {
+          "field": "gregorian_start",
+          "surface": "JSON",
+          "reason": "'EK-0001': gregorian_start/gregorian_end: both endpoints or both null required"
+        },
+        {
+          "field": "gregorian_end",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: gregorian_end: None != '1437-02-14' (type/value)"
+        },
+        {
+          "field": "gregorian_end",
+          "surface": "JSON",
+          "reason": "'EK-0001': gregorian_start/gregorian_end: both endpoints or both null required"
+        },
+        {
+          "field": "gregorian_calendar",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: gregorian_calendar: None != '先発グレゴリオ暦' (type/value)"
+        },
+        {
+          "field": "gregorian_calendar",
+          "surface": "JSON",
+          "reason": "'EK-0001': gregorian_calendar: expected nonempty string"
+        },
+        {
+          "field": "date_conversion_status",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: date_conversion_status: None != 'provisional' (type/value)"
+        },
+        {
+          "field": "date_conversion_status",
+          "surface": "JSON",
+          "reason": "'EK-0001': date_conversion_status: expected nonempty string"
+        },
+        {
+          "field": "date_conversion_source_url",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: date_conversion_source_url: None != 'https://reki.gozaaru.com/wareki/永享/8' (type/value)"
+        },
+        {
+          "field": "date_conversion_source_url",
+          "surface": "JSON",
+          "reason": "'EK-0001': date_conversion_source_url/date_conversion_note: conversion provenance required"
+        },
+        {
+          "field": "date_conversion_note",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: date_conversion_note: None != '暦日対照表のユリウス暦日付から先発グレゴリオ暦へ換算。国立天文台での独立照合は未了。' (type/value)"
+        },
+        {
+          "field": "date_conversion_note",
+          "surface": "JSON",
+          "reason": "'EK-0001': date_conversion_source_url/date_conversion_note: conversion provenance required"
+        },
+        {
+          "field": "research_date_start",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: research_date_start: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "research_date_start",
+          "surface": "JSON",
+          "reason": "'EK-0001': research_date_start/research_date_end: both endpoints or both null required"
+        },
+        {
+          "field": "research_date_end",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: research_date_end: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "research_date_end",
+          "surface": "JSON",
+          "reason": "'EK-0001': research_date_start/research_date_end: both endpoints or both null required"
+        },
+        {
+          "field": "research_date_basis",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: research_date_basis: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "research_date_basis",
+          "surface": "JSON",
+          "reason": "'EK-0001': research_date_basis: research dates and basis must be supplied together"
+        },
+        {
+          "field": "summary",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: summary: None != '小笠原氏と村上氏が信濃国で合戦に及ぶ。' (type/value)"
+        },
+        {
+          "field": "summary",
+          "surface": "JSON",
+          "reason": "'EK-0001': summary: expected nonempty string"
+        },
+        {
+          "field": "location_in_text",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: location_in_text: None != '信濃国' (type/value)"
+        },
+        {
+          "field": "location_in_text",
+          "surface": "JSON",
+          "reason": "HTML: EK-0001: location_in_text: '信濃国' != None (type/value)"
+        },
+        {
+          "field": "people_in_text",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: people_in_text: None != '小笠原大膳大夫・村上中務大輔' (type/value)"
+        },
+        {
+          "field": "people_in_text",
+          "surface": "JSON",
+          "reason": "HTML: EK-0001: people_in_text: '小笠原大膳大夫・村上中務大輔' != None (type/value)"
+        },
+        {
+          "field": "short_locator",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: short_locator: None != '永享八年丙辰' (type/value)"
+        },
+        {
+          "field": "short_locator",
+          "surface": "JSON",
+          "reason": "HTML: EK-0001: short_locator: '永享八年丙辰' != None (type/value)"
+        },
+        {
+          "field": "full_original_text",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: full_original_text: 'INDEPENDENT-MUTATION' != None (type/value)"
+        },
+        {
+          "field": "full_original_text",
+          "surface": "JSON",
+          "reason": "HTML: EK-0001: full_original_text: None != 'INDEPENDENT-MUTATION' (type/value)"
+        },
+        {
+          "field": "editorial_note",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: editorial_note: None != '年のみ。勝敗や合戦地の詳細はこの箇所から確定させない。' (type/value)"
+        },
+        {
+          "field": "editorial_note",
+          "surface": "JSON",
+          "reason": "HTML: EK-0001: editorial_note: '年のみ。勝敗や合戦地の詳細はこの箇所から確定させない。' != None (type/value)"
+        },
+        {
+          "field": "entry_status",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: entry_status: None != '仮登録・本文照合待ち' (type/value)"
+        },
+        {
+          "field": "entry_status",
+          "surface": "JSON",
+          "reason": "'EK-0001': entry_status: expected nonempty string"
+        },
+        {
+          "field": "work_id",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: work_id: None != 'EIKYOUKI' (type/value)"
+        },
+        {
+          "field": "work_id",
+          "surface": "JSON",
+          "reason": "'EK-0001': work_id: expected nonempty string"
+        },
+        {
+          "field": "edition_id",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: edition_id: None != 'SHISEKI-SHURAN-12-WIKISOURCE' (type/value)"
+        },
+        {
+          "field": "edition_id",
+          "surface": "JSON",
+          "reason": "'EK-0001': edition_id: expected nonempty string"
+        },
+        {
+          "field": "chapter",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: chapter: None != '序章' (type/value)"
+        },
+        {
+          "field": "chapter",
+          "surface": "JSON",
+          "reason": "'EK-0001': chapter: expected nonempty string"
+        },
+        {
+          "field": "source_url",
+          "surface": "HTML",
+          "reason": "HTML: EK-0001: source_url: None != 'https://ja.wikisource.org/wiki/永享記#永享記' (type/value)"
+        },
+        {
+          "field": "source_url",
+          "surface": "JSON",
+          "reason": "'EK-0001': source_url: expected nonempty string"
+        }
+      ]
+    },
+    {
+      "name": "preserve_all_failure_stages",
+      "pass": true,
+      "value": [
+        {
+          "stage": "opened",
+          "before": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "after": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "temporaryFiles": 0
+        },
+        {
+          "stage": "article:EK-0001",
+          "before": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "after": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "temporaryFiles": 0
+        },
+        {
+          "stage": "article:EK-0015",
+          "before": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "after": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "temporaryFiles": 0
+        },
+        {
+          "stage": "validated",
+          "before": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "after": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "temporaryFiles": 0
+        },
+        {
+          "stage": "committed",
+          "before": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "after": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "temporaryFiles": 0
+        },
+        {
+          "stage": "before_replace",
+          "before": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "after": "3e137bc065713dc47d81b0140f212eebd68d40e42e94df9e8c536c2edabfbb34",
+          "temporaryFiles": 0
+        }
+      ]
+    },
+    {
+      "name": "same_content_separate_id",
+      "pass": true,
+      "value": "16 independent records retained"
+    },
+    {
+      "name": "all_four_primary_id_constraints",
+      "pass": true,
+      "value": [
+        {
+          "table": "works",
+          "id": "None",
+          "rejected": true,
+          "reason": "NOT NULL constraint failed: works.work_id"
+        },
+        {
+          "table": "works",
+          "id": "''",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "'  '",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "'\\x0b'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "'\\u3000'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "123",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "b'bytes'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "'A\\x00#'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "'A\\x00B'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "works",
+          "id": "'EIKYOUKI'",
+          "rejected": true,
+          "reason": "UNIQUE constraint failed: works.work_id"
+        },
+        {
+          "table": "editions",
+          "id": "None",
+          "rejected": true,
+          "reason": "NOT NULL constraint failed: editions.edition_id"
+        },
+        {
+          "table": "editions",
+          "id": "''",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "'  '",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "'\\x0b'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "'\\u3000'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "123",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "b'bytes'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "'A\\x00#'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "'A\\x00B'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(edition_id)='text' AND instr(edition_id,char(0))=0 AND length(edition_id)>0 AND edition_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(edition_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "editions",
+          "id": "'SHISEKI-SHURAN-12-WIKISOURCE'",
+          "rejected": true,
+          "reason": "UNIQUE constraint failed: editions.edition_id"
+        },
+        {
+          "table": "chapters",
+          "id": "None",
+          "rejected": true,
+          "reason": "NOT NULL constraint failed: chapters.chapter_id"
+        },
+        {
+          "table": "chapters",
+          "id": "''",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "'  '",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "'\\x0b'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "'\\u3000'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "123",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "b'bytes'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "'A\\x00#'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "'A\\x00B'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(chapter_id)='text' AND instr(chapter_id,char(0))=0 AND length(chapter_id)>0 AND chapter_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(chapter_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "chapters",
+          "id": "'intro'",
+          "rejected": true,
+          "reason": "UNIQUE constraint failed: chapters.chapter_id"
+        },
+        {
+          "table": "articles",
+          "id": "None",
+          "rejected": true,
+          "reason": "NOT NULL constraint failed: articles.article_id"
+        },
+        {
+          "table": "articles",
+          "id": "''",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "'  '",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "'\\x0b'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "'\\u3000'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "123",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "b'bytes'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "'A\\x00#'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "'A\\x00B'",
+          "rejected": true,
+          "reason": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+        },
+        {
+          "table": "articles",
+          "id": "'EK-0001'",
+          "rejected": true,
+          "reason": "UNIQUE constraint failed: articles.article_id"
+        }
+      ]
+    },
+    {
+      "name": "separate_calendar_rules",
+      "pass": true,
+      "value": "Julian 1500/1900 leap independently distinguished"
+    }
+  ],
+  "retention": [
+    {
+      "id": "EK-0010",
+      "field": "date_interpretation",
+      "old": "明記",
+      "new": "月日・時刻は明記、年は前文脈から補完"
+    },
+    {
+      "id": "EK-0010",
+      "field": "editorial_note",
+      "old": "時刻は「戌刻ごろ」の原記述を保持。",
+      "new": "時刻は「戌刻ごろ」の原記述を保持。 年は直前の永享十年の文脈から補う。"
+    },
+    {
+      "id": "EK-0015",
+      "field": "location_in_text",
+      "old": "京都（文書発給側）",
+      "new": null
+    },
+    {
+      "id": "EK-0015",
+      "field": "editorial_note",
+      "old": "出来事の発生日ではなく、史料中に引用された文書の日付。",
+      "new": "出来事の発生日ではなく、史料中に引用された文書の日付。 引用文書の日付行に所在地の明記は未確認。京都という発給側の地理的説明は直前叙述からの編集補足であり、本文中の場所語形とは区別する。"
+    }
+  ],
+  "pass": true
+}

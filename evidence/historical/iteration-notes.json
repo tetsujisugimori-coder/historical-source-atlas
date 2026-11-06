@@ -1,0 +1,22 @@
+[
+  {
+    "phase": "initial unit tests",
+    "status": "ENVIRONMENT ERROR",
+    "detail": "TemporaryDirectory resolved into sandbox package Temp, mkstemp PermissionError; 7 methods errors. Test temporary directories moved inside permitted source directory. Full initial tool-output log was not archived; this note is a summary, not reconstructed raw output."
+  },
+  {
+    "phase": "DB per-field mutation first iteration",
+    "status": "TEST FIXTURE ERROR",
+    "detail": "lunar_month/lunar_day NULL mutated to TEXT and STRICT DB rejected before read-only verifier. Changed mutation to valid INTEGER 1; all36 modifications then exercised verifier."
+  },
+  {
+    "phase": "first browser draft",
+    "status": "FAIL",
+    "detail": "Chromium 2 PASS; WebKit 2 FAIL on normal Tab to source link. Full results and screenshots in browser-draft. Explicit tabindex, independent probe and new executions closed the issue."
+  },
+  {
+    "phase": "first CI",
+    "status": "FAIL",
+    "detail": "run42208828532 used Ubuntu26.04 unsupported by pinned Playwright1.56.1; browser step skipped. Full job log retained. Workflow fixed to ubuntu24.04."
+  }
+]

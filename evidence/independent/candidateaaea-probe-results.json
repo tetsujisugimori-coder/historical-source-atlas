@@ -1,0 +1,249 @@
+{
+  "source": "C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\candidateaaea\\prototype\\eikyouki",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "cases": [
+    {
+      "name": "baseline",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 articles / 36 fields / JSON / HTML / read-only SQLite JOIN\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ignored_work",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gg5e58w3\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gg5e58w3\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gg5e58w3\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gg5e58w3\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gg5e58w3\\validation.py\", line 131, in validate_record\n    fail(r, f, \"unsupported fixed-source affiliation\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gg5e58w3\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': work_id: unsupported fixed-source affiliation\n"
+      }
+    },
+    {
+      "name": "ignored_edition",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-0oxytm8s\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-0oxytm8s\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-0oxytm8s\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-0oxytm8s\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-0oxytm8s\\validation.py\", line 131, in validate_record\n    fail(r, f, \"unsupported fixed-source affiliation\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-0oxytm8s\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': edition_id: unsupported fixed-source affiliation\n"
+      }
+    },
+    {
+      "name": "ignored_chapter",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-33lrvvam\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-33lrvvam\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-33lrvvam\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-33lrvvam\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-33lrvvam\\validation.py\", line 137, in validate_record\n    fail(r, f, \"does not match chapter affiliation/source\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-33lrvvam\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': chapter: does not match chapter affiliation/source\n"
+      }
+    },
+    {
+      "name": "ignored_source",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-mqra0sg8\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-mqra0sg8\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-mqra0sg8\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-mqra0sg8\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-mqra0sg8\\validation.py\", line 137, in validate_record\n    fail(r, f, \"does not match chapter affiliation/source\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-mqra0sg8\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': source_url: does not match chapter affiliation/source\n"
+      }
+    },
+    {
+      "name": "invalid_julian",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\validation.py\", line 169, in validate_record\n    days.append(calendar_day(v,calendar))\n                ~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\validation.py\", line 43, in calendar_day\n    raise ValueError(\"expected YYYY-MM-DD\")\nValueError: expected YYYY-MM-DD\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\validation.py\", line 171, in validate_record\n    fail(r, f, str(exc))\n    ~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-rv9_va_u\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': julian_start: expected YYYY-MM-DD\n"
+      }
+    },
+    {
+      "name": "invalid_gregorian",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\validation.py\", line 169, in validate_record\n    days.append(calendar_day(v,calendar))\n                ~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\validation.py\", line 48, in calendar_day\n    raise ValueError(f\"nonexistent {calendar} date\")\nValueError: nonexistent gregorian date\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\validation.py\", line 171, in validate_record\n    fail(r, f, str(exc))\n    ~~~~^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ze6k72sn\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': gregorian_start: nonexistent gregorian date\n"
+      }
+    },
+    {
+      "name": "reversed_julian",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gk8ne30o\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gk8ne30o\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gk8ne30o\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gk8ne30o\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gk8ne30o\\validation.py\", line 173, in validate_record\n    fail(r, \"/\".join(fields), \"start is after end\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gk8ne30o\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': julian_start/julian_end: start is after end\n"
+      }
+    },
+    {
+      "name": "fractional_month",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-xn651i8i\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-xn651i8i\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-xn651i8i\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-xn651i8i\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-xn651i8i\\validation.py\", line 107, in validate_record\n    fail(r, f, f\"expected integer {low}..{high}, got {value!r}\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-xn651i8i\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': lunar_month: expected integer 1..12, got 1.5\n"
+      }
+    },
+    {
+      "name": "negative_era",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-kt_g_nbk\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-kt_g_nbk\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-kt_g_nbk\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-kt_g_nbk\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-kt_g_nbk\\validation.py\", line 107, in validate_record\n    fail(r, f, f\"expected integer {low}..{high}, got {value!r}\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-kt_g_nbk\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': era_year: expected integer 1..9999, got -1\n"
+      }
+    },
+    {
+      "name": "text_year",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-50ogw738\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-50ogw738\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-50ogw738\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-50ogw738\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-50ogw738\\validation.py\", line 107, in validate_record\n    fail(r, f, f\"expected integer {low}..{high}, got {value!r}\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-50ogw738\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': western_year: expected integer 1..9999, got 'nonsense'\n"
+      }
+    },
+    {
+      "name": "fractional_leap",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-w1mzgmtx\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-w1mzgmtx\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-w1mzgmtx\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-w1mzgmtx\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-w1mzgmtx\\validation.py\", line 110, in validate_record\n    fail(r, f, \"expected boolean or null; coercion is forbidden\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-w1mzgmtx\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': lunar_is_leap: expected boolean or null; coercion is forbidden\n"
+      }
+    },
+    {
+      "name": "string_leap",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zhnnefc1\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zhnnefc1\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zhnnefc1\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zhnnefc1\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zhnnefc1\\validation.py\", line 110, in validate_record\n    fail(r, f, \"expected boolean or null; coercion is forbidden\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zhnnefc1\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': lunar_is_leap: expected boolean or null; coercion is forbidden\n"
+      }
+    },
+    {
+      "name": "unknown_with_dates",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-a36mxocn\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-a36mxocn\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-a36mxocn\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-a36mxocn\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-a36mxocn\\validation.py\", line 149, in validate_record\n    fail(r, f, f\"inconsistent with {p} precision\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-a36mxocn\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': era_year: inconsistent with unknown precision\n"
+      }
+    },
+    {
+      "name": "null_id",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-3v6ds9rl\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-3v6ds9rl\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-3v6ds9rl\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-3v6ds9rl\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-3v6ds9rl\\validation.py\", line 114, in validate_record\n    fail(r, f, \"expected nonempty string\" + (\" or null\" if f in NULLABLE_TEXT else \"\"))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-3v6ds9rl\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: None: id: expected nonempty string\n"
+      }
+    },
+    {
+      "name": "bool_era",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zq29kxv_\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zq29kxv_\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zq29kxv_\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zq29kxv_\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zq29kxv_\\validation.py\", line 107, in validate_record\n    fail(r, f, f\"expected integer {low}..{high}, got {value!r}\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-zq29kxv_\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': era_year: expected integer 1..9999, got True\n"
+      }
+    },
+    {
+      "name": "research_invalid",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-lxjkrl3h\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-lxjkrl3h\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-lxjkrl3h\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-lxjkrl3h\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-lxjkrl3h\\validation.py\", line 164, in validate_record\n    fail(r, \"/\".join(fields), \"both endpoints or both null required\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-lxjkrl3h\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': research_date_start/research_date_end: both endpoints or both null required\n"
+      }
+    },
+    {
+      "name": "research_reversed",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-d69mfyfv\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-d69mfyfv\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-d69mfyfv\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-d69mfyfv\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-d69mfyfv\\validation.py\", line 164, in validate_record\n    fail(r, \"/\".join(fields), \"both endpoints or both null required\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-d69mfyfv\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': research_date_start/research_date_end: both endpoints or both null required\n"
+      }
+    },
+    {
+      "name": "whitespace_id",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-8juzhfk8\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-8juzhfk8\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-8juzhfk8\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-8juzhfk8\\validation.py\", line 203, in validate_data\n    validate_record(r)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-8juzhfk8\\validation.py\", line 114, in validate_record\n    fail(r, f, \"expected nonempty string\" + (\" or null\" if f in NULLABLE_TEXT else \"\"))\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-8juzhfk8\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: '  ': id: expected nonempty string\n"
+      }
+    },
+    {
+      "name": "duplicate_id",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-2f3gw67r\\build.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-2f3gw67r\\build.py\", line 65, in main\n    count = build_database(data)\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-2f3gw67r\\build.py\", line 19, in build_database\n    records = validate_data(data)  # before opening/creating any output\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-2f3gw67r\\validation.py\", line 205, in validate_data\n    fail(r, \"id\", \"duplicate permanent ID\")\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-2f3gw67r\\validation.py\", line 37, in fail\n    raise ValueError(f\"{record.get('id', '<missing id>')!r}: {field}: {reason}\")\nValueError: 'EK-0001': id: duplicate permanent ID\n"
+      }
+    },
+    {
+      "name": "six_field_corruption",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-pjewym0r\\test_dates.py\", line 7, in <module>\n    count = verify(BASE/\"eikyouki_records.json\", BASE/\"index.html\", BASE/\"eikyouki.db\")\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-pjewym0r\\integrity.py\", line 62, in verify\n    compare_connection(records, db)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-pjewym0r\\integrity.py\", line 50, in compare_connection\n    same_fields(records, actual, \"DB\")\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-pjewym0r\\integrity.py\", line 29, in same_fields\n    raise ValueError(f\"{label}: {identifier}: {f}: {other[f]!r} != {v!r} (type/value)\")\nValueError: DB: EK-0001: original_date: 'CORRUPT' != '�i�����N' (type/value)\n"
+      }
+    }
+  ],
+  "sort": {
+    "exit": 0,
+    "actual": [
+      "EK-0001",
+      "EK-0002",
+      "EK-0003",
+      "EK-0004",
+      "EK-0005",
+      "EK-0006",
+      "EK-0007",
+      "EK-0008",
+      "EK-0009",
+      "EK-0010",
+      "EK-0011",
+      "EK-0012",
+      "EK-0015",
+      "EK-0013",
+      "EK-0014"
+    ],
+    "stderr": "",
+    "expected": [
+      "EK-0001",
+      "EK-0002",
+      "EK-0003",
+      "EK-0004",
+      "EK-0005",
+      "EK-0006",
+      "EK-0007",
+      "EK-0008",
+      "EK-0009",
+      "EK-0010",
+      "EK-0011",
+      "EK-0012",
+      "EK-0015",
+      "EK-0013",
+      "EK-0014"
+    ]
+  },
+  "direct_ids": [
+    {
+      "id": null,
+      "accepted": false,
+      "error": "NOT NULL constraint failed: articles.article_id"
+    },
+    {
+      "id": null,
+      "accepted": false,
+      "error": "NOT NULL constraint failed: articles.article_id"
+    },
+    {
+      "id": "",
+      "accepted": false,
+      "error": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+    },
+    {
+      "id": "  ",
+      "accepted": false,
+      "error": "CHECK constraint failed: typeof(article_id)='text' AND instr(article_id,char(0))=0 AND length(article_id)>0 AND article_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(article_id,1,1) GLOB '[A-Za-z0-9]'"
+    },
+    {
+      "id": "EK-independent",
+      "accepted": true
+    }
+  ]
+}

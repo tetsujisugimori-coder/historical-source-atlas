@@ -1,0 +1,335 @@
+{
+  "source": "C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\old\\prototype\\eikyouki",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.50.4",
+  "cases": [
+    {
+      "name": "baseline",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ignored_work",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ignored_edition",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ignored_chapter",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ignored_source",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "invalid_julian",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "invalid_gregorian",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-ecm2tq2x\\test_dates.py\", line 30, in <module>\n    assert (r['gregorian_start'],r['gregorian_end'])==expected[r['id']]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      }
+    },
+    {
+      "name": "reversed_julian",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "fractional_month",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "negative_era",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "text_year",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "fractional_leap",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "string_leap",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "unknown_with_dates",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "null_id",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-39tibb_3\\test_dates.py\", line 30, in <module>\n    assert (r['gregorian_start'],r['gregorian_end'])==expected[r['id']]\n                                                      ~~~~~~~~^^^^^^^^^\nKeyError: None\n"
+      }
+    },
+    {
+      "name": "bool_era",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "research_invalid",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-hx0aoy_l\\test_dates.py\", line 34, in <module>\n    assert all(r[x] is None for x in ('research_date_start','research_date_end','research_date_basis'))\n           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      }
+    },
+    {
+      "name": "research_reversed",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-xyhxb8ty\\test_dates.py\", line 34, in <module>\n    assert all(r[x] is None for x in ('research_date_start','research_date_end','research_date_basis'))\n           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      }
+    },
+    {
+      "name": "whitespace_id",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-7sf9jv7s\\test_dates.py\", line 30, in <module>\n    assert (r['gregorian_start'],r['gregorian_end'])==expected[r['id']]\n                                                      ~~~~~~~~^^^^^^^^^\nKeyError: '  '\n"
+      }
+    },
+    {
+      "name": "duplicate_id",
+      "build": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gtnai1nc\\build.py\", line 72, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\tetsu\\Documents\\Codex\\2026-11-06\\task\\independent-atlas\\independent-atlas-gtnai1nc\\build.py\", line 56, in main\n    con.execute(sql, [row[field] for field in ARTICLE_FIELDS])\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsqlite3.IntegrityError: UNIQUE constraint failed: articles.article_id\n"
+      }
+    },
+    {
+      "name": "six_field_corruption",
+      "build": {
+        "exit": 0,
+        "stdout": "Built eikyouki.db: 15 provisional articles\n",
+        "stderr": ""
+      },
+      "check": {
+        "exit": 0,
+        "stdout": "PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "sort": {
+    "exit": 0,
+    "actual": [
+      "EK-0001",
+      "EK-0002",
+      "EK-0003",
+      "EK-0004",
+      "EK-0005",
+      "EK-0006",
+      "EK-0007",
+      "EK-0008",
+      "EK-0009",
+      "EK-0010",
+      "EK-0011",
+      "EK-0012",
+      "EK-0013",
+      "EK-0014",
+      "EK-0015"
+    ],
+    "stderr": "",
+    "expected": [
+      "EK-0001",
+      "EK-0002",
+      "EK-0003",
+      "EK-0004",
+      "EK-0005",
+      "EK-0006",
+      "EK-0007",
+      "EK-0008",
+      "EK-0009",
+      "EK-0010",
+      "EK-0011",
+      "EK-0012",
+      "EK-0015",
+      "EK-0013",
+      "EK-0014"
+    ]
+  },
+  "direct_ids": [
+    {
+      "id": null,
+      "accepted": true
+    },
+    {
+      "id": null,
+      "accepted": true
+    },
+    {
+      "id": "",
+      "accepted": true
+    },
+    {
+      "id": "  ",
+      "accepted": true
+    },
+    {
+      "id": "EK-independent",
+      "accepted": true
+    }
+  ]
+}

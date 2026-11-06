@@ -1,0 +1,171 @@
+{
+  "cases": [
+    {
+      "engine": "chromium",
+      "width": 390,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": true,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "tabForward": true,
+        "tabBackward": true,
+        "SpaceDetails": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": true
+    },
+    {
+      "engine": "chromium",
+      "width": 1280,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": true,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "tabForward": true,
+        "tabBackward": true,
+        "SpaceDetails": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": true
+    },
+    {
+      "engine": "webkit",
+      "width": 390,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": true,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "tabForward": true,
+        "tabBackward": true,
+        "SpaceDetails": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": true
+    },
+    {
+      "engine": "webkit",
+      "width": 1280,
+      "checks": {
+        "executed": true,
+        "focused_visible": true,
+        "chronology": true,
+        "sourceOrder": true,
+        "search": true,
+        "EnterDetails": true,
+        "focus": true,
+        "tabForward": true,
+        "tabBackward": true,
+        "SpaceDetails": true,
+        "sourceLink": true,
+        "download": true,
+        "empty": true,
+        "yearFilter": true,
+        "chapterFilter": true,
+        "overflow": true,
+        "errors": true
+      },
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "files": [
+    {
+      "name": "chromium-1280-chronology.png",
+      "sha256": "a9a0d9cc703a189f06b05db8b66f9acb6d1e57d8b573448f5534643315b5a4ad"
+    },
+    {
+      "name": "chromium-1280-download.json",
+      "sha256": "d41587f5842ec474298cb5351959065bb509002a83f1da48b863a94188d0b25b"
+    },
+    {
+      "name": "chromium-1280-filtered.png",
+      "sha256": "ffaa0aebb02a4a9ad1213d7d05add30b47d622e089caab43aa22e322f5b1b274"
+    },
+    {
+      "name": "chromium-1280-focus.png",
+      "sha256": "2b0f3e472d7ff822189cada558305b10827f0124d9ace107dbd33a0ea0eb86a5"
+    },
+    {
+      "name": "chromium-390-chronology.png",
+      "sha256": "1ec46d0bc67b82d1a477d233849d1801ec3b6a4db0c0021e69cb96efb390d210"
+    },
+    {
+      "name": "chromium-390-download.json",
+      "sha256": "d41587f5842ec474298cb5351959065bb509002a83f1da48b863a94188d0b25b"
+    },
+    {
+      "name": "chromium-390-filtered.png",
+      "sha256": "d0c8f942d662ee8e5f89ccddd09bb668b3871a057a6c375bc82a34b226ded298"
+    },
+    {
+      "name": "chromium-390-focus.png",
+      "sha256": "006fed6b67ec3356eb3d705e46ced61d606f6c278f1e463fe678b2ab94235630"
+    },
+    {
+      "name": "results.json",
+      "sha256": "86055cdbc1903d0e091b71c48119b09d37ef2cc155f535dfbe87e426375c9a76"
+    },
+    {
+      "name": "webkit-1280-chronology.png",
+      "sha256": "e69607e974193aa21a6e462ee64595ef6330aa327eb797d31232493475ee739b"
+    },
+    {
+      "name": "webkit-1280-download.json",
+      "sha256": "d41587f5842ec474298cb5351959065bb509002a83f1da48b863a94188d0b25b"
+    },
+    {
+      "name": "webkit-1280-filtered.png",
+      "sha256": "9a42bdb4c04976f6d32ae283943e6681685a26795feb326841b94eb6b005cdec"
+    },
+    {
+      "name": "webkit-1280-focus.png",
+      "sha256": "eec1df2dc04792c88a840f6eab7f164c014ff0a533d614857a0aeb7e9d974b92"
+    },
+    {
+      "name": "webkit-390-chronology.png",
+      "sha256": "efd5132573be614a8f7e995f1954cbe189bd604c64856360d85fc6217da18b69"
+    },
+    {
+      "name": "webkit-390-download.json",
+      "sha256": "d41587f5842ec474298cb5351959065bb509002a83f1da48b863a94188d0b25b"
+    },
+    {
+      "name": "webkit-390-filtered.png",
+      "sha256": "2bfca5014f4e03a9fd1c30bd0a2c7658068ec9a90256e355b076fc95c19163e1"
+    },
+    {
+      "name": "webkit-390-focus.png",
+      "sha256": "b75654bad3db19e34e2f1f359d152171d3b9a31828aa9beae015dc9bff66f7af"
+    }
+  ]
+}

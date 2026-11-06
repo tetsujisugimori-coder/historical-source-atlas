@@ -1,0 +1,47 @@
+[
+  {
+    "id": "None",
+    "accepted": false,
+    "error": "NOT NULL constraint failed: works.work_id"
+  },
+  {
+    "id": "''",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  },
+  {
+    "id": "'  '",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  },
+  {
+    "id": "'\\t'",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  },
+  {
+    "id": "'\\x0b'",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  },
+  {
+    "id": "'\\u3000'",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  },
+  {
+    "id": "123",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  },
+  {
+    "id": "'A\\x00#'",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  },
+  {
+    "id": "'A\\x00B'",
+    "accepted": false,
+    "error": "CHECK constraint failed: typeof(work_id)='text' AND instr(work_id,char(0))=0 AND length(work_id)>0 AND work_id NOT GLOB '*[^A-Za-z0-9_-]*' AND substr(work_id,1,1) GLOB '[A-Za-z0-9]'"
+  }
+]

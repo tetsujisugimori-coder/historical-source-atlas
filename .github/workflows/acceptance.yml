@@ -1,0 +1,32 @@
+name: Atlas acceptance
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: python prototype/eikyouki/build.py
+      - run: python prototype/eikyouki/run_checks.py evidence/ci-checks
+      - run: npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node prototype/eikyouki/browser_acceptance.cjs evidence/ci-browser
+      - name: Manifest and environment
+        if: always()
+        run: python prototype/eikyouki/evidence_manifest.py evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: atlas-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_attempt }}
+          path: evidence/
+          if-no-files-found: error

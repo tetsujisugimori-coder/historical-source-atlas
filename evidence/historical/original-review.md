@@ -1,0 +1,385 @@
+# Historical Source Atlas PR #1 独立受入レビュー
+
+## A. 総合判定：FAIL
+
+**今回の変更範囲のマージ推奨：NO。Draftを維持してください。**
+
+現行15件のデータ一致と暦換算には確認できた成果があります。ただし、日付順ソートの誤動作、出典入力の黙殺、不正値・NULL IDの受理、既存テストの見逃しを再現しました。史料の正確性、保存経路、Web機能を別々に評価し、いずれか一つの成功を全体PASSにはしていません。
+
+- 現行15件のWikisource本文との対応：PARTIAL。公開翻刻との対応は確認、底本画像の直接校合は未実施。
+- 現行15件の和暦→ユリウス暦→先発グレゴリオ暦の日付・期間：PASS。国立天文台の独立照合と一致。
+- 現行15件のJSON/HTML/SQLite全記事フィールド一致：PASS。
+- データ保存経路・負対照への耐性：FAIL。
+- 年代順比較処理：FAIL。実コードと同一の比較器をNodeで実行して再現。
+- 実ブラウザの画面・操作・アクセシビリティ・攻撃文字列実行：NOT_TESTED。後述の環境ブロッカーにより対象HTMLを描画できませんでした。
+
+## B. 対象PR・HEAD・検査範囲
+
+- PR：[#1](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/1)
+- HEAD：`ec347901dc4b688927bb3002121ff58e6b7dbd40`
+- base：`main` / `410fea4f6d3ccd5e1c1a62c8f2ad49ae97782f70`
+- 対象：初期READMEと『永享記』v0.2試作。変更8ファイルを固定SHAで取得し、全8ファイルのGit blob SHA一致を確認。
+- 体制：史料・暦、SQLite/JSON/Python、Webを別担当で独立検査し、統合担当が根拠・実出力を確認。多数決で判定していません。
+- 環境：Python 3.12.14 / SQLite 3.53.1 / Node v24.22.1。
+- 確認日：2026-11-06 JST。
+- 開始時PRはopen / Draft / 未マージ。製品コード、main、PRのDraft状態、GitHub Pages設定を変更していません。生成DBと負対照は専用作業コピー／一時コピー内のみ。
+- 対象SHAのGitHub status / PR-triggered workflow run取得結果はともに空。CI成功として扱っていません。
+
+## C. 史料の正確性・出典検証
+
+確認先：
+- [Wikisource固定版 oldid=218476](https://ja.wikisource.org/w/index.php?oldid=218476&title=%E6%B0%B8%E4%BA%AB%E8%A8%98)。校正状態は50%（入力済み）で、校訂済み原本とは区別。
+- [神奈川県立図書館解題](https://www.klnet.pref.kanagawa.jp/uploads/2020/12/006eikyouki.pdf)：作者不詳・軍記という分類を支持。
+- [田口寛「『永享記』伝本の整理」NDL書誌](https://ndlsearch.ndl.go.jp/books/R100000001-I23211000810029250)：書誌のみ確認。論文本体は未読。
+- [Wikisource参照底本のNDL PID](https://dl.ndl.go.jp/pid/1920329)：今回原画像の文字単位照合はできず。
+
+以下のPASSは公開Wikisource入力本文との対応に限る。本文原文の正確さ・事件の史実性・伝本間一致を意味しない。原画像は全件NOT_TESTED。
+
+| ID | 対象節・掲載位置 | 内容照合と留意点 | 判定 |
+|---|---|---|---|
+| EK-0001 | 冒頭の系譜叙述末尾 | 永享8年、小笠原・村上の確執と合戦がある。信濃は本文中の住人説明とも結び付く。特定戦場は未確定。 | PASS |
+| EK-0002 | 公方管領不和の事 | 同9年4月、憲直を大将とする武州本一揆の出動命令。要約は実行済みと断定せず妥当。年号永享は前文から補完。 | PASS |
+| EK-0003 | 同上 | 6月6日から鎌倉の騒動・避難・財物の移動。日付は開始点であり終息日ではない。 | PASS |
+| EK-0004 | 同上 | 翌7日暮方、公方が憲実宿所に出向き、説明で少し静まる。年・月補完は妥当。 | PASS |
+| EK-0005 | 同上 | 同月15日、管領父子が藤沢へ退く。のちの嫡子上州行きを混同していない。 | PASS |
+| EK-0006 | 同上 | 同27日、一色直兼らを三浦へ追い下す。6月とする文脈は自然。 | PASS |
+| EK-0007 | 同上 | 同8月13日、持氏が憲実の屋形へ出向き従前どおりの管領職政務を命じる。続く辞退の記述も注記で留保。 | PASS |
+| EK-0008 | 同上 | 明る永享10年6月、吉王元服予定の祝儀準備。準備記事としての要約は妥当。 | PASS |
+| EK-0009 | 同上 | 同8月12日、長尾芳伝の諫言。和解成立と誤記していない。 | PASS |
+| EK-0010 | 同上末尾 | 8月14日戌刻ごろに山内殿を出る。年は直前文脈由来であり、date_interpretation=明記は年まで明記された印象を与える。 | 内容PASS／解釈ラベル改善 |
+| EK-0011 | 三浦介逆心事 | 一色直兼・時家を大将とする15日夜半の上州への下向。前節から8月を継ぐ。夜半の現代時刻・日界は未確定。 | PASS |
+| EK-0012 | 同上 | 持氏が同16日未刻に武州高安寺へ動座。高安寺の座標を未設定とする扱いは慎重。 | PASS |
+| EK-0013 | 同上 | 10月3日三浦介が鎌倉を退く記事。三浦時高の同定は節内に名前がある。 | PASS |
+| EK-0014 | 同上末尾 | 同17日三浦介と二階堂一族の鎌倉襲撃、放火。誇張され得る戸数を確定被害数に転記していない。 | PASS |
+| EK-0015 | 箱根早川尻合戦の事冒頭引用文書 | 永享10年8月29日・左少弁資任奉の文書日付。document_dateとする区別は正しい。京都は直前叙述から発給側を推定した説明で、引用文書の日付行に所在地として明記されたものではない。 | 内容PASS／地名ラベル改善 |
+
+全件のsource_order 1–15は本文の出現順と一致。EK-0015は前節10月記事から遡るが、原典が遡及的な綸旨引用を置くので掲載順を維持すべき。複数記事が同章にあるのは統合ではなく、日付句ごとの別行になっている。1作品・1版の15候補であり、異なる史料間のイベント統合問題を実データでテストしたわけではない（NOT_TESTED）。
+
+記事境界は検証しきれない。例えば冒頭節には系譜等が大量に先行し、EK-0001はその全体ではなく末尾の一記述を採る。EK-0002〜10の間にも未登録のやり取りがある。今回の15候補は選択抽出であり、全記事網羅ではない。短い日付句と章URLは所在の手掛かりだが、開始・終了位置や原文テキストを確定できる識別子ではない。将来の増補で「同じ記事の補訂」か「別記事の新規登録」かを安定して判断するには、原文span、版固定ID、底本コマ/頁・行などが要る。
+
+### 書誌・版・引用・権利
+
+- 作者不詳・軍記物語: 県立図書館解題による裏付けあり（PASS）。近藤瓶城を中世作品の作者と扱わず、近代の編者として分ける現行メタデータは妥当。
+- 底本: Wikisourceは近藤瓶城編『史籍集覧』第12冊、近藤出版部、明治39と記す。一方ヘッダは明治35/1902を表示する。県立図書館解題には1926年版の『改定史籍集覧』も掲げられる。これらを同一発行版として混ぜてはならない。現行edition文字列は巻と編者まで一致するが、刊年・出版社・NDL PIDが欠ける。NDL画像の標題紙/奥付を見ていないので、底本の厳密な刊年同定はUNKNOWN。
+- Wikisourceは「龍」を除く旧字の新字化や異体字置換を明記する。現行transcription_noteはこれを概ね正しく留保しており、外交的翻刻と称していない。近代刊本の校訂記号、異本注、訓点等の完全保存は全文nullのためNOT_TESTED。
+- 「序章」は公開入力本文の見出しでは「永享記」で、県立図書館解題の章段整理には序章という呼称がある。現行の便宜的章名として理解できるが、原見出しと編集者による章名の区別が望ましい。
+- 本文は、末尾付近に別本では無い部分等への編集注も載せる。したがって作品名が同じだから全文がどの伝本でも同じと扱わない。今回対象15件は冒頭に限られ、後半の伝本差を検証したわけではない。
+- 権利: Wikisourceの作品にはパブリックドメイン表示がある一方、サイト下部にはテキストのCC表示-継承および追加条件・利用規約リンクがある。古典本文、近代の校訂物、Wikisourceの新しい編集・説明を分けて検討すべき。現行は短い日付句・独自要約・リンクのみで全文転載なし。確認できた範囲に具体的な長文転載の違反兆候なし。ただし「どの要素も無条件で再利用可」という法的結論は出していない（権利全体の最終確認UNKNOWN）。
+- 現行トップREADMEの各掲載元の条件個別確認という注意は適切。リポジトリ全体のライセンス不在を外部本文の自由利用許諾と解釈してはならない。将来の全文収録前に、底本の保護期間・転記範囲・Wikisource編集要素の扱い・出典/ライセンス表示・変更点を記録する。
+- 引用綸旨は作品内の引用として読めることを確認しただけで、現存発給文書の原本と対照したものではない。document_dateをdescribed_eventと区別したことはPASS、文書の真正性はUNKNOWN。
+
+## D. 和暦・先発グレゴリオ暦換算
+
+**現行15件の換算値はPASS。** 国立天文台「日本の暦日データベース」で永享8・9・10年の月朔を、ユリウス暦表示と「すべてグレゴリオ暦」表示の両方から独立取得しました。日指定は月朔＋日数−1、月精度は当月朔～翌月朔−1、年精度は当年元日～翌年元日−1で比較しました。固定fixtureの値を正解として照合したのではありません。
+
+|ID|史料上の日付|独立ユリウス暦（両端含む）|独立先発グレゴリオ暦（両端含む）|現行値との一致|
+|---|---|---|---|---|
+|EK-0001|永享八年|1436-01-19〜1437-02-05|1436-01-28〜1437-02-14|PASS|
+|EK-0002|同九年四月|1437-05-05〜1437-06-03|1437-05-14〜1437-06-12|PASS|
+|EK-0003|同六月六日より|1437-07-09|1437-07-18|PASS|
+|EK-0004|七日之暮方|1437-07-10|1437-07-19|PASS|
+|EK-0005|同月十五日|1437-07-18|1437-07-27|PASS|
+|EK-0006|同廿七日|1437-07-30|1437-08-08|PASS|
+|EK-0007|同八月十三日|1437-09-13|1437-09-22|PASS|
+|EK-0008|明る永享十年六月|1438-06-23〜1438-07-21|1438-07-02〜1438-07-30|PASS|
+|EK-0009|同八月十二日|1438-09-01|1438-09-10|PASS|
+|EK-0010|八月十四日戌刻計|1438-09-03|1438-09-12|PASS|
+|EK-0011|十五日の夜半計|1438-09-04|1438-09-13|PASS|
+|EK-0012|同十六日の未の刻|1438-09-05|1438-09-14|PASS|
+|EK-0013|十月三日|1438-10-21|1438-10-30|PASS|
+|EK-0014|同十七日|1438-11-04|1438-11-13|PASS|
+|EK-0015|永享十年八月廿九日|1438-09-18|1438-09-27|PASS|
+
+検証先：[国立天文台 日本の暦日データベース](https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi)。フォーム送信後もURLは同じため、次の条件で再現してください。
+
+- 種類「太陰太陽暦の朔日」、年号「永享」、年を8・9・10で各別に照会。
+- 月1、日1、閏未選択、間隔1日、期間400日、年号判断「日付単位」。
+- 西暦の種類を「デフォルト」と「すべてグレゴリオ暦」でそれぞれ照会、計6照会。デフォルトは1582-10-15以前をユリウス暦とするサイト仕様を確認。
+- 翌年元日等を含む39の異なる月朔を取得。例：永享8年元日Julian 1436-01-19 / Gregorian 1436-01-28、同9年元日1437-02-06 / 1437-02-15、同10年6月朔1438-06-23 / 1438-07-02、翌7月朔1438-07-22 / 1438-07-31。
+- 両モードの直接照合であり、単に全日付に9日を足して正当化したものではない。
+- [国立天文台「日本の暦」](https://eco.mtk.nao.ac.jp/koyomi/wiki/CEF2BBCB2FC6FCCBDCA4CECEF1.html)で宣明暦施行862年・貞享暦1685年を確認。現15件の暦制分類と整合。
+
+Gozaaru自体は今回取得失敗のため現行表示・利用条件の再確認はUNKNOWN。上記独立照合はGozaaruの自己申告に依存していません。
+
+- 年のみ1件、月のみ2件、日まで12件。期間両端を含む扱いを確認。
+- 永享8年の年範囲は閏5月を含む。和暦年と西暦1月1日～12月31日を取り違えていません。
+- 現在の15件でユリウス暦と先発グレゴリオ暦の混同は検出せず、根拠付き修正候補はありません。
+- DB/JSONは宣明暦、原文日付、日付精度、閏月フラグ、Julian/Gregorian双方、換算出典・状態、研究推定を別欄に持ちます。
+- `date_conversion_status=provisional`はそのまま維持。このレビューの照合完了と製品データの検証状態変更は別の行為です。
+- 汎用暦機能はPARTIAL。暦変換エンジンはなく、保存済み値を格納します。任意の閏月日・小月末・改元境界は未試験。`index.html:17`は`lunar_is_leap`を参照せず、将来の閏月表示をまだ区別できません。現15件に閏月記事はありません。
+- 日付対応の正しさは事件が史実としてその日に発生したことを保証しません。「同年／同月」の文脈補完や引用文書の日付という意味を別に扱います。
+
+## E. データベース構造
+
+**現行データはPASS、入力検証を含む基盤の受入はFAIL。**
+
+|観点|判定|確認結果|
+|---|---|---|
+|作品・底本・章段・記事の分離|PASS|works=1、editions=1、chapters=4、articles=15|
+|記事の独立保存|PASS|同内容を異なるID/掲載順の2記事として保存可能。自動統合処理なし|
+|記事間関連|PASS|別テーブルarticle_relationships、正常関連は保存、存在しない関連先と自己関連を拒否|
+|外部キー|PASS（検査接続）|foreign_keys=1、存在しないchapterでbuild失敗、foreign_key_check空|
+|恒久ID|PARTIAL|入力IDを保持し通常重複は拒否。ただしNULLを受理するP2-5|
+|年代順と掲載順|PARTIAL|各列は存在。Web年代順処理にはP2-1。掲載順の実画面切替は未試験|
+|原文日付と研究推定|PASS（構造）|別列で保持、現在research_date_*はNULL。テスト比較不足はP2-4|
+|異なる史料への拡張|PARTIAL|作品/版/章の構造は拡張可能。ただしbuildは固定の作品・章段で入力の所属を検証しないP2-2|
+|人物・地名・事件関係|PARTIAL|記事関係テーブルはある。人物/場所は現在「本文中の文字列」で、独立した人物・地名辞書と記事リンクは未実装|
+|将来の移行・校訂履歴|UNKNOWN|移行/履歴機構なし。buildはJSONからDB全体を再生成する設計。将来DBにだけ追加する情報は別途保全設計が必要|
+
+外部キーはSQLiteの接続単位設定です。他の書込みクライアントでもPRAGMAを有効にする必要があります。将来の人物・地名一般化を今回すべて実装することは要求しません。まず出典と記事を誤帰属させない入力境界が必要です。
+
+## F. Web画面の独立操作結果
+
+**実画面の受入はNOT_TESTED。静的確認やNode実行を、Chromium/WebKit操作済みとは報告しません。**
+
+クラウドChromium/CDPの存在は確認しましたが、固定HTMLを提供したローカルHTTPサーバに接続すると`net::ERR_CONNECTION_REFUSED`。実行workspaceとブラウザ環境のlocalhostが共有されていないと考えられます。次に自己完結HTMLのdata URLを試したところ、ツールから`Allowed protocols: "http:", "https:"`のセキュリティ拒否を受けました。拒否を迂回せず停止。外部ホスティング作成・Pages設定変更はしていません。WebKitは利用可能ブラウザ一覧にありませんでした。
+
+|検査|結果|
+|---|---|
+|15件のpayloadとJSON一致|PASS（データ検査のみ）|
+|実際に15カードが描画されること|NOT_TESTED|
+|年代順ロジック|FAIL（P2-1、Nodeで再現）|
+|掲載順ボタン・検索・年/章絞込・JSON保存の操作|NOT_TESTED|
+|出典対応・暫定換算・文書日付表示|PARTIAL（ソース確認のみ）|
+|Chromium PC/スマートフォン幅、WebKit|NOT_TESTED|
+|キーボード・実アクセシビリティツリー・スクリーンリーダー|NOT_TESTED|
+|攻撃文字列の実行可否|NOT_TESTED|
+
+`lang=ja`、label、ネイティブdetails/summary、`aria-pressed`、textContent経由の描画は確認しました。ただし、リンクURLの検証やscript内JSONの安全な埋込みを含む実行試験は未完了であり、XSS安全性をPASSにはしていません。対象画面のスクリーンショットはありません。
+
+## G. Python・SQLite・JSONのテスト
+
+固定HEADのコピーでREADME通り実行：
+
+```sh
+python prototype/eikyouki/build.py
+# Built eikyouki.db: 15 provisional articles
+python prototype/eikyouki/test_dates.py
+# PASS: 15 provisional articles / JSON / HTML / SQLite / Gregorian date fixtures
+python -m unittest discover -s prototype/eikyouki -p 'test*.py' -v
+# Ran 0 tests ... NO TESTS RAN; exit 5
+```
+
+既存テストはスクリプト1本のトップレベルassertで、15レコードを照合します。unittestケース15件という意味ではありません。unittest収集0件でもimport時のassertは動きますが、収集結果を成功テスト件数に加算していません。
+
+追加検査：
+
+- JSONとHTML payload全体が完全一致。
+- article/chapters/editions JOINによる全36フィールド×15記事=540比較、不一致0（SQLiteの0とJSON falseは意味同値として比較）。
+- 21種類のJSON変異を独立一時コピーで生成しbuild/testを実行。月13、日31、未定義precision/status、存在しないchapter、通常重複IDはbuildで拒否。その他の欠落はHに記載。
+- 独立インメモリDBで同内容別記事・関連・外部キー・NULL IDを検査。
+- DBの6列を直接破損させて、既存テストが検出しないことを実証。
+- 不正chapterで再ビルド失敗後も、既存DBのSHA256一致・一時DB消去を確認。
+- Pythonは標準ライブラリのみ、`Path(__file__)`基準。提出8ファイルに環境固有の絶対パスなし。生成DB/cacheのignore指定と、DBがPR変更一覧に含まれないことを確認。
+- 提出8ファイルの目視・限定パターン検査で秘密鍵/APIキー等の疑いは検出せず。ただし全Git履歴の専門的シークレットスキャン実施済みとはしません。
+
+## H. 発見した問題
+
+**P1：検出なし。P2：5件。** P1なしは未検証分の安全性保証ではありません。
+
+### P2-1：日付順が実際には史料掲載順になる
+
+- 位置：[index.html:19–20](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/index.html#L19-L20)
+- 原因：`dateRank`はISO文字列を返すが、比較器が文字列同士を減算するためNaNとなり、常にsource_orderの比較へ進む。
+- 再現：元payloadと同一比較器をNodeで実行。実際は0001～0015の掲載順。期待順は0001～0012、0015、0013、0014。
+- 影響：1438-09-27のEK-0015が1438-10-30/11-13の記事より後に並ぶ。年代順として誤った順序。
+- 修正案：ISO文字列の大小比較または検証済み日付値比較と同日タイブレーク。0015を使う回帰テストを追加。
+
+```sh
+node - <<'JS'
+const fs = require('fs');
+const html = fs.readFileSync('prototype/eikyouki/index.html', 'utf8');
+const records = JSON.parse(html.match(/<script id="payload" type="application\/json">(.*?)<\/script>/s)[1]);
+function dateRank(r) { return r.gregorian_start || '9999-12-31'; }
+console.log('1438-09-27' - '1438-10-30'); // NaN
+console.log([...records].sort((a,b) => dateRank(a)-dateRank(b) || a.source_order-b.source_order).map(r => r.id));
+console.log([...records].sort((a,b) => dateRank(a).localeCompare(dateRank(b)) || a.source_order-b.source_order).map(r => r.id));
+JS
+```
+
+### P2-2：入力の作品・底本・出典を黙って無視する
+
+- 位置：[build.py:14–28](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/build.py#L14-L28)、[39–56](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/build.py#L39-L56)
+- 再現：JSONのEK-0001を`work_id='NO_SUCH_WORK'`、`edition_id='NO_SUCH_EDITION'`、`chapter='changed chapter'`、`source_url='https://example.com/different-source'`へ各々変更。HTML payloadも同じ入力へ合わせる。4ケースすべてbuild exit 0 / test exit 0。
+- 実際のDB JOIN：常に`EIKYOUKI / SHISEKI-SHURAN-12-WIKISOURCE / 序章 / Wikisource序章URL`。
+- 原因：これら入力をARTICLE_FIELDSへ含めず、固定の作品・版・章段を使う一方、入力との一致を検証しない。正規化そのものが問題なのではない。
+- 影響：異なる出典の入力を受理したように見せ、誤帰属または所在情報喪失を起こす。現行15件には不一致なし。
+- 修正案：固定資料専用の間も未対応の所属・出典を明示的に拒否。拡張時に正規化テーブルを入力化し整合を検証。
+
+### P2-3：不正な日付・型・閏月値をビルドが受理する
+
+- 位置：[schema.sql:17–27](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/schema.sql#L17-L27)、[build.py:53–56](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/build.py#L53-L56)
+- 再現：`julian_start='not-a-date'`、終了より後の`julian_start='2000-01-01'`、`lunar_month=1.5`、`era_year=-1`、`western_year='nonsense'`、`lunar_is_leap=0.8`がそれぞれbuild/testともexit 0。最後はint変換で0になる。
+- `gregorian_start='1437-02-30'`もbuildはexit 0。後段fixtureテストは失敗するが、ビルド境界で拒否できない。
+- 原因：SQLiteのINTEGER型名だけでは厳密型にならず、日付TEXT・精度間整合・閏月入力の型も検証されない。
+- 修正案：入力型、NULL、実在日、範囲の前後、年/月/日精度との一貫性を暦体系別に検証。未知と不正を区別し、閏月値の黙示切捨てを禁止。
+
+### P2-4：DBの原文・出典関連・要約・研究推定の破損をテストが見逃す
+
+- 位置：[test_dates.py:41–47](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/test_dates.py#L41-L47)
+- 再現：生成DBのEK-0001に下記UPDATEを行った一時コピーで`python test_dates.py`がexit 0、PASS表示。
+
+```sql
+UPDATE articles SET summary='CORRUPTED SUMMARY',
+ original_date='CORRUPTED DATE', julian_start='not-a-date',
+ research_date_start='2000-01-01', research_date_basis='CORRUPTED BASIS',
+ full_original_text='INVENTED TEXT' WHERE article_id='EK-0001';
+```
+
+- 原因：DB比較はGregorian開始/終了/statusの3列と件数に限られる。integrity_check/foreign_key_checkは意味の破損を検出しない。
+- 修正案：JOINした全フィールドを比較し、意図した正規化以外の情報消失・食い違いを検出。現在のデータが破損しているとの指摘ではない。
+
+### P2-5：恒久IDがNULLのまま複数記事を保存できる
+
+- 位置：[schema.sql:14](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/schema.sql#L14)、[build.py:54–56](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/build.py#L54-L56)
+- 再現：JSONのid=nullでbuild成功。独立DBでは異なるsource_orderのNULL ID記事を2件ともINSERT可能。
+- 既存testはこの入力ではKeyErrorで失敗するが、build自体は不正な成果物を完成させる。
+- 原因：通常rowidテーブルの`TEXT PRIMARY KEY`はSQLiteで暗黙NOT NULLにならない。作品/版/章の同型PKも要確認。
+- 修正案：IDにNOT NULLを付け、入力で非空文字列・一意性を検証。
+
+### P3／史料の根拠ラベル・追跡性の改善
+
+- [EK-0010:363–377](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/eikyouki_records.json#L363-L377)：日付句は「八月十四日戌刻計」で年は前文脈から補いますが、解釈欄は「明記」のみ。年月日別の根拠か、年は文脈補完との注記が必要です。換算値の誤りではありません。
+- [EK-0015:561–567](https://github.com/tetsujisugimori-coder/historical-source-atlas/blob/ec347901dc4b688927bb3002121ff58e6b7dbd40/prototype/eikyouki/eikyouki_records.json#L561-L567)：京都という発給側の説明がlocation_in_textに入り、本文の場所語形と編集者の地理的補足が別欄になっていません。原語と補足を分離して根拠を添えること。京都という値そのものを誤りと断定していません。
+- EK-0003の「より」は始期であって事件の終息日ではありません。現注記を維持し、日付精度のstart=endを継続期間の確定と誤読しない設計にしてください。
+
+史料改訂を追跡するWikisource revision ID・閲覧日、底本画像の頁/コマ・引用範囲、記事分割理由、検証者/根拠/更新履歴を固定する仕組みを追加。人物/地名の典拠化や汎用移行は、記事の原形を保った後に段階的に行うのが妥当です。
+
+## I. 未検証事項・残存リスク
+
+- 底本画像・複数伝本の逐語校合、15件以外の採録網羅性、史料叙述の史実性：UNKNOWN。
+- 原文全文の保存・現代語訳：現在未実装。15件はfull_original_text=NULL。短い所在手掛かりと要約のみであり、完全な史料保存基盤と呼ぶには今後の工程が必要。
+- 権利条件の資料単位の最終判定：UNKNOWN。公開されていることを自由利用許諾とはみなさない。
+- 任意日付の宣明暦換算、改元/閏月/小月末、長期のID・移行履歴：NOT_TESTEDまたはPARTIAL。
+- Chromium/WebKitの実画面、スマートフォン、キーボード、動的アクセシビリティ、XSS/危険URL負対照、実ダウンロード：NOT_TESTED。
+- 同時ビルド、強制終了時耐久性、Windows等他環境：NOT_TESTED。
+
+## J. 修正提案・再受入条件
+
+1. 年代順比較を修正し、EK-0015が0012と0013の間に入る回帰テストを追加。
+2. 出典/所属の入力検証、ID非NULL、暦・数値型・精度の整合検査を追加。現行15件を損なわず、上記負対照で失敗することを確認。
+3. JSON/HTML/SQLiteの全フィールド比較をテストへ取り込み、破損した原文・研究推定等を検出。
+4. 同じ固定版へ到達できる、承認済みHTTP(S)プレビューまたはファイルとブラウザが共存する環境で、実画面QAを完了。Pages公開を必須手段にはしない。
+5. 史料は仮登録表示を維持し、原文と底本箇所・revision・権利根拠を順次記録。今回のNAO照合証拠を検証履歴として採録する場合は、史実認定や本文校訂の完了と混同しない。
+
+## K. 今回の変更範囲に限るマージ推奨：NO
+
+初期試作の意図と不確実性表示は適切な方向です。しかし、日付順という現機能の誤りと、記事・出典の保存に関わる再現可能な欠陥が残っています。将来の完全な研究DBを要求するためではなく、今回提示された基礎機能と保存の信頼性を満たすためのNOです。
+
+修正後HEADに対して上記負対照と実ブラウザ検査を再実施してください。本レビューは上記固定HEADに限る評価で、別HEADの承認ではありません。
+
+
+<details>
+<summary>付録1：独立負対照の再現スクリプト（製品コードを編集しない）</summary>
+
+固定HEADを別作業コピーに取得し、上記buildコマンドを実行後、以下をリポジトリ外の `atlas_review_probes.py` として保存し、リポジトリのルートを作業ディレクトリとして実行してください。変異はTemporaryDirectory内のみで、元のJSON/HTML/SQL/Pythonを変更しません。出典をexample.comに替える試験はデータ値だけの変更で外部通信しません。
+
+```python
+import json,re,sqlite3,subprocess,tempfile,shutil,sys,hashlib
+from pathlib import Path
+BASE=Path('prototype/eikyouki').resolve()
+sys.path.insert(0,str(BASE)); import build
+original=json.loads((BASE/'eikyouki_records.json').read_text())
+print('BASELINE')
+db=sqlite3.connect(BASE/'eikyouki.db'); db.row_factory=sqlite3.Row
+print('tables:',[(t,db.execute('SELECT COUNT(*) FROM '+t).fetchone()[0]) for t in ['works','editions','chapters','articles','article_relationships']])
+fail=[]
+for r in original['records']:
+ row=dict(db.execute('SELECT a.*,c.edition_id,c.heading AS chapter,c.chapter_url AS source_url,e.work_id FROM articles a JOIN chapters c USING(chapter_id) JOIN editions e USING(edition_id) WHERE article_id=?',(r['id'],)).fetchone());row['id']=row.pop('article_id')
+ for k,v in r.items():
+  if row[k]!=v:fail.append((r['id'],k,v,row[k]))
+print('all 36 JSON fields via article + chapter + edition join mismatches:',fail)
+print('JSON HTML complete equality:',json.loads(re.search(r'<script id="payload" type="application/json">(.*?)</script>',(BASE/'index.html').read_text(),re.S).group(1))==original['records'])
+def run_case(name,edit):
+ with tempfile.TemporaryDirectory(prefix='atlas-probe-') as td:
+  p=Path(td)
+  for f in BASE.iterdir():
+   if f.is_file() and f.suffix in ('.py','.sql','.json','.html'):shutil.copy2(f,p/f.name)
+  data=json.loads(json.dumps(original)); edit(data['records']);(p/'eikyouki_records.json').write_text(json.dumps(data,ensure_ascii=False))
+  html=(p/'index.html').read_text(); html=re.sub(r'(<script id="payload" type="application/json">).*?(</script>)',lambda m:m[1]+json.dumps(data['records'],ensure_ascii=False)+m[2],html,flags=re.S);(p/'index.html').write_text(html)
+  b=subprocess.run([sys.executable,str(p/'build.py')],capture_output=True,text=True)
+  t=subprocess.run([sys.executable,str(p/'test_dates.py')],capture_output=True,text=True) if b.returncode==0 else None
+  print(name,'BUILD='+str(b.returncode),'TEST='+str(t.returncode if t else 'NOT_RUN'),'detail='+((b.stderr.strip().splitlines()[-1] if b.stderr else '') or (t.stderr.strip().splitlines()[-1] if t and t.stderr else 'accepted')))
+  if b.returncode==0 and name.startswith('ignored_'):
+   d=sqlite3.connect(p/'eikyouki.db');print('  joined DB provenance:',d.execute('SELECT e.work_id,c.edition_id,c.heading,c.chapter_url FROM articles a JOIN chapters c USING(chapter_id) JOIN editions e USING(edition_id) WHERE article_id="EK-0001"').fetchone())
+for name,field,value in [
+ ('bad_month','lunar_month',13),('bad_day','lunar_day',31),('missing_chapter','chapter_id','not-found'),('bad_precision','date_precision','century'),('bad_status','date_conversion_status','invented'),
+ ('ignored_work','work_id','NO_SUCH_WORK'),('ignored_edition','edition_id','NO_SUCH_EDITION'),('ignored_chapter_label','chapter','changed chapter'),('ignored_source_url','source_url','https://example.com/different-source'),
+ ('invalid_julian','julian_start','not-a-date'),('invalid_gregorian','gregorian_start','1437-02-30'),('reversed_julian','julian_start','2000-01-01'),('fractional_month','lunar_month',1.5),('negative_era_year','era_year',-1),('text_year','western_year','nonsense'),('truthy_string_leap','lunar_is_leap','1'),('fractional_leap','lunar_is_leap',0.8),('unknown_with_dates','date_precision','unknown')]:
+ run_case(name,lambda rs,k=field,v=value:rs[0].__setitem__(k,v))
+run_case('duplicate_id',lambda rs:rs[1].__setitem__('id',rs[0]['id']))
+run_case('null_id',lambda rs:rs[0].__setitem__('id',None))
+run_case('legitimate_unknown_dates',lambda rs:rs[0].update(date_precision='unknown',gregorian_start=None,gregorian_end=None,julian_start=None,julian_end=None,date_conversion_status='unresolved'))
+print('DIRECT IN-MEMORY DB CHECKS')
+d=sqlite3.connect(':memory:');d.executescript((BASE/'schema.sql').read_text());print('foreign_keys',d.execute('PRAGMA foreign_keys').fetchone()[0]);d.executescript("INSERT INTO works VALUES('w','title',NULL,NULL,NULL); INSERT INTO editions VALUES('e','w','edition','url','policy'); INSERT INTO chapters VALUES('c','e','chapter','url');")
+row=dict(original['records'][0],article_id='a',chapter_id='c');row['lunar_is_leap']=0
+sql='INSERT INTO articles ('+','.join(build.ARTICLE_FIELDS)+') VALUES ('+','.join('?' for _ in build.ARTICLE_FIELDS)+')'
+d.execute(sql,[row[k] for k in build.ARTICLE_FIELDS]);row['article_id']='b';row['source_order']=2;d.execute(sql,[row[k] for k in build.ARTICLE_FIELDS]);print('same-content separate ids accepted, count',d.execute('SELECT COUNT(*) FROM articles').fetchone()[0])
+for desc,args in [('valid relation',('a','b','same-event')),('nonexistent target',('a','missing','same-event')),('self relation',('a','a','same-event'))]:
+ try:d.execute('INSERT INTO article_relationships(article_id_a,article_id_b,relation) VALUES(?,?,?)',args);print(desc,'accepted')
+ except Exception as e:print(desc,type(e).__name__,str(e))
+for i in (3,4):
+ row['article_id']=None;row['source_order']=i
+ try:d.execute(sql,[row[k] for k in build.ARTICLE_FIELDS]);print('null article id '+str(i),'accepted')
+ except Exception as e:print('null article id',type(e).__name__,str(e))
+print('null id count',d.execute('SELECT COUNT(*) FROM articles WHERE article_id IS NULL').fetchone()[0])
+print('STALE/CORRUPTED DATABASE TEST SENSITIVITY')
+with tempfile.TemporaryDirectory(prefix='atlas-stale-') as td:
+ p=Path(td)
+ for f in BASE.iterdir():
+  if f.is_file():shutil.copy2(f,p/f.name)
+ d=sqlite3.connect(p/'eikyouki.db');d.execute("UPDATE articles SET summary='CORRUPTED SUMMARY', original_date='CORRUPTED DATE', julian_start='not-a-date', research_date_start='2000-01-01', research_date_basis='CORRUPTED BASIS', full_original_text='INVENTED TEXT' WHERE article_id='EK-0001'");d.commit();d.close()
+ t=subprocess.run([sys.executable,str(p/'test_dates.py')],capture_output=True,text=True);print('corrupted six non-Gregorian DB fields TEST='+str(t.returncode),t.stdout.strip())
+ before=hashlib.sha256((p/'eikyouki.db').read_bytes()).hexdigest();data=json.loads(json.dumps(original));data['records'][0]['chapter_id']='MISSING';(p/'eikyouki_records.json').write_text(json.dumps(data));b=subprocess.run([sys.executable,str(p/'build.py')],capture_output=True,text=True);after=hashlib.sha256((p/'eikyouki.db').read_bytes()).hexdigest();print('failed rebuild preserves previous DB:',before==after,'BUILD='+str(b.returncode),'temporary remains:',(p/'eikyouki.db.tmp').exists())
+```
+</details>
+
+<details>
+<summary>付録2：国立天文台6照会から転記した39月朔（CSV）</summary>
+
+値は両モードで実際に取得した月朔。期間の端点算出に使ったアンカーであり、製品データのfixtureではありません。
+
+```csv
+era_year,lunar_month,julian_month_start,proleptic_gregorian_month_start
+8,01,1436-01-19,1436-01-28
+8,02,1436-02-17,1436-02-26
+8,03,1436-03-18,1436-03-27
+8,04,1436-04-17,1436-04-26
+8,05,1436-05-16,1436-05-25
+8,閏05,1436-06-15,1436-06-24
+8,06,1436-07-14,1436-07-23
+8,07,1436-08-13,1436-08-22
+8,08,1436-09-11,1436-09-20
+8,09,1436-10-10,1436-10-19
+8,10,1436-11-09,1436-11-18
+8,11,1436-12-08,1436-12-17
+8,12,1437-01-07,1437-01-16
+9,01,1437-02-06,1437-02-15
+9,02,1437-03-07,1437-03-16
+9,03,1437-04-06,1437-04-15
+9,04,1437-05-05,1437-05-14
+9,05,1437-06-04,1437-06-13
+9,06,1437-07-04,1437-07-13
+9,07,1437-08-02,1437-08-11
+9,08,1437-09-01,1437-09-10
+9,09,1437-09-30,1437-10-09
+9,10,1437-10-30,1437-11-08
+9,11,1437-11-28,1437-12-07
+9,12,1437-12-27,1438-01-05
+10,01,1438-01-26,1438-02-04
+10,02,1438-02-24,1438-03-05
+10,03,1438-03-26,1438-04-04
+10,04,1438-04-25,1438-05-04
+10,05,1438-05-24,1438-06-02
+10,06,1438-06-23,1438-07-02
+10,07,1438-07-22,1438-07-31
+10,08,1438-08-21,1438-08-30
+10,09,1438-09-20,1438-09-29
+10,10,1438-10-19,1438-10-28
+10,11,1438-11-18,1438-11-27
+10,12,1438-12-17,1438-12-26
+11,01,1439-01-16,1439-01-25
+11,閏01,1439-02-14,1439-02-23
+```
+</details>
+
