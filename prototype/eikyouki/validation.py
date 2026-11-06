@@ -119,8 +119,8 @@ def validate_record(r):
     if url is not None:
         try:
             parts = urlsplit(url)
-            safe = parts.scheme == "https" and parts.hostname and not parts.username and not parts.password
-            safe = safe and not any(ord(c) < 33 or c.isspace() for c in url)
+            safe = parts.scheme == "https" and parts.hostname and parts.username is None and parts.password is None
+            safe = safe and not any(ord(c) < 33 or 127 <= ord(c) <= 159 or c.isspace() for c in url)
             _ = parts.port  # malformed ports are not accepted as provenance URLs
         except ValueError:
             safe = False
