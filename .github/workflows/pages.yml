@@ -1,0 +1,59 @@
+name: Publish Atlas to Pages
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify source data and regression checks
+        run: |
+          python prototype/eikyouki/build.py
+          python prototype/eikyouki/run_checks.py /tmp/atlas-pages-checks
+      - name: Stage self-contained viewer only
+        run: |
+          mkdir -p _site
+          cp prototype/eikyouki/index.html _site/index.html
+          touch _site/.nojekyll
+          cmp prototype/eikyouki/index.html _site/index.html
+          test "$(find _site -type f | wc -l)" -eq 2
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Deploy viewer
+        id: deployment
+        uses: actions/deploy-pages@v5
