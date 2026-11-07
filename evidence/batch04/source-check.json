@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-11-07T11:01:15.980910+00:00",
+  "sources": [
+    {
+      "url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記",
+      "raw_bytes": 312828,
+      "raw_sha256": "9d56e98aca1a8e49b3c78c5f54ac43b9c0633ac5b384d4c7cee18c4a546c8835",
+      "encoding": "utf-8",
+      "retrieved_at": "2026-11-07T10:55:44.136407+00:00",
+      "result": {
+        "revision": 218476,
+        "scope": "同章のEK0020〜0026候補の記述を実読、全文転記なし"
+      }
+    },
+    {
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=1&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+      "raw_bytes": 18014,
+      "raw_sha256": "fe09cfbbbc7167dd2bcd4e7400519699983ff99d5185fa75ca5c44e773636de2",
+      "encoding": "euc_jp",
+      "retrieved_at": "2026-11-07T10:56:59.333450+00:00",
+      "result": {
+        "wareki": "永享10年11月01日",
+        "western": "1438/11/18",
+        "calendar": "Julian"
+      }
+    },
+    {
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=1&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+      "raw_bytes": 18016,
+      "raw_sha256": "9dfe52d485561c89dc26483b084b4199dc1cc73451104540ac65e650941614b9",
+      "encoding": "euc_jp",
+      "retrieved_at": "2026-11-07T10:57:47.037840+00:00",
+      "result": {
+        "wareki": "永享10年11月01日",
+        "western": "1438/11/27",
+        "calendar": "proleptic Gregorian"
+      }
+    }
+  ],
+  "failures": [
+    {
+      "route": "web search open",
+      "target": "NAOJ Julian/Gregorian",
+      "result": "inaccessible; direct HTTP succeeded separately"
+    }
+  ],
+  "underlying_images": "NOT_TESTED",
+  "variants": "NOT_TESTED",
+  "historical_fact": "NOT_TESTED"
+}

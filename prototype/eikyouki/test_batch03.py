@@ -10,8 +10,8 @@ class Batch03(unittest.TestCase):
         old=json.loads(subprocess.check_output(['git','show','c4c69c1079af74d2dd5fc7ba1b8b6272f0488cbb:prototype/eikyouki/eikyouki_records.json'],cwd=BASE))['records']
         same_fields(old,DATA[:17],'PR5 existing17')
     def test_new_articles(self):
-        self.assertEqual(19,len(DATA))
-        for r,id,day,j,g in zip(DATA[17:],['EK-0018','EK-0019'],[29,24],['1438-10-18','1438-10-13'],['1438-10-27','1438-10-22']):
+        self.assertGreaterEqual(len(DATA),19)
+        for r,id,day,j,g in zip(DATA[17:19],['EK-0018','EK-0019'],[29,24],['1438-10-18','1438-10-13'],['1438-10-27','1438-10-22']):
             self.assertEqual((id,day,j,g),(r['id'],r['lunar_day'],r['julian_start'],r['gregorian_start']))
             self.assertEqual('provisional',r['date_conversion_status']);self.assertIsNone(r['full_original_text'])
             self.assertIsNone(r['research_date_start']);validate_record(r)
