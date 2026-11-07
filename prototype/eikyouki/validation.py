@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
 CHAPTERS = [
+    ('kamakura_return', '持氏鎌倉へ飯給ふ事 附鎌倉合戦事', 'https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#持氏鎌倉へ飯給ふ事 附鎌倉合戦事'),
     ("intro", "序章", "https://ja.wikisource.org/wiki/永享記#永享記"),
     ("kufu", "公方管領不和の事", "https://ja.wikisource.org/wiki/永享記#公方管領不和の事"),
     ("miura", "三浦介逆心事", "https://ja.wikisource.org/wiki/永享記#三浦介逆心事"),

@@ -64,12 +64,12 @@ class Acceptance(unittest.TestCase):
 
 
     def test_new_hakone_articles_remain_distinct_provisional_entries(self):
-        self.assertEqual(17,len(DATA['records']))
-        self.assertEqual(['EK-0016','EK-0017'],[r['id'] for r in DATA['records'][-2:]])
-        self.assertEqual([16,17],[r['source_order'] for r in DATA['records'][-2:]])
-        self.assertEqual(['同九月十日','九月廿七日'],[r['original_date'] for r in DATA['records'][-2:]])
-        self.assertEqual(['1438-10-08','1438-10-25'],[r['gregorian_start'] for r in DATA['records'][-2:]])
-        for article in DATA['records'][-2:]:
+        self.assertGreaterEqual(len(DATA['records']),17)
+        self.assertEqual(['EK-0016','EK-0017'],[r['id'] for r in DATA['records'][15:17]])
+        self.assertEqual([16,17],[r['source_order'] for r in DATA['records'][15:17]])
+        self.assertEqual(['同九月十日','九月廿七日'],[r['original_date'] for r in DATA['records'][15:17]])
+        self.assertEqual(['1438-10-08','1438-10-25'],[r['gregorian_start'] for r in DATA['records'][15:17]])
+        for article in DATA['records'][15:17]:
             self.assertEqual('hakone',article['chapter_id'])
             self.assertEqual('provisional',article['date_conversion_status'])
             self.assertIsNone(article['full_original_text'])
