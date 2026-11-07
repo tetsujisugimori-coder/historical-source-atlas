@@ -1,0 +1,13 @@
+{
+  "classification": "new execution",
+  "started": "2026-11-07T00:00:42.132Z",
+  "head": "c4c69c1079af74d2dd5fc7ba1b8b6272f0488cbb",
+  "tree": "3bb08b0da2b051b57703afb1ba077236df7ee41d",
+  "sourceSha256": "1b0008417d694571dc2e420a0f11f269020c0799d4c89742296806cf887823ad",
+  "node": "v24.22.1",
+  "os": "linux",
+  "cases": [],
+  "finished": "2026-11-07T00:00:42.155Z",
+  "status": "FAIL",
+  "fatal": "browserType.launch: Executable doesn't exist at /home/agent/.cache/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-third/prototype/eikyouki/browser_acceptance.cjs:14:30)"
+}
