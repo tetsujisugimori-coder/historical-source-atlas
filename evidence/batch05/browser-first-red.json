@@ -1,0 +1,15 @@
+{
+  "classification": "new execution",
+  "started": "2026-11-07T14:01:22.153Z",
+  "head": "555ad2d3763d0ae009839d2ac2abbfcd78383228",
+  "tree": "f8549681f1f0ae726dfaf273fca5a380c578bbc6",
+  "inputMethod": "Playwright delivered keyboard/click/selectOption and fill; no physical device claim",
+  "dirty": "M README.md\n M prototype/eikyouki/README.md\n M prototype/eikyouki/browser_acceptance.cjs\n M prototype/eikyouki/eikyouki_records.json\n M prototype/eikyouki/evidence_manifest.py\n M prototype/eikyouki/index.html\n M prototype/eikyouki/test_sort.cjs\n?? prototype/eikyouki/baselines/existing26-batch05.json\n?? prototype/eikyouki/test_batch05.py",
+  "sourceSha256": "38fe90001fc880863c7b89dab101e4a8888a9bb1b1c99f57d32152c413fa2899",
+  "node": "v24.22.1",
+  "os": "linux",
+  "cases": [],
+  "finished": "2026-11-07T14:01:22.179Z",
+  "status": "FAIL",
+  "fatal": "browserType.launch: Executable doesn't exist at /tmp/calculator-stage3b6-browsers/chromium_headless_shell-1234/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:14:30)"
+}
