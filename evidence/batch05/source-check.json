@@ -1,0 +1,59 @@
+{
+  "classification": "new HTTP retrieval and direct reading; not bottom-image or critical-edition verification",
+  "files": [
+    {
+      "name": "eikyouki.html",
+      "url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記",
+      "bytes": 312828,
+      "sha256": "aee1ce97b42ec1055064171e6a2a80c37b110943dd7107c619cff66c1a417920",
+      "saved_at_utc": "2026-11-07T13:58:19.230774+00:00",
+      "route": "new HTTPS GET with curl",
+      "storage": "original HTTP bytes in evidence bundle source-responses; not a repository full-text reprint"
+    },
+    {
+      "name": "naoj-0.html",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=2&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+      "bytes": 18018,
+      "sha256": "e7529ded4863aa1177839cf5d7d23c46b048ba573b6c8873c6f484cf89e5781b",
+      "saved_at_utc": "2026-11-07T13:59:04.619401+00:00",
+      "route": "new HTTPS GET with curl",
+      "storage": "original HTTP bytes in evidence bundle source-responses; not a repository full-text reprint"
+    },
+    {
+      "name": "naoj-1.html",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=2&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+      "bytes": 18020,
+      "sha256": "4e902ba9c8ad1c0c72ec2df440cd2df46f11cea1b5106e90d12fb7d53dc330bb",
+      "saved_at_utc": "2026-11-07T13:59:15.135546+00:00",
+      "route": "new HTTPS GET with curl",
+      "storage": "original HTTP bytes in evidence bundle source-responses; not a repository full-text reprint"
+    }
+  ],
+  "source_revision": 218476,
+  "article_ids": [
+    "EK-0027",
+    "EK-0028",
+    "EK-0029"
+  ],
+  "calendar_result": {
+    "lunar": "永享10年11月02日",
+    "julian": "1438-11-19",
+    "proleptic_gregorian": "1438-11-28",
+    "status": "provisional: year/month context supplementation distinct from conversion"
+  },
+  "source_boundaries": {
+    "start": "同二日、持氏海老名より帰らせ給へは",
+    "end": "扨こそ事故なく、永安寺に入らせ給ける",
+    "next_heading": "持氏御出家并憲直以下自害の事"
+  },
+  "not_tested": [
+    "bottom edition images/printed page-lines",
+    "textual variants",
+    "historical factual truth",
+    "physical iOS Safari"
+  ],
+  "retrieval_notes": [
+    "Web search open returned inaccessible; direct HTTP GET succeeded.",
+    "Initial local parsing failed because bs4 was absent; stdlib HTMLParser was then used. No package was installed for parsing."
+  ]
+}
