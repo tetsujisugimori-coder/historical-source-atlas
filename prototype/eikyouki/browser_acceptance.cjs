@@ -18,7 +18,7 @@ async function main(){
    p.on('pageerror',e=>c.pageerrors.push({time:new Date().toISOString(),message:e.message}));p.on('console',m=>{if(m.type()==='error')c.consoleErrors.push(m.text())});
    const check=(name,actual,expectedValue)=>{assert.deepEqual(actual,expectedValue,name);c.checks.push({name,actual,expected:expectedValue})};
    try{
-    await p.goto(url);check('19 articles',await p.locator('.article').count(),19);
+    await p.goto(url);check('19 articles',await p.locator('.article').count(),19);check('total KPI',await p.locator('#total').innerText(),'19');check('chapter KPI',await p.locator('.stat b').nth(1).innerText(),'5');check('intro count', (await p.locator('.intro').innerText()).includes('この19件'),true);
     check('chronological order actual display',await ids(p),expected);
     await p.screenshot({path:path.join(out,`${name}-${width}-date.png`),fullPage:true});
     await p.locator('#chapter').selectOption('kamakura_return');check('new chapter chronological display',await ids(p),['EK-0019','EK-0018']);
