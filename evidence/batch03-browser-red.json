@@ -1,0 +1,138 @@
+{
+  "classification": "new execution",
+  "started": "2026-11-07T00:04:54.025Z",
+  "head": "c4c69c1079af74d2dd5fc7ba1b8b6272f0488cbb",
+  "tree": "3bb08b0da2b051b57703afb1ba077236df7ee41d",
+  "sourceSha256": "d90dfc7bf720b59fc8bad8a339fdd72b9188e2c94c185fc139aebdce686f738c",
+  "node": "v24.22.1",
+  "os": "linux",
+  "cases": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "19 articles",
+          "actual": 19,
+          "expected": 19
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014"
+          ]
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    60 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-third-b/prototype/eikyouki/browser_acceptance.cjs:24:33)"
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "19 articles",
+          "actual": 19,
+          "expected": 19
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014"
+          ]
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    60 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-third-b/prototype/eikyouki/browser_acceptance.cjs:24:33)"
+    }
+  ],
+  "finished": "2026-11-07T00:05:56.273Z",
+  "status": "FAIL",
+  "fatal": "browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libhyphen.so.0                                   ║\n║     libmanette-0.2.so.0                              ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-third-b/prototype/eikyouki/browser_acceptance.cjs:14:30)"
+}

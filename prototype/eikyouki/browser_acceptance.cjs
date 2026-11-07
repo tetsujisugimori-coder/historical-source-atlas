@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),
 const out=path.resolve(process.argv[2]||'evidence/browser');fs.mkdirSync(out,{recursive:true});
 const html=fs.readFileSync(path.join(__dirname,'index.html'));
 const records=JSON.parse(fs.readFileSync(path.join(__dirname,'eikyouki_records.json'),'utf8')).records;
-const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0017','EK-0013','EK-0014');
+const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0019','EK-0017','EK-0018','EK-0013','EK-0014');
 const ids=p=>p.locator('.article .topline').evaluateAll(xs=>xs.map(x=>x.textContent.match(/EK-\d{4}/)[0]));
 const result={classification:'new execution',started:new Date().toISOString(),head:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:__dirname,encoding:'utf8'}).trim(),tree:cp.execFileSync('git',['rev-parse','HEAD^{tree}'],{cwd:__dirname,encoding:'utf8'}).trim(),sourceSha256:crypto.createHash('sha256').update(html).digest('hex'),node:process.version,os:process.platform,cases:[]};
 const server=http.createServer((req,res)=>{if(req.url==='/favicon.ico'){res.writeHead(204);return res.end()}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(html)});
@@ -18,9 +18,12 @@ async function main(){
    p.on('pageerror',e=>c.pageerrors.push({time:new Date().toISOString(),message:e.message}));p.on('console',m=>{if(m.type()==='error')c.consoleErrors.push(m.text())});
    const check=(name,actual,expectedValue)=>{assert.deepEqual(actual,expectedValue,name);c.checks.push({name,actual,expected:expectedValue})};
    try{
-    await p.goto(url);check('17 articles',await p.locator('.article').count(),17);
+    await p.goto(url);check('19 articles',await p.locator('.article').count(),19);check('total KPI',await p.locator('#total').innerText(),'19');check('chapter KPI',await p.locator('.stat b').nth(1).innerText(),'5');check('intro count', (await p.locator('.intro').innerText()).includes('この19件'),true);
     check('chronological order actual display',await ids(p),expected);
     await p.screenshot({path:path.join(out,`${name}-${width}-date.png`),fullPage:true});
+    await p.locator('#chapter').selectOption('kamakura_return');check('new chapter chronological display',await ids(p),['EK-0019','EK-0018']);
+    await p.locator('#chapter').selectOption('all');
+    const allDownloadEvent=p.waitForEvent('download');await p.locator('#export').click();const allDownload=await allDownloadEvent;const allFile=path.join(out,`${name}-${width}-all-download.json`);await allDownload.saveAs(allFile);check('all 19 full records exported',JSON.parse(fs.readFileSync(allFile,'utf8')).records,expected.map(id=>records.find(r=>r.id===id)));
     await p.locator('#sort').click();check('source order',await ids(p),records.map(r=>r.id));check('source aria',await p.locator('#sort').getAttribute('aria-pressed'),'false');
     await p.locator('#sort').click();check('date order toggle',await ids(p),expected);
     await p.locator('#year').selectOption('1437');check('year filter',await ids(p),records.filter(r=>r.western_year===1437).map(r=>r.id));
