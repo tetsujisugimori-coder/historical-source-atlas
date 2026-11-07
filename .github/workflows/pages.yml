@@ -1,7 +1,5 @@
 name: Publish Atlas to Pages
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 

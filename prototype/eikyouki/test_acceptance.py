@@ -15,6 +15,7 @@ import sys
 
 from build import build_database, ARTICLE_FIELDS, SCHEMA
 from integrity import compare_connection, same_fields, verify
+from preservation import assert_preserved
 from validation import calendar_day, validate_data, FIELDS, validate_record
 
 BASE = Path(__file__).resolve().parent
@@ -56,11 +57,28 @@ class Acceptance(unittest.TestCase):
     def test_all_36_fields_and_existing_15(self):
         self.assertEqual(36,len(FIELDS))
         self.assertEqual(len(DATA['records']), verify(BASE/'eikyouki_records.json',BASE/'index.html',self.db))
-        # Preserve the frozen original 15 records; compare only their historic 36 fields.
-        old = json.loads(subprocess.check_output(['git','show','ec347901dc4b688927bb3002121ff58e6b7dbd40:prototype/eikyouki/eikyouki_records.json'],cwd=BASE,encoding='utf8'))
-        changes = {(r['id'],f) for r,o in zip(DATA['records'][:len(old['records'])],old['records']) for f in FIELDS if r[f]!=o[f]}
-        self.assertEqual({('EK-0010','date_interpretation'),('EK-0010','editorial_note'),('EK-0015','location_in_text'),('EK-0015','editorial_note')}, changes)
-        self.assertEqual([r['id'] for r in old['records']],[r['id'] for r in DATA['records'][:len(old['records'])]])
+        self.assertEqual(540, assert_preserved(DATA['records']))
+
+    def test_preservation_rejects_each_note_mutation(self):
+        for identifier, field in [('EK-0010','date_interpretation'),('EK-0010','editorial_note'),('EK-0015','location_in_text'),('EK-0015','editorial_note')]:
+            with self.subTest(identifier=identifier, field=field):
+                rows=copy.deepcopy(DATA['records'])
+                next(r for r in rows if r['id']==identifier)[field]='UNSUPPORTED REPLACEMENT'
+                with self.assertRaisesRegex(ValueError, identifier+': '+field):
+                    assert_preserved(rows)
+
+    def test_preservation_all_values_types_missing_duplicates_and_append(self):
+        for i in range(15):
+            for field in FIELDS:
+                with self.subTest(identifier=DATA['records'][i]['id'],field=field):
+                    rows=copy.deepcopy(DATA['records'])
+                    value=rows[i][field]
+                    rows[i][field]=not value if type(value) is bool else (float(value) if type(value) is int else ('CORRUPTED' if value is None else None))
+                    with self.assertRaises(ValueError):assert_preserved(rows)
+        for rows in (DATA['records'][1:],DATA['records']+[DATA['records'][0]]):
+            with self.assertRaises(ValueError):assert_preserved(rows)
+        rows=copy.deepcopy(DATA['records']); extra=dict(rows[-1],id='EK-9999',source_order=9999);rows.append(extra)
+        self.assertEqual(540,assert_preserved(list(reversed(rows))))
 
 
     def test_new_hakone_articles_remain_distinct_provisional_entries(self):
