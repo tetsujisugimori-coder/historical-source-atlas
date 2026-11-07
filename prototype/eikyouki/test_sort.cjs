@@ -3,7 +3,7 @@ const html=fs.readFileSync(`${__dirname}/index.html`,'utf8');
 const records=JSON.parse(html.match(/<script id="payload" type="application\/json">(.*?)<\/script>/s)[1]);
 const code=html.match(/function compareSource[^\n]+/)[0]+'\n'+html.match(/function compareChronology[^\n]+/)[0];
 const context=vm.createContext({});vm.runInContext(code,context);
-const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0019','EK-0017','EK-0018','EK-0013','EK-0014','EK-0025','EK-0026','EK-0020','EK-0021','EK-0022','EK-0023','EK-0024');
+const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0019','EK-0017','EK-0018','EK-0013','EK-0014','EK-0025','EK-0026','EK-0027','EK-0020','EK-0021','EK-0022','EK-0023','EK-0024','EK-0028','EK-0029');
 for(const input of [records,[...records].reverse(),[...records.slice(8),...records.slice(0,8)]]) {
  assert.deepEqual([...input].sort(context.compareChronology).map(r=>r.id),expected);
  assert.deepEqual([...input].sort(context.compareSource).map(r=>r.id),records.map(r=>r.id));

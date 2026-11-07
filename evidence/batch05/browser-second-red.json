@@ -1,0 +1,88 @@
+{
+  "classification": "new execution",
+  "started": "2026-11-07T14:01:36.390Z",
+  "head": "555ad2d3763d0ae009839d2ac2abbfcd78383228",
+  "tree": "f8549681f1f0ae726dfaf273fca5a380c578bbc6",
+  "inputMethod": "Playwright delivered keyboard/click/selectOption and fill; no physical device claim",
+  "dirty": "M README.md\n M prototype/eikyouki/README.md\n M prototype/eikyouki/browser_acceptance.cjs\n M prototype/eikyouki/eikyouki_records.json\n M prototype/eikyouki/evidence_manifest.py\n M prototype/eikyouki/index.html\n M prototype/eikyouki/test_sort.cjs\n?? prototype/eikyouki/baselines/existing26-batch05.json\n?? prototype/eikyouki/test_batch05.py",
+  "sourceSha256": "38fe90001fc880863c7b89dab101e4a8888a9bb1b1c99f57d32152c413fa2899",
+  "node": "v24.22.1",
+  "os": "linux",
+  "cases": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "29 articles",
+          "actual": 29,
+          "expected": 29
+        }
+      ],
+      "inputEvents": [],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: total KPI\n\n'26' !== '29'\n\n    at check (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:22:83)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:541:9)"
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "29 articles",
+          "actual": 29,
+          "expected": 29
+        }
+      ],
+      "inputEvents": [],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: total KPI\n\n'26' !== '29'\n\n    at check (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:22:83)"
+    },
+    {
+      "browser": "webkit",
+      "width": 390,
+      "height": 1000,
+      "version": "26.0",
+      "checks": [
+        {
+          "name": "29 articles",
+          "actual": 29,
+          "expected": 29
+        }
+      ],
+      "inputEvents": [],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: total KPI\n\n'26' !== '29'\n\n    at check (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:22:83)"
+    },
+    {
+      "browser": "webkit",
+      "width": 1280,
+      "height": 1000,
+      "version": "26.0",
+      "checks": [
+        {
+          "name": "29 articles",
+          "actual": 29,
+          "expected": 29
+        }
+      ],
+      "inputEvents": [],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: total KPI\n\n'26' !== '29'\n\n    at check (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:22:83)"
+    }
+  ],
+  "finished": "2026-11-07T14:01:40.906Z",
+  "status": "FAIL",
+  "fatal": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'FAIL' !== 'PASS'\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-fifth/prototype/eikyouki/browser_acceptance.cjs:71:9)"
+}
