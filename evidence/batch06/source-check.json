@@ -1,0 +1,144 @@
+{
+  "retrievals": [
+    {
+      "name": "wikisource",
+      "url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=%E6%B0%B8%E4%BA%AB%E8%A8%98",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "naoj-4-0",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=4&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18014,
+      "sha256": "519c0443670e04361d6a4edd76bb5669f564500bf37bf66dc805db3060844a29",
+      "fetched_utc": "2026-11-08T11:50:15.898106+00:00"
+    },
+    {
+      "name": "naoj-4-1",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=4&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18016,
+      "sha256": "7e49d16298f355d659921880491b46ef3adac81ad99521161eb334cf708522a9",
+      "fetched_utc": "2026-11-08T11:50:19.093057+00:00"
+    },
+    {
+      "name": "naoj-5-0",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=5&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18012,
+      "sha256": "baf60e927de25a4881c579ccff5c3fbd83a8d9d8f2d76643b391e03c82df65f0",
+      "fetched_utc": "2026-11-08T11:50:22.665439+00:00"
+    },
+    {
+      "name": "naoj-5-1",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=5&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18014,
+      "sha256": "818500740d39d6c56cfeef2f471faa0c8928986652e69d700a3dbdd5f39a5250",
+      "fetched_utc": "2026-11-08T11:50:25.626353+00:00"
+    },
+    {
+      "name": "naoj-7-0",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=7&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18012,
+      "sha256": "b7bb65d3d51d47e84aa2e9845d361759f0bd5d7fa08ce8eacbaa8065d346951d",
+      "fetched_utc": "2026-11-08T11:50:29.012610+00:00"
+    },
+    {
+      "name": "naoj-7-1",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=7&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18014,
+      "sha256": "f3a38a84bd88fd0c81b28039d0518bed4c4d620bcfb400d1ca6c951d41b210bb",
+      "fetched_utc": "2026-11-08T11:50:31.882026+00:00"
+    },
+    {
+      "name": "naoj-11-0",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=11&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18014,
+      "sha256": "aa0100015e43503bf8768d46146f70cdc0ba952a6fdccaf6ee1be41df4f8aa98",
+      "fetched_utc": "2026-11-08T11:50:35.886819+00:00"
+    },
+    {
+      "name": "naoj-11-1",
+      "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=10&month=11&day=11&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+      "status": 200,
+      "bytes": 18016,
+      "sha256": "871e9b59d72c6748bd903306d3f805685cade65163da56551c15fa18c8e70f46",
+      "fetched_utc": "2026-11-08T11:50:40.794355+00:00"
+    }
+  ],
+  "independent_check": {
+    "reviewed_utc": "2026-11-08T11:52:59.531356+00:00",
+    "classification": "independent reading of implementer HTTP artifacts; not separate HTTP acquisition",
+    "calendar": [
+      {
+        "file": "evidence/batch06/source/naoj-4-0.html",
+        "sha256": "519c0443670e04361d6a4edd76bb5669f564500bf37bf66dc805db3060844a29",
+        "matches_fetch_manifest": true,
+        "result": "1438/11/21 永享10年11月04日",
+        "calendar_label": "ユリウス暦"
+      },
+      {
+        "file": "evidence/batch06/source/naoj-4-1.html",
+        "sha256": "7e49d16298f355d659921880491b46ef3adac81ad99521161eb334cf708522a9",
+        "matches_fetch_manifest": true,
+        "result": "1438/11/30 永享10年11月04日",
+        "calendar_label": "グレゴリオ暦"
+      },
+      {
+        "file": "evidence/batch06/source/naoj-5-0.html",
+        "sha256": "baf60e927de25a4881c579ccff5c3fbd83a8d9d8f2d76643b391e03c82df65f0",
+        "matches_fetch_manifest": true,
+        "result": "1438/11/22 永享10年11月05日",
+        "calendar_label": "ユリウス暦"
+      },
+      {
+        "file": "evidence/batch06/source/naoj-5-1.html",
+        "sha256": "818500740d39d6c56cfeef2f471faa0c8928986652e69d700a3dbdd5f39a5250",
+        "matches_fetch_manifest": true,
+        "result": "1438/12/01 永享10年11月05日",
+        "calendar_label": "グレゴリオ暦"
+      },
+      {
+        "file": "evidence/batch06/source/naoj-7-0.html",
+        "sha256": "b7bb65d3d51d47e84aa2e9845d361759f0bd5d7fa08ce8eacbaa8065d346951d",
+        "matches_fetch_manifest": true,
+        "result": "1438/11/24 永享10年11月07日",
+        "calendar_label": "ユリウス暦"
+      },
+      {
+        "file": "evidence/batch06/source/naoj-7-1.html",
+        "sha256": "f3a38a84bd88fd0c81b28039d0518bed4c4d620bcfb400d1ca6c951d41b210bb",
+        "matches_fetch_manifest": true,
+        "result": "1438/12/03 永享10年11月07日",
+        "calendar_label": "グレゴリオ暦"
+      },
+      {
+        "file": "evidence/batch06/source/naoj-11-0.html",
+        "sha256": "aa0100015e43503bf8768d46146f70cdc0ba952a6fdccaf6ee1be41df4f8aa98",
+        "matches_fetch_manifest": true,
+        "result": "1438/11/28 永享10年11月11日",
+        "calendar_label": "ユリウス暦"
+      },
+      {
+        "file": "evidence/batch06/source/naoj-11-1.html",
+        "sha256": "871e9b59d72c6748bd903306d3f805685cade65163da56551c15fa18c8e70f46",
+        "matches_fetch_manifest": true,
+        "result": "1438/12/07 永享10年11月11日",
+        "calendar_label": "グレゴリオ暦"
+      }
+    ],
+    "web_extract_sha256": "0863456c0870699676f28d1d524554f1fdd3ddda7b5f3379dd83c8b5f07b6b68"
+  },
+  "wikisource_evidence_kind": "web connector extracted text, not raw HTTP HTML",
+  "raw_evidence_directory": "evidence/batch06/source",
+  "limits": [
+    "base-book images NOT_TESTED",
+    "printed pages/lines NOT_TESTED",
+    "textual variants NOT_TESTED",
+    "historical events NOT_TESTED"
+  ]
+}
