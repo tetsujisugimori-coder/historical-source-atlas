@@ -1,0 +1,48 @@
+{
+  "retrieval_recorded_at": "2026-11-08T20:06:25.216736+00:00",
+  "timing_note": "response files mtime records completion, not server event time",
+  "source_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記",
+  "revision_verified": 218476,
+  "files": {
+    "naoj-11-20-1.html": {
+      "sha256": "e989429b7a8a26d58655ec89460044799a6a7afa253cbccfd3507a377967aef2",
+      "retrieved_at": "2026-11-08T20:03:47.072330+00:00"
+    },
+    "naoj-6-28-1.html": {
+      "sha256": "3c2b961e64732749f7c926ac43e341067156a01a56877fedc43d367429248d1a",
+      "retrieved_at": "2026-11-08T20:03:15.867640+00:00"
+    },
+    "naoj-12-6-1.html": {
+      "sha256": "5245eb938c0176e767a6f23ecc60b5cb757e6dd72cfb59b2fa014188bcbbda7b",
+      "retrieved_at": "2026-11-08T20:04:21.634396+00:00"
+    },
+    "naoj-12-6-0.html": {
+      "sha256": "3ae82c4c6a5c8c1e49ef624565612dc6a6b6a0603ecdec8c71edcdeba6249e49",
+      "retrieved_at": "2026-11-08T20:04:11.589174+00:00"
+    },
+    "naoj-6-28-0.html": {
+      "sha256": "f396779844764c8e9583d106da725e1bf7b0ea6fbb04c26f301a44029bde29fe",
+      "retrieved_at": "2026-11-08T20:03:10.205493+00:00"
+    },
+    "naoj-11-20-0.html": {
+      "sha256": "97bc01c851190d70defbfc8243f0b95aa8720913b8e1feab0697fb208a1e0e9f",
+      "retrieved_at": "2026-11-08T20:03:39.900670+00:00"
+    },
+    "chapter.txt": {
+      "sha256": "22f48ac872231d41c9c12ea008efd538f5ee30c03de86b11d6a494d1dbf7f954",
+      "retrieved_at": "2026-11-08T20:04:41.496890+00:00"
+    },
+    "wikisource-fixed.html": {
+      "sha256": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0",
+      "retrieved_at": "2026-11-08T20:04:41.496999+00:00"
+    }
+  },
+  "naoj_urls": [
+    "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=11&month=6&day=28&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+    "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=11&month=6&day=28&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+    "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=11&month=11&day=20&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+    "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=11&month=11&day=20&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+    "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=11&month=12&day=6&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+    "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b208&year=11&month=12&day=6&jg=1&div=1&divu=3&len=1&lenu=3&gen=1"
+  ]
+}
