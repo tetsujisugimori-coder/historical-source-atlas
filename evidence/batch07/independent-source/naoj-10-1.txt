@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta content="text/html; charset=EUC-JP" http-equiv="Content-Type" />
+<meta content="text/javascript" http-equiv="Content-Script-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<link href="https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi" rel="canonical" />
+<link rel="stylesheet" type="text/css" href="/koyomi/style/koyomi.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/koyomi/style/koyomi_pr.css" media="print" />
+<script charset="EUC-JP" src="/koyomi/cande/script/koyomi.js" type="text/javascript"></script>
+<script src="/koyomi/site/ga.js" type="text/javascript" defer="defer"></script>
+<title>日本の暦日データベース - 国立天文台暦計算室</title>
+</head>
+<body>
+<div class="skipnav"><a href="#menu">設定へ移動</a> <a href="#skipr">結果へ移動</a></div><div id="header"><span class="bread"><a href="https://www.nao.ac.jp/">国立天文台</a>&nbsp;&gt;&nbsp;<a href="/koyomi/">暦計算室</a>&nbsp;&gt;&nbsp;</span> <span class="fright"><a href="/koyomi/site/koyomi.rdf" id="rss" name="rss">RSS</a> | <a href="/koyomi/topics/">トピックス</a> | <a href="/koyomi/wiki/">暦Wiki</a> | <a href="/koyomi/faq/">用語解説</a> | <a href="caldb_en.cgi" id="lang" name="lang">English</a></span> <br class="clear" /></div><h1>日本の暦日データベース</h1>
+<div id="menu"><h2>設定</h2> <form method="post" action="caldb.cgi" enctype="application/x-www-form-urlencoded" id="koyomi" name="koyomi" onsubmit="replace_z2h()"> <fieldset><legend>設定</legend> <div class="skipnav"><a href="#options">オプションへ移動</a></div> <ol><li><div>種類を選んでください：<select name="type"  id="type" title="種類">
+<option value="0">西暦から和暦へ変換</option>
+<option selected="selected" value="1">和暦から西暦へ変換</option>
+<option value="2">太陰太陽暦の朔日</option>
+</select></div></li> <li><div>年月日を指定してください(半角数字)。 <span><select name="gengo"  id="gengo" title="年号">
+<option value="a000">西暦 (換算)</option>
+<option value="b000">神武天皇</option>
+<option value="b001">綏靖天皇</option>
+<option value="b002">安寧天皇</option>
+<option value="b003">懿徳天皇</option>
+<option value="b004">孝昭天皇</option>
+<option value="b005">孝安天皇</option>
+<option value="b006">孝霊天皇</option>
+<option value="b007">孝元天皇</option>
+<option value="b008">開化天皇</option>
+<option value="b009">崇神天皇</option>
+<option value="b010">垂仁天皇</option>
+<option value="b011">景行天皇</option>
+<option value="b012">成務天皇</option>
+<option value="b013">仲哀天皇</option>
+<option value="b014">神功皇后摂政</option>
+<option value="b015">応神天皇</option>
+<option value="b016">仁徳天皇</option>
+<option value="b017">履中天皇</option>
+<option value="b018">反正天皇</option>
+<option value="b019">允恭天皇</option>
+<option value="b020">安康天皇</option>
+<option value="b021">雄略天皇</option>
+<option value="b022">清寧天皇</option>
+<option value="b023">顕宗天皇</option>
+<option value="b024">仁賢天皇</option>
+<option value="b025">武烈天皇</option>
+<option value="b026">継体天皇</option>
+<option value="b027">安閑天皇</option>
+<option value="b028">宣化天皇</option>
+<option value="b029">欽明天皇</option>
+<option value="b030">敏達天皇</option>
+<option value="b031">用明天皇</option>
+<option value="b032">崇峻天皇</option>
+<option value="b033">推古天皇</option>
+<option value="b034">舒明天皇</option>
+<option value="b035">皇極天皇</option>
+<option value="b036">大化</option>
+<option value="b037">白雉</option>
+<option value="b038">斉明天皇</option>
+<option value="b039">天智天皇</option>
+<option value="b040">天武天皇</option>
+<option value="b041">朱鳥</option>
+<option value="b042">持統天皇</option>
+<option value="b043">文武天皇</option>
+<option value="b044">大宝</option>
+<option value="b045">慶雲</option>
+<option value="b046">和銅</option>
+<option value="b047">霊亀</option>
+<option value="b048">養老</option>
+<option value="b049">神亀</option>
+<option value="b050">天平</option>
+<option value="b051">天平感宝</option>
+<option value="b052">天平勝宝</option>
+<option value="b053">天平宝字</option>
+<option value="b054">天平神護</option>
+<option value="b055">神護景雲</option>
+<option value="b056">宝亀</option>
+<option value="b057">天応</option>
+<option value="b058">延暦</option>
+<option value="b059">大同</option>
+<option value="b060">弘仁</option>
+<option value="b061">天長</option>
+<option value="b062">承和</option>
+<option value="b063">嘉祥</option>
+<option value="b064">仁寿</option>
+<option value="b065">斉衡</option>
+<option value="b066">天安</option>
+<option value="b067">貞観</option>
+<option value="b068">元慶</option>
+<option value="b069">仁和</option>
+<option value="b070">寛平</option>
+<option value="b071">昌泰</option>
+<option value="b072">延喜</option>
+<option value="b073">延長</option>
+<option value="b074">承平</option>
+<option value="b075">天慶</option>
+<option value="b076">天暦</option>
+<option value="b077">天徳</option>
+<option value="b078">応和</option>
+<option value="b079">康保</option>
+<option value="b080">安和</option>
+<option value="b081">天禄</option>
+<option value="b082">天延</option>
+<option value="b083">貞元</option>
+<option value="b084">天元</option>
+<option value="b085">永観</option>
+<option value="b086">寛和</option>
+<option value="b087">永延</option>
+<option value="b088">永祚</option>
+<option value="b089">正暦</option>
+<option value="b090">長徳</option>
+<option value="b091">長保</option>
+<option value="b092">寛弘</option>
+<option value="b093">長和</option>
+<option value="b094">寛仁</option>
+<option value="b095">治安</option>
+<option value="b096">万寿</option>
+<option value="b097">長元</option>
+<option value="b098">長暦</option>
+<option value="b099">長久</option>
+<option value="b100">寛徳</option>
+<option value="b101">永承</option>
+<option value="b102">天喜</option>
+<option value="b103">康平</option>
+<option value="b104">治暦</option>
+<option value="b105">延久</option>
+<option value="b106">承保</option>
+<option value="b107">承暦</option>
+<option value="b108">永保</option>
+<option value="b109">応徳</option>
+<option value="b110">寛治</option>
+<option value="b111">嘉保</option>
+<option value="b112">永長</option>
+<option value="b113">承徳</option>
+<option value="b114">康和</option>
+<option value="b115">長治</option>
+<option value="b116">嘉承</option>
+<option value="b117">天仁</option>
+<option value="b118">天永</option>
+<option value="b119">永久</option>
+<option value="b120">元永</option>
+<option value="b121">保安</option>
+<option value="b122">天治</option>
+<option value="b123">大治</option>
+<option value="b124">天承</option>
+<option value="b125">長承</option>
+<option value="b126">保延</option>
+<option value="b127">永治</option>
+<option value="b128">康治</option>
+<option value="b129">天養</option>
+<option value="b130">久安</option>
+<option value="b131">仁平</option>
+<option value="b132">久寿</option>
+<option value="b133">保元</option>
+<option value="b134">平治</option>
+<option value="b135">永暦</option>
+<option value="b136">応保</option>
+<option value="b137">長寛</option>
+<option value="b138">永万</option>
+<option value="b139">仁安</option>
+<option value="b140">嘉応</option>
+<option value="b141">承安</option>
+<option value="b142">安元</option>
+<option value="b143">治承</option>
+<option value="b144">養和</option>
+<option value="b145">寿永</option>
+<option value="b146">元暦</option>
+<option value="b147">文治</option>
+<option value="b148">建久</option>
+<option value="b149">正治</option>
+<option value="b150">建仁</option>
+<option value="b151">元久</option>
+<option value="b152">建永</option>
+<option value="b153">承元</option>
+<option value="b154">建暦</option>
+<option value="b155">建保</option>
+<option value="b156">承久</option>
+<option value="b157">貞応</option>
+<option value="b158">元仁</option>
+<option value="b159">嘉禄</option>
+<option value="b160">安貞</option>
+<option value="b161">寛喜</option>
+<option value="b162">貞永</option>
+<option value="b163">天福</option>
+<option value="b164">文暦</option>
+<option value="b165">嘉禎</option>
+<option value="b166">暦仁</option>
+<option value="b167">延応</option>
+<option value="b168">仁治</option>
+<option value="b169">寛元</option>
+<option value="b170">宝治</option>
+<option value="b171">建長</option>
+<option value="b172">康元</option>
+<option value="b173">正嘉</option>
+<option value="b174">正元</option>
+<option value="b175">文応</option>
+<option value="b176">弘長</option>
+<option value="b177">文永</option>
+<option value="b178">建治</option>
+<option value="b179">弘安</option>
+<option value="b180">正応</option>
+<option value="b181">永仁</option>
+<option value="b182">正安</option>
+<option value="b183">乾元</option>
+<option value="b184">嘉元</option>
+<option value="b185">徳治</option>
+<option value="b186">延慶</option>
+<option value="b187">応長</option>
+<option value="b188">正和</option>
+<option value="b189">文保</option>
+<option value="b190">元応</option>
+<option value="b191">元亨</option>
+<option value="b192">正中</option>
+<option value="b193">嘉暦</option>
+<option value="b194">元徳</option>
+<option value="b195">元弘</option>
+<option value="b196">建武</option>
+<option value="b197">延元</option>
+<option value="b198">興国</option>
+<option value="b199">正平</option>
+<option value="b200">建徳</option>
+<option value="b201">文中</option>
+<option value="b202">天授</option>
+<option value="b203">弘和</option>
+<option value="b204">元中</option>
+<option value="b205">明徳</option>
+<option value="b206">応永</option>
+<option value="b207">正長</option>
+<option selected="selected" value="b208">永享</option>
+<option value="b209">嘉吉</option>
+<option value="b210">文安</option>
+<option value="b211">宝徳</option>
+<option value="b212">享徳</option>
+<option value="b213">康正</option>
+<option value="b214">長禄</option>
+<option value="b215">寛正</option>
+<option value="b216">文正</option>
+<option value="b217">応仁</option>
+<option value="b218">文明</option>
+<option value="b219">長享</option>
+<option value="b220">延徳</option>
+<option value="b221">明応</option>
+<option value="b222">文亀</option>
+<option value="b223">永正</option>
+<option value="b224">大永</option>
+<option value="b225">享禄</option>
+<option value="b226">天文</option>
+<option value="b227">弘治</option>
+<option value="b228">永禄</option>
+<option value="b229">元亀</option>
+<option value="b230">天正</option>
+<option value="b231">文禄</option>
+<option value="b232">慶長</option>
+<option value="b233">元和</option>
+<option value="b234">寛永</option>
+<option value="b235">正保</option>
+<option value="b236">慶安</option>
+<option value="b237">承応</option>
+<option value="b238">明暦</option>
+<option value="b239">万治</option>
+<option value="b240">寛文</option>
+<option value="b241">延宝</option>
+<option value="b242">天和</option>
+<option value="b243">貞享</option>
+<option value="b244">元禄</option>
+<option value="b245">宝永</option>
+<option value="b246">正徳</option>
+<option value="b247">享保</option>
+<option value="b248">元文</option>
+<option value="b249">寛保</option>
+<option value="b250">延享</option>
+<option value="b251">寛延</option>
+<option value="b252">宝暦</option>
+<option value="b253">明和</option>
+<option value="b254">安永</option>
+<option value="b255">天明</option>
+<option value="b256">寛政</option>
+<option value="b257">享和</option>
+<option value="b258">文化</option>
+<option value="b259">文政</option>
+<option value="b260">天保</option>
+<option value="b261">弘化</option>
+<option value="b262">嘉永</option>
+<option value="b263">安政</option>
+<option value="b264">万延</option>
+<option value="b265">文久</option>
+<option value="b266">元治</option>
+<option value="b267">慶応</option>
+<option value="b268">明治</option>
+<option value="b269">大正</option>
+<option value="b270">昭和</option>
+<option value="b271">平成</option>
+<option value="b272">令和</option>
+<option value="c000">正慶</option>
+<option value="c001">建武</option>
+<option value="c002">暦応</option>
+<option value="c003">康永</option>
+<option value="c004">貞和</option>
+<option value="c005">観応</option>
+<option value="c006">文和</option>
+<option value="c007">延文</option>
+<option value="c008">康安</option>
+<option value="c009">貞治</option>
+<option value="c010">応安</option>
+<option value="c011">永和</option>
+<option value="c012">康暦</option>
+<option value="c013">永徳</option>
+<option value="c014">至徳</option>
+<option value="c015">嘉慶</option>
+<option value="c016">康応</option>
+<option value="c017">明徳</option>
+</select> <input type="text" name="year" value="11" size="4" maxlength="5" id="year" title="年" /> 年 <label><input type="checkbox" name="leap" value="1" id="leap" />閏</label> <select name="month"  id="month" title="月">
+<option value="1">1</option>
+<option selected="selected" value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select> 月 <select name="day"  id="day" title="日">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option selected="selected" value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select> 日</span> <input type="submit" name="表示" value="表示" /> <input type="submit" name="yes" value="-1年" /> <input type="submit" name="tod" value="今年" /> <input type="submit" name="tom" value="+1年" /></div></li> <li><div id="options">(オプション) 西暦の種類： <select name="jg"  id="jg" title="暦">
+<option value="0">すべてユリウス暦</option>
+<option selected="selected" value="1">すべてグレゴリオ暦</option>
+<option value="2">デフォルト</option>
+</select> <input type="submit" name="表示" value="表示" /></div></li> <li><div>(オプション) 間隔と期間(半角数字)  <input type="text" name="div" value="1" size="5" maxlength="10" id="div" title="間隔" /> <select name="divu"  id="divu" title="間隔の単位">
+<option selected="selected" value="3">日</option>
+</select> ごとに  <input type="text" name="len" value="1" size="5" maxlength="10" id="len" title="期間" /> <select name="lenu"  id="lenu" title="期間の単位">
+<option selected="selected" value="3">日</option>
+</select> 間調べる <input type="submit" name="表示" value="表示" /></div></li> <li><div>(オプション) 年号は<select name="gen"  id="gen" title="年号">
+<option value="0">年単位</option>
+<option selected="selected" value="1">日付単位</option>
+</select>で判断する <input type="submit" name="表示" value="表示" /></div></li> <li><div>(オプション) <input type="submit" name="csv" value="CSV" /></div></li> <li><input type="submit" name="表示" value="表示" /></li></ol></fieldset> </form></div><div id="skipr"><h2>結果</h2> <table border="1" class="result" id="tdleft" summary="データ"><tr><th scope="col">西暦</th> <th scope="col">和暦</th> <th scope="col">神武紀元</th> <th scope="col">年の干支</th> <th scope="col">月の干支</th> <th scope="col">日の干支</th></tr> <tr><td>1439/04/02</td> <td>永享11年02月10日</td> <td>2099</td> <td>己未 (つちのとのひつじ)</td> <td>丁卯 (ひのとのう)</td> <td>戊子 (つちのえね)</td></tr></table> <div>西暦の日付はすべてグレゴリオ暦によります。</div></div>
+<hr class="clear" /><h3>ご利用にあたって</h3><ul><li><a href="/koyomi/wiki/CEF2BBCB2FC6FCCBDCA4CECEF1.html">日本の暦</a><ul><li><a href="/koyomi/wiki/C2C0B1A2C2C0CDDBCEF12FC6FCCBDCA4CECEF1C6FCA5C7A1BCA5BFA5D9A1BCA5B9.html">本データベース</a>は<a href="/koyomi/wiki/CDD7C1C72F1C7AFA4C8A4CFA1A92FB5AAB8B5.html#e1e8473c">神武紀元</a>(-659)以後の暦日に対応しています。</li> <li>日付単位で<a href="/koyomi/wiki/CEF2BBCB2FB8B5B9E6.html">年号</a>を判定できるのは大宝元年(701)以降です。ただし、文中元年(1372)はいつ改元したのかはっきりしないため、仮に4月1日としています。</li> <li><a href="/koyomi/wiki/B4B3BBD9.html#m506b7f3">月の干支</a>は暦月で判定します。</li> <li><a href="caldb_s.cgi">暦月・節月データベース</a></li> <li><a href="caldb_e.cgi">干支から探す日本の暦日</a></li> <li><a href="caldb_d.cgi">大小から探す日本の暦日</a></li></ul></li> <li>西暦<ul><li>デフォルトでは1582年10月15日以後の日付は<a href="/koyomi/wiki/A5B0A5ECA5B4A5EAA5AACEF1.html">グレゴリオ暦</a>、それより前は<a href="/koyomi/wiki/A5E6A5EAA5A6A5B9CEF1.html">ユリウス暦</a>によります。</li> <li><a href="/koyomi/wiki/CDD7C1C72F1C7AFA4C8A4CFA1A92FB5AAB8B5.html#r45acfb0">紀元元年の前年を0年</a>としているため、これを紀元前1年とする方法とは1年ずつ差異があります。</li></ul></li> <li>一度に出力できるのは400日以内に限られます。</li> <li>参考文献<ul><li>内田正男, 日本暦日原典, 雄山閣, (1975).</li> <li>内田正男, 日本書紀暦日原典, 雄山閣, (1978).</li> <li>歴史学研究会編, 日本史年表, 岩波書店, (2001).</li></ul></li> <li>予告なく変更することがあります (ver.1.2a)。</li></ul><div id="footer"><span class="fleft">Copyright(C) 1994- National Astronomical Observatory of Japan. All rights reserved.</span> <span class="fright">| <a href="/koyomi/about.html">暦計算室について</a> | <a href="/koyomi/site/">利用規定</a> | </span></div>
+</body>
+</html>

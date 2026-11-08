@@ -1,0 +1,392 @@
+{
+  "png_count": 46,
+  "decoded_pngs": [
+    {
+      "path": "chromium-1280-EK-0027.png",
+      "size": [
+        1280,
+        1646
+      ],
+      "sha256": "0cc077a6fc5cd37d5a506ef788c1a959a3322924917928cf87de143b5a1a2ef1"
+    },
+    {
+      "path": "chromium-1280-EK-0028.png",
+      "size": [
+        1280,
+        1602
+      ],
+      "sha256": "e72f9520e13e27519b07dbedbbb303dd1951b81c3c1c6ced22db6b61c57a3c8f"
+    },
+    {
+      "path": "chromium-1280-EK-0029.png",
+      "size": [
+        1280,
+        1621
+      ],
+      "sha256": "46fab1483f8038fc915787f57571b81c212a00d29b15c461d20f861993ae8d99"
+    },
+    {
+      "path": "chromium-1280-EK-0030.png",
+      "size": [
+        1280,
+        1577
+      ],
+      "sha256": "e3bd789f1cd91198c68cddc86992d2c77dbc919fa6f244cf70a9fc5335e76501"
+    },
+    {
+      "path": "chromium-1280-EK-0031.png",
+      "size": [
+        1280,
+        1577
+      ],
+      "sha256": "95680f90deae95ce26c0aac7cf39108040d3c9b66f252aabe5afa958c43dcf7f"
+    },
+    {
+      "path": "chromium-1280-EK-0032.png",
+      "size": [
+        1280,
+        1577
+      ],
+      "sha256": "9595c800a2f9f717dee7a69fa2b8277e67817c39a34a926409a5bd09206999a1"
+    },
+    {
+      "path": "chromium-1280-EK-0033.png",
+      "size": [
+        1280,
+        1557
+      ],
+      "sha256": "0e2be2f27d3fb2c5deee4b4d65fbc10884a0af8a5918d49ed6d0cf8601919df2"
+    },
+    {
+      "path": "chromium-1280-EK-0034.png",
+      "size": [
+        1280,
+        1535
+      ],
+      "sha256": "9d2d9329d2a83617c652b25f0aa302baa5d3c802d61456671c30c4cf09a7f91e"
+    },
+    {
+      "path": "chromium-1280-EK-0035.png",
+      "size": [
+        1280,
+        1579
+      ],
+      "sha256": "21c85c739930f9a53d9f81a544145996aaac751ffd0a720da4dfea37d7e4bdf8"
+    },
+    {
+      "path": "chromium-1280-EK-0036.png",
+      "size": [
+        1280,
+        1535
+      ],
+      "sha256": "a7ee3510fe5b0f5e73b0bbe937bbb8ed1a89232a7da646ff0e6037966896c754"
+    },
+    {
+      "path": "chromium-1280-EK-0037.png",
+      "size": [
+        1280,
+        1535
+      ],
+      "sha256": "578533b92ed60271f8d1e260a374c41f01ef1acccee8c97596736568cf8be352"
+    },
+    {
+      "path": "chromium-1280-EK-0038.png",
+      "size": [
+        1280,
+        1535
+      ],
+      "sha256": "a914ed6fc83a71b1cea776db43e2041c9ff2be76c73940356678f52b3df550fe"
+    },
+    {
+      "path": "chromium-1280-EK-0039.png",
+      "size": [
+        1280,
+        1535
+      ],
+      "sha256": "fec52da9320459ca4ecf70858190925d1a367e5be6d9c438490976d3a5bd0758"
+    },
+    {
+      "path": "chromium-1280-EK-0040.png",
+      "size": [
+        1280,
+        1577
+      ],
+      "sha256": "7f9c6fee69493f4d24c1dc7b098a24a543df4f1464f7d74e61a6e8b561636c36"
+    },
+    {
+      "path": "chromium-1280-EK-0041.png",
+      "size": [
+        1280,
+        1513
+      ],
+      "sha256": "0e2ac5eb5f72d9670fda4fecea0d845bc576b2144c0d646c07e4997afaf17986"
+    },
+    {
+      "path": "chromium-1280-EK-0042.png",
+      "size": [
+        1280,
+        1599
+      ],
+      "sha256": "e190cbc2fdf7ab9354f5beea1997e4fd15dc46a57694ebf595d5050412a10ff5"
+    },
+    {
+      "path": "chromium-1280-EK-0043.png",
+      "size": [
+        1280,
+        1579
+      ],
+      "sha256": "d42fc54d04b133c990541af5133d81465bd1ad55a7ea74078dbb21ccee50dcd3"
+    },
+    {
+      "path": "chromium-1280-EK-0044.png",
+      "size": [
+        1280,
+        1557
+      ],
+      "sha256": "17fd748e00e9139104cc5d1474ff53bb5c0e285709700a6f7b4f47be21e8f5cf"
+    },
+    {
+      "path": "chromium-1280-EK-0045.png",
+      "size": [
+        1280,
+        1513
+      ],
+      "sha256": "13fb19d943ba49ee8c54ac3eead7d227751fe60de2c7be4142432760c37cefbb"
+    },
+    {
+      "path": "chromium-1280-EK-0046.png",
+      "size": [
+        1280,
+        1624
+      ],
+      "sha256": "ec1806f20c4d8d44f655c3fc49de510904becc13ff5e50fbfb34413501ef5d8e"
+    },
+    {
+      "path": "chromium-1280-date.png",
+      "size": [
+        1280,
+        8355
+      ],
+      "sha256": "06c407771f44f673cb47f795a7188c265a46775dbd5920a0f2aaa8cba39276b7"
+    },
+    {
+      "path": "chromium-1280-detail-focus.png",
+      "size": [
+        1280,
+        1535
+      ],
+      "sha256": "3008911b7f129861ac4b02d465255a9d159233d5575c21d9e1820b2215a99f0f"
+    },
+    {
+      "path": "chromium-1280-unknown.png",
+      "size": [
+        1280,
+        3648
+      ],
+      "sha256": "40a4cc341cfff6048f576239573a4c1e12ceba37f6d2df2739aa65ba35e5e9ce"
+    },
+    {
+      "path": "chromium-390-EK-0027.png",
+      "size": [
+        390,
+        2448
+      ],
+      "sha256": "dc1cfdf28d56282cc5056092c3a0d0dc98e9200fdc113cef003cfe279e4054bb"
+    },
+    {
+      "path": "chromium-390-EK-0028.png",
+      "size": [
+        390,
+        2404
+      ],
+      "sha256": "84e0d680a992bdc1eb1047144bfa1a8d3c16390334b8755789081e6176556b75"
+    },
+    {
+      "path": "chromium-390-EK-0029.png",
+      "size": [
+        390,
+        2426
+      ],
+      "sha256": "0cc074614c11c4165ad58d02d8d58f7d93609b9daac162dc88f0f1a2b85aebef"
+    },
+    {
+      "path": "chromium-390-EK-0030.png",
+      "size": [
+        390,
+        2246
+      ],
+      "sha256": "eb16d6b2f4ccbe1677059c7e2e82ade3d1e2c1bd1879f07abe7a773981d21a5d"
+    },
+    {
+      "path": "chromium-390-EK-0031.png",
+      "size": [
+        390,
+        2334
+      ],
+      "sha256": "dcc4898ccc47b4b3cd3a1c38b462605b876a45c20abea1e0da0b01502192e53c"
+    },
+    {
+      "path": "chromium-390-EK-0032.png",
+      "size": [
+        390,
+        2359
+      ],
+      "sha256": "a1ab099ab313105b64ff1f9a29e36b0205c4e913fccfe564d9335cd41ff66b89"
+    },
+    {
+      "path": "chromium-390-EK-0033.png",
+      "size": [
+        390,
+        2358
+      ],
+      "sha256": "6e9159fc23e11a4ecbaa802feb2317414c2ab7f16bbe465622e756754c513731"
+    },
+    {
+      "path": "chromium-390-EK-0034.png",
+      "size": [
+        390,
+        2316
+      ],
+      "sha256": "3489ddf28d95804bb9484a62638ef8cc486327314d53f951eaae9ef2db1a920c"
+    },
+    {
+      "path": "chromium-390-EK-0035.png",
+      "size": [
+        390,
+        2316
+      ],
+      "sha256": "63d73235cfb7b23bfdde59ee94da1cc8b57ed27577b614b22e99b7617335245d"
+    },
+    {
+      "path": "chromium-390-EK-0036.png",
+      "size": [
+        390,
+        2161
+      ],
+      "sha256": "7c939fee357c950c1c450457862863fb8b16b488b599b7164869f9b94d051685"
+    },
+    {
+      "path": "chromium-390-EK-0037.png",
+      "size": [
+        390,
+        2183
+      ],
+      "sha256": "c2711f708d607371a0971073bf8a76775e7daee398d9cea066c5085f1bda88db"
+    },
+    {
+      "path": "chromium-390-EK-0038.png",
+      "size": [
+        390,
+        2294
+      ],
+      "sha256": "e8d46dea3905de96cf3b6f4dc49973c774944d05072c0f6c7fcd346f0f6c902a"
+    },
+    {
+      "path": "chromium-390-EK-0039.png",
+      "size": [
+        390,
+        2205
+      ],
+      "sha256": "cfb58d2b9851b33379c3dbc57ac9313bf893e61bc0b228a25ff5fc5b245dc387"
+    },
+    {
+      "path": "chromium-390-EK-0040.png",
+      "size": [
+        390,
+        2381
+      ],
+      "sha256": "efb75d71f43b1f500da6b922a39dffcecc115ef34b40dc600929b30480de2460"
+    },
+    {
+      "path": "chromium-390-EK-0041.png",
+      "size": [
+        390,
+        2141
+      ],
+      "sha256": "7b6c51dbca9163ce150b313cc1c09b0e52f6ae4fd3f8533924d6913ba7f7e62f"
+    },
+    {
+      "path": "chromium-390-EK-0042.png",
+      "size": [
+        390,
+        2383
+      ],
+      "sha256": "487fd65a26725e623fd9e47cf7f6918126041ef6a9e7433fe5e1813406868c29"
+    },
+    {
+      "path": "chromium-390-EK-0043.png",
+      "size": [
+        390,
+        2317
+      ],
+      "sha256": "7b5cc16a6a56981622fbba6d65621956765bef3c7250be25e5a9008b4e1285cf"
+    },
+    {
+      "path": "chromium-390-EK-0044.png",
+      "size": [
+        390,
+        2274
+      ],
+      "sha256": "8950d807aeec60141e1ac16cbd1e5ed6383224e820be9e3ba9e010faca3f3562"
+    },
+    {
+      "path": "chromium-390-EK-0045.png",
+      "size": [
+        390,
+        2118
+      ],
+      "sha256": "782d5fb4ccc016b56cf26add004e74cd042ee9f7c5141bbfae0c5e6c681d58b4"
+    },
+    {
+      "path": "chromium-390-EK-0046.png",
+      "size": [
+        390,
+        2295
+      ],
+      "sha256": "9749782535c90940223f825651798276c9bcea42221e280a8a9ff43748eba2cc"
+    },
+    {
+      "path": "chromium-390-date.png",
+      "size": [
+        390,
+        9877
+      ],
+      "sha256": "b9aa0d2716896b418f39b3e700283b720d8eb51b33af32ff58e380fa0a282a01"
+    },
+    {
+      "path": "chromium-390-detail-focus.png",
+      "size": [
+        390,
+        2052
+      ],
+      "sha256": "38ed7a9f17bbd63fb9973041bce359fbd80e1d438d35503dfdd49a3f1b7c81dc"
+    },
+    {
+      "path": "chromium-390-unknown.png",
+      "size": [
+        390,
+        4487
+      ],
+      "sha256": "9e5d53db0c343b03a4348357ba976619d1aa40a4f3ab2b84c2d1505b69ce2dd2"
+    }
+  ],
+  "download46_type_value_equal_by_id": true,
+  "download_order": "chronological display order, not source order; not a corruption",
+  "case_checks": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "checks": 154
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "checks": 154
+    }
+  ],
+  "finding": "P2: target-year KPI 1436–1438 conflicts with newly displayed 1439 entries; all 12 new-entry screenshots affected",
+  "sourceSha256": "50a42f445a776a403da2637e8d4e33bc013ad9f3d2789539fc56f9d785c6164d",
+  "source_file_sha256": "50a42f445a776a403da2637e8d4e33bc013ad9f3d2789539fc56f9d785c6164d",
+  "physical_device": "NOT_TESTED",
+  "final_head": "NOT_TESTED"
+}

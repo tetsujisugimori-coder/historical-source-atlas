@@ -1,0 +1,26 @@
+{
+  "baseline_fields": 1440,
+  "new_fields": 216,
+  "probes": [
+    {
+      "case": "swap-known-dates",
+      "status": "REJECTED",
+      "error": "batch07 explicit date"
+    },
+    {
+      "case": "unknown-to-known",
+      "status": "REJECTED",
+      "error": "batch07 source boundary original_date"
+    },
+    {
+      "case": "wrong-chapter",
+      "status": "REJECTED",
+      "error": "'EK-0041': chapter: does not match chapter affiliation/source"
+    },
+    {
+      "case": "reorder-new",
+      "status": "REJECTED",
+      "error": "batch07 identity/order"
+    }
+  ]
+}

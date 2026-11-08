@@ -1,0 +1,60 @@
+{
+  "red": {
+    "sourceSha256": "50a42f445a776a403da2637e8d4e33bc013ad9f3d2789539fc56f9d785c6164d",
+    "exit": "1",
+    "overall": "FAIL",
+    "cases": [
+      {
+        "width": 390,
+        "status": "FAIL",
+        "checks": 3,
+        "error": "AssertionError [ERR_ASSERTION]: target year KPI\n+ actual - expected\n\n+ '1436–1438'\n- '1436–1439'\n           ^\n\n    at check (/tmp/atlas07-kpi-recheck/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/tmp/atlas07-kpi-recheck/prototype/eikyouki/browser_acceptance.cjs:22:216)",
+        "kpi": []
+      },
+      {
+        "width": 1280,
+        "status": "FAIL",
+        "checks": 3,
+        "error": "AssertionError [ERR_ASSERTION]: target year KPI\n+ actual - expected\n\n+ '1436–1438'\n- '1436–1439'\n           ^\n\n    at check (/tmp/atlas07-kpi-recheck/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/tmp/atlas07-kpi-recheck/prototype/eikyouki/browser_acceptance.cjs:22:216)",
+        "kpi": []
+      }
+    ],
+    "webkit": "NOT_TESTED: host libraries missing"
+  },
+  "green": {
+    "sourceSha256": "9401f8efcb1cf6a3abbb50c566b6e1f158e8fb9684a14e6b6e7bfac2b951ea8f",
+    "exit": "1",
+    "overall": "FAIL",
+    "cases": [
+      {
+        "width": 390,
+        "status": "PASS",
+        "checks": 155,
+        "error": null,
+        "kpi": [
+          {
+            "name": "target year KPI",
+            "actual": "1436–1439",
+            "expected": "1436–1439"
+          }
+        ]
+      },
+      {
+        "width": 1280,
+        "status": "PASS",
+        "checks": 155,
+        "error": null,
+        "kpi": [
+          {
+            "name": "target year KPI",
+            "actual": "1436–1439",
+            "expected": "1436–1439"
+          }
+        ]
+      }
+    ],
+    "webkit": "NOT_TESTED: host libraries missing"
+  },
+  "runner_sha256": "e45eebdca13f9419bb10be3d6a5f4d5277f6803ebc2171a852d959b1c5ba3003",
+  "reviewer_role": "Independent reviewer identified P2 then prepared isolated minimal patch at parent request; final-head audit must disclose repair contribution."
+}

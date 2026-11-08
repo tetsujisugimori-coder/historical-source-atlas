@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
 CHAPTERS = [
+    ('mochiuji_death', '持氏満貞御最期の事', 'https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#持氏満貞御最期の事'),
     ('mochiuji_tonsure', '持氏御出家并憲直以下自害の事', 'https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#持氏御出家并憲直以下自害の事'),
     ('kamakura_return', '持氏鎌倉へ飯給ふ事 附鎌倉合戦事', 'https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#持氏鎌倉へ飯給ふ事 附鎌倉合戦事'),
     ("intro", "序章", "https://ja.wikisource.org/wiki/永享記#永享記"),
@@ -77,6 +78,13 @@ ANCHORS = {
 
 def lunar_range(r):
     year, precision = r["era_year"], r["date_precision"]
+    # Batch07: only these two directly retrieved NAOJ dates are supported for year11.
+    # Do not extrapolate an unverified month/year range.
+    if r["era"] == "永享" and year == 11 and precision == "day" and r["lunar_month"] == 2 and r["lunar_is_leap"] is False:
+        exact = {10: "1439-03-24", 28: "1439-04-11"}.get(r["lunar_day"])
+        if exact:
+            day = calendar_day(exact, "julian")
+            return day, day
     if r["era"] != "永享" or year not in (8,9,10):
         return None  # unsupported: must remain unresolved, never certified
     months = ANCHORS[year] + ANCHORS[year+1][:1]

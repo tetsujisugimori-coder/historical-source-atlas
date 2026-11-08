@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),
 const out=path.resolve(process.argv[2]||'evidence/browser');fs.mkdirSync(out,{recursive:true});
 const html=fs.readFileSync(path.join(__dirname,'index.html'));
 const records=JSON.parse(fs.readFileSync(path.join(__dirname,'eikyouki_records.json'),'utf8')).records;
-const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0019','EK-0017','EK-0018','EK-0013','EK-0014','EK-0025','EK-0026','EK-0027','EK-0030','EK-0031','EK-0032','EK-0040','EK-0020','EK-0021','EK-0022','EK-0023','EK-0024','EK-0028','EK-0029','EK-0033','EK-0034','EK-0035','EK-0036','EK-0037','EK-0038','EK-0039');
+const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0019','EK-0017','EK-0018','EK-0013','EK-0014','EK-0025','EK-0026','EK-0027','EK-0030','EK-0031','EK-0032','EK-0040','EK-0042','EK-0046','EK-0020','EK-0021','EK-0022','EK-0023','EK-0024','EK-0028','EK-0029','EK-0033','EK-0034','EK-0035','EK-0036','EK-0037','EK-0038','EK-0039','EK-0041','EK-0043','EK-0044','EK-0045');
 const ids=p=>p.locator('.article .topline').evaluateAll(xs=>xs.map(x=>x.textContent.match(/EK-\d{4}/)[0]));
 const result={classification:'new execution',started:new Date().toISOString(),head:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:__dirname,encoding:'utf8'}).trim(),tree:cp.execFileSync('git',['rev-parse','HEAD^{tree}'],{cwd:__dirname,encoding:'utf8'}).trim(),inputMethod:'Playwright delivered keyboard/click/selectOption and fill; no physical device claim',dirty:cp.execFileSync('git',['status','--porcelain'],{cwd:__dirname,encoding:'utf8'}).trim(),sourceSha256:crypto.createHash('sha256').update(html).digest('hex'),node:process.version,os:process.platform,cases:[]};
 const server=http.createServer((req,res)=>{if(req.url==='/favicon.ico'){res.writeHead(204);return res.end()}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(html)});
@@ -19,21 +19,23 @@ async function main(){
    const check=(name,actual,expectedValue)=>{assert.deepEqual(actual,expectedValue,name);c.checks.push({name,actual,expected:expectedValue})};
    try{
     await p.exposeFunction('recordInput',e=>c.inputEvents.push(e));await p.addInitScript(()=>{for(const type of ['keydown','keyup','click','input','change','focusin'])document.addEventListener(type,e=>window.recordInput({type,key:e.key||null,trusted:e.isTrusted,target:e.target.id||e.target.tagName,time:performance.now()}),true)});
-    await p.goto(url);check('40 articles',await p.locator('.article').count(),40);check('total KPI',await p.locator('#total').innerText(),'40');check('chapter KPI',await p.locator('.stat b').nth(1).innerText(),'6');check('intro count', (await p.locator('.intro').innerText()).includes('この40件'),true);
+    await p.goto(url);check('46 articles',await p.locator('.article').count(),46);check('total KPI',await p.locator('#total').innerText(),'46');check('chapter KPI',await p.locator('.stat b').nth(1).innerText(),'7');check('target year KPI',await p.locator('.stat b').nth(2).innerText(),'1436–1439');check('intro count', (await p.locator('.intro').innerText()).includes('この46件'),true);
     check('chronological order actual display',await ids(p),expected);
     await p.screenshot({path:path.join(out,`${name}-${width}-date.png`),fullPage:true});
     await p.locator('#chapter').selectOption('kamakura_return');check('new chapter chronological display',await ids(p),['EK-0019','EK-0018','EK-0025','EK-0026','EK-0027','EK-0020','EK-0021','EK-0022','EK-0023','EK-0024','EK-0028','EK-0029']);
     await p.locator('#chapter').selectOption('all');
     await p.locator('#chapter').selectOption('mochiuji_tonsure');check('batch06 chapter chronological display',await ids(p),['EK-0030','EK-0031','EK-0032','EK-0040','EK-0033','EK-0034','EK-0035','EK-0036','EK-0037','EK-0038','EK-0039']);await p.locator('#chapter').selectOption('all');
-    const allDownloadEvent=p.waitForEvent('download');await p.locator('#export').click();const allDownload=await allDownloadEvent;const allFile=path.join(out,`${name}-${width}-all-download.json`);await allDownload.saveAs(allFile);check('all 40 full records exported',JSON.parse(fs.readFileSync(allFile,'utf8')).records,expected.map(id=>records.find(r=>r.id===id)));
+    await p.locator('#chapter').selectOption('mochiuji_death');check('batch07 chapter chronology',await ids(p),['EK-0042','EK-0046','EK-0041','EK-0043','EK-0044','EK-0045']);await p.locator('#chapter').selectOption('all');
+    await p.locator('#year').selectOption('1439');check('batch07 year filter',await ids(p),['EK-0042','EK-0046']);await p.locator('#year').selectOption('all');
+    const allDownloadEvent=p.waitForEvent('download');await p.locator('#export').click();const allDownload=await allDownloadEvent;const allFile=path.join(out,`${name}-${width}-all-download.json`);await allDownload.saveAs(allFile);check('all 46 full records exported',JSON.parse(fs.readFileSync(allFile,'utf8')).records,expected.map(id=>records.find(r=>r.id===id)));
     await p.locator('#sort').click();check('source order',await ids(p),records.map(r=>r.id));check('source aria',await p.locator('#sort').getAttribute('aria-pressed'),'false');
     await p.locator('#sort').click();check('date order toggle',await ids(p),expected);
-    await p.locator('#year').selectOption('null');check('unknown-date filter',await ids(p),['EK-0020','EK-0021','EK-0022','EK-0023','EK-0024','EK-0028','EK-0029','EK-0033','EK-0034','EK-0035','EK-0036','EK-0037','EK-0038','EK-0039']);
-    check('unknown date captions',await p.locator('.date').allTextContents(),Array(14).fill('日付不明'));
-    check('unknown converted captions',await p.locator('.cal-modern').allTextContents(),Array(14).fill('未換算'));
+    await p.locator('#year').selectOption('null');check('unknown-date filter',await ids(p),['EK-0020','EK-0021','EK-0022','EK-0023','EK-0024','EK-0028','EK-0029','EK-0033','EK-0034','EK-0035','EK-0036','EK-0037','EK-0038','EK-0039','EK-0041','EK-0043','EK-0044','EK-0045']);
+    check('unknown date captions',await p.locator('.date').allTextContents(),Array(18).fill('日付不明'));
+    check('unknown converted captions',await p.locator('.cal-modern').allTextContents(),Array(18).fill('未換算'));
     await p.screenshot({path:path.join(out,`${name}-${width}-unknown.png`),fullPage:true});
     await p.locator('#year').selectOption('all');
-    for(const id of ['EK-0027','EK-0028','EK-0029',...Array.from({length:11},(_,i)=>`EK-${String(i+30).padStart(4,'0')}`)]){
+    for(const id of ['EK-0027','EK-0028','EK-0029',...Array.from({length:17},(_,i)=>`EK-${String(i+30).padStart(4,'0')}`)]){
      await p.locator('#search').fill(id);check(id+' unique search',await ids(p),[id]);
      await p.locator('.article summary').click();
      const r=records.find(r=>r.id===id),text=await p.locator('.article').innerText();
