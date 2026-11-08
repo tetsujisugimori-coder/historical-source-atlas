@@ -1,0 +1,308 @@
+{
+  "archive": "atlas-batch07-local-originals.zip",
+  "bytes": 37278540,
+  "sha256": "d5533c548f74d83c5a74c00084d9988d1583bff83cef2c7349481587753d9339",
+  "delivery": "User-private Space attachment; final CI original ZIP remains on GitHub Actions. Local evidence original bytes retained, not overwritten.",
+  "files": [
+    {
+      "path": "evidence/batch07/local-browser/launch-error.log",
+      "bytes": 1036,
+      "sha256": "41b131d7ae9efdd4091c0d100cc184ff2dad4bdb4af2e75e07c866b04a325e18"
+    },
+    {
+      "path": "evidence/batch07/local-browser/chromium-1280-failure.png",
+      "bytes": 1381414,
+      "sha256": "06c407771f44f673cb47f795a7188c265a46775dbd5920a0f2aaa8cba39276b7"
+    },
+    {
+      "path": "evidence/batch07/local-browser/results.json",
+      "bytes": 15280,
+      "sha256": "35265033e221b4064e56f615e05c44c8c03e98a64572b13222815c2d7ac9413d"
+    },
+    {
+      "path": "evidence/batch07/local-browser/chromium-390-date.png",
+      "bytes": 1227094,
+      "sha256": "b9aa0d2716896b418f39b3e700283b720d8eb51b33af32ff58e380fa0a282a01"
+    },
+    {
+      "path": "evidence/batch07/local-browser/chromium-390-failure.png",
+      "bytes": 1227094,
+      "sha256": "b9aa0d2716896b418f39b3e700283b720d8eb51b33af32ff58e380fa0a282a01"
+    },
+    {
+      "path": "evidence/batch07/local-browser/chromium-1280-date.png",
+      "bytes": 1381414,
+      "sha256": "06c407771f44f673cb47f795a7188c265a46775dbd5920a0f2aaa8cba39276b7"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0030.png",
+      "bytes": 248624,
+      "sha256": "eb16d6b2f4ccbe1677059c7e2e82ade3d1e2c1bd1879f07abe7a773981d21a5d"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0044.png",
+      "bytes": 286217,
+      "sha256": "17fd748e00e9139104cc5d1474ff53bb5c0e285709700a6f7b4f47be21e8f5cf"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0032.png",
+      "bytes": 263557,
+      "sha256": "a1ab099ab313105b64ff1f9a29e36b0205c4e913fccfe564d9335cd41ff66b89"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0038.png",
+      "bytes": 294606,
+      "sha256": "a914ed6fc83a71b1cea776db43e2041c9ff2be76c73940356678f52b3df550fe"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0027.png",
+      "bytes": 332697,
+      "sha256": "0cc077a6fc5cd37d5a506ef788c1a959a3322924917928cf87de143b5a1a2ef1"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0045.png",
+      "bytes": 267595,
+      "sha256": "13fb19d943ba49ee8c54ac3eead7d227751fe60de2c7be4142432760c37cefbb"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0042.png",
+      "bytes": 263141,
+      "sha256": "487fd65a26725e623fd9e47cf7f6918126041ef6a9e7433fe5e1813406868c29"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0039.png",
+      "bytes": 241656,
+      "sha256": "cfb58d2b9851b33379c3dbc57ac9313bf893e61bc0b228a25ff5fc5b245dc387"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/launch-error.log",
+      "bytes": 1036,
+      "sha256": "41b131d7ae9efdd4091c0d100cc184ff2dad4bdb4af2e75e07c866b04a325e18"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0046.png",
+      "bytes": 254279,
+      "sha256": "9749782535c90940223f825651798276c9bcea42221e280a8a9ff43748eba2cc"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-unknown.png",
+      "bytes": 638184,
+      "sha256": "40a4cc341cfff6048f576239573a4c1e12ceba37f6d2df2739aa65ba35e5e9ce"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0043.png",
+      "bytes": 288355,
+      "sha256": "d42fc54d04b133c990541af5133d81465bd1ad55a7ea74078dbb21ccee50dcd3"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0028.png",
+      "bytes": 315680,
+      "sha256": "e72f9520e13e27519b07dbedbbb303dd1951b81c3c1c6ced22db6b61c57a3c8f"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-detail-focus.png",
+      "bytes": 255897,
+      "sha256": "3008911b7f129861ac4b02d465255a9d159233d5575c21d9e1820b2215a99f0f"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-download.json",
+      "bytes": 2066,
+      "sha256": "d41587f5842ec474298cb5351959065bb509002a83f1da48b863a94188d0b25b"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0032.png",
+      "bytes": 299187,
+      "sha256": "9595c800a2f9f717dee7a69fa2b8277e67817c39a34a926409a5bd09206999a1"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0039.png",
+      "bytes": 278239,
+      "sha256": "fec52da9320459ca4ecf70858190925d1a367e5be6d9c438490976d3a5bd0758"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0041.png",
+      "bytes": 261932,
+      "sha256": "0e2ac5eb5f72d9670fda4fecea0d845bc576b2144c0d646c07e4997afaf17986"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0037.png",
+      "bytes": 237976,
+      "sha256": "c2711f708d607371a0971073bf8a76775e7daee398d9cea066c5085f1bda88db"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0030.png",
+      "bytes": 286733,
+      "sha256": "e3bd789f1cd91198c68cddc86992d2c77dbc919fa6f244cf70a9fc5335e76501"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0035.png",
+      "bytes": 265813,
+      "sha256": "63d73235cfb7b23bfdde59ee94da1cc8b57ed27577b614b22e99b7617335245d"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0034.png",
+      "bytes": 256909,
+      "sha256": "3489ddf28d95804bb9484a62638ef8cc486327314d53f951eaae9ef2db1a920c"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-unknown.png",
+      "bytes": 558750,
+      "sha256": "9e5d53db0c343b03a4348357ba976619d1aa40a4f3ab2b84c2d1505b69ce2dd2"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0035.png",
+      "bytes": 302455,
+      "sha256": "21c85c739930f9a53d9f81a544145996aaac751ffd0a720da4dfea37d7e4bdf8"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0033.png",
+      "bytes": 273630,
+      "sha256": "6e9159fc23e11a4ecbaa802feb2317414c2ab7f16bbe465622e756754c513731"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0044.png",
+      "bytes": 249511,
+      "sha256": "8950d807aeec60141e1ac16cbd1e5ed6383224e820be9e3ba9e010faca3f3562"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0036.png",
+      "bytes": 235886,
+      "sha256": "7c939fee357c950c1c450457862863fb8b16b488b599b7164869f9b94d051685"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/results.json",
+      "bytes": 609336,
+      "sha256": "9679ae665b743461ab4a01092a884068affca62badf4338429578557ab007973"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0038.png",
+      "bytes": 259196,
+      "sha256": "e8d46dea3905de96cf3b6f4dc49973c774944d05072c0f6c7fcd346f0f6c902a"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0034.png",
+      "bytes": 292466,
+      "sha256": "9d2d9329d2a83617c652b25f0aa302baa5d3c802d61456671c30c4cf09a7f91e"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-all-download.json",
+      "bytes": 104174,
+      "sha256": "55770b4fe4e68b794ad02b37b3cf1e9fea65b57aab6671a8c09b5c7e08fa830a"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0040.png",
+      "bytes": 305663,
+      "sha256": "7f9c6fee69493f4d24c1dc7b098a24a543df4f1464f7d74e61a6e8b561636c36"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0029.png",
+      "bytes": 276430,
+      "sha256": "0cc074614c11c4165ad58d02d8d58f7d93609b9daac162dc88f0f1a2b85aebef"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0031.png",
+      "bytes": 300503,
+      "sha256": "95680f90deae95ce26c0aac7cf39108040d3c9b66f252aabe5afa958c43dcf7f"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0045.png",
+      "bytes": 229652,
+      "sha256": "782d5fb4ccc016b56cf26add004e74cd042ee9f7c5141bbfae0c5e6c681d58b4"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0037.png",
+      "bytes": 275196,
+      "sha256": "578533b92ed60271f8d1e260a374c41f01ef1acccee8c97596736568cf8be352"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0028.png",
+      "bytes": 280229,
+      "sha256": "84e0d680a992bdc1eb1047144bfa1a8d3c16390334b8755789081e6176556b75"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-detail-focus.png",
+      "bytes": 217055,
+      "sha256": "38ed7a9f17bbd63fb9973041bce359fbd80e1d438d35503dfdd49a3f1b7c81dc"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0043.png",
+      "bytes": 252136,
+      "sha256": "7b5cc16a6a56981622fbba6d65621956765bef3c7250be25e5a9008b4e1285cf"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0036.png",
+      "bytes": 273321,
+      "sha256": "a7ee3510fe5b0f5e73b0bbe937bbb8ed1a89232a7da646ff0e6037966896c754"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0042.png",
+      "bytes": 298001,
+      "sha256": "e190cbc2fdf7ab9354f5beea1997e4fd15dc46a57694ebf595d5050412a10ff5"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-date.png",
+      "bytes": 1227094,
+      "sha256": "b9aa0d2716896b418f39b3e700283b720d8eb51b33af32ff58e380fa0a282a01"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-download.json",
+      "bytes": 2066,
+      "sha256": "d41587f5842ec474298cb5351959065bb509002a83f1da48b863a94188d0b25b"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0040.png",
+      "bytes": 269497,
+      "sha256": "efb75d71f43b1f500da6b922a39dffcecc115ef34b40dc600929b30480de2460"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0029.png",
+      "bytes": 312579,
+      "sha256": "46fab1483f8038fc915787f57571b81c212a00d29b15c461d20f861993ae8d99"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/exit-code.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-all-download.json",
+      "bytes": 104174,
+      "sha256": "55770b4fe4e68b794ad02b37b3cf1e9fea65b57aab6671a8c09b5c7e08fa830a"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0027.png",
+      "bytes": 292535,
+      "sha256": "dc1cfdf28d56282cc5056092c3a0d0dc98e9200fdc113cef003cfe279e4054bb"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0041.png",
+      "bytes": 223985,
+      "sha256": "7b6c51dbca9163ce150b313cc1c09b0e52f6ae4fd3f8533924d6913ba7f7e62f"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0046.png",
+      "bytes": 292510,
+      "sha256": "ec1806f20c4d8d44f655c3fc49de510904becc13ff5e50fbfb34413501ef5d8e"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-390-EK-0031.png",
+      "bytes": 263124,
+      "sha256": "dcc4898ccc47b4b3cd3a1c38b462605b876a45c20abea1e0da0b01502192e53c"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-date.png",
+      "bytes": 1381414,
+      "sha256": "06c407771f44f673cb47f795a7188c265a46775dbd5920a0f2aaa8cba39276b7"
+    },
+    {
+      "path": "evidence/batch07/local-browser-fixed/chromium-1280-EK-0033.png",
+      "bytes": 308924,
+      "sha256": "0e2be2f27d3fb2c5deee4b4d65fbc10884a0af8a5918d49ed6d0cf8601919df2"
+    },
+    {
+      "path": "evidence/batch07/local-checks/results.json",
+      "bytes": 1223762,
+      "sha256": "21c1b8e94147a704842962616600b48c59ff6189a2697e447f027c1cdb7c6d6e"
+    }
+  ]
+}
