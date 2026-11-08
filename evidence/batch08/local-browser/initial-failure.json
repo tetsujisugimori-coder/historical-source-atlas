@@ -1,0 +1,572 @@
+{
+  "classification": "new execution",
+  "started": "2026-11-08T20:06:31.430Z",
+  "head": "df53040457571722320669307025317ef263c764",
+  "tree": "ab2d85207a3b9a9f527c837cc6492cbe12277943",
+  "inputMethod": "Playwright delivered keyboard/click/selectOption and fill; no physical device claim",
+  "dirty": "M AGENTS.md\n M README.md\n M docs/source-relationships-design.md\n M prototype/eikyouki/README.md\n M prototype/eikyouki/browser_acceptance.cjs\n M prototype/eikyouki/eikyouki_records.json\n M prototype/eikyouki/index.html\n M prototype/eikyouki/test_sort.cjs\n M prototype/eikyouki/validation.py\n?? docs/eikyouki-intake-batch08.md\n?? evidence/batch08/\n?? prototype/eikyouki/baselines/existing46-batch08.json\n?? prototype/eikyouki/test_batch08.py",
+  "sourceSha256": "f9c9d105d5668f4ebb86445a4482b6bfe97927ba6732cba96cfd5701a063d407",
+  "node": "v24.22.1",
+  "os": "linux",
+  "cases": [
+    {
+      "browser": "chromium",
+      "width": 390,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "51 articles",
+          "actual": 51,
+          "expected": 51
+        },
+        {
+          "name": "total KPI",
+          "actual": "51",
+          "expected": "51"
+        },
+        {
+          "name": "chapter KPI",
+          "actual": "8",
+          "expected": "8"
+        },
+        {
+          "name": "target year KPI",
+          "actual": "1436–1440",
+          "expected": "1436–1440"
+        },
+        {
+          "name": "intro count",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0042",
+            "EK-0046",
+            "EK-0049",
+            "EK-0050",
+            "EK-0051",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039",
+            "EK-0041",
+            "EK-0043",
+            "EK-0044",
+            "EK-0045",
+            "EK-0047",
+            "EK-0048"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0042",
+            "EK-0046",
+            "EK-0049",
+            "EK-0050",
+            "EK-0051",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039",
+            "EK-0041",
+            "EK-0043",
+            "EK-0044",
+            "EK-0045",
+            "EK-0047",
+            "EK-0048"
+          ]
+        },
+        {
+          "name": "new chapter chronological display",
+          "actual": [
+            "EK-0019",
+            "EK-0018",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029"
+          ],
+          "expected": [
+            "EK-0019",
+            "EK-0018",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029"
+          ]
+        },
+        {
+          "name": "batch06 chapter chronological display",
+          "actual": [
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039"
+          ],
+          "expected": [
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039"
+          ]
+        }
+      ],
+      "inputEvents": [
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 752.6999999992549
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 753
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 792.5
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 792.6999999992549
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 892.5999999996275
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 892.6999999992549
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 924.4000000003725
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 924.5
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1033
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1033.0999999996275
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: batch07 chapter chronology\n+ actual - expected\n\n  [\n    'EK-0042',\n    'EK-0046',\n    'EK-0041',\n    'EK-0043',\n    'EK-0044',\n    'EK-0045',\n-   'EK-0047',\n-   'EK-0048'\n  ]\n\n    at check (/workspace/scratch/e622c1e9421e/atlas-batch08/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch08/prototype/eikyouki/browser_acceptance.cjs:28:64)"
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "height": 1000,
+      "version": "141.0.7390.37",
+      "checks": [
+        {
+          "name": "51 articles",
+          "actual": 51,
+          "expected": 51
+        },
+        {
+          "name": "total KPI",
+          "actual": "51",
+          "expected": "51"
+        },
+        {
+          "name": "chapter KPI",
+          "actual": "8",
+          "expected": "8"
+        },
+        {
+          "name": "target year KPI",
+          "actual": "1436–1440",
+          "expected": "1436–1440"
+        },
+        {
+          "name": "intro count",
+          "actual": true,
+          "expected": true
+        },
+        {
+          "name": "chronological order actual display",
+          "actual": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0042",
+            "EK-0046",
+            "EK-0049",
+            "EK-0050",
+            "EK-0051",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039",
+            "EK-0041",
+            "EK-0043",
+            "EK-0044",
+            "EK-0045",
+            "EK-0047",
+            "EK-0048"
+          ],
+          "expected": [
+            "EK-0001",
+            "EK-0002",
+            "EK-0003",
+            "EK-0004",
+            "EK-0005",
+            "EK-0006",
+            "EK-0007",
+            "EK-0008",
+            "EK-0009",
+            "EK-0010",
+            "EK-0011",
+            "EK-0012",
+            "EK-0015",
+            "EK-0016",
+            "EK-0019",
+            "EK-0017",
+            "EK-0018",
+            "EK-0013",
+            "EK-0014",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0042",
+            "EK-0046",
+            "EK-0049",
+            "EK-0050",
+            "EK-0051",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039",
+            "EK-0041",
+            "EK-0043",
+            "EK-0044",
+            "EK-0045",
+            "EK-0047",
+            "EK-0048"
+          ]
+        },
+        {
+          "name": "new chapter chronological display",
+          "actual": [
+            "EK-0019",
+            "EK-0018",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029"
+          ],
+          "expected": [
+            "EK-0019",
+            "EK-0018",
+            "EK-0025",
+            "EK-0026",
+            "EK-0027",
+            "EK-0020",
+            "EK-0021",
+            "EK-0022",
+            "EK-0023",
+            "EK-0024",
+            "EK-0028",
+            "EK-0029"
+          ]
+        },
+        {
+          "name": "batch06 chapter chronological display",
+          "actual": [
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039"
+          ],
+          "expected": [
+            "EK-0030",
+            "EK-0031",
+            "EK-0032",
+            "EK-0040",
+            "EK-0033",
+            "EK-0034",
+            "EK-0035",
+            "EK-0036",
+            "EK-0037",
+            "EK-0038",
+            "EK-0039"
+          ]
+        }
+      ],
+      "inputEvents": [
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 976.9000000003725
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 977.4000000003725
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1023
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1023
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1119.7000000011176
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1119.800000000745
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1147.5
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1147.7000000011176
+        },
+        {
+          "type": "input",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1235.7000000011176
+        },
+        {
+          "type": "change",
+          "key": null,
+          "trusted": false,
+          "target": "chapter",
+          "time": 1235.9000000003725
+        }
+      ],
+      "consoleErrors": [],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: batch07 chapter chronology\n+ actual - expected\n\n  [\n    'EK-0042',\n    'EK-0046',\n    'EK-0041',\n    'EK-0043',\n    'EK-0044',\n    'EK-0045',\n-   'EK-0047',\n-   'EK-0048'\n  ]\n\n    at check (/workspace/scratch/e622c1e9421e/atlas-batch08/prototype/eikyouki/browser_acceptance.cjs:19:53)\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch08/prototype/eikyouki/browser_acceptance.cjs:28:64)"
+    }
+  ],
+  "finished": "2026-11-08T20:06:34.602Z",
+  "status": "FAIL",
+  "fatal": "browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libhyphen.so.0                                   ║\n║     libmanette-0.2.so.0                              ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch08/prototype/eikyouki/browser_acceptance.cjs:14:30)"
+}
