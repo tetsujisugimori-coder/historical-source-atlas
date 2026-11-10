@@ -1,15 +1,15 @@
-# 永享記：史料記事データベース試作（v0.8）
+# 永享記：史料記事データベース試作（v0.9）
 
 ## ファイル
 - `index.html`：スマートフォン／PCで直接開ける閲覧用Web年表（ネットワーク接続なしでも絞り込み可能）。
 - `eikyouki.db`：`python build.py`で生成するSQLiteデータベース。史料／版／章段／記事を分離。
 - `schema.sql`：SQLiteスキーマ。別史料追加時は新しい作品・版のIDを登録する。
-- `eikyouki_records.json`：サンプル51記事と出典情報。
+- `eikyouki_records.json`：サンプル82記事と出典情報。
 - `build.py`：上記を再作成するPythonスクリプト。
 - `test_dates.py`：暦変換・記録の整合性を検査。
 
 ## 試作の範囲と重要な制限
-- 登録対象は『永享記』からの **51件の個別記事候補**。章段や事件単位にまとめない。
+- 登録対象は『永享記』からの **82件の個別記事候補**。章段や事件単位にまとめない。
 - 原資料は近藤瓶城編『史籍集覧』第12冊に基づくWikisource版。URL: https://ja.wikisource.org/wiki/永享記
 - 項目の要約・短い日付手掛かりのみ採録し、原文全文転記は未着手。収録データは校訂済み本文とみなさない。
 - `western_year` は**年号と対応する西暦年**のみ。`lunar_month` と `lunar_day` は**和暦の日付**で、グレゴリオ暦の月日とは異なる。
@@ -80,3 +80,6 @@ unknown/unresolvedとNULLは不正入力と区別します。start=endは日付�
 
 ## 第8便
 「憲実出家之事」5記事 EK-0047〜0051を追加し計51記事。既存46記事1656項目は不変。史料内の動機と史実認定を分離。詳細は [第8便台帳](../../docs/eikyouki-intake-batch08.md)。
+
+## 第9便
+「結城籠城事」17記事 EK-0052〜0068と「村岡合戦事」14記事 EK-0069〜0082を追加（計82）。旧51記事1836項目は型とNULLを含め保全。第9便原文と校訂注を収録し、鎌倉大草紙補文を明示。詳細は [台帳](../../docs/eikyouki-intake-batch09.md)。Draft・未マージのため第9便は本番Pages未反映。公開URLは https://tetsujisugimori-coder.github.io/historical-source-atlas/ 。

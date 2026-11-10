@@ -1,0 +1,429 @@
+{
+  "source_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-9",
+  "fixed_revision": 218476,
+  "chapter": "村岡合戦事",
+  "previous_chapter": "結城籠城事",
+  "next_chapter": "結城落城の事",
+  "excluded_chapter": "結城落城の事",
+  "offset_convention": "Python Unicode character offsets start inclusive/end exclusive into source/muraoka-chapter.txt. HTMLParser text nodes concatenated; U+200B and NBSP removed; outer whitespace stripped. Ruby apparatus retained; see annotations for semantic separation.",
+  "article_count_reason": "独立主体・場所・行為・日時を読み分けた結果の14件。件数ノルマなし。",
+  "articles": [
+    {
+      "proposal_order": 1,
+      "title": "一色伊予守の須賀宿城襲撃",
+      "begin": "同七月一日",
+      "end": "か宿城へ押寄、悉く焼払、須賀か郎等共暫支て討死すと聞えけれは",
+      "start_offset": 5,
+      "end_offset": 76,
+      "source_text": "同七月一日、一色伊予守、武州北一揆を相語ひ、利根川を馳越て、武州の一騎須賀土佐入道か宿城へ押寄、悉く焼払、須賀か郎等共暫支て討死すと聞えけれは",
+      "summary": "一色伊予守が武州北一揆と協力し利根川を越え、須賀土佐入道の宿城を焼き払い、須賀の郎等が応戦して討死したとの情報が記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。明示された月日。「討死すと聞えけれは」は伝聞叙述で、独立裏付けではない。",
+      "original_date": "同七月一日",
+      "lunar_month": 7,
+      "lunar_day": 1,
+      "date_class": "explicit_month_day_context_year",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "明示された月日。「討死すと聞えけれは」は伝聞叙述で、独立裏付けではない。",
+      "conversion": {
+        "julian": "1440-07-29",
+        "julian_evidence": "naoj-7-1-0.html",
+        "gregorian": "1440-08-07",
+        "gregorian_evidence": "naoj-7-1-1.html"
+      },
+      "layers": {
+        "source_statement": "同七月一日、一色伊予守、武州北一揆を相語ひ、利根川を馳越て、武州の一騎須賀土佐入道か宿城へ押寄、悉く焼払、須賀か郎等共暫支て討死すと聞えけれは",
+        "modern_summary": "一色伊予守が武州北一揆と協力し利根川を越え、須賀土佐入道の宿城を焼き払い、須賀の郎等が応戦して討死したとの情報が記される。",
+        "editorial_inference": "明示された月日。「討死すと聞えけれは」は伝聞叙述で、独立裏付けではない。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 2,
+      "title": "性額・景仲の成田発向と合戦",
+      "begin": "同三日",
+      "end": "戦事十余度に及へり、一日戦暮し、夜に入けれは、相引にしけるに",
+      "start_offset": 77,
+      "end_offset": 171,
+      "source_text": "同三日、庁鼻性額、長尾景仲、成田の舘へ発向す、一色少も不㆑騒、馬を東頭へ立直し、閑に敵を待懸たり、両陣馳合、追つ返つ、烟塵を捲て戦事十余度に及へり、一日戦暮し、夜に入けれは、相引にしけるに",
+      "summary": "庁鼻性額・長尾景仲が成田の館へ出向き、一色方と日暮れまで戦い、夜に双方が引いたと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。日は明示、七月は本章冒頭から補完。本文の「性額」は後段「性順」と異なるため勝手に同表記に訂正しない。",
+      "original_date": "同三日",
+      "lunar_month": 7,
+      "lunar_day": 3,
+      "date_class": "explicit_day_context_month_year",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "日は明示、七月は本章冒頭から補完。本文の「性額」は後段「性順」と異なるため勝手に同表記に訂正しない。",
+      "conversion": {
+        "julian": "1440-07-31",
+        "julian_evidence": "naoj-7-3-0.html",
+        "gregorian": "1440-08-09",
+        "gregorian_evidence": "naoj-7-3-1.html"
+      },
+      "layers": {
+        "source_statement": "同三日、庁鼻性額、長尾景仲、成田の舘へ発向す、一色少も不㆑騒、馬を東頭へ立直し、閑に敵を待懸たり、両陣馳合、追つ返つ、烟塵を捲て戦事十余度に及へり、一日戦暮し、夜に入けれは、相引にしけるに",
+        "modern_summary": "庁鼻性額・長尾景仲が成田の館へ出向き、一色方と日暮れまで戦い、夜に双方が引いたと記される。",
+        "editorial_inference": "日は明示、七月は本章冒頭から補完。本文の「性額」は後段「性順」と異なるため勝手に同表記に訂正しない。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 3,
+      "title": "村岡河原の合戦と一色の敗走",
+      "begin": "同四日",
+      "end": "顧物具を〔捨て大双紙〕小江山迄引退、其より散々に成て落行ける",
+      "start_offset": 172,
+      "end_offset": 451,
+      "source_text": "同四日、両方戦屈して見えけるところに、一色方へ馳加る軍兵雲霧の如し、味方に加る軍兵、入西には毛呂三河守、豊島には清方の被官の輩許にて、以の外無勢也、此勢計にて如何にと引色に成処に、伊予守是を見て、すはや敵は引けるそや、何迄も追蒐て、討捕者共とて、荒河を馳渡し、村岡河原に打立る、乗㆑勝所はさる事なれとも、無㆓手分の沙汰㆒も、事体余りに周章して見えたりける、性順景仲、只一手に成て、魚鱗に連て、荒手を先に立、蜘手十文字に懸破しかは、伊予守急に討負、一返も不㆑返、手負を助けん共せす、親子の討るをも不㆑顧物具を〔捨て大双紙〕小江山迄引退、其より散々に成て落行ける",
+      "summary": "一色方に加勢が集まり、一色伊予守が荒河を越えて村岡河原へ進んだが、性順・景仲の攻撃に敗れ、小江山まで退き散々に落ちたと記される。引色・周章などの評価と発言は語り手の叙述として扱う。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。日は明示、七月は同章前段から補完。「物具を〔捨て大双紙〕」に補文・出典注を含む。兵力や戦術の描写を独立に立証された事実としない。",
+      "original_date": "同四日",
+      "lunar_month": 7,
+      "lunar_day": 4,
+      "date_class": "explicit_day_context_month_year",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "日は明示、七月は同章前段から補完。「物具を〔捨て大双紙〕」に補文・出典注を含む。兵力や戦術の描写を独立に立証された事実としない。",
+      "conversion": {
+        "julian": "1440-08-01",
+        "julian_evidence": "naoj-7-4-0.html",
+        "gregorian": "1440-08-10",
+        "gregorian_evidence": "naoj-7-4-1.html"
+      },
+      "layers": {
+        "source_statement": "同四日、両方戦屈して見えけるところに、一色方へ馳加る軍兵雲霧の如し、味方に加る軍兵、入西には毛呂三河守、豊島には清方の被官の輩許にて、以の外無勢也、此勢計にて如何にと引色に成処に、伊予守是を見て、すはや敵は引けるそや、何迄も追蒐て、討捕者共とて、荒河を馳渡し、村岡河原に打立る、乗㆑勝所はさる事なれとも、無㆓手分の沙汰㆒も、事体余りに周章して見えたりける、性順景仲、只一手に成て、魚鱗に連て、荒手を先に立、蜘手十文字に懸破しかは、伊予守急に討負、一返も不㆑返、手負を助けん共せす、親子の討るをも不㆑顧物具を〔捨て大双紙〕小江山迄引退、其より散々に成て落行ける",
+        "modern_summary": "一色方に加勢が集まり、一色伊予守が荒河を越えて村岡河原へ進んだが、性順・景仲の攻撃に敗れ、小江山まで退き散々に落ちたと記される。引色・周章などの評価と発言は語り手の叙述として扱う。",
+        "editorial_inference": "日は明示、七月は同章前段から補完。「物具を〔捨て大双紙〕」に補文・出典注を含む。兵力や戦術の描写を独立に立証された事実としない。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 4,
+      "title": "持朝の岩筑からの後詰派遣",
+      "begin": "修理大夫持朝",
+      "end": "り後詰の人衆を出しけれとも、軍は退散しけれは、引遠し給ひける",
+      "start_offset": 452,
+      "end_offset": 498,
+      "source_text": "修理大夫持朝、此由を聞て、岩筑より後詰の人衆を出しけれとも、軍は退散しけれは、引遠し給ひける",
+      "summary": "持朝が合戦の情報を受け岩筑から後詰を出したが、軍が退散したため引いたと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。前記事の合戦を聞いての対応だが個別日付はない。七月四日を転写しない。「引遠し」の本文表記を保持し、校訂しない。",
+      "original_date": "此由を聞て",
+      "lunar_month": null,
+      "lunar_day": null,
+      "date_class": "relative_or_report_without_calendar_date",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "前記事の合戦を聞いての対応だが個別日付はない。七月四日を転写しない。「引遠し」の本文表記を保持し、校訂しない。",
+      "conversion": {},
+      "layers": {
+        "source_statement": "修理大夫持朝、此由を聞て、岩筑より後詰の人衆を出しけれとも、軍は退散しけれは、引遠し給ひける",
+        "modern_summary": "持朝が合戦の情報を受け岩筑から後詰を出したが、軍が退散したため引いたと記される。",
+        "editorial_inference": "前記事の合戦を聞いての対応だが個別日付はない。七月四日を転写しない。「引遠し」の本文表記を保持し、校訂しない。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 5,
+      "title": "勝豊後守らの誅殺",
+      "begin": "无イ勝",
+      "end": "、同七月廿五日、足利の町屋にて、同名八人為㆓持朝㆒被㆑誅にき",
+      "start_offset": 499,
+      "end_offset": 546,
+      "source_text": "无イ勝　豊後守逆徒に与してんけれは、同七月廿五日、足利の町屋にて、同名八人為㆓持朝㆒被㆑誅にき",
+      "summary": "勝豊後守が「逆徒」に加わったとして、足利の町屋で同名八人が持朝に誅されたと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。月日明示。「勝」には「无イ」の異文注がある。逆徒は史料側の呼称であり評価を採用しない。「同名八人」と豊後守を足して九人と数える等の補完はしない。",
+      "original_date": "同七月廿五日",
+      "lunar_month": 7,
+      "lunar_day": 25,
+      "date_class": "explicit_month_day_context_year",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "月日明示。「勝」には「无イ」の異文注がある。逆徒は史料側の呼称であり評価を採用しない。「同名八人」と豊後守を足して九人と数える等の補完はしない。",
+      "conversion": {
+        "julian": "1440-08-22",
+        "julian_evidence": "naoj-7-25-0.html",
+        "gregorian": "1440-08-31",
+        "gregorian_evidence": "naoj-7-25-1.html"
+      },
+      "layers": {
+        "source_statement": "无イ勝　豊後守逆徒に与してんけれは、同七月廿五日、足利の町屋にて、同名八人為㆓持朝㆒被㆑誅にき",
+        "modern_summary": "勝豊後守が「逆徒」に加わったとして、足利の町屋で同名八人が持朝に誅されたと記される。",
+        "editorial_inference": "月日明示。「勝」には「无イ」の異文注がある。逆徒は史料側の呼称であり評価を採用しない。「同名八人」と豊後守を足して九人と数える等の補完はしない。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 6,
+      "title": "長棟の神奈川出発と野本唐子滞在",
+      "begin": "長棟庵主は",
+      "end": "長棟庵主は、七月八日、神奈川を立、野本唐子に逗留し",
+      "start_offset": 547,
+      "end_offset": 572,
+      "source_text": "長棟庵主は、七月八日、神奈川を立、野本唐子に逗留し",
+      "summary": "長棟庵主が神奈川を発ち、野本唐子に逗留したと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。神奈川出発に明示された月日。逗留開始日・期間は不明。野本唐子の分節・比定は未確定。",
+      "original_date": "七月八日",
+      "lunar_month": 7,
+      "lunar_day": 8,
+      "date_class": "explicit_month_day_context_year",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "神奈川出発に明示された月日。逗留開始日・期間は不明。野本唐子の分節・比定は未確定。",
+      "conversion": {
+        "julian": "1440-08-05",
+        "julian_evidence": "naoj-7-8-0.html",
+        "gregorian": "1440-08-14",
+        "gregorian_evidence": "naoj-7-8-1.html"
+      },
+      "layers": {
+        "source_statement": "長棟庵主は、七月八日、神奈川を立、野本唐子に逗留し",
+        "modern_summary": "長棟庵主が神奈川を発ち、野本唐子に逗留したと記される。",
+        "editorial_inference": "神奈川出発に明示された月日。逗留開始日・期間は不明。野本唐子の分節・比定は未確定。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 7,
+      "title": "長棟の祇園城到着",
+      "begin": "同八月九日",
+      "end": "同八月九日、小山庄祇園の城に著給ふ",
+      "start_offset": 573,
+      "end_offset": 590,
+      "source_text": "同八月九日、小山庄祇園の城に著給ふ",
+      "summary": "長棟庵主が小山庄祇園の城へ着いたと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。月日明示。前の記事の七月八日の出発・滞在とは行為・場所・日時が異なるため独立させる。",
+      "original_date": "同八月九日",
+      "lunar_month": 8,
+      "lunar_day": 9,
+      "date_class": "explicit_month_day_context_year",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "月日明示。前の記事の七月八日の出発・滞在とは行為・場所・日時が異なるため独立させる。",
+      "conversion": {
+        "julian": "1440-09-05",
+        "julian_evidence": "naoj-8-9-0.html",
+        "gregorian": "1440-09-14",
+        "gregorian_evidence": "naoj-8-9-1.html"
+      },
+      "layers": {
+        "source_statement": "同八月九日、小山庄祇園の城に著給ふ",
+        "modern_summary": "長棟庵主が小山庄祇園の城へ着いたと記される。",
+        "editorial_inference": "月日明示。前の記事の七月八日の出発・滞在とは行為・場所・日時が異なるため独立させる。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 8,
+      "title": "大井持光の挙兵と白井峠への進出情報",
+      "begin": "其比信濃国住人",
+      "end": "井越前守持光、御所方に成、揚㆑旗、白井峠迄押来ると聞えけれは",
+      "start_offset": 591,
+      "end_offset": 629,
+      "source_text": "其比信濃国住人大井越前守持光、御所方に成、揚㆑旗、白井峠迄押来ると聞えけれは",
+      "summary": "大井持光が御所方となって旗を揚げ、白井峠まで進んだと伝えられる。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。八月九日の記事に続く「其比」だが同日・同月の確定根拠とはしない。「聞えけれは」は伝聞である。",
+      "original_date": "其比",
+      "lunar_month": null,
+      "lunar_day": null,
+      "date_class": "relative_or_report_without_calendar_date",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "八月九日の記事に続く「其比」だが同日・同月の確定根拠とはしない。「聞えけれは」は伝聞である。",
+      "conversion": {},
+      "layers": {
+        "source_statement": "其比信濃国住人大井越前守持光、御所方に成、揚㆑旗、白井峠迄押来ると聞えけれは",
+        "modern_summary": "大井持光が御所方となって旗を揚げ、白井峠まで進んだと伝えられる。",
+        "editorial_inference": "八月九日の記事に続く「其比」だが同日・同月の確定根拠とはしない。「聞えけれは」は伝聞である。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 9,
+      "title": "上杉重方の国分布陣",
+      "begin": "為㆑防㆑之",
+      "end": "為㆑防㆑之、上杉三郎重方、国分に取㆑陣",
+      "start_offset": 630,
+      "end_offset": 649,
+      "source_text": "為㆑防㆑之、上杉三郎重方、国分に取㆑陣",
+      "summary": "大井持光の進出情報への防備として、上杉三郎重方が国分に陣を取ったと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。直前への対応だが個別日付なし。布陣主体・場所が次の持朝と異なるため分離。",
+      "original_date": "（日付明記なし・編集注）",
+      "lunar_month": null,
+      "lunar_day": null,
+      "date_class": "unknown_month_day",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "直前への対応だが個別日付なし。布陣主体・場所が次の持朝と異なるため分離。",
+      "conversion": {},
+      "layers": {
+        "source_statement": "為㆑防㆑之、上杉三郎重方、国分に取㆑陣",
+        "modern_summary": "大井持光の進出情報への防備として、上杉三郎重方が国分に陣を取ったと記される。",
+        "editorial_inference": "直前への対応だが個別日付なし。布陣主体・場所が次の持朝と異なるため分離。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 10,
+      "title": "上杉修理大夫の下徳宣布陣",
+      "begin": "為㆓相州警固㆒",
+      "end": "為㆓相州警固㆒、上杉修理大夫、相州高麗寺の下徳宣に取㆑陣",
+      "start_offset": 650,
+      "end_offset": 678,
+      "source_text": "為㆓相州警固㆒、上杉修理大夫、相州高麗寺の下徳宣に取㆑陣",
+      "summary": "相州警固のため、上杉修理大夫が高麗寺の下徳宣に陣を取ったと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。月日なし。修理大夫を持朝と読むことは同章前後からの人物同定という編集判断で、この箇所は実名を記していない。下徳宣の表記を無断訂正しない。",
+      "original_date": "（日付明記なし・編集注）",
+      "lunar_month": null,
+      "lunar_day": null,
+      "date_class": "unknown_month_day",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "月日なし。修理大夫を持朝と読むことは同章前後からの人物同定という編集判断で、この箇所は実名を記していない。下徳宣の表記を無断訂正しない。",
+      "conversion": {},
+      "layers": {
+        "source_statement": "為㆓相州警固㆒、上杉修理大夫、相州高麗寺の下徳宣に取㆑陣",
+        "modern_summary": "相州警固のため、上杉修理大夫が高麗寺の下徳宣に陣を取ったと記される。",
+        "editorial_inference": "月日なし。修理大夫を持朝と読むことは同章前後からの人物同定という編集判断で、この箇所は実名を記していない。下徳宣の表記を無断訂正しない。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 11,
+      "title": "箱根別当・大森伊豆守の後攻参加の伝聞",
+      "begin": "又箱根別当",
+      "end": "守元来無弐の御所方なりけれは、為㆓結城後攻㆒、馳参共申けれは",
+      "start_offset": 679,
+      "end_offset": 719,
+      "source_text": "又箱根別当、大森伊豆守元来無弐の御所方なりけれは、為㆓結城後攻㆒、馳参共申けれは",
+      "summary": "箱根別当と大森伊豆守が結城の後攻のため馳せ参じるとの情報が記される。二者を従来から御所方だったとする説明も史料内の叙述である。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。月日なし。「馳参」との情報であって到着完了を確定しない。共同の参加情報を一件とし、これを受けた各将の布陣とは分離する。",
+      "original_date": "馳参共申けれは",
+      "lunar_month": null,
+      "lunar_day": null,
+      "date_class": "relative_or_report_without_calendar_date",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "月日なし。「馳参」との情報であって到着完了を確定しない。共同の参加情報を一件とし、これを受けた各将の布陣とは分離する。",
+      "conversion": {},
+      "layers": {
+        "source_statement": "又箱根別当、大森伊豆守元来無弐の御所方なりけれは、為㆓結城後攻㆒、馳参共申けれは",
+        "modern_summary": "箱根別当と大森伊豆守が結城の後攻のため馳せ参じるとの情報が記される。二者を従来から御所方だったとする説明も史料内の叙述である。",
+        "editorial_inference": "月日なし。「馳参」との情報であって到着完了を確定しない。共同の参加情報を一件とし、これを受けた各将の布陣とは分離する。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 12,
+      "title": "今川上総介の平塚布陣",
+      "begin": "今川上総介",
+      "end": "今川上総介、平塚に取㆑陣",
+      "start_offset": 720,
+      "end_offset": 732,
+      "source_text": "今川上総介、平塚に取㆑陣",
+      "summary": "今川上総介が平塚に陣を取ったと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。直前の後攻参加情報を受けた布陣だが日付なし。次の蒲原とは主体と場所が異なる。",
+      "original_date": "（日付明記なし・編集注）",
+      "lunar_month": null,
+      "lunar_day": null,
+      "date_class": "unknown_month_day",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "直前の後攻参加情報を受けた布陣だが日付なし。次の蒲原とは主体と場所が異なる。",
+      "conversion": {},
+      "layers": {
+        "source_statement": "今川上総介、平塚に取㆑陣",
+        "modern_summary": "今川上総介が平塚に陣を取ったと記される。",
+        "editorial_inference": "直前の後攻参加情報を受けた布陣だが日付なし。次の蒲原とは主体と場所が異なる。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 13,
+      "title": "蒲原播磨守の国府津布陣",
+      "begin": "蒲原播磨守は",
+      "end": "蒲原播磨守は、国府津の道場に陣取て待懸たり",
+      "start_offset": 733,
+      "end_offset": 754,
+      "source_text": "蒲原播磨守は、国府津の道場に陣取て待懸たり",
+      "summary": "蒲原播磨守が国府津の道場に陣を取り待ち構えたと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。日付なし。今川の平塚布陣と分け、同日性を推定しない。",
+      "original_date": "（日付明記なし・編集注）",
+      "lunar_month": null,
+      "lunar_day": null,
+      "date_class": "unknown_month_day",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "日付なし。今川の平塚布陣と分け、同日性を推定しない。",
+      "conversion": {},
+      "layers": {
+        "source_statement": "蒲原播磨守は、国府津の道場に陣取て待懸たり",
+        "modern_summary": "蒲原播磨守が国府津の道場に陣を取り待ち構えたと記される。",
+        "editorial_inference": "日付なし。今川の平塚布陣と分け、同日性を推定しない。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    },
+    {
+      "proposal_order": 14,
+      "title": "持朝・清方の軍勢催促と結城到着",
+      "begin": "持朝与㆓管領清方㆒は",
+      "end": "清方㆒は、路次の軍勢を駆催し、同七月二十九日結城にこそ着給ふ",
+      "start_offset": 755,
+      "end_offset": 791,
+      "source_text": "持朝与㆓管領清方㆒は、路次の軍勢を駆催し、同七月二十九日結城にこそ着給ふ",
+      "summary": "持朝と管領清方が道中の軍勢を催促し、結城に着いたと記される。",
+      "boundary": "主体・場所・行為または日時が変わる次の叙述の直前で分割。結城到着の明示月日。道中の催促の個別日付は不明。八月九日記事の後に置かれるが、本文順を維持する。",
+      "original_date": "同七月二十九日",
+      "lunar_month": 7,
+      "lunar_day": 29,
+      "date_class": "explicit_month_day_context_year",
+      "year_context": "この章は年を明記せず「同七月一日」で始まる。前章の「同十二年庚申」とその前章の永享十一年から永享十二年（1440）とする編集上の文脈補完。前章の月日を転写しない。",
+      "interpretation": "結城到着の明示月日。道中の催促の個別日付は不明。八月九日記事の後に置かれるが、本文順を維持する。",
+      "conversion": {
+        "julian": "1440-08-26",
+        "julian_evidence": "naoj-7-29-0.html",
+        "gregorian": "1440-09-04",
+        "gregorian_evidence": "naoj-7-29-1.html"
+      },
+      "layers": {
+        "source_statement": "持朝与㆓管領清方㆒は、路次の軍勢を駆催し、同七月二十九日結城にこそ着給ふ",
+        "modern_summary": "持朝と管領清方が道中の軍勢を催促し、結城に着いたと記される。",
+        "editorial_inference": "結城到着の明示月日。道中の催促の個別日付は不明。八月九日記事の後に置かれるが、本文順を維持する。",
+        "historical_recognition": "NOT_TESTED"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "text": "〔捨て大双紙〕",
+      "source_html": "〔捨て<sup>大双紙</sup>〕",
+      "scope": "「捨て」は補文、supの「大双紙」は出典注。両者を通常本文の一語に連結しない。",
+      "proposal_order": 3,
+      "relationship": "editorial supplied reading; independent 大双紙 text comparison NOT_TESTED"
+    },
+    {
+      "text": "无イ／勝",
+      "source_html": "<span class=\"r2\"><span class=\"t\" style=\"color:inherit;text-align:left;;font-size:75%;\">​无イ​</span><span>​勝​</span><span class=\"b\" style=\"color:inherit;text-align:left;;font-size:75%;\">​<span typeof=\"mw:Entity\">　</span>​</span></span>",
+      "scope": "r2の上段t「无イ」は本文「勝」に付く異文注。実名「无イ勝」ではない。異本では当該文字なしとの注記と解されるが底本画像未照合。",
+      "proposal_order": 5,
+      "relationship": "editorial variant annotation; image NOT_TESTED"
+    },
+    {
+      "text": "春村云以下鎌倉大草紙巻三に同し",
+      "source_file": "preceding-annotation.html",
+      "scope": "前章結城籠城事の前に置かれた「以下」注。終端の明示がないため本章への関係も候補扱いとし、鎌倉大草紙巻三との直接照合・独立の裏付けを意味しない。",
+      "relationship": "candidate parallel-source claim"
+    }
+  ],
+  "editorial_identification_cautions": [
+    "長棟庵主を憲実と読むのは前章との文脈に基づく人物同定であり、この章に憲実の実名はない。",
+    "本文は前段に「庁鼻性額」、後段に「性順」と記す。人物同一性は候補として扱い、原表記を無断統一しない。",
+    "「無勢」「雲霧の如し」「逆徒」「周章」や一色の発言は本文の語り・評価・引用であり、兵数・動機・内心・道徳評価を史実として確定しない。"
+  ],
+  "historical_recognition": "NOT_TESTED",
+  "acquisition": {
+    "raw_source": "source/wikisource-fixed-from-batch08.html",
+    "status": "Reused saved oldid218476 raw HTML, not newly retrieved. Earlier batch09 current/fixed urllib calls returned HTTP403; web reader current permalink and fixed chapter read succeeded. See retrieval.json and source-check-proposal.json. No new raw-retrieval claim.",
+    "recorded_at": "2026-11-10T00:05:25.582696+00:00",
+    "raw_sha256": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0"
+  },
+  "hashes": {
+    "muraoka-chapter.html": "24dbc363db017265d1b38847881ade83ef12ff23f9fce7e23e86fcae28cd1518",
+    "muraoka-chapter.txt": "a340781573f9b2d5987fb21d32d2fea80458f409f7b2b58c80c51ff9f56466f1",
+    "muraoka-naoj-retrieval.json": "0dfc37722da0d431c26e5299b3b513a36469aec2610f8810a097d510d9f8932f",
+    "muraoka-annotations.html": "19573154701f0d783dc925483974edd0542c5c50c83a33ce957eb4b195b3c6f7"
+  },
+  "raw_html_offsets": {
+    "start": 119859,
+    "end_exclusive": 124067,
+    "unit": "Unicode characters in decoded raw HTML"
+  },
+  "conversion_note": "NAOJ type=1, gengo=b208, year=12; jg=0 Julian, jg=1 proleptic Gregorian; response bytes preserved in source/naoj-*.html, with URL/status/time/SHA256 in source/muraoka-naoj-retrieval.json. Calendar conversion does not validate historical occurrence."
+}

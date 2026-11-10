@@ -1,0 +1,125 @@
+{
+  "baseline/results.json": {
+    "raw_sha256": "f79c57fd571914c7f5776ba42b933d59fae99ebbd313737d24c747356700c065",
+    "status": "PASS",
+    "head": "40a131e60aecf3c24040ba0fdfe84db9fae1b829",
+    "tree": "fd857a49d2f07893a491c757c7bcaad16da5fff4",
+    "dirty": true,
+    "methods": 40,
+    "records": 7316,
+    "commands": [
+      {
+        "exit": 0,
+        "stdout": "PASS: 51 articles / 36 fields / JSON / HTML / read-only SQLite JOIN\n"
+      },
+      {
+        "exit": 0,
+        "stdout": "PASS: actual HTML comparator / 3 input orders / chronological and source order / same-day and unknown ties\n"
+      }
+    ]
+  },
+  "infrastructure-checks/results.json": {
+    "raw_sha256": "b9c1d3f603e6ca4d26d6f5171a0328f88571ef946e371c938343df545b0da6d8",
+    "status": "PASS",
+    "head": "40a131e60aecf3c24040ba0fdfe84db9fae1b829",
+    "tree": "fd857a49d2f07893a491c757c7bcaad16da5fff4",
+    "dirty": true,
+    "methods": 40,
+    "records": 7316,
+    "commands": [
+      {
+        "exit": 0,
+        "stdout": "PASS: 51 articles / 36 fields / JSON / HTML / read-only SQLite JOIN\n"
+      },
+      {
+        "exit": 0,
+        "stdout": "PASS: actual HTML comparator / 3 input orders / chronological and source order / same-day and unknown ties\n"
+      }
+    ]
+  },
+  "implementation-checks/results.json": {
+    "raw_sha256": "22f341b5098345215841248f7f22187aa93f0182bcdcb28d508172bb0f6da75b",
+    "status": "PASS",
+    "head": "40a131e60aecf3c24040ba0fdfe84db9fae1b829",
+    "tree": "fd857a49d2f07893a491c757c7bcaad16da5fff4",
+    "dirty": true,
+    "methods": 48,
+    "records": 10010,
+    "commands": [
+      {
+        "exit": 0,
+        "stdout": "PASS: 68 articles / 36 fields / JSON / HTML / read-only SQLite JOIN\n"
+      },
+      {
+        "exit": 0,
+        "stdout": "PASS: actual HTML comparator / 3 input orders / chronological and source order / same-day and unknown ties\n"
+      }
+    ]
+  },
+  "local-browser/results.json": {
+    "raw_sha256": "424b1c60057e99f4f40bdc7b328d9f50e05e4ba62c1c2b3d92cf82c9cd06f7a0",
+    "status": "FAIL",
+    "head": "40a131e60aecf3c24040ba0fdfe84db9fae1b829",
+    "tree": "fd857a49d2f07893a491c757c7bcaad16da5fff4",
+    "dirty": true,
+    "cases": [
+      {
+        "browser": "chromium",
+        "width": 375,
+        "motion": "no-preference",
+        "status": "PASS",
+        "checks": 342
+      },
+      {
+        "browser": "chromium",
+        "width": 375,
+        "motion": "reduce",
+        "status": "PASS",
+        "checks": 342
+      },
+      {
+        "browser": "chromium",
+        "width": 390,
+        "motion": "no-preference",
+        "status": "PASS",
+        "checks": 342
+      },
+      {
+        "browser": "chromium",
+        "width": 390,
+        "motion": "reduce",
+        "status": "PASS",
+        "checks": 342
+      },
+      {
+        "browser": "chromium",
+        "width": 765,
+        "motion": "no-preference",
+        "status": "PASS",
+        "checks": 342
+      },
+      {
+        "browser": "chromium",
+        "width": 765,
+        "motion": "reduce",
+        "status": "PASS",
+        "checks": 342
+      },
+      {
+        "browser": "chromium",
+        "width": 1280,
+        "motion": "no-preference",
+        "status": "PASS",
+        "checks": 342
+      },
+      {
+        "browser": "chromium",
+        "width": 1280,
+        "motion": "reduce",
+        "status": "PASS",
+        "checks": 342
+      }
+    ],
+    "fatal": "browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libhyphen.so.0                                   ║\n║     libmanette-0.2.so.0                              ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch09/prototype/eikyouki/browser_acceptance.cjs:14:30)"
+  }
+}

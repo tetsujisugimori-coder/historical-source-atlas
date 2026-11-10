@@ -7,6 +7,8 @@ from urllib.parse import urlsplit
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
 CHAPTERS = [
+    ("muraoka_battle", "村岡合戦事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-9"),
+    ("yuki_siege", "結城籠城事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-8"),
     ("norizane_tonsure", "憲実出家之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-7"),
     ('mochiuji_death', '持氏満貞御最期の事', 'https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#持氏満貞御最期の事'),
     ('mochiuji_tonsure', '持氏御出家并憲直以下自害の事', 'https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#持氏御出家并憲直以下自害の事'),
@@ -79,6 +81,11 @@ ANCHORS = {
 
 def lunar_range(r):
     year, precision = r["era_year"], r["date_precision"]
+    # Batch09: exact retrieved NAOJ dates only; no inferred month/year anchors.
+    if r["era"] == "永享" and year == 12 and precision == "day" and r["lunar_is_leap"] is False:
+        exact = {(1, 13): '1440-02-16', (1, 22): '1440-02-25', (3, 15): '1440-04-16', (4, 4): '1440-05-05', (4, 9): '1440-05-10', (4, 20): '1440-05-21', (5, 1): '1440-05-31', (4, 19): '1440-05-20', (4, 6): '1440-05-07', (5, 11): '1440-06-10', (7, 1): '1440-07-29', (7, 3): '1440-07-31', (7, 4): '1440-08-01', (7, 25): '1440-08-22', (7, 8): '1440-08-05', (8, 9): '1440-09-05', (7, 29): '1440-08-26'}.get((r['lunar_month'],r['lunar_day']))
+        if exact:
+            day=calendar_day(exact,'julian');return day,day
     # Batch08: directly verified exact days, no unverified annual extrapolation.
     if r["era"] == "永享" and year == 11 and precision == "day" and r["lunar_is_leap"] is False:
         exact = {(6,28): "1439-08-07", (11,20): "1439-12-26", (12,6): "1440-01-10"}.get((r["lunar_month"],r["lunar_day"]))
@@ -224,4 +231,24 @@ def validate_data(data):
         if r["source_order"] in orders:
             fail(r, "source_order", "duplicate source order")
         orders.add(r["source_order"])
+    validate_relationships(data)
     return data["records"]
+
+
+def validate_relationships(data):
+    """Existing relationship schema: source links, never event consolidation."""
+    relations = data.get('article_relationships', [])
+    if type(relations) is not list: raise ValueError('relationships must be list')
+    ids = {r['id'] for r in data['records']}; seen = set()
+    for rel in relations:
+        if type(rel) is not dict or set(rel) != {'article_id_a','article_id_b','relation','evidence_note'}:
+            raise ValueError('relationship fields')
+        if any(type(v) is not str or not v.strip() for v in rel.values()):raise ValueError('relationship types')
+        a,b = rel['article_id_a'],rel['article_id_b']
+        if a not in ids or b not in ids or a == b:raise ValueError('relationship identity')
+        if rel['relation'] != 'related_candidate' or '未照合' not in rel['evidence_note']:
+            raise ValueError('unverified relation must stay candidate')
+        key=tuple(sorted((a,b)))+(rel['relation'],)
+        if key in seen:raise ValueError('duplicate relation')
+        seen.add(key)
+    return relations

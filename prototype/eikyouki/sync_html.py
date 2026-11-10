@@ -13,6 +13,11 @@ def embed(html, data):
                             lambda m: m[1]+payload+m[2], html, flags=re.S)
     if count != 1:
         raise ValueError('expected exactly one payload element')
+    additional = {k:data.get(k, {} if k == 'publication' else []) for k in ['publication','article_relationships']}
+    extra = json.dumps(additional, ensure_ascii=False).replace('<', '\\u003c')
+    result, count = re.subn(r'(<script id="provenance" type="application/json">).*?(</script>)',
+                            lambda m:m[1]+extra+m[2], result, flags=re.S)
+    if count != 1: raise ValueError('expected exactly one provenance element')
     return result
 
 

@@ -13,7 +13,7 @@ def preserve(rows):
  if len(ids)!=len(set(ids)) or ids[:46]!=[r['id'] for r in old]:raise ValueError('old identity/order')
  same_fields(old,rows[:46],'existing 1656');return 1656
 def contract(rows,ledger=L):
- validate_data(dict(D,records=rows));new=rows[46:]
+ validate_data(dict(D,records=rows));new=[r for r in rows if r['id'] in [f'EK-{i:04d}' for i in range(47,52)]]
  if [r['id'] for r in new]!=[f'EK-{i:04d}' for i in range(47,52)]:raise ValueError('batch08 IDs/order')
  if ledger.get('historical_recognition')!='NOT_TESTED' or [e.get('id') for e in ledger.get('articles',[])]!=[r['id'] for r in new]:raise ValueError('ledger identities/history')
  chapter=(B.parents[1]/'evidence/batch08/source/chapter.txt').read_text()
@@ -39,7 +39,7 @@ class Batch08(unittest.TestCase):
      rows=copy.deepcopy(D['records']);v=rows[i][f];rows[i][f]=not v if type(v) is bool else ('FAULT' if v is None else None)
      with self.assertRaises(ValueError):preserve(rows)
  def test_new_values(self):
-  expected=D['records'][46:]
+  expected=D['records'][46:51]
   for i in range(5):
    for f in FIELDS:
     with self.subTest(id=i,field=f):
@@ -49,9 +49,9 @@ class Batch08(unittest.TestCase):
   for change in ['id','order','source','motive','truth','date','offset','entry-status','source-order','ledger-missing','ledger-history']:
    with self.subTest(change=change):
     rows=copy.deepcopy(D['records']);ledger=copy.deepcopy(L)
-    if change=='id':rows[-1]['id']=rows[-2]['id']
-    if change=='order':rows[46:]=reversed(rows[46:])
-    if change=='source':rows[-1]['source_url']=rows[45]['source_url']
+    if change=='id':rows[50]['id']=rows[49]['id']
+    if change=='order':rows[46:51]=reversed(rows[46:51])
+    if change=='source':rows[50]['source_url']=rows[45]['source_url']
     if change=='motive':rows[46]['summary']='憲実は罪を謝すために出家した。'
     if change=='truth':ledger['articles'][0]['layers']['historical_recognition']='PASS'
     if change=='date':
@@ -64,7 +64,7 @@ class Batch08(unittest.TestCase):
     if change=='offset':ledger['articles'][0]['end_offset']+=1
     with self.assertRaises(ValueError):contract(rows,ledger)
  def test_naoj_and_missing(self):
-  for r in D['records'][48:]:
+  for r in D['records'][48:51]:
    for mode,field in [(0,'julian_start'),(1,'gregorian_start')]:
     text=(B.parents[1]/f"evidence/batch08/source/naoj-{r['lunar_month']}-{r['lunar_day']}-{mode}.html").read_bytes().decode('euc-jp')
     self.assertIn(r[field].replace('-','/'),text)
