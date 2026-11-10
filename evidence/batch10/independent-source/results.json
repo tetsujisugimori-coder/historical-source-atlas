@@ -1,0 +1,47 @@
+{
+  "result": "PASS",
+  "base_commit": "f823640",
+  "reviewed_head": "b528a4a73ea7080056c3572f67a06a0501823991",
+  "records": 102,
+  "old_records_preserved": 82,
+  "old_values_preserved": 2952,
+  "new_records": 20,
+  "fields_per_record": 36,
+  "source_characters": 2655,
+  "date_oracle": {
+    "4-16": {
+      "julian": "1441-05-06",
+      "gregorian": "1441-05-15"
+    },
+    "5-4": {
+      "julian": "1441-05-24",
+      "gregorian": "1441-06-02"
+    },
+    "4-15": {
+      "julian": "1441-05-05",
+      "gregorian": "1441-05-14"
+    },
+    "5-16": {
+      "julian": "1441-06-05",
+      "gregorian": "1441-06-14"
+    },
+    "4-17": {
+      "julian": "1441-05-07",
+      "gregorian": "1441-05-16"
+    }
+  },
+  "dated_records": 6,
+  "null_date_records": 14,
+  "independent_fault_controls": {
+    "source-and-ledger-corruption": "REJECTED",
+    "old-value": "REJECTED",
+    "undated-date": "REJECTED",
+    "dated-end": "REJECTED",
+    "missing-record": "REJECTED",
+    "duplicate-id": "REJECTED",
+    "offset-gap": "REJECTED",
+    "annotation-misclassification": "REJECTED"
+  },
+  "json_html_sqlite": "PASS",
+  "browser": "NOT_RUN_BY_THIS_REVIEWER"
+}

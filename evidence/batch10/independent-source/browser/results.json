@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "engine": "chromium",
+      "checks": [
+        "initial article count",
+        "chapter filter count",
+        "EK-0086 unique filter",
+        "EK-0086 raw source exact",
+        "EK-0086 narrative exact",
+        "EK-0093 unique filter",
+        "EK-0093 raw source exact",
+        "EK-0093 narrative exact",
+        "EK-0098 unique filter",
+        "EK-0098 raw source exact",
+        "EK-0098 narrative exact",
+        "editorial note excluded from narrative",
+        "editorial note visible",
+        "related target search",
+        "related target open",
+        "input works after related navigation"
+      ],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "locator.selectOption: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#year')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"year\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    30 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /workspace/scratch/e622c1e9421e/atlas-batch10/evidence/batch10/independent-source/browser/focused.cjs:25:125"
+    },
+    {
+      "engine": "webkit",
+      "checks": [
+        "initial article count",
+        "chapter filter count",
+        "EK-0086 unique filter",
+        "EK-0086 raw source exact",
+        "EK-0086 narrative exact",
+        "EK-0093 unique filter",
+        "EK-0093 raw source exact",
+        "EK-0093 narrative exact",
+        "EK-0098 unique filter",
+        "EK-0098 raw source exact",
+        "EK-0098 narrative exact",
+        "editorial note excluded from narrative",
+        "editorial note visible",
+        "related target search",
+        "related target open",
+        "input works after related navigation"
+      ],
+      "pageerrors": [],
+      "status": "FAIL",
+      "error": "locator.selectOption: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#year')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"year\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    30 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /workspace/scratch/e622c1e9421e/atlas-batch10/evidence/batch10/independent-source/browser/focused.cjs:25:125"
+    }
+  ],
+  "scope": "Independent focused source layers/filter/navigation; not full suite"
+}

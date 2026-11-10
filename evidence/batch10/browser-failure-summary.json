@@ -1,0 +1,154 @@
+[
+  {
+    "path": "evidence/batch10/local-browser-configured/results.json",
+    "sha256": "448d8cbb7586a8135cf5f31c0808ef03f94022751c57bd115f76b486e4af716e",
+    "head": "f823640e25ded60e16c9eb7585904327be9406e3",
+    "tree": "b1976a76e6a32248ae0dc8a3893afc4c4477ff94",
+    "started": "2026-11-10T11:20:39.940Z",
+    "finished": "2026-11-10T11:25:40.129Z",
+    "status": "FAIL",
+    "fatal": "browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libhyphen.so.0                                   ║\n║     libmanette-0.2.so.0                              ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:14:30)",
+    "cases": [
+      {
+        "browser": "chromium",
+        "width": 375,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      },
+      {
+        "browser": "chromium",
+        "width": 375,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      },
+      {
+        "browser": "chromium",
+        "width": 390,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    53 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      },
+      {
+        "browser": "chromium",
+        "width": 390,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      },
+      {
+        "browser": "chromium",
+        "width": 765,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      },
+      {
+        "browser": "chromium",
+        "width": 765,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      },
+      {
+        "browser": "chromium",
+        "width": 1280,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      },
+      {
+        "browser": "chromium",
+        "width": 1280,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"chapter\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:32:33)",
+        "checks": 12
+      }
+    ]
+  },
+  {
+    "path": "evidence/batch10/local-browser-fixed/results.json",
+    "sha256": "9fda052fafaf1be7b005b7970ac194ffa364862b1cd0b3762fb172cde249c522",
+    "head": "b528a4a73ea7080056c3572f67a06a0501823991",
+    "tree": "ec55d6832941c8c4508696aa4ed74ff54118d960",
+    "started": "2026-11-10T16:07:58.270Z",
+    "finished": "2026-11-10T16:12:35.157Z",
+    "status": "FAIL",
+    "fatal": "browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libcairo-script-interpreter.so.2                 ║\n║     libhidapi-hidraw.so.0                            ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:14:30)",
+    "cases": [
+      {
+        "browser": "chromium",
+        "width": 375,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\u001b[2m    - locator resolved to <input id=\"search\" type=\"search\" autocomplete=\"off\" placeholder=\"人名・場所・語句・記事ID\"/>\u001b[22m\n\u001b[2m    - fill(\"\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:56:32)",
+        "checks": 692
+      },
+      {
+        "browser": "chromium",
+        "width": 375,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\u001b[2m    - locator resolved to <input id=\"search\" type=\"search\" autocomplete=\"off\" placeholder=\"人名・場所・語句・記事ID\"/>\u001b[22m\n\u001b[2m    - fill(\"\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:56:32)",
+        "checks": 692
+      },
+      {
+        "browser": "chromium",
+        "width": 390,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\u001b[2m    - locator resolved to <input id=\"search\" type=\"search\" autocomplete=\"off\" placeholder=\"人名・場所・語句・記事ID\"/>\u001b[22m\n\u001b[2m    - fill(\"\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:56:32)",
+        "checks": 692
+      },
+      {
+        "browser": "chromium",
+        "width": 390,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\u001b[2m    - locator resolved to <input id=\"search\" type=\"search\" autocomplete=\"off\" placeholder=\"人名・場所・語句・記事ID\"/>\u001b[22m\n\u001b[2m    - fill(\"\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:56:32)",
+        "checks": 692
+      },
+      {
+        "browser": "chromium",
+        "width": 765,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:26:33)",
+        "checks": 7
+      },
+      {
+        "browser": "chromium",
+        "width": 765,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#chapter')\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:26:33)",
+        "checks": 7
+      },
+      {
+        "browser": "chromium",
+        "width": 1280,
+        "motion": "no-preference",
+        "status": "FAIL",
+        "error": "page.screenshot: Protocol error (Page.captureScreenshot): Unable to capture screenshot\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:24:13)",
+        "checks": 6
+      },
+      {
+        "browser": "chromium",
+        "width": 1280,
+        "motion": "reduce",
+        "status": "FAIL",
+        "error": "page.screenshot: Protocol error (Page.captureScreenshot): Unable to capture screenshot\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/browser_acceptance.cjs:24:13)",
+        "checks": 6
+      }
+    ]
+  }
+]

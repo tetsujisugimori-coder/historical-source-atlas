@@ -10,7 +10,7 @@
 4. 史料に記された和暦、先発グレゴリオ暦への換算年月日（または期間）、研究上の推定日付を別項目で保持します。換算根拠・確認状況を残します。
 5. 根拠が不足する地理的位置・日付・史実認定は確定値として扱いません。
 
-## 最初の試作：『永享記』v0.9
+## 最初の試作：『永享記』v0.10
 
 - [試作の説明と出典](prototype/eikyouki/README.md)
 - [閲覧用HTML年表](prototype/eikyouki/index.html)
@@ -24,7 +24,7 @@ python prototype/eikyouki/build.py
 python prototype/eikyouki/test_dates.py
 ```
 
-**ご注意：** 現在の82件は史料記事の「仮登録候補」です。全文翻刻や伝本・原画像との照合は未了で、暦換算も暫定値です。展示・研究で確定した史実として再利用しないでください。
+**ご注意：** 現在の102件は史料記事の「仮登録候補」です。全文翻刻や伝本・原画像との照合は未了で、暦換算も暫定値です。展示・研究で確定した史実として再利用しないでください。
 
 ## 開発状況
 
@@ -46,4 +46,7 @@ python prototype/eikyouki/test_dates.py
 「憲実出家之事」5記事 EK-0047〜0051を追加し計51記事。既存46記事1656項目は不変。史料内の動機と史実認定を分離。詳細は [第8便台帳](docs/eikyouki-intake-batch08.md)。
 
 ## 第9便
-「結城籠城事」17記事 EK-0052〜0068と「村岡合戦事」14記事 EK-0069〜0082を追加（計82）。旧51記事1836項目は型とNULLを含め保全。第9便原文と校訂注を収録し、鎌倉大草紙補文を明示。詳細は [台帳](docs/eikyouki-intake-batch09.md)。Draft・未マージのため第9便は本番Pages未反映。公開URLは https://tetsujisugimori-coder.github.io/historical-source-atlas/ 。
+「結城籠城事」17記事 EK-0052〜0068と「村岡合戦事」14記事 EK-0069〜0082を追加（計82）。旧51記事1836項目は型とNULLを含め保全。第9便原文と校訂注を収録し、鎌倉大草紙補文を明示。詳細は [台帳](docs/eikyouki-intake-batch09.md)。PR #27 は2026-11-10確認時点でマージ済み（main f823640）。本番Pages反映の確認は別工程。公開URLは https://tetsujisugimori-coder.github.io/historical-source-atlas/ 。
+
+## 第10便
+「結城落城の事」20記事 EK-0083〜0102を追加（全102）。既存82記事2952値を保全。物語本文と独立校訂注・頁標識を分離表示。6記事はNAOJ照合の暫定換算、14記事は日付不明。詳細は[第10便台帳](docs/eikyouki-intake-batch10.md)。第10便はDraft PRで提出し、マージ・本番公開は別承認。

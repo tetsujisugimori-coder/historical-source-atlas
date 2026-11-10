@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "engine": "chromium",
+      "checks": [
+        "initial article count",
+        "chapter filter count",
+        "EK-0086 unique filter",
+        "EK-0086 raw source exact",
+        "EK-0086 narrative exact",
+        "EK-0093 unique filter",
+        "EK-0093 raw source exact",
+        "EK-0093 narrative exact",
+        "EK-0098 unique filter",
+        "EK-0098 raw source exact",
+        "EK-0098 narrative exact",
+        "editorial note excluded from narrative",
+        "editorial note visible",
+        "related target search",
+        "related target open",
+        "input works after related navigation",
+        "dated year and chapter filter",
+        "pageerrors"
+      ],
+      "pageerrors": [],
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "checks": [
+        "initial article count",
+        "chapter filter count",
+        "EK-0086 unique filter",
+        "EK-0086 raw source exact",
+        "EK-0086 narrative exact",
+        "EK-0093 unique filter",
+        "EK-0093 raw source exact",
+        "EK-0093 narrative exact",
+        "EK-0098 unique filter",
+        "EK-0098 raw source exact",
+        "EK-0098 narrative exact",
+        "editorial note excluded from narrative",
+        "editorial note visible",
+        "related target search",
+        "related target open",
+        "input works after related navigation",
+        "dated year and chapter filter",
+        "pageerrors"
+      ],
+      "pageerrors": [],
+      "status": "PASS"
+    }
+  ],
+  "scope": "Independent focused source layers/filter/navigation; not full suite"
+}
