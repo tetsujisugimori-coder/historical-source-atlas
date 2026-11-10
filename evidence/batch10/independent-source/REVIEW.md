@@ -29,3 +29,15 @@ Wikisource live access was reported 403; this review validates the preserved rev
 Non-blocking inherited issue: metadata.transcription_note still says full text was not transcribed, although later batches carry full text for selected articles. This predates batch10 and should be clarified in a separately scoped metadata cleanup rather than rewriting preserved prior article values.
 
 Artifacts: check.py (independent oracle and fault controls), results.json (machine results), test-batch10.log (seven implementation tests rerun).
+
+## Subsequent independent browser review: CHANGE REQUIRED
+
+After the initial source-only PASS, the parent requested a fresh focused Chromium and WebKit run. Both engines launched serially, passed sixteen checks each for source text, narrative text, separated annotations, chapter filtering, related-link navigation, and subsequent search. Both reproduced a substantive UI defect: the year selector omits 1441, although six new articles have that year. Selecting 1441 fails because the option does not exist. Add 1441 (or derive available years from data) and a regression assertion before browser acceptance. Source-only PASS remains valid; overall UI approval is withheld until the defect is fixed and retested.
+
+Original failed execution and six screenshots are preserved under browser/. WebKit launched using a dedicated wrapper that combines existing WPE and preinstalled library directories; no packages were installed. No page errors were emitted in either engine before the missing-option failure. The earlier full-suite post-navigation timeout was not reproduced: search after related navigation succeeded in both fresh engines.
+
+## Year-option fix retest: focused browser PASS
+
+The exact same independent focused script was copied unchanged to browser-fixed/ and rerun serially with fresh Chromium and WebKit after the parent added the 1441 option. Both now PASS all 18 assertions, including the formerly failing combined year/chapter selection returning six articles. Both have zero page errors. Original failed runs remain untouched in browser/. This provides red/green evidence for the missing-year defect. Diff review also confirms the production suite gained the exact six expected IDs assertion and the unit suite gained coverage that every source year and chapter has a selectable option. Minor follow-up requested: order 1441 after 1440 in the selector. Final remote-commit anchoring and full CI acceptance remain the parent's pending steps.
+
+Final focused rerun after year ordering correction: browser-final/ again passes 18 assertions in each fresh engine, zero page errors. Year options independently verified as all, 1436, 1437, 1438, 1439, 1440, 1441, null. The tested index.html SHA-256 is recorded in browser-final/input-sha256.json for final commit anchoring. No outstanding correction remains in this scoped source and focused-browser review.

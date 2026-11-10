@@ -70,6 +70,12 @@ class Batch10(unittest.TestCase):
    with self.subTest(file=log['file']):
     raw=(E/'source'/log['file']).read_bytes();self.assertEqual(200,log['status']);self.assertEqual(log['sha256'],hashlib.sha256(raw).hexdigest());m,d,g=map(int,re.findall(r'\d+',log['file']));self.assertIn(f'<td>{expected[m,d][g]}</td> <td>嘉吉元年{m:02d}月{d:02d}日',raw.decode('euc-jp'))
   self.assertEqual(14,sum(r['gregorian_start'] is None for r in D['records'][82:]));self.assertEqual(6,sum(r['gregorian_start'] is not None for r in D['records'][82:]))
+ def test_all_source_chapters_and_years_selectable(self):
+  html=(B/'index.html').read_text()
+  for year in sorted({r['western_year'] for r in D['records'] if r['western_year'] is not None}):
+   with self.subTest(year=year):self.assertIn(f'<option value="{year}">',html)
+  for chapter in sorted({r['chapter_id'] for r in D['records']}):
+   with self.subTest(chapter=chapter):self.assertIn(f'<option value="{chapter}">',html)
  def test_fault_controls(self):
   for fault in ['missing','duplicate','order','offset','overrun','omitted-tail','annotation','pub-annotation','certainty','date','live-claim','era','fire','relationship']:
    with self.subTest(fault=fault):
