@@ -1,0 +1,60 @@
+{
+  "recorded_at": "2026-11-09T09:48:57.832750+00:00",
+  "revision_verified": 218476,
+  "source_origin": "existing batch08 raw HTML; fresh urllib requests both returned HTTP403; independent web-tool current-page permalink resolves oldid218476 and fixed-view chapter read succeeded. Web tool does not expose raw response HTML or server HTTP status.",
+  "raw_html_acquisition": "reused saved batch08 evidence with unchanged bytes; NOT newly retrieved",
+  "chapter_offsets": {
+    "ei8": 106713,
+    "ei9": 119859,
+    "ei10": 124067
+  },
+  "next_chapter": "村岡合戦事 #ei-9 (not registered)",
+  "later_chapter": "結城落城の事 #ei-10 (not registered)",
+  "annotation_note": [
+    {
+      "text": "春村云以下鎌倉大草紙巻三に同し",
+      "position": "章頭アンカー直前",
+      "scope": "「以下」と述べるが終端明示なし。章全体への関連候補。鎌倉大草紙原文未取得・未照合、同文一致未検証。",
+      "relationship": "editorial parallel-source claim, not independent corroboration"
+    },
+    {
+      "text": "以大草紙補之",
+      "source_html": "当国一○〔揆を催促して是を退治の為に発向すへき由相触る所に両<sup>以大草紙補之</sup>〕",
+      "scope": "括弧内の「揆を催促して是を退治の為に発向すへき由相触る所に両」が補文。最後の「両」は補文本文、「以大草紙補之」はsup注。後続「方」と合わせ両方になる。",
+      "article": 10,
+      "relationship": "editorial supplied text, direct-source comparison NOT_TESTED"
+    }
+  ],
+  "hashes": {
+    "source/naoj-4-9-0.html": "a013af83806fb4f5ab9c6adf2e1536f015ca6341585d7e41b6f47b61a2a1b56e",
+    "source/wikisource-fixed-from-batch08.html": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0",
+    "source/naoj-4-4-0.html": "d6821f941eebfc503347634ef64a87e65c9eb6b030cca5b86c28352722b3b34f",
+    "source/naoj-retrieval.json": "1ed029b5511950d59dfb8cc0fa0e785ec226c5254140ff5cbd337c97f99ad7ca",
+    "source/interpolation-annotation.html": "e4b4e0a38bd52223e5e1284943a026401efa4559d1dd13670f8e2b5d81eda6ad",
+    "source/naoj-4-20-1.html": "235ef6567fbac6c119b72534ea370ee7169048376e522831507d387e05a4d0f9",
+    "source/naoj-5-1-0.html": "a6d2dfdbec2c7602f11e8f8e3aa8f581827bbb50e7552780d4b4e0d2cb71fd63",
+    "source/fixed-web-tool.json": "55aeb973aae2a3ee7b8285f69a30fccc72bd430fd4e919b627cb63669623f71d",
+    "source/naoj-1-13-0.html": "e364701df9d5aafab169a133e3e24866e518d45879972929182692ad56dabee2",
+    "source/chapter.txt": "e9bb221f6128609aaffbd124323bdb9cf3a968a4ad152c59e4816d5552083400",
+    "source/naoj-4-19-1.html": "b1cada36542ce833bc6f6b1e7f48347f47da97a2d4d44e03ff4ec86f13dfeb77",
+    "source/naoj-4-6-0.html": "984d1c3c25b53110b693dd97b4c954dbd0b403917abec44b9d15a1c104a0eacb",
+    "source/naoj-5-11-0.html": "3d63bae9aca2fa2e8685e42bff2b27132ebbac2b4ab9f8a6721d45e95598838c",
+    "source/naoj-3-15-0.html": "5395a0a1f1645412f25035e1bf39e1cffacf2d0c1722e5d2575ff6cdbdcd5eb1",
+    "source/naoj-4-4-1.html": "197781000255a0143e6127ec560942c10633c2d5c4f296ab9b226188930db999",
+    "source/preceding-annotation.html": "4cd11029e7ebed6baea7a9b63af8ccb3eccf41fb6213154ac452496e2c7df1e0",
+    "source/current-web-tool.json": "3516e38369042219f084ac57f263de531f604163f1b682d53bf00c96ca9d1fd6",
+    "source/naoj-1-22-1.html": "620e0052f5caa9b3cfbc172ee18a03a9288a15781374170f8972b703b728be80",
+    "source/chapter-with-preceding-note.html": "9358a346275e904f9baef8548dee95fb59ea90b1ef9b024a5b284414ba401d0f",
+    "source/retrieval.json": "dd881980e4e425b1776a4af126bbdd87a1f4b36aafb35eef27fa2e2ac1737342",
+    "source/naoj-4-6-1.html": "a33c7e4b40b43bad8a897b4433275d49e62a930b1f2e914f4e57b5f66e9a9202",
+    "source/naoj-4-9-1.html": "48b42067183d92b7ee94dc4c86d6634d48510b7a6fb516b3cfd85aadf37156be",
+    "source/naoj-4-19-0.html": "57503e1aa802a625e9634314ad954ff29ae16738e18bd63e382b9cd0ff1dc9f3",
+    "source/chapter-raw.html": "ad33f259b595efe368950d37e76749b54ab76a3386109b40860d84fc49ac7923",
+    "source/naoj-1-13-1.html": "7d1458b2d1711f3692f68129d51db8c50325e4529414a87bef2eeae69bbbbba0",
+    "source/naoj-5-1-1.html": "30107999af9dc10821ac1f0ed4ea752cd7ccfe7284b30620cabac1cf8659327a",
+    "source/naoj-4-20-0.html": "a49bbc0a3bc92956ceddf51c2f3672a0054d05113185621455ff224aa5c83894",
+    "source/naoj-5-11-1.html": "16132eb5972a1d7089cf6de1afb4b891830b2294f4c91685312af9cca5d99b34",
+    "source/naoj-3-15-1.html": "8fdc87f5bbbad6aa5b87bddaee9716de0035ea58bbfe25037aa0e6add4d706ff",
+    "source/naoj-1-22-0.html": "9b014bf052bb424bd56467e351465f81b1e88c5f88592a8c7b7e73678042b66f"
+  }
+}

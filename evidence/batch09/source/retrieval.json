@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://ja.wikisource.org/wiki/%E6%B0%B8%E4%BA%AB%E8%A8%98",
+    "requested_at": "2026-11-09T09:45:52.287791+00:00",
+    "file": "wikisource-current.html",
+    "error": "HTTP Error 403: Forbidden",
+    "status": "FAILED",
+    "completed_at": "2026-11-09T09:45:57.037615+00:00"
+  },
+  {
+    "url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=%E6%B0%B8%E4%BA%AB%E8%A8%98",
+    "requested_at": "2026-11-09T09:45:57.039202+00:00",
+    "file": "wikisource-fixed.html",
+    "error": "HTTP Error 403: Forbidden",
+    "status": "FAILED",
+    "completed_at": "2026-11-09T09:46:00.687194+00:00"
+  }
+]

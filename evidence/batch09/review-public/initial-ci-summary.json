@@ -1,0 +1,39 @@
+{
+  "implementation_head": "6ca200120dfb6731122bb3dc2370ab7c9e2c7703",
+  "implementation_tree": "37b17715b6a8bcd397682e659f1368f9382d1075",
+  "artifact_id": 13729983277,
+  "artifact_url": "https://api.github.com/repos/tetsujisugimori-coder/historical-source-atlas/actions/artifacts/13729983277",
+  "zip_sha256": "b6de7461d48d47d3257a16729f19d5668d86c6087258789f8497f63938973949",
+  "unit_methods": 48,
+  "unit_records": 10528,
+  "commands": 2,
+  "browser_conditions": 16,
+  "browser_checks": 7504,
+  "images": 944,
+  "manifest_sha256": "05a46ab2112009d4d8fff7578a123adca777f215193c9aa0258d3d220f7dd99e",
+  "runs": [
+    {
+      "id": 42742849466,
+      "kind": "push acceptance",
+      "result": "success"
+    },
+    {
+      "id": 42742904125,
+      "kind": "PR acceptance",
+      "result": "success"
+    },
+    {
+      "id": 42742903887,
+      "kind": "Pages PR build",
+      "result": "success",
+      "deploy": "skipped"
+    }
+  ],
+  "limits": [
+    "No production deployment",
+    "No physical Safari",
+    "No manuscript/variant collation or historical fact verification",
+    "Additional local gzip reports held locally, not published; formal CI raw artifact is available above"
+  ],
+  "run_url": "https://github.com/tetsujisugimori-coder/historical-source-atlas/actions/runs/42742904125"
+}
