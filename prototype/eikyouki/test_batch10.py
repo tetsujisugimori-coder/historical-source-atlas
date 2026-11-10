@@ -13,12 +13,12 @@ def preserve(rows):
 
 def contract(data,ledger=L):
  rows=validate_data(data);preserve(rows)
- if len(rows)!=102 or [r['id'] for r in rows[82:]]!=IDS:raise ValueError('new IDs/count')
+ if len(rows)<102 or [r['id'] for r in rows[82:102]]!=IDS:raise ValueError('new IDs/count')
  chapter=(E/'source/chapter.txt').read_text()
  if hashlib.sha256(chapter.encode()).hexdigest()!=ledger['chapter_sha256']:raise ValueError('chapter hash')
  if ledger['historical_recognition']!='NOT_TESTED' or [a['id'] for a in ledger['articles']]!=IDS:raise ValueError('ledger identity/history')
  cursor=len('結城落城の事')
- for row,a in zip(rows[82:],ledger['articles']):
+ for row,a in zip(rows[82:102],ledger['articles']):
   same_fields([a['record']],[row],'new fields')
   if a['start_offset']!=cursor or not cursor<a['end_offset']<=len(chapter):raise ValueError('gap/overlap/boundary')
   raw=chapter[cursor:a['end_offset']];cursor=a['end_offset']
@@ -37,11 +37,11 @@ def contract(data,ledger=L):
   elif row['era']!='嘉吉' or row['era_year']!=1 or row['lunar_day']!=a['lunar_day']:raise ValueError('date context')
  if cursor!=len(chapter):raise ValueError('omitted tail')
  if data['article_relationships']!=D['article_relationships']:raise ValueError('candidate relationship')
- return len(rows)
+ return 102
 class Batch10(unittest.TestCase):
  def test_preservation_and_all_formats(self):
   old=json.loads(subprocess.check_output(['git','show','f823640e25ded60e16c9eb7585904327be9406e3:prototype/eikyouki/eikyouki_records.json'],cwd=ROOT))
-  same_fields(old['records'],BASE,'baseline authenticity');self.assertEqual(2952,preserve(D['records']));self.assertEqual(102,contract(D));self.assertEqual(102,verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
+  same_fields(old['records'],BASE,'baseline authenticity');self.assertEqual(2952,preserve(D['records']));self.assertEqual(102,contract(D));self.assertEqual(len(D['records']),verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
   for k,v in old['publication']['articles'].items():self.assertEqual(v,D['publication']['articles'][k])
   self.assertEqual(old['article_relationships'],D['article_relationships'][:len(old['article_relationships'])])
  def test_2952_existing_value_faults(self):
@@ -54,8 +54,8 @@ class Batch10(unittest.TestCase):
   for i in range(20):
    for field in FIELDS:
     with self.subTest(id=i,field=field):
-     rows=copy.deepcopy(D['records'][82:]);v=rows[i][field];rows[i][field]='FAULT' if v is None else None
-     with self.assertRaises(ValueError):same_fields(D['records'][82:],rows,'new values')
+     rows=copy.deepcopy(D['records'][82:102]);v=rows[i][field];rows[i][field]='FAULT' if v is None else None
+     with self.assertRaises(ValueError):same_fields(D['records'][82:102],rows,'new values')
  def test_source_boundary_and_reuse(self):
   raw=(ROOT/L['source_file']).read_bytes();self.assertEqual(L['source_sha256'],hashlib.sha256(raw).hexdigest());s=raw.decode();a=s.index('<span class="anchor" id="ei-10"');b=s.index('<span class="anchor" id="ei-11"');self.assertIn('成氏の御事',s[b:b+400])
   class Parser(HTMLParser):
@@ -69,7 +69,7 @@ class Batch10(unittest.TestCase):
   for log in logs:
    with self.subTest(file=log['file']):
     raw=(E/'source'/log['file']).read_bytes();self.assertEqual(200,log['status']);self.assertEqual(log['sha256'],hashlib.sha256(raw).hexdigest());m,d,g=map(int,re.findall(r'\d+',log['file']));self.assertIn(f'<td>{expected[m,d][g]}</td> <td>嘉吉元年{m:02d}月{d:02d}日',raw.decode('euc-jp'))
-  self.assertEqual(14,sum(r['gregorian_start'] is None for r in D['records'][82:]));self.assertEqual(6,sum(r['gregorian_start'] is not None for r in D['records'][82:]))
+  self.assertEqual(14,sum(r['gregorian_start'] is None for r in D['records'][82:102]));self.assertEqual(6,sum(r['gregorian_start'] is not None for r in D['records'][82:102]))
  def test_all_source_chapters_and_years_selectable(self):
   html=(B/'index.html').read_text()
   for year in sorted({r['western_year'] for r in D['records'] if r['western_year'] is not None}):
@@ -80,8 +80,8 @@ class Batch10(unittest.TestCase):
   for fault in ['missing','duplicate','order','offset','overrun','omitted-tail','annotation','pub-annotation','certainty','date','live-claim','era','fire','relationship']:
    with self.subTest(fault=fault):
     d=copy.deepcopy(D);l=copy.deepcopy(L)
-    if fault=='missing':d['records'].pop()
-    if fault=='duplicate':d['records'][-1]['id']='EK-0083'
+    if fault=='missing':d['records'].pop(101)
+    if fault=='duplicate':d['records'][101]['id']='EK-0083'
     if fault=='order':d['records'][82:]=reversed(d['records'][82:])
     if fault=='offset':l['articles'][0]['end_offset']+=1
     if fault=='overrun':l['articles'][-1]['end_offset']+=1

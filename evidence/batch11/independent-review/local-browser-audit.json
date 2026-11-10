@@ -1,0 +1,95 @@
+{
+  "started": "2026-11-10T22:09:05.505Z",
+  "finished": "2026-11-10T22:12:43.869Z",
+  "status": "FAIL",
+  "head": "c0dfa1cf4ea4f2b304b0406ac7dfb4730c5c3c41",
+  "tree": "31da837b6ccaa5a9b62d22719ebe0dad202b9abd",
+  "sourceSha256": "21db33ddc456e589d1749c1b244a6492f65f2bb1457c73f2d4a99f893116ce52",
+  "fatal": "browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libgtk-4.so.1                                    ║\n║     libgraphene-1.0.so.0                             ║\n║     libwoff2dec.so.1.0.2                             ║\n║     libharfbuzz-icu.so.0                             ║\n║     libhyphen.so.0                                   ║\n║     libmanette-0.2.so.0                              ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝\n    at main (/workspace/scratch/e622c1e9421e/atlas-batch11/prototype/eikyouki/browser_acceptance.cjs:14:30)",
+  "cases": [
+    {
+      "browser": "chromium",
+      "width": 375,
+      "motion": "no-preference",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 375,
+      "motion": "reduce",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "motion": "no-preference",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 390,
+      "motion": "reduce",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 765,
+      "motion": "no-preference",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 765,
+      "motion": "reduce",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "motion": "no-preference",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    },
+    {
+      "browser": "chromium",
+      "width": 1280,
+      "motion": "reduce",
+      "status": "PASS",
+      "checks": 897,
+      "mismatches": 0,
+      "pageerrors": [],
+      "consoleErrors": []
+    }
+  ],
+  "current_html_sha256": "21db33ddc456e589d1749c1b244a6492f65f2bb1457c73f2d4a99f893116ce52",
+  "result_sha256": "61ad0c7c1aa2be26c857c63799d2c96088fbd8a8c3c0ec90b85d2ff346ea42e6",
+  "audit_time": "2026-11-10T22:18:52.438526+00:00",
+  "conclusion": "Completed with overall FAIL: Chromium 8 conditions PASS, WebKit launch blocked by missing shared libraries; not ongoing and not 16-condition PASS. Recorded HEAD is precommit c0dfa1c with dirty tree; HTML hash matches current candidate but final HEAD/CI run remains required."
+}

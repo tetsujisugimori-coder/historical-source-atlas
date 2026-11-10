@@ -83,3 +83,6 @@ unknown/unresolvedとNULLは不正入力と区別します。start=endは日付�
 
 ## 第9便
 「結城籠城事」17記事 EK-0052〜0068と「村岡合戦事」14記事 EK-0069〜0082を追加（計82）。旧51記事1836項目は型とNULLを含め保全。第9便原文と校訂注を収録し、鎌倉大草紙補文を明示。詳細は [台帳](../../docs/eikyouki-intake-batch09.md)。Draft・未マージのため第9便は本番Pages未反映。公開URLは https://tetsujisugimori-coder.github.io/historical-source-atlas/ 。
+
+## 第11便
+「成氏の御事」15記事 EK-0103〜0117、総117記事。怪異譚0106と討殺場面0107を独立登録し、双方の注記に叙述上のつながりを記録。2暫定換算・13日付不明。第10便PR #29はマージ済み（main c0dfa1cf）。[第11便台帳](../../docs/eikyouki-intake-batch11.md)参照。第11便はDraft提出、未マージ・未公開。
