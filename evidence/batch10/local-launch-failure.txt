@@ -1,0 +1,1 @@
+Initial browser launcher failed before browser start: relative PLAYWRIGHT_MODULE resolved from prototype/eikyouki, MODULE_NOT_FOUND. No trial counted. Corrected to absolute existing Playwright 1.56.1 path.

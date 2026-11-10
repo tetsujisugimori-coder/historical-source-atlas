@@ -1,0 +1,62 @@
+[
+  {
+    "path": "evidence/batch10/baseline-checks/results.json",
+    "sha256": "8c563d77ddf1e7dd674b3c14f58d8dd4330bb2f98bc994eff2caaec6d187203c",
+    "status": "PASS",
+    "methods": 48,
+    "records": 10528,
+    "cli": [
+      [
+        "/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/test_dates.py",
+        0
+      ],
+      [
+        "/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/test_sort.cjs",
+        0
+      ]
+    ],
+    "head": "f823640e25ded60e16c9eb7585904327be9406e3",
+    "dirty": true,
+    "note": "Local development evidence, not final HEAD CI. Full original retained locally."
+  },
+  {
+    "path": "evidence/batch10/implementation-checks/results.json",
+    "sha256": "f42cf13c23bd4f4d57b813bf6670db03c0c49ed2204821e44c8e64f54855b4ff",
+    "status": "PASS",
+    "methods": 48,
+    "records": 10528,
+    "cli": [
+      [
+        "/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/test_dates.py",
+        0
+      ],
+      [
+        "/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/test_sort.cjs",
+        0
+      ]
+    ],
+    "head": "f823640e25ded60e16c9eb7585904327be9406e3",
+    "dirty": true,
+    "note": "Local development evidence, not final HEAD CI. Full original retained locally."
+  },
+  {
+    "path": "evidence/batch10/new-contract-checks/results.json",
+    "sha256": "c7f4d68c350950d3126fdc756f2845a53125433f910aac72b89b169537b74cc4",
+    "status": "PASS",
+    "methods": 55,
+    "records": 14487,
+    "cli": [
+      [
+        "/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/test_dates.py",
+        0
+      ],
+      [
+        "/workspace/scratch/e622c1e9421e/atlas-batch10/prototype/eikyouki/test_sort.cjs",
+        0
+      ]
+    ],
+    "head": "f823640e25ded60e16c9eb7585904327be9406e3",
+    "dirty": true,
+    "note": "Local development evidence, not final HEAD CI. Full original retained locally."
+  }
+]

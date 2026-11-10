@@ -17,7 +17,7 @@ def preserve(rows):
 
 def contract(data,ledger=L):
  rows=validate_data(data);new=[r for r in rows if r['id'] in IDS]
- if [r['id'] for r in new]!=IDS or len(rows)!=82:raise ValueError('batch09 IDs/count/order')
+ if [r['id'] for r in new]!=IDS or [r["id"] for r in rows[51:82]]!=IDS:raise ValueError('batch09 IDs/count/order')
  if ledger.get('historical_recognition')!='NOT_TESTED' or [a['id'] for a in ledger['articles']]!=IDS:raise ValueError('ledger identities/history')
  chapters={c['chapter_id']:(E/c['file']).read_text() for c in ledger['chapters']};coverage={c['chapter_id']:set(range(len(c['header']))) for c in ledger['chapters']}
  chapter=chapters['yuki_siege']
@@ -54,7 +54,7 @@ def contract(data,ledger=L):
 class Batch09(unittest.TestCase):
  def test_baseline_source_and_correspondence(self):
   actual=json.loads(subprocess.check_output(['git','show','40a131e60aecf3c24040ba0fdfe84db9fae1b829:prototype/eikyouki/eikyouki_records.json'],cwd=ROOT))['records'];same_fields(actual,D['records'][:51],'git baseline')
-  self.assertEqual(1836,preserve(D['records']));self.assertEqual(31,len(contract(D)));self.assertEqual(82,verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
+  self.assertEqual(1836,preserve(D['records']));self.assertEqual(31,len(contract(D)));self.assertEqual(len(D["records"]),verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
  def test_existing_1836_single_field_faults(self):
   for i in range(51):
    for f in FIELDS:
@@ -62,7 +62,7 @@ class Batch09(unittest.TestCase):
      rows=copy.deepcopy(D['records']);v=rows[i][f];rows[i][f]=not v if type(v) is bool else (float(v) if type(v) is int else ('FAULT' if v is None else None))
      with self.assertRaises(ValueError):preserve(rows)
  def test_new_1116_cross_format_faults(self):
-  expected=D['records'][51:]
+  expected=D['records'][51:82]
   for i in range(31):
    for f in FIELDS:
     with self.subTest(id=i,field=f):
@@ -74,8 +74,8 @@ class Batch09(unittest.TestCase):
    with self.subTest(fault=fault):
     d=copy.deepcopy(D);l=copy.deepcopy(L);r=d['records'][52]
     if fault=='duplicate':r['id']=d['records'][51]['id']
-    if fault=='missing':d['records'].pop()
-    if fault=='order':d['records'][51:]=reversed(d['records'][51:])
+    if fault=='missing':d['records'].pop(81)
+    if fault=='order':d['records'][51:82]=reversed(d['records'][51:82])
     if fault=='offset':l['articles'][0]['end_offset']+=1
     if fault=='chapter-overrun':l['articles'][-1]['end_offset']+=5
     if fault=='summary':r['summary']='史実として確定した。'
@@ -99,7 +99,7 @@ class Batch09(unittest.TestCase):
   for log in logs:
    with self.subTest(file=log['file']):
     raw=(E/'source'/log['file']).read_bytes();self.assertEqual(200,log['status']);self.assertEqual(log['sha256'],hashlib.sha256(raw).hexdigest())
-  for r in D['records'][51:]:
+  for r in D['records'][51:82]:
    if r['lunar_day']:
     for mode,field in [(0,'julian_start'),(1,'gregorian_start')]:
      raw=(E/f"source/naoj-{r['lunar_month']}-{r['lunar_day']}-{mode}.html").read_bytes().decode('euc-jp')
