@@ -4,6 +4,7 @@ import json
 import re
 import sqlite3
 from validation import ARTICLE_FIELDS, FIELDS, validate_data
+from document_structure import supplementary, compare_supplementary
 
 
 def same_fields(expected, actual, label):
@@ -58,11 +59,12 @@ def verify(data_path, html_path, db_path):
         raise ValueError("HTML: missing payload")
     same_fields(records, json.loads(match.group(1)), "HTML")
     provenance = re.search(r'<script id="provenance" type="application/json">(.*?)</script>',html_path.read_text(encoding='utf8'),re.S)
-    if provenance is None or json.loads(provenance[1]) != {k:data.get(k,{} if k=='publication' else []) for k in ['publication','article_relationships']}:
+    if provenance is None or json.loads(provenance[1]) != supplementary(data):
         raise ValueError('HTML: provenance/relationships mismatch')
     # mode=ro prevents creating a missing DB or changing/rebuilding a corrupt DB.
     with closing(sqlite3.connect(db_path.resolve().as_uri()+"?mode=ro", uri=True)) as db:
         compare_connection(records, db)
+        compare_supplementary(data, db)
         actual = [dict(zip(['article_id_a','article_id_b','relation','evidence_note'],row)) for row in db.execute('SELECT * FROM article_relationships')]
         expected=data.get('article_relationships',[])
         if sorted(actual,key=lambda x:sorted(x.items())) != sorted(expected,key=lambda x:sorted(x.items())):

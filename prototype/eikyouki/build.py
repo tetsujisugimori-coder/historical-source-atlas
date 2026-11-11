@@ -46,6 +46,9 @@ def build_database(data, destination=DB, *, checkpoint=lambda stage: None):
             con.execute(sql, [row[field] for field in ARTICLE_FIELDS])
             checkpoint("article:"+item["id"])
         con.executemany("INSERT INTO article_relationships VALUES (?,?,?,?)", [(r["article_id_a"],r["article_id_b"],r["relation"],r["evidence_note"]) for r in data.get("article_relationships",[])])
+        from document_structure import insert_supplementary, compare_supplementary
+        insert_supplementary(data, con)
+        compare_supplementary(data, con)
         compare_connection(records, con)
         checkpoint("validated")
         con.commit()

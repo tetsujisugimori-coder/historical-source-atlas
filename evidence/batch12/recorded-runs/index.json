@@ -1,0 +1,24 @@
+[
+  {
+    "file": "initial-checks.json.gz",
+    "raw_sha256": "56b903dd6cf24b58679e82ec78cf7eb23b42e3abf537395eef42838754c7245d",
+    "compressed_sha256": "8407cbd3ffb83af682b3ac4879f7b1219b1cb093cfc0e4c31d5e7f05c7866dc6",
+    "head": "ff4d4ec7714c3753c1a98719528a86bb629757b8",
+    "dirty": true,
+    "status": "PASS",
+    "methods": 62,
+    "records": 18484,
+    "cli": 2
+  },
+  {
+    "file": "second-checks.json.gz",
+    "raw_sha256": "40f5ffc8a38f6a364b1879592ec01b9624624aa5def73ef158e772bb2109ce76",
+    "compressed_sha256": "c38ba011f43a8a7744dd5a82b02ea9604e29a7de14c462e6912f3fad22f32131",
+    "head": "ff4d4ec7714c3753c1a98719528a86bb629757b8",
+    "dirty": true,
+    "status": "PASS",
+    "methods": 69,
+    "records": 23026,
+    "cli": 2
+  }
+]
