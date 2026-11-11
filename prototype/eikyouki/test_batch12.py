@@ -29,7 +29,10 @@ def contract(d,l=L):
   if any(pub[k]!='NOT_TESTED' for k in ['base_image','variants','transcription_emendation','historical_recognition']):raise ValueError('false scholarly verification')
   if r['id']!='EK-0120' and any(r[k]is not None for k in ['era','era_year','western_year','lunar_month','lunar_day','lunar_is_leap','julian_start','julian_end','gregorian_start','gregorian_end','research_date_start','research_date_end']):raise ValueError('date propagation')
  if '堀越御所御下向之事'+''.join(r['full_original_text'] for r in rows[117:])!=chapter:raise ValueError('full coverage')
+ if 'EK-0119で御教書として導入' not in d['narrative_references'][3]['evidence_note'] or 'EK-0114' not in d['narrative_references'][3]['evidence_note']:raise ValueError('reference evidence scope')
  if len(d['document_structures'])!=1:raise ValueError('one quoted document')
+ if d['document_structures'][0]!=l['quoted_document']:raise ValueError('document ledger mismatch')
+ if d['narrative_references']!=l['narrative_references']:raise ValueError('reference ledger mismatch')
  doc=d['document_structures'][0]
  if doc['article_id']!='EK-0120' or (doc['quote']['start_offset'],doc['quote']['end_offset'])!=(127,627):raise ValueError('quote/narrator boundary')
  if [c['start_offset']for c in doc['clauses']]+[doc['clauses'][-1]['end_offset']]!=[158,226,301,392,453,542]:raise ValueError('clause boundaries')
@@ -54,10 +57,15 @@ class Batch12(unittest.TestCase):
      other=copy.deepcopy(OLD);v=other[i][field];other[i][field]=float(v)if type(v)is int else ('FAULT'if v is None else None)
      with self.assertRaises(ValueError):same_fields(OLD,other,'mutated baseline')
  def test_ten_required_fault_categories_and_more(self):
-  faults=['chapter-boundary','missing-range','overlap','missing-clause','clause-order','narrator-in-quote','date-propagation','existing-record','invalid-reference','quantity-as-fact','evaluation-as-fact','issuance-as-fact','bad-clause-text','same-event-fabrication','annotation-mixed','corrected-original-date']
+  faults=['chapter-boundary','missing-range','overlap','missing-clause','clause-order','narrator-in-quote','date-propagation','existing-record','invalid-reference','quantity-as-fact','evaluation-as-fact','issuance-as-fact','bad-clause-text','same-event-fabrication','annotation-mixed','corrected-original-date','wrong-reference-evidence','false-base-image','false-source-hash','wrong-document-annotations','clause-meaning-inversion']
   for f in faults:
    with self.subTest(fault=f):
     d=copy.deepcopy(D);l=copy.deepcopy(L)
+    if f=='clause-meaning-inversion':d['document_structures'][0]['clauses'][3]['summary']='官軍は互いの遺恨を保ち、和融を拒むよう命じられた。'
+    if f=='false-base-image':d['document_structures'][0]['verification']['base_image']='PASS'
+    if f=='false-source-hash':d['document_structures'][0]['source_sha256']='0'*64
+    if f=='wrong-document-annotations':d['document_structures'][0]['annotations']=[]
+    if f=='wrong-reference-evidence':d['narrative_references'][3]['evidence_note']='双方に京都・御教書の記述があるが、同一文書・同一発給とは認定しない。'
     if f=='chapter-boundary':l['next_chapter']='成氏の御事'
     if f=='missing-range':l['articles'][4]['start_offset']+=1
     if f=='overlap':l['articles'][4]['start_offset']-=1

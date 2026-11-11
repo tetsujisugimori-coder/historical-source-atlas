@@ -22,7 +22,10 @@ def validate_supplementary(data):
             if type(a)is not int or type(b)is not int or not q['start_offset']<=a<b<=q['end_offset']:raise ValueError('quote bounds')
             if p['original_text']!=q['original_text'][a-q['start_offset']:b-q['start_offset']]:raise ValueError('quote text')
         part(q)
-        if doc['verification']['historical_issuance']!='NOT_TESTED':raise ValueError('issuance not established')
+        expected_status={'fixed_transcription':'HASH_MATCHED','base_image':'NOT_TESTED','variants':'NOT_TESTED','transcription_emendation':'NOT_TESTED','historical_issuance':'NOT_TESTED'}
+        if doc['verification']!=expected_status:raise ValueError('document verification not established')
+        if type(doc['revision'])is not int or doc['revision']!=218476 or doc['source_sha256']!='cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0':raise ValueError('fixed document source')
+        if doc['annotations']!=data['publication']['articles'][aid]['annotations']:raise ValueError('document annotation layer')
         clauses=doc['clauses']
         if len(clauses)!=5:raise ValueError('five clauses required')
         parts=[doc['preamble'],*clauses,doc['conclusion'],doc['date']];cursor=q['start_offset']

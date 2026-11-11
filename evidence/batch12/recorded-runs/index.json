@@ -20,5 +20,53 @@
     "methods": 69,
     "records": 23026,
     "cli": 2
+  },
+  {
+    "file": "review-fix-checks.json.gz",
+    "raw_sha256": "74a73f9f248a5a025b007edf2c3946da55a90737981d241a556e69e38e1bec2e",
+    "compressed_sha256": "40a988e1adfc6f350195171d7329ce2a1bbb0f972110b314f7982520e12e2fdf",
+    "head": "3f27d1fcd1263beae666325d707002caf4671aee",
+    "dirty": true,
+    "status": "PASS",
+    "methods": 69,
+    "records": 23027,
+    "cases": 0,
+    "note": "Working-tree candidate run; see per-source hashes."
+  },
+  {
+    "file": "hardened-checks.json.gz",
+    "raw_sha256": "161f3eda9643188664af1ce42101c8a2c1361c66e424c00788af8a52f6ad9240",
+    "compressed_sha256": "e70d7a1c9d4e0ee216a6fc62a53dfa264fd206946a18c4f35295c83e5c3bf4ce",
+    "head": "3f27d1fcd1263beae666325d707002caf4671aee",
+    "dirty": true,
+    "status": "PASS",
+    "methods": 69,
+    "records": 23030,
+    "cases": 0,
+    "note": "Working-tree candidate run; see per-source hashes."
+  },
+  {
+    "file": "clause-ledger-checks.json.gz",
+    "raw_sha256": "63a330c27dbc0d7341108d041b30c181755709596bfa58a27b62fb8a0094f540",
+    "compressed_sha256": "5986cbacd456e84c7c11de9b34c72adbf21e50035996bd4b5761335a905dcb12",
+    "head": "3f27d1fcd1263beae666325d707002caf4671aee",
+    "dirty": true,
+    "status": "PASS",
+    "methods": 69,
+    "records": 23031,
+    "cases": 0,
+    "note": "Working-tree candidate run; see per-source hashes."
+  },
+  {
+    "file": "local-browser.json.gz",
+    "raw_sha256": "9ac5634a9de196bd8db6c22827c269c875b27e3ab25d9666dbc6eda7ff8258f6",
+    "compressed_sha256": "2cd81a4dbd53fff5d2a929c408463e8c2d0eb6e93d200427a9b1a7ae58f9f9f6",
+    "head": "ff4d4ec7714c3753c1a98719528a86bb629757b8",
+    "dirty": true,
+    "status": "FAIL",
+    "methods": null,
+    "records": 0,
+    "cases": 8,
+    "note": "Working-tree candidate run; see source hashes. Browser default WebKit launch failed before its eight conditions."
   }
 ]

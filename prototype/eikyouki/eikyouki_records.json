@@ -6167,7 +6167,7 @@
       "from": "EK-0120",
       "to": "EK-0114",
       "kind": "editorial_cross_reference",
-      "evidence_note": "双方に京都・御教書の記述があるが、同一文書・同一発給とは認定しない。",
+      "evidence_note": "EK-0119で御教書として導入される本引用と、EK-0114の京都からの御教書到来記述を編集上参照。発給元・同一文書・同一発給は未認定。",
       "status": "EDITORIAL_REFERENCE_ONLY",
       "historical_identity": "NOT_TESTED"
     },

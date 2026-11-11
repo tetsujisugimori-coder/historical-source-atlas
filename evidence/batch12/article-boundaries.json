@@ -624,5 +624,218 @@
         "research_date_basis": null
       }
     }
+  ],
+  "quoted_document": {
+    "document_id": "EK-0120-D01",
+    "article_id": "EK-0120",
+    "source_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-12",
+    "revision": 218476,
+    "source_sha256": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0",
+    "offset_unit": "Unicode code points, half-open, chapter text including heading",
+    "quote": {
+      "start_offset": 127,
+      "end_offset": 627,
+      "original_text": "就㆓関東発向事に㆒、可㆑相㆓触出羽陸奥両国之軍勢等㆒条々、\n\n一成氏誅罰未㆓落居㆒之事\n\n右敵及㆓鋒楯㆒、挿㆓不忠㆒、構㆓私曲㆒之条、非㆑疑貽々於㆓進発不参之族㆒者、一段可㆑被㆑経㆓其沙汰㆒矣、\n\n一諸軍士多勢無勢之類出陣之事\n\n依㆓分限に㆒各可㆑励㆓忠節㆒之処、御成敗於㆓難渋之仁体㆒者、可㆑註㆓進交名㆒、但可㆑随㆓在処之遠近㆒、子細同前也、\n\n一関東隣国之士卒等出陣之事、不㆑可㆑准㆓遠国㆒、所㆑而可㆓遅々㆒一条、且令㆑存㆓野心㆒歟、且引㆓組朝敵㆒輩（畢）、太（大）難㆑遁㆓避其科㆒所詮左右一途に、可㆑仰㆓付近所之輩㆒焉、\n\n一官軍等猥称㆑有㆓遺恨㆒之族、着陣之日、対顔之義不快之類、事互閣㆓宿意㆒成和融之様、可㆑専㆓忠功㆒由、被㆓仰出㆒候事、\n\n一諸勢雖㆑遂㆓参陣㆒、不㆑請㆓大将㆒之儀、任㆓雅意㆒之事、甲乙人等共以被㆓停止㆒者也、所詮云㆓手負之【 NDLJP:381】浅深㆒、云㆓当病之軽重㆒、可㆑有㆓糺明之沙汰㆒焉、\n\n右任㆓条目之旨㆒、厳密可㆑触㆓廻之㆒、依㆓忠否之次第㆒、毎度載㆓起請文㆒、其詞註進於㆓戦功㆒者可㆑被㆓恩賞㆒之趣、皆可㆑申㆓合軍兵等㆒矣、\n\n　寛正二年〈幸巳〉十月日\n\n"
+    },
+    "preamble": {
+      "start_offset": 127,
+      "end_offset": 158,
+      "original_text": "就㆓関東発向事に㆒、可㆑相㆓触出羽陸奥両国之軍勢等㆒条々、\n\n"
+    },
+    "clauses": [
+      {
+        "start_offset": 158,
+        "end_offset": 226,
+        "original_text": "一成氏誅罰未㆓落居㆒之事\n\n右敵及㆓鋒楯㆒、挿㆓不忠㆒、構㆓私曲㆒之条、非㆑疑貽々於㆓進発不参之族㆒者、一段可㆑被㆑経㆓其沙汰㆒矣、\n\n",
+        "clause_id": "EK-0120-C01",
+        "order": 1,
+        "summary": "成氏誅罰が未決着であるとして敵を不忠・私曲と評し、進発に不参の者への沙汰を求める。",
+        "verification": {
+          "fixed_transcription": "HASH_MATCHED",
+          "base_image": "NOT_TESTED",
+          "variants": "NOT_TESTED",
+          "transcription_emendation": "NOT_TESTED",
+          "historical_issuance": "NOT_TESTED"
+        }
+      },
+      {
+        "start_offset": 226,
+        "end_offset": 301,
+        "original_text": "一諸軍士多勢無勢之類出陣之事\n\n依㆓分限に㆒各可㆑励㆓忠節㆒之処、御成敗於㆓難渋之仁体㆒者、可㆑註㆓進交名㆒、但可㆑随㆓在処之遠近㆒、子細同前也、\n\n",
+        "clause_id": "EK-0120-C02",
+        "order": 2,
+        "summary": "軍勢の多寡にかかわらず分限に応じた忠節を求め、難渋する者の交名報告と所在地の遠近への配慮を述べる。",
+        "verification": {
+          "fixed_transcription": "HASH_MATCHED",
+          "base_image": "NOT_TESTED",
+          "variants": "NOT_TESTED",
+          "transcription_emendation": "NOT_TESTED",
+          "historical_issuance": "NOT_TESTED"
+        }
+      },
+      {
+        "start_offset": 301,
+        "end_offset": 392,
+        "original_text": "一関東隣国之士卒等出陣之事、不㆑可㆑准㆓遠国㆒、所㆑而可㆓遅々㆒一条、且令㆑存㆓野心㆒歟、且引㆓組朝敵㆒輩（畢）、太（大）難㆑遁㆓避其科㆒所詮左右一途に、可㆑仰㆓付近所之輩㆒焉、\n\n",
+        "clause_id": "EK-0120-C03",
+        "order": 3,
+        "summary": "関東隣国の士卒を遠国と同様に扱わず、遅参に野心や朝敵との結託の疑いを示して科を論じ、近所の者への指示を求める。",
+        "verification": {
+          "fixed_transcription": "HASH_MATCHED",
+          "base_image": "NOT_TESTED",
+          "variants": "NOT_TESTED",
+          "transcription_emendation": "NOT_TESTED",
+          "historical_issuance": "NOT_TESTED"
+        }
+      },
+      {
+        "start_offset": 392,
+        "end_offset": 453,
+        "original_text": "一官軍等猥称㆑有㆓遺恨㆒之族、着陣之日、対顔之義不快之類、事互閣㆓宿意㆒成和融之様、可㆑専㆓忠功㆒由、被㆓仰出㆒候事、\n\n",
+        "clause_id": "EK-0120-C04",
+        "order": 4,
+        "summary": "遺恨や対面への不快をいう官軍に、宿意を捨てて和融し忠功に励むよう命じたと記す。",
+        "verification": {
+          "fixed_transcription": "HASH_MATCHED",
+          "base_image": "NOT_TESTED",
+          "variants": "NOT_TESTED",
+          "transcription_emendation": "NOT_TESTED",
+          "historical_issuance": "NOT_TESTED"
+        }
+      },
+      {
+        "start_offset": 453,
+        "end_offset": 542,
+        "original_text": "一諸勢雖㆑遂㆓参陣㆒、不㆑請㆓大将㆒之儀、任㆓雅意㆒之事、甲乙人等共以被㆓停止㆒者也、所詮云㆓手負之【 NDLJP:381】浅深㆒、云㆓当病之軽重㆒、可㆑有㆓糺明之沙汰㆒焉、\n\n",
+        "clause_id": "EK-0120-C05",
+        "order": 5,
+        "summary": "参陣後に大将へ請わず私意で行動することを禁じ、負傷や病の程度を糺明する沙汰を求める。",
+        "verification": {
+          "fixed_transcription": "HASH_MATCHED",
+          "base_image": "NOT_TESTED",
+          "variants": "NOT_TESTED",
+          "transcription_emendation": "NOT_TESTED",
+          "historical_issuance": "NOT_TESTED"
+        }
+      }
+    ],
+    "conclusion": {
+      "start_offset": 542,
+      "end_offset": 613,
+      "original_text": "右任㆓条目之旨㆒、厳密可㆑触㆓廻之㆒、依㆓忠否之次第㆒、毎度載㆓起請文㆒、其詞註進於㆓戦功㆒者可㆑被㆓恩賞㆒之趣、皆可㆑申㆓合軍兵等㆒矣、\n\n"
+    },
+    "date": {
+      "start_offset": 613,
+      "end_offset": 627,
+      "original_text": "　寛正二年〈幸巳〉十月日\n\n"
+    },
+    "date_note": "文書に記載された月のみ。幸巳を辛巳へ黙訂しない。文書の実発給および事件日付は未認定。",
+    "verification": {
+      "fixed_transcription": "HASH_MATCHED",
+      "base_image": "NOT_TESTED",
+      "variants": "NOT_TESTED",
+      "transcription_emendation": "NOT_TESTED",
+      "historical_issuance": "NOT_TESTED"
+    },
+    "annotations": [
+      {
+        "kind": "editorial_annotation",
+        "text": "（畢）",
+        "start_offset": 354,
+        "end_offset": 357
+      },
+      {
+        "kind": "editorial_annotation",
+        "text": "（大）",
+        "start_offset": 359,
+        "end_offset": 362
+      },
+      {
+        "kind": "page_marker",
+        "text": "【 NDLJP:381】",
+        "start_offset": 503,
+        "end_offset": 515
+      },
+      {
+        "kind": "inline_note",
+        "text": "〈幸巳〉",
+        "start_offset": 618,
+        "end_offset": 622
+      }
+    ]
+  },
+  "narrative_references": [
+    {
+      "reference_id": "B12-R01",
+      "from": "EK-0119",
+      "to": "EK-0120",
+      "kind": "document_quote",
+      "evidence_note": "地の文「先達て被㆑下㆓御教書㆒、其書曰」が直後の引用を導入する。実発給の認定ではない。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    },
+    {
+      "reference_id": "B12-R02",
+      "from": "EK-0119",
+      "to": "EK-0118",
+      "kind": "narrative_relative_time",
+      "evidence_note": "「先達て」は引用導入と下向叙述の前後を語る。実年次・因果を確定しない。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    },
+    {
+      "reference_id": "B12-R03",
+      "from": "EK-0120",
+      "to": "EK-0104",
+      "kind": "same_named_person",
+      "evidence_note": "御教書第1条と前章の擁立記事に「成氏」が現れる。同一事件認定ではない。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    },
+    {
+      "reference_id": "B12-R04",
+      "from": "EK-0120",
+      "to": "EK-0114",
+      "kind": "editorial_cross_reference",
+      "evidence_note": "EK-0119で御教書として導入される本引用と、EK-0114の京都からの御教書到来記述を編集上参照。発給元・同一文書・同一発給は未認定。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    },
+    {
+      "reference_id": "B12-R05",
+      "from": "EK-0123",
+      "to": "EK-0104",
+      "kind": "narrative_continuity",
+      "evidence_note": "両章で山内と長尾の政務補佐を述べる。時点・同一事件は未認定。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    },
+    {
+      "reference_id": "B12-R06",
+      "from": "EK-0126",
+      "to": "EK-0117",
+      "kind": "same_name_in_transcription",
+      "evidence_note": "定政は前章割注と当章本文に現れる。割注と本文は別層、歴史的人物同定未検証。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    },
+    {
+      "reference_id": "B12-R07",
+      "from": "EK-0128",
+      "to": "EK-0115",
+      "kind": "narrative_continuity",
+      "evidence_note": "前章の成氏古河移座と当章の古河殿の評価を参照する。人名補入や同一事件統合をしない。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    },
+    {
+      "reference_id": "B12-R08",
+      "from": "EK-0129",
+      "to": "EK-0117",
+      "kind": "narrative_continuity",
+      "evidence_note": "両章の両上杉・公方家抗争叙述を参照。因果・同一事件・実期間は未認定。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    }
   ]
 }
