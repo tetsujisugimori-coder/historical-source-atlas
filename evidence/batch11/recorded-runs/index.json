@@ -1,0 +1,34 @@
+[
+  {
+    "run": "initial-checks",
+    "status": "FAIL",
+    "methods": 56,
+    "original_sha256": "6152d28bf2ab8f28b024a1a6ddad24cfaed74d5b9a670c1f9b4496bf0a331175",
+    "compressed_file": "initial-checks.json.gz",
+    "classification": "development dirty tree; not final HEAD"
+  },
+  {
+    "run": "second-checks",
+    "status": "FAIL",
+    "methods": 62,
+    "original_sha256": "c7d2404025496c0133c9ce44c25b1fdddaf4482257fb713110859b49cf8559fb",
+    "compressed_file": "second-checks.json.gz",
+    "classification": "development dirty tree; not final HEAD"
+  },
+  {
+    "run": "third-checks",
+    "status": "PASS",
+    "methods": 62,
+    "original_sha256": "0ff2dcf2b4f4e0977e411932c528a9773d9bc4eefa13301571dc50cfa83c9001",
+    "compressed_file": "third-checks.json.gz",
+    "classification": "development dirty tree; not final HEAD"
+  },
+  {
+    "run": "local-browser",
+    "status": "FAIL",
+    "methods": null,
+    "original_sha256": "c61c3b54d59c49bdd7335699de9d8de4df68ad2f32a276024b6797c55a914808",
+    "compressed_file": "local-browser.json.gz",
+    "classification": "development dirty tree; not final HEAD"
+  }
+]

@@ -1,0 +1,265 @@
+{
+  "reviewed_head": "f4368564e22e4dfa08c5f793ddd7d95d8475269e",
+  "source_sha256": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0",
+  "extraction_normalization": "remove LF, U+200B, U+00A0, trim outer whitespace; preserve U+3000 and ordinary internal spaces",
+  "checks": [
+    {
+      "check": "saved fixed HTML SHA-256",
+      "pass": true
+    },
+    {
+      "check": "independent HTMLParser whole chapter extraction",
+      "pass": true
+    },
+    {
+      "check": "whole chapter covered exactly once in order",
+      "pass": true
+    },
+    {
+      "check": "existing 102 records all fields unchanged from pre-batch git object",
+      "pass": true
+    },
+    {
+      "check": "existing 102 publication metadata unchanged",
+      "pass": true
+    },
+    {
+      "check": "EK-0103 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0103 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0103 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0104 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0104 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0104 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0105 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0105 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0105 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0106 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0106 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0106 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0107 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0107 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0107 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0108 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0108 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0108 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0109 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0109 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0109 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0110 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0110 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0110 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0111 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0111 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0111 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0112 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0112 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0112 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0113 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0113 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0113 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0114 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0114 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0114 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0115 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0115 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0115 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0116 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0116 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0116 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "EK-0117 independent source slice",
+      "pass": true
+    },
+    {
+      "check": "EK-0117 ledger versus production record",
+      "pass": true
+    },
+    {
+      "check": "EK-0117 separated annotations match publication",
+      "pass": true
+    },
+    {
+      "check": "targeted semantic invariants",
+      "pass": true
+    }
+  ],
+  "counterexamples": [
+    {
+      "mutation": "propagate summary date to undated killing",
+      "target": "EK-0107",
+      "field": "gregorian_start",
+      "value": "1441-07-21",
+      "rejected": true,
+      "reasons": [
+        "107: invented absolute date"
+      ]
+    },
+    {
+      "mutation": "conflate era corresponding year with converted year",
+      "target": "EK-0111",
+      "field": "western_year",
+      "value": 1455,
+      "rejected": true,
+      "reasons": [
+        "111: calendar/era year conflation"
+      ]
+    },
+    {
+      "mutation": "convert four-year duration to invented date",
+      "target": "EK-0113",
+      "field": "gregorian_start",
+      "value": "1459-01-24",
+      "rejected": true,
+      "reasons": [
+        "113: invented absolute date"
+      ]
+    },
+    {
+      "mutation": "drop hearsay qualifier",
+      "target": "EK-0112",
+      "field": "summary",
+      "value": "成氏は父の復讐のため憲忠を殺した。",
+      "rejected": true,
+      "reasons": [
+        "112: hearsay lost"
+      ]
+    },
+    {
+      "mutation": "convert thirty-year rhetoric into dated interval",
+      "target": "EK-0116",
+      "field": "gregorian_end",
+      "value": "1485-01-24",
+      "rejected": true,
+      "reasons": [
+        "116: invented absolute date"
+      ]
+    }
+  ],
+  "counterexample_scope": "Independent review oracle only; these are not claims about production validator rejection.",
+  "historical_recognition": "NOT_TESTED"
+}
