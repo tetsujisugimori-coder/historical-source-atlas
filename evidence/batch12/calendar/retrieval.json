@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b215&year=2&month=10&day=1&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+    "requested_at": "2026-11-11T01:09:23.999632+00:00",
+    "file": "naoj-kansei-2-10-1-0.html",
+    "status": 200,
+    "sha256": "99b9189a71807d2de11b2ed95cceca33b30b31fe61b1697594d80bee73658bf7",
+    "bytes": 18015,
+    "headers": {
+      "date": "Wed, 11 Nov 2026 01:09:31 GMT",
+      "server": "envoy",
+      "x-content-type-options": "nosniff",
+      "x-xss-protection": "1; mode=block",
+      "accept-ch": "Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+      "content-length": "18015",
+      "content-type": "text/html; charset=EUC-JP",
+      "x-envoy-upstream-service-time": "530",
+      "connection": "close"
+    },
+    "result_text": " 結果     西暦   和暦   神武紀元   年の干支   月の干支   日の干支     1461/11/03   寛正02年10月01日   2121   辛巳 (かのとのみ)   己亥 (つちのとのゐ)   戊辰 (つちのえたつ)     西暦の日付はすべてユリウス暦によります。  \n  ご利用にあたって    日本の暦    本データベース は 神武紀元 (-659)以後の暦日に対応しています。   日付単位で 年号 を判定できるのは大宝元年(701)以降です。ただし、文中元年(1372)はいつ改元したのかはっきりしないため、仮に4月1日としています。    月の干支 は暦月で判定します。    暦月・節月データベース     干支から探す日本の暦日     大小から探す日本の暦日      西暦  デフォルトでは1582年10月15日以後の日付は グレゴリオ暦 、それより前は ユリウス暦 によります。    紀元元年の前年を0年 としているため、これを紀元前1年とする方法とは1年ずつ差異があります。     一度に出力できるのは400日以内に限られます。   参考文献  内田正男, 日本暦日原典, 雄山閣, (1975).   内田正男, 日本書紀暦日原典, 雄山閣, (1978).   歴史学研究会編, 日本史年表, 岩波書店, (2001).     予告なく変更することがあります (ver.1.2a)。    Copyright(C) 1994- National Astronomical Observatory of Japan. All rights reserved.   |  暦計算室について  |  利用規定  |   \n \n "
+  },
+  {
+    "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b215&year=2&month=10&day=1&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+    "requested_at": "2026-11-11T01:09:24.000738+00:00",
+    "file": "naoj-kansei-2-10-1-1.html",
+    "status": 200,
+    "sha256": "4f2a86fce9894b97c8bcbb0a9b2ccb87eb96e4c9d660a386ebeeddbf95aeb9e7",
+    "bytes": 18017,
+    "headers": {
+      "date": "Wed, 11 Nov 2026 01:09:31 GMT",
+      "server": "envoy",
+      "x-content-type-options": "nosniff",
+      "x-xss-protection": "1; mode=block",
+      "accept-ch": "Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+      "content-length": "18017",
+      "content-type": "text/html; charset=EUC-JP",
+      "x-envoy-upstream-service-time": "780",
+      "connection": "close"
+    },
+    "result_text": " 結果     西暦   和暦   神武紀元   年の干支   月の干支   日の干支     1461/11/12   寛正02年10月01日   2121   辛巳 (かのとのみ)   己亥 (つちのとのゐ)   戊辰 (つちのえたつ)     西暦の日付はすべてグレゴリオ暦によります。  \n  ご利用にあたって    日本の暦    本データベース は 神武紀元 (-659)以後の暦日に対応しています。   日付単位で 年号 を判定できるのは大宝元年(701)以降です。ただし、文中元年(1372)はいつ改元したのかはっきりしないため、仮に4月1日としています。    月の干支 は暦月で判定します。    暦月・節月データベース     干支から探す日本の暦日     大小から探す日本の暦日      西暦  デフォルトでは1582年10月15日以後の日付は グレゴリオ暦 、それより前は ユリウス暦 によります。    紀元元年の前年を0年 としているため、これを紀元前1年とする方法とは1年ずつ差異があります。     一度に出力できるのは400日以内に限られます。   参考文献  内田正男, 日本暦日原典, 雄山閣, (1975).   内田正男, 日本書紀暦日原典, 雄山閣, (1978).   歴史学研究会編, 日本史年表, 岩波書店, (2001).     予告なく変更することがあります (ver.1.2a)。    Copyright(C) 1994- National Astronomical Observatory of Japan. All rights reserved.   |  暦計算室について  |  利用規定  |   \n \n "
+  },
+  {
+    "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b215&year=2&month=11&day=1&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+    "requested_at": "2026-11-11T01:09:24.001357+00:00",
+    "file": "naoj-kansei-2-11-1-0.html",
+    "status": 200,
+    "sha256": "6ae6d5880baffe561494591a0a004627ea4c4d0f7326536cd189f43de047f121",
+    "bytes": 18011,
+    "headers": {
+      "date": "Wed, 11 Nov 2026 01:09:31 GMT",
+      "server": "envoy",
+      "x-content-type-options": "nosniff",
+      "x-xss-protection": "1; mode=block",
+      "accept-ch": "Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+      "content-length": "18011",
+      "content-type": "text/html; charset=EUC-JP",
+      "x-envoy-upstream-service-time": "881",
+      "connection": "close"
+    },
+    "result_text": " 結果     西暦   和暦   神武紀元   年の干支   月の干支   日の干支     1461/12/02   寛正02年11月01日   2121   辛巳 (かのとのみ)   庚子 (かのえね)   丁酉 (ひのとのとり)     西暦の日付はすべてユリウス暦によります。  \n  ご利用にあたって    日本の暦    本データベース は 神武紀元 (-659)以後の暦日に対応しています。   日付単位で 年号 を判定できるのは大宝元年(701)以降です。ただし、文中元年(1372)はいつ改元したのかはっきりしないため、仮に4月1日としています。    月の干支 は暦月で判定します。    暦月・節月データベース     干支から探す日本の暦日     大小から探す日本の暦日      西暦  デフォルトでは1582年10月15日以後の日付は グレゴリオ暦 、それより前は ユリウス暦 によります。    紀元元年の前年を0年 としているため、これを紀元前1年とする方法とは1年ずつ差異があります。     一度に出力できるのは400日以内に限られます。   参考文献  内田正男, 日本暦日原典, 雄山閣, (1975).   内田正男, 日本書紀暦日原典, 雄山閣, (1978).   歴史学研究会編, 日本史年表, 岩波書店, (2001).     予告なく変更することがあります (ver.1.2a)。    Copyright(C) 1994- National Astronomical Observatory of Japan. All rights reserved.   |  暦計算室について  |  利用規定  |   \n \n "
+  },
+  {
+    "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b215&year=2&month=11&day=1&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+    "requested_at": "2026-11-11T01:09:24.002070+00:00",
+    "file": "naoj-kansei-2-11-1-1.html",
+    "status": 200,
+    "sha256": "b3b367b8ea2df98b4e07434d3e74e60597b98410764aad58009c13c17ef19f13",
+    "bytes": 18013,
+    "headers": {
+      "date": "Wed, 11 Nov 2026 01:09:31 GMT",
+      "server": "envoy",
+      "x-content-type-options": "nosniff",
+      "x-xss-protection": "1; mode=block",
+      "accept-ch": "Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+      "content-length": "18013",
+      "content-type": "text/html; charset=EUC-JP",
+      "x-envoy-upstream-service-time": "526",
+      "connection": "close"
+    },
+    "result_text": " 結果     西暦   和暦   神武紀元   年の干支   月の干支   日の干支     1461/12/11   寛正02年11月01日   2121   辛巳 (かのとのみ)   庚子 (かのえね)   丁酉 (ひのとのとり)     西暦の日付はすべてグレゴリオ暦によります。  \n  ご利用にあたって    日本の暦    本データベース は 神武紀元 (-659)以後の暦日に対応しています。   日付単位で 年号 を判定できるのは大宝元年(701)以降です。ただし、文中元年(1372)はいつ改元したのかはっきりしないため、仮に4月1日としています。    月の干支 は暦月で判定します。    暦月・節月データベース     干支から探す日本の暦日     大小から探す日本の暦日      西暦  デフォルトでは1582年10月15日以後の日付は グレゴリオ暦 、それより前は ユリウス暦 によります。    紀元元年の前年を0年 としているため、これを紀元前1年とする方法とは1年ずつ差異があります。     一度に出力できるのは400日以内に限られます。   参考文献  内田正男, 日本暦日原典, 雄山閣, (1975).   内田正男, 日本書紀暦日原典, 雄山閣, (1978).   歴史学研究会編, 日本史年表, 岩波書店, (2001).     予告なく変更することがあります (ver.1.2a)。    Copyright(C) 1994- National Astronomical Observatory of Japan. All rights reserved.   |  暦計算室について  |  利用規定  |   \n \n "
+  }
+]

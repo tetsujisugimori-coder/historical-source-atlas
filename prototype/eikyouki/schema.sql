@@ -39,3 +39,22 @@ CREATE TABLE article_relationships (
  PRIMARY KEY(article_id_a,article_id_b,relation),
  CHECK(article_id_a <> article_id_b)
 ) STRICT;
+-- Supplemental document and narrative references do not change the 36-field contract.
+CREATE TABLE quoted_documents (
+ document_id TEXT PRIMARY KEY, article_id TEXT NOT NULL REFERENCES articles(article_id),
+ payload TEXT NOT NULL CHECK(json_valid(payload))
+) STRICT;
+CREATE TABLE document_clauses (
+ clause_id TEXT PRIMARY KEY, document_id TEXT NOT NULL REFERENCES quoted_documents(document_id),
+ clause_order INTEGER NOT NULL CHECK(clause_order BETWEEN 1 AND 5),
+ summary TEXT NOT NULL, original_text TEXT NOT NULL,
+ start_offset INTEGER NOT NULL, end_offset INTEGER NOT NULL CHECK(end_offset > start_offset),
+ payload TEXT NOT NULL CHECK(json_valid(payload)), UNIQUE(document_id,clause_order)
+) STRICT;
+CREATE TABLE narrative_references (
+ reference_id TEXT PRIMARY KEY,
+ article_id_from TEXT NOT NULL REFERENCES articles(article_id),
+ article_id_to TEXT NOT NULL REFERENCES articles(article_id),
+ kind TEXT NOT NULL, payload TEXT NOT NULL CHECK(json_valid(payload)),
+ CHECK(article_id_from <> article_id_to)
+) STRICT;

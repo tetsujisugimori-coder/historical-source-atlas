@@ -8,12 +8,12 @@ B=Path(__file__).resolve().parent;R=B.parents[1];E=R/'evidence/batch11';BASE='c0
 D=json.loads((B/'eikyouki_records.json').read_text());L=json.loads((E/'article-boundaries.json').read_text());OLD=json.loads((B/'baselines/existing102-batch11.json').read_text())['records'];IDS=[f'EK-{i:04d}' for i in range(103,118)]
 def contract(d,l=L):
  rows=validate_data(d)
- if len(rows)!=117 or [r['id'] for r in rows[102:]]!=IDS:raise ValueError('new identities/count')
+ if len(rows)<117 or [r['id'] for r in rows[102:117]]!=IDS:raise ValueError('new identities/count')
  same_fields(OLD,rows[:102],'old values')
  chapter=(E/'source/chapter.txt').read_text();cursor=len('成氏の御事')
  if hashlib.sha256(chapter.encode()).hexdigest()!=l['chapter_sha256']:raise ValueError('chapter hash')
  if l['historical_recognition']!='NOT_TESTED' or len(l['articles'])!=15:raise ValueError('ledger status/count')
- for row,a in zip(rows[102:],l['articles']):
+ for row,a in zip(rows[102:117],l['articles']):
   same_fields([a['record']],[row],'new values')
   if a['id']!=row['id'] or a['start_offset']!=cursor or not cursor<a['end_offset']<=len(chapter):raise ValueError('boundary')
   raw=chapter[cursor:a['end_offset']];cursor=a['end_offset']
@@ -35,7 +35,7 @@ def contract(d,l=L):
  return 117
 class Batch11(unittest.TestCase):
  def test_baseline_and_all_formats(self):
-  old=json.loads(subprocess.check_output(['git','show',BASE+':prototype/eikyouki/eikyouki_records.json'],cwd=R));same_fields(old['records'],OLD,'baseline');self.assertEqual(117,contract(D));self.assertEqual(117,verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
+  old=json.loads(subprocess.check_output(['git','show',BASE+':prototype/eikyouki/eikyouki_records.json'],cwd=R));same_fields(old['records'],OLD,'baseline');self.assertEqual(117,contract(D));self.assertEqual(len(D['records']),verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
   self.assertEqual(old['article_relationships'],D['article_relationships'])
   for k,v in old['publication']['articles'].items():self.assertEqual(v,D['publication']['articles'][k])
  def test_source_full_coverage(self):
@@ -44,7 +44,7 @@ class Batch11(unittest.TestCase):
    def __init__(self):super().__init__();self.t=[]
    def handle_data(self,d):self.t.append(d)
   p=Parser();p.feed(s[a:b]);text=''.join(p.t).replace('\u200b','').replace('\xa0','').strip();self.assertEqual(text,(E/'source/chapter.txt').read_text());self.assertNotIn('堀越御所御下向之事',text)
-  self.assertEqual('成氏の御事'+''.join(x['full_original_text'] for x in D['records'][102:]),text)
+  self.assertEqual('成氏の御事'+''.join(x['full_original_text'] for x in D['records'][102:117]),text)
  def test_3672_preservation_mutations(self):
   for i in range(102):
    for f in FIELDS:
@@ -66,7 +66,7 @@ class Batch11(unittest.TestCase):
     if fault=='certainty':d['publication']['articles']['EK-0106']['historical_recognition']='PASS'
     with self.assertRaises(ValueError):contract(d,l)
  def test_dates_and_narrative(self):
-  a,b=D['records'][104],D['records'][110];self.assertEqual((a['julian_start'],a['gregorian_start']),('1441-07-12','1441-07-21'));self.assertEqual((b['western_year'],b['julian_start'],b['gregorian_start']),(1454,'1455-01-15','1455-01-24'));self.assertEqual(13,sum(r['gregorian_start']is None for r in D['records'][102:]));self.assertIn('とそ聞えし',D['records'][111]['full_original_text']);self.assertIn('伝聞',D['records'][111]['date_interpretation']);self.assertIn('四ヶ年',D['records'][112]['full_original_text']);self.assertIn('三十余年',D['records'][115]['full_original_text'])
+  a,b=D['records'][104],D['records'][110];self.assertEqual((a['julian_start'],a['gregorian_start']),('1441-07-12','1441-07-21'));self.assertEqual((b['western_year'],b['julian_start'],b['gregorian_start']),(1454,'1455-01-15','1455-01-24'));self.assertEqual(13,sum(r['gregorian_start']is None for r in D['records'][102:117]));self.assertIn('とそ聞えし',D['records'][111]['full_original_text']);self.assertIn('伝聞',D['records'][111]['date_interpretation']);self.assertIn('四ヶ年',D['records'][112]['full_original_text']);self.assertIn('三十余年',D['records'][115]['full_original_text'])
  def test_all_prior_evidence_unchanged(self):
   paths=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'evidence'],cwd=R,text=True).splitlines()
   for p in paths:

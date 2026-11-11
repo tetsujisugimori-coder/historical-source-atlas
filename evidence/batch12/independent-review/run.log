@@ -1,0 +1,85 @@
+{
+  "input_sha256": {
+    "prototype/eikyouki/eikyouki_records.json": "d8bd05dac698c005782cfd1cc46aa6d2230b306a9d580d1c3c99c8470087e92f",
+    "prototype/eikyouki/test_batch12.py": "7f57be831f16c3aba6d9b667faf727f6c268b6994432c987b70f9908190e94bd",
+    "prototype/eikyouki/document_structure.py": "26ae67c53a7cf486304ec98ff209cd57e2021e1385eb7ff09beb7358e55f050e",
+    "evidence/batch12/article-boundaries.json": "2280ef8e8ac88390068bea2182e014ef52739343094e7bfade7a5a9c736e9b0f"
+  },
+  "working_tree_status": " M README.md\n M docs/eikyouki-intake-batch12.md\n M evidence/batch12/article-boundaries.json\n M prototype/eikyouki/README.md\n M prototype/eikyouki/document_structure.py\n M prototype/eikyouki/eikyouki_records.json\n M prototype/eikyouki/index.html\n M prototype/eikyouki/test_batch12.py\n?? evidence/batch12/clause-ledger-checks/\n?? evidence/batch12/hardened-checks/\n?? evidence/batch12/independent-review/\n?? evidence/batch12/initial-checks/\n?? evidence/batch12/local-browser-wrapper/\n?? evidence/batch12/local-browser/\n?? evidence/batch12/review-fix-checks/\n?? evidence/batch12/second-checks/\n",
+  "head": "3f27d1fcd1263beae666325d707002caf4671aee",
+  "tree": "c8a59f25ac260d7ae1cbb9b5fad37d072cac453c",
+  "checked_at_utc": "2026-11-11T01:32:36.493944+00:00",
+  "raw_source_sha256": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0",
+  "chapter_sha256": "eaf30216e1fdb714fdbcf3a22dd89c98369de69fc1f2799116747f09eeea6bf5",
+  "chapter_codepoints": 1162,
+  "preserved_typed_values": 4212,
+  "coverage": "12 contiguous records, one quote, five internal clauses; PASS",
+  "calendar": [
+    {
+      "file": "naoj-kansei-2-10-1-0.html",
+      "result_text": "結果 西暦 和暦 神武紀元 年の干支 月の干支 日の干支 1461/11/03 寛正02年10月01日 2121 辛巳 (かのとのみ) 己亥 (つちのとのゐ) 戊辰 (つちのえたつ) 西暦の日付はすべてユリウス暦によります。 ",
+      "sha256": "99b9189a71807d2de11b2ed95cceca33b30b31fe61b1697594d80bee73658bf7"
+    },
+    {
+      "file": "naoj-kansei-2-10-1-1.html",
+      "result_text": "結果 西暦 和暦 神武紀元 年の干支 月の干支 日の干支 1461/11/12 寛正02年10月01日 2121 辛巳 (かのとのみ) 己亥 (つちのとのゐ) 戊辰 (つちのえたつ) 西暦の日付はすべてグレゴリオ暦によります。 ",
+      "sha256": "4f2a86fce9894b97c8bcbb0a9b2ccb87eb96e4c9d660a386ebeeddbf95aeb9e7"
+    },
+    {
+      "file": "naoj-kansei-2-11-1-0.html",
+      "result_text": "結果 西暦 和暦 神武紀元 年の干支 月の干支 日の干支 1461/12/02 寛正02年11月01日 2121 辛巳 (かのとのみ) 庚子 (かのえね) 丁酉 (ひのとのとり) 西暦の日付はすべてユリウス暦によります。 ",
+      "sha256": "6ae6d5880baffe561494591a0a004627ea4c4d0f7326536cd189f43de047f121"
+    },
+    {
+      "file": "naoj-kansei-2-11-1-1.html",
+      "result_text": "結果 西暦 和暦 神武紀元 年の干支 月の干支 日の干支 1461/12/11 寛正02年11月01日 2121 辛巳 (かのとのみ) 庚子 (かのえね) 丁酉 (ひのとのとり) 西暦の日付はすべてグレゴリオ暦によります。 ",
+      "sha256": "b3b367b8ea2df98b4e07434d3e74e60597b98410764aad58009c13c17ef19f13"
+    }
+  ],
+  "probes": [
+    {
+      "probe": "quantity promotion, synchronized record/ledger",
+      "result": "ACCEPTED"
+    },
+    {
+      "probe": "C04 meaning inverted, no source change",
+      "result": "REJECTED: document ledger mismatch"
+    },
+    {
+      "probe": "reference evidence invented, valid IDs/status",
+      "result": "REJECTED: reference evidence scope"
+    },
+    {
+      "probe": "reference fabricated while preserving checked scope words",
+      "result": "REJECTED: reference ledger mismatch"
+    },
+    {
+      "probe": "C04 meaning inverted in both document and ledger",
+      "result": "ACCEPTED"
+    },
+    {
+      "probe": "reference fabricated in both data and ledger, scope words preserved",
+      "result": "ACCEPTED"
+    },
+    {
+      "probe": "single-sided summary edit",
+      "result": "REJECTED: new values: EK-0124: summary: '軍勢は実測二十万騎。' != '山内家と家来の領知の広大さを述べ、軍勢を「凡二十万騎」と記す。' (type/value)"
+    },
+    {
+      "probe": "document clause missing",
+      "result": "REJECTED: five clauses required"
+    },
+    {
+      "probe": "date propagated to death, synchronized ledger",
+      "result": "REJECTED: 'EK-0121': western_year: unknown precision requires null"
+    },
+    {
+      "probe": "old integer changed to float",
+      "result": "REJECTED: 'EK-0001': source_order: expected integer 1..2147483647, got 1.0"
+    },
+    {
+      "probe": "historical issuance promoted",
+      "result": "REJECTED: document verification not established"
+    }
+  ]
+}
