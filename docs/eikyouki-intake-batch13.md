@@ -46,3 +46,9 @@ JSON/SQLite/HTMLの一致と、検索・年/章フィルタ・年表順・固定
 機械検査は台帳と要約を同じ誤意味に変えた場合の意味の正しさを証明できない。実装者とは別担当が固定原文を直接読み、伝聞・人物・日付・要約・コードを独立に照合する。初期独立読合せは実装前に2境界と注意点を確認済み。最終HEADレビュー・正式CI・原artifact照合の結果はIssue/PR最終報告に示し、未実施をPASSとしない。
 
 底本画像、異本、校訂判断、史実認定、現代人物/所在地同定、実機Safariは別々にNOT_TESTED。仮登録方針を維持し、Draft解除・マージ・公開設定/デプロイ方式の変更はしない。
+
+## 正式CIで発見した再読込みクラッシュ
+
+初回HEAD `4dc1ba9` の正式PR run43299663833はFAIL。Chromium8条件は各1,114検査PASS、Linux WebKit8条件は各1,085検査まで通過後、旧第12便のC05条項固定リンクのreloadでPage crashed。B13の記事reloadとC05クリック/focus/overflowは成功しており、全体PASSとは数えない。原ZIP13981868353（289,956,985 bytes）、SHA-256 `af6703b77e5bd2b60b5e0841ef62b4508fd913f25520de9a0af20727abe4040c` をAPI digest/CRC照合して永続workspaceへ保存した。
+
+独立担当も失敗原票を直接確認。初期fragment復元がparser実行中にDOMを再構築し、details展開・scroll・focusを同期実行するため、WebKitのnative復元との競合を疑う（クラッシュのnative stackはなく原因の完全特定ではない）。初回fragment復元をload完了後へ移し、早期hashchange/popstateもloadまで保留する。操作時の固定リンク・focus、全16条件、両方のreload、旧期待値は保持する。データ・schema・公開workflowは変更しない。修正後の正式CIで効果を判定し、初回失敗証拠を成功へ置き換えない。
