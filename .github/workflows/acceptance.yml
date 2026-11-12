@@ -20,6 +20,18 @@ jobs:
       - run: python prototype/eikyouki/run_checks.py evidence/ci-checks
       - run: npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
       - run: npx playwright install --with-deps chromium webkit
+      - name: Diagnose Linux WebKit repeated fragment reload
+        continue-on-error: true
+        env:
+          DEBUG: pw:browser
+        run: node prototype/eikyouki/reload_diagnostics.cjs evidence/ci-reload-diagnostics
+      - name: Preserve reload diagnosis before full acceptance
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: reload-diagnostics-${{ github.event.pull_request.head.sha || github.sha }}
+          path: evidence/ci-reload-diagnostics
       - run: node prototype/eikyouki/browser_acceptance.cjs evidence/ci-browser
       - name: Manifest and environment
         if: always()
