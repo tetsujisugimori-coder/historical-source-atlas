@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
 CHAPTERS = [
+    ("kyoto_battle", "京都軍之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-13"),
     ("horikoshi", "堀越御所御下向之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-12"),
     ("shigeuji", "成氏の御事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-11"),
     ("yuki_fall", "結城落城の事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-10"),
@@ -86,6 +87,8 @@ def lunar_range(r):
     year, precision = r["era_year"], r["date_precision"]
     if (r["era"],year,precision,r["lunar_month"],r["lunar_day"],r["lunar_is_leap"]) == ("寛正",2,"month",10,None,False):
         return calendar_day("1461-11-03","julian"),calendar_day("1461-12-02","julian")-1
+    if (r["era"],year,precision,r["lunar_month"],r["lunar_day"],r["lunar_is_leap"]) == ("応仁",1,"day",5,26,False):
+        day=calendar_day("1467-06-27","julian");return day,day
     # Batch09: exact retrieved NAOJ dates only; no inferred month/year anchors.
     # Batch10: five exact NAOJ response pairs; no inferred year/month range.
     if r["era"] == "嘉吉" and year == 1 and precision == "day" and r["lunar_is_leap"] is False:
@@ -188,7 +191,7 @@ def validate_record(r):
             if r[f] is not None:
                 fail(r, f, "unknown precision requires null")
     else:
-        if not ((r["era"] == "永享" and r["western_year"] == 1428+r["era_year"]) or (r["era"] == "嘉吉" and r["era_year"] == 1 and r["western_year"] == 1441) or (r["era"] == "寛正" and r["era_year"] == 2 and r["western_year"] == 1461) or (r["era"] == "享徳" and r["era_year"] == 3 and r["western_year"] == 1454)):
+        if not ((r["era"] == "永享" and r["western_year"] == 1428+r["era_year"]) or (r["era"] == "応仁" and r["era_year"] == 1 and r["western_year"] == 1467) or (r["era"] == "嘉吉" and r["era_year"] == 1 and r["western_year"] == 1441) or (r["era"] == "寛正" and r["era_year"] == 2 and r["western_year"] == 1461) or (r["era"] == "享徳" and r["era_year"] == 3 and r["western_year"] == 1454)):
             fail(r, "era/western_year", "fixed era/year correspondence required")
         if type(r["lunar_is_leap"]) is not bool or (p == "year" and r["lunar_is_leap"]):
             fail(r, "lunar_is_leap", "known date requires boolean; year precision cannot designate leap month")

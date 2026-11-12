@@ -1,0 +1,12 @@
+{
+  "url": "https://ja.wikisource.org/w/index.php?title=%E6%B0%B8%E4%BA%AB%E8%A8%98&oldid=218476",
+  "requested_at": "2026-11-12T20:13:43.812745+00:00",
+  "status": 403,
+  "sha256": "165da4d5af47d0a2008597750d184a3cef870aff9d0a5005b71d6bd17a75672e",
+  "bytes": 126,
+  "reused_file": "evidence/batch08/source/wikisource-fixed.html",
+  "reused_sha256": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0",
+  "reused_original_retrieved_at": "2026-11-08T20:04:41.496999Z",
+  "revision": 218476,
+  "response_local_only": "evidence/batch13/source/response.bin"
+}

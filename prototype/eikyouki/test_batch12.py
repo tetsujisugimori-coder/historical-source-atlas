@@ -10,7 +10,7 @@ D=json.loads((B/'eikyouki_records.json').read_text());L=json.loads((E/'article-b
 BOUNDS=[9,110,127,627,697,722,760,810,865,897,997,1075,1162]
 SOURCE_SHA='cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0';CHAPTER_SHA='eaf30216e1fdb714fdbcf3a22dd89c98369de69fc1f2799116747f09eeea6bf5'
 def contract(d,l=L):
- rows=validate_data(d);same_fields(OLD,rows[:117],'117 prior records')
+ rows=validate_data(d)[:129];same_fields(OLD,rows[:117],'117 prior records')
  if len(rows)!=129 or [r['id']for r in rows[117:]]!=IDS:raise ValueError('batch12 count/identities')
  if [r['id'] for r in rows[:117]]!=[r['id'] for r in OLD]:raise ValueError('prior ordering')
  chapter=(E/'source/chapter.txt').read_text()
@@ -32,15 +32,15 @@ def contract(d,l=L):
  if 'EK-0119で御教書として導入' not in d['narrative_references'][3]['evidence_note'] or 'EK-0114' not in d['narrative_references'][3]['evidence_note']:raise ValueError('reference evidence scope')
  if len(d['document_structures'])!=1:raise ValueError('one quoted document')
  if d['document_structures'][0]!=l['quoted_document']:raise ValueError('document ledger mismatch')
- if d['narrative_references']!=l['narrative_references']:raise ValueError('reference ledger mismatch')
+ if d['narrative_references'][:8]!=l['narrative_references']:raise ValueError('reference ledger mismatch')
  doc=d['document_structures'][0]
  if doc['article_id']!='EK-0120' or (doc['quote']['start_offset'],doc['quote']['end_offset'])!=(127,627):raise ValueError('quote/narrator boundary')
  if [c['start_offset']for c in doc['clauses']]+[doc['clauses'][-1]['end_offset']]!=[158,226,301,392,453,542]:raise ValueError('clause boundaries')
- if [(x['from'],x['to'],x['kind']) for x in d['narrative_references']] != [('EK-0119','EK-0120','document_quote'),('EK-0119','EK-0118','narrative_relative_time'),('EK-0120','EK-0104','same_named_person'),('EK-0120','EK-0114','editorial_cross_reference'),('EK-0123','EK-0104','narrative_continuity'),('EK-0126','EK-0117','same_name_in_transcription'),('EK-0128','EK-0115','narrative_continuity'),('EK-0129','EK-0117','narrative_continuity')]:raise ValueError('reference types')
+ if [(x['from'],x['to'],x['kind']) for x in d['narrative_references'][:8]] != [('EK-0119','EK-0120','document_quote'),('EK-0119','EK-0118','narrative_relative_time'),('EK-0120','EK-0104','same_named_person'),('EK-0120','EK-0114','editorial_cross_reference'),('EK-0123','EK-0104','narrative_continuity'),('EK-0126','EK-0117','same_name_in_transcription'),('EK-0128','EK-0115','narrative_continuity'),('EK-0129','EK-0117','narrative_continuity')]:raise ValueError('reference types')
  return len(rows)
 class Batch12(unittest.TestCase):
  def test_baseline_and_all_formats(self):
-  original=json.loads(subprocess.check_output(['git','show',BASE+':prototype/eikyouki/eikyouki_records.json'],cwd=R));same_fields(original['records'],OLD,'baseline freeze');self.assertEqual(129,contract(D));self.assertEqual(129,verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
+  original=json.loads(subprocess.check_output(['git','show',BASE+':prototype/eikyouki/eikyouki_records.json'],cwd=R));same_fields(original['records'],OLD,'baseline freeze');self.assertEqual(129,contract(D));self.assertEqual(len(D['records']),verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
   self.assertEqual(original['article_relationships'],D['article_relationships'])
   for key,value in original['publication']['articles'].items():self.assertEqual(value,D['publication']['articles'][key])
  def test_source_boundaries_independent_extraction(self):
@@ -84,7 +84,7 @@ class Batch12(unittest.TestCase):
     if f=='corrected-original-date':d['records'][119]['original_date']='寛正二年〈辛巳〉十月日'
     with self.assertRaises((ValueError,KeyError)):contract(d,l)
  def test_month_not_day_and_naoj_evidence(self):
-  r=D['records'][119];self.assertEqual((r['date_kind'],r['date_precision'],r['western_year'],r['lunar_day']),('document_date','month',1461,None));self.assertEqual((r['julian_start'],r['julian_end'],r['gregorian_start'],r['gregorian_end']),('1461-11-03','1461-12-01','1461-11-12','1461-12-10'));self.assertEqual('寛正二年〈幸巳〉十月日',r['original_date']);self.assertEqual(11,sum(x['western_year']is None for x in D['records'][117:]));self.assertIn('辛巳',r['date_conversion_note'])
+  r=D['records'][119];self.assertEqual((r['date_kind'],r['date_precision'],r['western_year'],r['lunar_day']),('document_date','month',1461,None));self.assertEqual((r['julian_start'],r['julian_end'],r['gregorian_start'],r['gregorian_end']),('1461-11-03','1461-12-01','1461-11-12','1461-12-10'));self.assertEqual('寛正二年〈幸巳〉十月日',r['original_date']);self.assertEqual(11,sum(x['western_year']is None for x in D['records'][117:129]));self.assertIn('辛巳',r['date_conversion_note'])
   for m in json.loads((E/'calendar/retrieval.json').read_text()):
    raw=(E/'calendar'/m['file']).read_bytes();self.assertEqual(m['status'],200);self.assertEqual(m['sha256'],hashlib.sha256(raw).hexdigest());self.assertIn('辛巳',raw.decode('euc_jp'));self.assertIn('寛正',raw.decode('euc_jp'))
   for patch in [{'date_precision':'day','lunar_day':1},{'gregorian_end':'1461-12-11'},{'gregorian_start':'1461-11-11'},{'western_year':1462}]:

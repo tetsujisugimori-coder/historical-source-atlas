@@ -1,0 +1,40 @@
+[
+  {
+    "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b217&year=1&month=5&day=26&jg=0&div=1&divu=3&len=1&lenu=3&gen=1",
+    "requested_at": "2026-11-12T20:14:22.647293+00:00",
+    "file": "naoj-onin-1-5-26-0.html",
+    "status": 200,
+    "headers": {
+      "Date": "Thu, 12 Nov 2026 20:14:21 GMT",
+      "Server": "Apache",
+      "X-Content-Type-Options": "nosniff",
+      "X-XSS-Protection": "1; mode=block",
+      "Accept-CH": "Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+      "Content-Length": "18011",
+      "Content-Type": "text/html; charset=EUC-JP",
+      "Connection": "close"
+    },
+    "sha256": "158e7385a5eb8ee250d789cb61575e779f6eb7eb3f58d90a790519e1f2bc2ff2",
+    "bytes": 18011,
+    "result_text": "結果   西暦   和暦   神武紀元   年の干支   月の干支   日の干支   1467/06/27   応仁元年05月26日   2127   丁亥 (ひのとのゐ)   丙午 (ひのえうま)   庚寅 (かのえとら)   西暦の日付はすべてユリウス暦によります。 \n ご利用にあたって 日本の暦 本データベース は 神武紀元 (-659)以後の暦日に対応しています。   日付単位で 年号 を判定できるのは大宝元年(701)以降です。ただし、文中元年(1372)はいつ改元したのかはっきりしないため、仮に4月1日としています。   月の干支 は暦月で判定します。   暦月・節月データベース   干支から探す日本の暦日   大小から探す日本の暦日   西暦 デフォルトでは1582年10月15日以後の日付は グレゴリオ暦 、それより前は ユリウス暦 によります。   紀元元年の前年を0年 としているため、これを紀元前1年とする方法とは1年ずつ差異があります。   一度に出力できるのは400"
+  },
+  {
+    "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b217&year=1&month=5&day=26&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+    "requested_at": "2026-11-12T20:14:22.915292+00:00",
+    "file": "naoj-onin-1-5-26-1.html",
+    "status": 200,
+    "headers": {
+      "Date": "Thu, 12 Nov 2026 20:14:21 GMT",
+      "Server": "Apache",
+      "X-Content-Type-Options": "nosniff",
+      "X-XSS-Protection": "1; mode=block",
+      "Accept-CH": "Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+      "Content-Length": "18013",
+      "Content-Type": "text/html; charset=EUC-JP",
+      "Connection": "close"
+    },
+    "sha256": "009089fafb686ec39589bc1eef61d9e870b289b374c7be3f2fde1051e1c61d4d",
+    "bytes": 18013,
+    "result_text": "結果   西暦   和暦   神武紀元   年の干支   月の干支   日の干支   1467/07/06   応仁元年05月26日   2127   丁亥 (ひのとのゐ)   丙午 (ひのえうま)   庚寅 (かのえとら)   西暦の日付はすべてグレゴリオ暦によります。 \n ご利用にあたって 日本の暦 本データベース は 神武紀元 (-659)以後の暦日に対応しています。   日付単位で 年号 を判定できるのは大宝元年(701)以降です。ただし、文中元年(1372)はいつ改元したのかはっきりしないため、仮に4月1日としています。   月の干支 は暦月で判定します。   暦月・節月データベース   干支から探す日本の暦日   大小から探す日本の暦日   西暦 デフォルトでは1582年10月15日以後の日付は グレゴリオ暦 、それより前は ユリウス暦 によります。   紀元元年の前年を0年 としているため、これを紀元前1年とする方法とは1年ずつ差異があります。   一度に出力できるのは40"
+  }
+]
