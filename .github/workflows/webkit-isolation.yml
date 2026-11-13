@@ -34,7 +34,7 @@ jobs:
       - name: Non-browser contract tests
         run: |
           node diagnostics/webkit-isolation/guard.cjs
-          node --test diagnostics/webkit-isolation/test.cjs
+          node --test diagnostics/webkit-isolation/test.cjs diagnostics/webkit-isolation/test-v1.cjs
       - name: Fixed isolation experiment (not acceptance)
         continue-on-error: true
         run: |

@@ -10,15 +10,14 @@ const read=p=>{try{return fs.readFileSync(p,'utf8')}catch(e){return {status:'NOT
 const once=(s,a,b)=>{assert.equal(s.split(a).length,2,'unique transformation anchor');return s.replace(a,b)};
 const PLANS=[];let n=0;
 function add(head,fixture,engine='webkit',extra={}){PLANS.push({id:String(++n).padStart(2,'0')+'-'+head+'-'+fixture+'-'+engine,head,fixture,engine,route:'common',sample:false,...extra});}
-for(let rep=1;rep<=2;rep++)for(const h of Object.keys(HEADS))add(h,'original','webkit',{rep});
-for(const h of Object.keys(HEADS))add(h,'original','chromium');
-add('current','original','webkit',{route:'bridge'});
-add('current','original','webkit',{sample:true});
-for(const f of ['one-record','no-css','tiny','no-restore','native-only','tiny-direct'])for(let rep=1;rep<=2;rep++)add('current',f,'webkit',{rep,route:f==='tiny-direct'?'direct':'common'});
-for(const f of ['tiny','native-only'])add('current',f,'chromium');
-add('current','no-focus');add('current','no-scroll');
-add('current','original','webkit',{sample:true,debugger:true});
-const DOC={version:1,heads:HEADS,cases:PLANS,viewport:{width:375,height:1000},motion:'no-preference',playwright:'1.56.1',apiTimeoutMs:30000,trialWallMs:150000,trialLimit:PLANS.length,retries:0,minimumFreeBytes:2*1024**3,stdoutLimit:4*1024**2,stderrLimit:8*1024**2,eventLimit:4*1024**2,coreDumps:false,productionAcceptance:false,signature:"optional:479 + _M_get + unsigned long + this->_M_is_engaged() + failed",interpretation:'NO_REPRODUCTION is not fixed or PASS; DOM differences/timeout are distinct; same signature does not prove same cause'};
+// v2 is a new fixed experiment; v1 evidence remains immutable.
+for(let rep=1;rep<=2;rep++)for(const route of ['bridge','bridge-no-filters','bridge-no-prior-reload','prior-reload','prior-no-reload'])add('current','original','webkit',{route,rep});
+for(const h of ['main','pre'])for(let rep=1;rep<=2;rep++)add(h,'original','webkit',{route:'prior-reload',rep});
+for(const route of ['bridge','prior-reload'])add('current','original','chromium',{route});
+for(const f of ['tiny','no-restore'])for(let rep=1;rep<=2;rep++)add('current',f,'webkit',{route:'synthetic-prior-reload',rep});
+add('current','original','webkit',{route:'bridge',sample:true});
+add('current','original','webkit',{route:'bridge',sample:true,debugger:true});
+const DOC={version:2,heads:HEADS,cases:PLANS,viewport:{width:375,height:1000},motion:'no-preference',playwright:'1.56.1',apiTimeoutMs:30000,trialWallMs:150000,trialLimit:PLANS.length,retries:0,minimumFreeBytes:2*1024**3,stdoutLimit:4*1024**2,stderrLimit:8*1024**2,eventLimit:4*1024**2,coreDumps:false,productionAcceptance:false,signature:"optional:479 + _M_get + unsigned long + this->_M_is_engaged() + failed",interpretation:'NO_REPRODUCTION is not fixed or PASS; DOM differences/timeout are distinct; same signature does not prove same cause'};
 function payload(s,id){const re=new RegExp('(<script[^>]*id="'+id+'"[^>]*>)([\\s\\S]*?)(</script>)');const m=s.match(re);assert(m,'payload '+id);return {value:JSON.parse(m[2]),replace:v=>s.replace(re,(_,a,b,c)=>a+JSON.stringify(v)+c)};}
 function tiny({restore=true,focus=true,scroll=true,native=false}={}){
  return `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>diagnostic, not Atlas data</title><input id="search"><main id="timeline"></main><script>
@@ -43,10 +42,11 @@ function classify(r,stderr){
  if(r.pageCrash)return {classification:'OTHER_PAGE_CRASH',signatureMatch:false};
  if(!r.browserStarted)return {classification:'LAUNCH_BLOCKED',signatureMatch:false};
  if(!r.targetReloadStarted)return {classification:r.error?.includes('Timeout')?'PRECONDITION_TIMEOUT':'NOT_COMPARABLE',signatureMatch:false};
- if(r.error)return {classification:r.error.includes('Timeout')?'RELOAD_TIMEOUT':'OTHER_ERROR',signatureMatch:false};
+ if(r.error&&!r.targetReloadCompleted)return {classification:r.error.includes('Timeout')?'RELOAD_TIMEOUT':'OTHER_ERROR',signatureMatch:false};
  if(r.targetReloadCompleted!==true||!r.finished)return {classification:'INCOMPLETE',signatureMatch:false};
  return {classification:'NO_REPRODUCTION',signatureMatch:false};
 }
+function evidenceState(row,r){return row.code===0&&!row.stopReason&&row.classification!=='INCOMPLETE'&&!(r.error&&r.targetReloadCompleted)&&!(r.errors?.length)?'COLLECTED':'INCOMPLETE';}
 function processes(){
  const rows=cp.execFileSync('ps',['-eo','pid=,ppid=,lstart=,rss=,comm='],{encoding:'utf8',timeout:3000,maxBuffer:2*1024**2}).trim().split('\n').map(l=>{const a=l.trim().split(/\s+/);return {pid:+a[0],ppid:+a[1],start:a.slice(2,7).join(' '),rssKiB:+a[7],name:a.slice(8).join(' ')}});
  const set=new Set([process.pid]);let changed=true;while(changed){changed=false;for(const p of rows)if(set.has(p.ppid)&&!set.has(p.pid)){set.add(p.pid);changed=true}}
@@ -73,8 +73,32 @@ async function worker(out,spec,input){
   if(spec.sample){sample();timer=setInterval(sample,1000);}
   const state=()=>page.evaluate(()=>({hash:location.hash,focus:document.activeElement?.id,scrollX,scrollY,details:[...document.querySelectorAll('details')].map(x=>({id:x.id,open:x.open}))}));
   await action('goto',[spec.route==='direct'?'#EK-0120-C05':''],()=>page.goto(url+(spec.route==='direct'?'#EK-0120-C05':'')));
-  if(spec.route==='bridge'){
-   await action('year',['1467'],()=>page.locator('#year').selectOption('1467'));await page.locator('#year').selectOption('all');await page.locator('#chapter').selectOption('kyoto_battle');await page.locator('#chapter').selectOption('all');await page.locator('#search').fill('其由来を伝聞くに');await page.goto(url+'#EK-0131');await page.locator('.narrative-reference').filter({hasText:'EK-0130'}).click();await page.reload();await page.locator('#search').fill('');await page.locator('#year').selectOption('1461');await page.locator('#year').selectOption('all');await page.locator('#chapter').selectOption('horikoshi');await page.locator('#chapter').selectOption('all');
+  if(spec.route.startsWith('bridge')){
+   if(spec.route!=='bridge-no-filters'){
+    await action('prefix-year',['1467'],()=>page.locator('#year').selectOption('1467'));
+    await action('prefix-year',['all'],()=>page.locator('#year').selectOption('all'));
+    await action('prefix-chapter',['kyoto_battle'],()=>page.locator('#chapter').selectOption('kyoto_battle'));
+    await action('prefix-chapter',['all'],()=>page.locator('#chapter').selectOption('all'));
+    await action('prefix-search',['其由来を伝聞くに'],()=>page.locator('#search').fill('其由来を伝聞くに'));
+   }
+   await action('prefix-goto',['#EK-0131'],()=>page.goto(url+'#EK-0131'));
+   await action('prefix-reference',['.narrative-reference','EK-0130'],()=>page.locator('.narrative-reference').filter({hasText:'EK-0130'}).click());
+   if(spec.route!=='bridge-no-prior-reload')await action('prefix-reload',[],()=>page.reload());
+   await action('prefix-search',[''],()=>page.locator('#search').fill(''));
+   if(spec.route!=='bridge-no-filters'){
+    await action('prefix-year',['1461'],()=>page.locator('#year').selectOption('1461'));
+    await action('prefix-year',['all'],()=>page.locator('#year').selectOption('all'));
+    await action('prefix-chapter',['horikoshi'],()=>page.locator('#chapter').selectOption('horikoshi'));
+    await action('prefix-chapter',['all'],()=>page.locator('#chapter').selectOption('all'));
+   }
+  }
+  if(spec.route==='prior-reload'||spec.route==='prior-no-reload'){
+   await action('prior-goto',['#EK-0118'],()=>page.goto(url+'#EK-0118'));
+   if(spec.route==='prior-reload')await action('prior-reload',[],()=>page.reload());
+  }
+  if(spec.route==='synthetic-prior-reload'){
+   await action('synthetic-prior-goto',['#EK-0120-C01'],()=>page.goto(url+'#EK-0120-C01'));
+   await action('synthetic-prior-reload',[],()=>page.reload());
   }
   if(spec.route!=='direct')for(let i=1;i<=5;i++){
    const id='EK-0120-C0'+i;await action('fill',['#search',id],()=>page.locator('#search').fill(id));
@@ -84,12 +108,12 @@ async function worker(out,spec,input){
   assert.equal(new URL(page.url()).hash,'#EK-0120-C05');
   if(spec.sample)result.stateBefore=await action('state-before',[],state);
   if(spec.debugger){
-   sample();const live=processes();const renderer=[...native.values()].filter(x=>(/WebKitWebProcess/.test(x.name)||/WebKitWebProcess/.test(x.exe||''))&&/^\d+$/.test(x.startTicks)&&live.some(y=>y.pid===x.pid&&y.startTicks===x.startTicks&&y.start===x.start));result.debugger={candidates:renderer.map(x=>({pid:x.pid,start:x.start,exe:x.exe})),status:'NOT_OBTAINED',intervention:'attach/stop/continue changes timing; separate case, no core dump'};
+   sample();const live=processes();const renderer=[...native.values()].filter(x=>(/^(?:WPEWebProcess|WebKitWebProcess)$/.test(path.basename(x.exe||'')))&&/^\d+$/.test(x.startTicks)&&live.some(y=>y.pid===x.pid&&y.startTicks===x.startTicks&&y.start===x.start));result.debugger={candidates:renderer.map(x=>({pid:x.pid,start:x.start,exe:x.exe})),status:'NOT_OBTAINED',intervention:'attach/stop/continue changes timing; separate case, no core dump'};
    if(renderer.length===1){
     const target=renderer[0];result.debugger.target={pid:target.pid,startTicks:target.startTicks,executable:target.identity};
     const maps=read('/proc/'+target.pid+'/maps');const libraries=typeof maps==='string'?[...new Set(maps.split('\n').map(l=>l.match(/\/.*$/)?.[0]).filter(x=>x&&/lib(?:WPEWebKit|webkit|javascriptcore|stdc\+\+)/i.test(x)))]:[];
     result.debugger.libraries=libraries.slice(0,20).map(executableInfo);result.debugger.symbolValidation='UNKNOWN: only listed executable/shared-library build IDs verified; stack needs independent frame-to-image match';
-    const args=['-q','-nx','-batch','-ex','set pagination off','-ex','set debuginfod enabled off','-ex','handle SIGABRT stop print nopass','-p',String(target.pid),'-ex','echo ATLAS_GDB_ATTACHED\\n','-ex','continue','-ex','thread apply all bt 24','-ex','info sharedlibrary','-ex','detach'];
+    const args=['-q','-nx','-batch','-ex','set pagination off','-ex','set debuginfod enabled off','-ex','handle SIGABRT stop print pass','-p',String(target.pid),'-ex','echo ATLAS_GDB_ATTACHED\\n','-ex','continue','-ex','thread apply all bt 24','-ex','info sharedlibrary','-ex','detach'];
     const log=fs.openSync(path.join(out,'gdb.log'),'wx');let size=0;
     gdb=cp.spawn('gdb',args,{stdio:['ignore','pipe','pipe']});
     const stopGdb=reason=>{result.debugger.stopReason??=reason;gdb.kill('SIGTERM');gdbKillTimer=setTimeout(()=>gdb.kill('SIGKILL'),2000)};
@@ -105,6 +129,12 @@ async function worker(out,spec,input){
  }catch(e){result.error=e.stack;}
  finally{
   clearInterval(timer);if(gdb){for(let k=0;k<50&&!result.debugger.exit;k++)await new Promise(r=>setTimeout(r,100));if(!result.debugger.exit){result.debugger.stopReason??='FINALIZATION_LIMIT';gdb.kill('SIGTERM');gdbKillTimer=setTimeout(()=>gdb.kill('SIGKILL'),2000);}await gdbDone;clearTimeout(gdbTimer);clearTimeout(gdbKillTimer);}if(spec.sample)sample();
+  if(result.debugger){const g=read(path.join(out,'gdb.log'));if(typeof g==='string'){
+   result.debugger.observedSIGABRT=/received signal SIGABRT/.test(g);
+   result.nativeStack=/^#0\s/m.test(g)?'PARTIAL_RAW_STACK_OBTAINED':'NOT_OBTAINED';
+   result.rendererExit=/Program terminated with signal/.test(g)?g.match(/Program terminated with signal[^\n]*/)?.[0]:'NOT_OBTAINED';
+   result.debugger.status=result.nativeStack==='NOT_OBTAINED'?'NOT_OBTAINED':'PARTIAL';
+  }}
   result.nativeProcesses=[...native.values()];
   if(browser)try{await browser.close()}catch(e){result.errors.push({kind:'close',error:e.message})}
   await new Promise(r=>server.close(r));result.finalResource=resource();result.finished=new Date().toISOString();save();
@@ -127,10 +157,10 @@ async function main(out,check){
    for(const stream of ['stdout','stderr']){const fd=fs.openSync(path.join(dir,stream+'.log'),'wx'),limit=stream==='stdout'?DOC.stdoutLimit:DOC.stderrLimit;child[stream].on('data',b=>{const room=Math.max(0,limit-counts[stream]);if(room)fs.writeSync(fd,b.subarray(0,room));counts[stream]+=b.length;if(counts[stream]>limit)stop(stream.toUpperCase()+'_LIMIT')});child[stream].on('end',()=>fs.closeSync(fd));}
    child.on('error',e=>row.spawnError=e.message);child.on('close',(code,signal)=>{clearTimeout(timer);clearTimeout(killTimer);Object.assign(row,{code,signal,counts,status:'FINISHED'});let alive=false;try{process.kill(-child.pid,0);alive=true}catch{}row.processGroupRemaining=alive;if(alive){row.stopReason??='DESCENDANTS_REMAIN';try{process.kill(-child.pid,'SIGKILL')}catch{}}resolve();});});
   let r;try{r=JSON.parse(fs.readFileSync(path.join(dir,'result.json')))}catch{row.evidence='MISSING_RESULT';}
-  if(r){Object.assign(row,classify(r,fs.readFileSync(path.join(dir,'stderr.log'),'utf8')));row.targetReached=r.targetReloadStarted===true;row.targetCompleted=r.targetReloadCompleted===true;if(r.debugger?.stopReason)row.nativeEvidence='INCOMPLETE: '+r.debugger.stopReason;}row.evidence??=(row.code===0&&!row.stopReason&&row.classification!=='INCOMPLETE'?'COLLECTED':'INCOMPLETE');save();
+  if(r){Object.assign(row,classify(r,fs.readFileSync(path.join(dir,'stderr.log'),'utf8')));row.targetReached=r.targetReloadStarted===true;row.targetCompleted=r.targetReloadCompleted===true;if(r.debugger?.stopReason)row.nativeEvidence='INCOMPLETE: '+r.debugger.stopReason;}row.evidence??=evidenceState(row,r||{});save();
   if(row.stopReason||row.spawnError){actual.stopReason=row.stopReason||row.spawnError;break;}
  }
  actual.result=rows.every(r=>r.evidence==='COLLECTED')?'COLLECTION_COMPLETE':'COLLECTION_PARTIAL';save();if(actual.result!=='COLLECTION_COMPLETE')process.exitCode=1;
 }
-module.exports={HEADS,PLANS,DOC,fixture,classify,tiny};
+module.exports={HEADS,PLANS,DOC,fixture,classify,tiny,evidenceState};
 if(require.main===module){if(process.argv[2]==='--worker')worker(process.argv[3],JSON.parse(process.argv[4]),process.argv[5]).catch(e=>{console.error(e);process.exitCode=1});else main(path.resolve(process.argv[2]||'evidence/isolation'),process.argv.includes('--check')).catch(e=>{console.error(e);process.exitCode=1});}

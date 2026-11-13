@@ -30,3 +30,21 @@ Ordinary rows preserve native stderr and DEBUG process messages. Sampled/GDB row
 MATCHING_NATIVE_ASSERTION requires optional:479, _M_get, unsigned long, engaged assertion and failed tokens. Matching signature does not prove same root cause. PRE_TARGET_NATIVE_ASSERTION is kept distinct when target reload was not reached. Missing completed/finished fields become INCOMPLETE, never non-reproduction. OTHER_PAGE_CRASH, PRECONDITION_TIMEOUT, NOT_COMPARABLE, LAUNCH_BLOCKED, RELOAD_TIMEOUT, OTHER_ERROR and NO_REPRODUCTION are separate. Missing result/output overflow/watchdog is incomplete evidence, never PASS. Product gate is not replaced by collection status. Native stack/renderer exit remain NOT_OBTAINED unless logs substantiate them.
 
 Store fixed inputs, plan, executed script, actions/results/stdout/stderr/native metadata and manifest in a separate diagnostic artifact. Official API digest/ZIP SHA256/CRC/internal manifest and source are independently read back after CI. Windows historical archive is not overwritten; new evidence uses a new subfolder when reachable, else PENDING with raw artifact handoff. Old evidence remains unchanged. Full formal 16 conditions/data/acceptance workflow/Pages remain byte-identical; only new diagnostic scripts/workflow/docs.
+
+## v2：前置navigation/reloadの要因分離（実行前登録）
+
+v1 run 43359812893 / artifact 14008210635 の28試行を保持する。27非再現・1同署名再現であり、解消を意味しない。case10だけが旧B13前置操作＋先行記事reloadを含んだ。v2はこれを分離する新しい22試行で、成功するまでの再試行ではない。
+
+- 01–10：current original、bridge全体／filter部分除去／先行reloadだけ除去／共通既存記事EK-0118へ移動＋reload／移動だけ、各2回を記載順で実施。
+- 11–14：main、pre各2回、EK-0118へ移動＋reload。B13専用記事はmainに存在しないのでbridgeとの同条件比較には使わない。
+- 15–16：currentのbridge／EK-0118移動reloadをChromiumで各1回。
+- 17–20：tiny／no-restore各2回、C01へ先行navigation＋reload後にC01→C05→reload。synthetic先行ページはAtlas EK-0118と同一ではなく、直接の一因子比較ではない。
+- 21：bridge＋状態観測、22：同じbridge＋状態観測＋限定GDB。計測介入を独立に扱う。
+
+version2以外の基本条件はv1と同じ。Playwright1.56.1、WebKit2215、Ubuntu24.04、375×1000、各回新browser、API30秒／試行150秒、再試行0、出力上限と中断条件は変更なし。すべて別run・出力として保存する。正式受入/製品/dataは変更しない。
+
+v1のrenderer実体は `webkit-2215/minibrowser-wpe/bin/WPEWebProcess` だった。v2では子孫・PID start ticks一致に加え実行ファイルbasenameを照合し、候補が1つだけの場合のみGDBを試す。gdbが存在しない、ptrace拒否等はNOT_OBTAINED。権限設定・sudo・core dump・外部symbol取得は行わない。45秒/2MiB上限、2秒後強制停止。SIGABRT観測と実際の終了を分離し、raw stackに名前が出てもsymbolized stack完全性を自動PASSにしない。
+
+旧v1 runnerは `isolate-v1.cjs` に元バイトのまま保存し、test-v1.cjsで旧28計画を検査する。v1のraw artifactは改変しない。
+
+v2 prepush独立レビューで、観測ログ上限/採取失敗の誤COLLECTEDと、完了後のstate取得timeoutを一次reload timeoutへ上書きする2点を修正。一次結果と証拠状態を分離し、同じ合成反例を13単体中に追加した。v1記録は訂正せず、新解釈・不足を別記する。
