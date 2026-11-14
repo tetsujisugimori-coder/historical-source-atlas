@@ -1,0 +1,172 @@
+{
+  "batch": 13,
+  "source_file": "evidence/batch08/source/wikisource-fixed.html",
+  "source_sha256": "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0",
+  "revision": 218476,
+  "header": "京都軍之事",
+  "previous_chapter": "堀越御所御下向之事",
+  "next_chapter": "古河城の事",
+  "chapter_sha256": "c5e57af30f58c5f99c57f44444a278c62be11630c4f4fd4c7733205701a53a16",
+  "offset_unit": "Unicode code points, half-open",
+  "historical_recognition": "NOT_TESTED",
+  "split_reason": "開始叙述と、その由来・帰結を述べる一続きの伝聞の2記事。後者は伝聞開始/終結と因果を切らず一括する。記事数は独立事件数ではない。",
+  "articles": [
+    {
+      "id": "EK-0130",
+      "start_offset": 5,
+      "end_offset": 58,
+      "source_text": "関東はかく乱しかとも、五畿内西国は静なりし処に、応仁元年丁亥五月二十六日、京都に合戦起て、天下大に乱ける、",
+      "narrative_text": "関東はかく乱しかとも、五畿内西国は静なりし処に、応仁元年丁亥五月二十六日、京都に合戦起て、天下大に乱ける、",
+      "annotations": [],
+      "split_reason": "京都合戦開始の叙述。日付はこの範囲だけに適用。後段EK-0131はその由来と帰結を伝聞で説明し、独立した別合戦とは認定しない。京都・五畿内・西国・関東は本文の地名/地域表現のみで座標未比定。",
+      "record": {
+        "id": "EK-0130",
+        "work_id": "EIKYOUKI",
+        "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+        "chapter_id": "kyoto_battle",
+        "chapter": "京都軍之事",
+        "source_order": 130,
+        "original_date": "応仁元年丁亥五月二十六日",
+        "era": "応仁",
+        "era_year": 1,
+        "western_year": 1467,
+        "lunar_month": 5,
+        "lunar_day": 26,
+        "date_precision": "day",
+        "date_interpretation": "明示日付は開始叙述だけに適用し、後続の伝聞全体へ伝播しない。",
+        "date_kind": "described_event",
+        "summary": "史料は、関東が乱れる一方で五畿内・西国は静かだったが、応仁元年丁亥五月二十六日に京都で合戦が起こり、天下が大いに乱れたと記す。",
+        "location_in_text": "関東、五畿内、西国、京都",
+        "people_in_text": null,
+        "short_locator": "関東はかく乱しかとも、五畿内西",
+        "source_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-13",
+        "editorial_note": "Unicode範囲[5,58)。京都合戦開始の叙述。日付はこの範囲だけに適用。後段EK-0131はその由来と帰結を伝聞で説明し、独立した別合戦とは認定しない。京都・五畿内・西国・関東は本文の地名/地域表現のみで座標未比定。 原文・注記・要約・編集解釈を分離。底本・異本・校訂・史実認定NOT_TESTED。",
+        "full_original_text": "関東はかく乱しかとも、五畿内西国は静なりし処に、応仁元年丁亥五月二十六日、京都に合戦起て、天下大に乱ける、",
+        "entry_status": "仮登録・公開翻刻照合済み・底本未照合",
+        "historic_calendar": "宣明暦",
+        "lunar_is_leap": false,
+        "julian_start": "1467-06-27",
+        "julian_end": "1467-06-27",
+        "gregorian_start": "1467-07-06",
+        "gregorian_end": "1467-07-06",
+        "gregorian_calendar": "先発グレゴリオ暦",
+        "date_conversion_status": "provisional",
+        "date_conversion_source_url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi?type=1&gengo=b217&year=1&month=5&day=26&jg=1&div=1&divu=3&len=1&lenu=3&gen=1",
+        "date_conversion_note": "国立天文台「日本の暦日データベース」で応仁元年5月26日をjg=0/1の両指定で独立照合。ユリウス1467-06-27、先発グレゴリオ1467-07-06。原応答・URL・取得日時・SHA-256はevidence/batch13/calendar。原文の年干支丁亥も一致。暦日の対応のみ暫定確認し、合戦開始の史実・底本を認定しない。",
+        "research_date_start": null,
+        "research_date_end": null,
+        "research_date_basis": null
+      },
+      "publication": {
+        "revision": 218476,
+        "retrieved_at": "2026-11-08T20:04:41.496999+00:00",
+        "current_view_checked_at": null,
+        "acquisition": "第8便保存原HTMLをSHA-256照合して再利用。第13便の再取得は403。今回の新規取得成功や現行版の固定照合を意味しない。",
+        "annotation_note": "この記事に割注はない。章内の割注〈号今出川義視〉はEK-0131で分離する。京都合戦開始の叙述。日付はこの範囲だけに適用。後段EK-0131はその由来と帰結を伝聞で説明し、独立した別合戦とは認定しない。京都・五畿内・西国・関東は本文の地名/地域表現のみで座標未比定。",
+        "base_image": "NOT_TESTED",
+        "variants": "NOT_TESTED",
+        "transcription_emendation": "NOT_TESTED",
+        "historical_recognition": "NOT_TESTED",
+        "location": "UNRESOLVED",
+        "narrative_text": "関東はかく乱しかとも、五畿内西国は静なりし処に、応仁元年丁亥五月二十六日、京都に合戦起て、天下大に乱ける、",
+        "annotations": []
+      },
+      "layers": {
+        "SOURCE_STATEMENT": "関東はかく乱しかとも、五畿内西国は静なりし処に、応仁元年丁亥五月二十六日、京都に合戦起て、天下大に乱ける、",
+        "MODERN_SUMMARY": "史料は、関東が乱れる一方で五畿内・西国は静かだったが、応仁元年丁亥五月二十六日に京都で合戦が起こり、天下が大いに乱れたと記す。",
+        "HISTORICAL_RECOGNITION": "NOT_TESTED"
+      }
+    },
+    {
+      "id": "EK-0131",
+      "start_offset": 58,
+      "end_offset": 300,
+      "source_text": "其由来を伝聞くに、其比公方義政公、可㆑続㆓御代㆒無㆓御子㆒、而浄土寺殿を還俗せさせ奉り、為㆓御養子㆒奉㆑為㆑続㆓公方㆒しに、其後実子の若子出来給へしかは、公方是を取立申て、御代を続せ参らせんと思召て、御台所の御方より、山名右衛門佐持豊入道宗全を憑せ給へは、浄土寺殿〈号今出川義視〉管領細川右京兆勝元、京極武田以下一味同心の大名を引率し、謀叛を起して、今出川殿を取立公方に仰き申さんとす、山名入道畠山義就以下一味して、若君を取立申さんとて、京都に有て大合戦あり、洛中焼払けるとそ聞えし、",
+      "narrative_text": "其由来を伝聞くに、其比公方義政公、可㆑続㆓御代㆒無㆓御子㆒、而浄土寺殿を還俗せさせ奉り、為㆓御養子㆒奉㆑為㆑続㆓公方㆒しに、其後実子の若子出来給へしかは、公方是を取立申て、御代を続せ参らせんと思召て、御台所の御方より、山名右衛門佐持豊入道宗全を憑せ給へは、浄土寺殿管領細川右京兆勝元、京極武田以下一味同心の大名を引率し、謀叛を起して、今出川殿を取立公方に仰き申さんとす、山名入道畠山義就以下一味して、若君を取立申さんとて、京都に有て大合戦あり、洛中焼払けるとそ聞えし、",
+      "annotations": [
+        {
+          "kind": "inline_note",
+          "text": "〈号今出川義視〉",
+          "start_offset": 190,
+          "end_offset": 198
+        }
+      ],
+      "split_reason": "「其由来を伝聞くに」から「とそ聞えし」までを一続きに保ち、因果・意向・陣営・焼失を独立事件へ分断しない。義政の意向・動機および「謀叛」は伝聞内の説明・評価で、本人の確定した内心や史実認定ではない。浄土寺殿と今出川殿の対応は割注〈号今出川義視〉を参照する本文上の読み。義視という名は割注層へ分離。若子/若君を足利義尚とする現代同定や御台所の固有名は本文へ補わず、今回同定未検証。細川・京極・武田と山名・畠山の叙述を現代の陣営知識で訂正しない。冒頭EK-0130の合戦を由来・帰結として再叙述する参照であり、同一事件の独立実証ではない。",
+      "record": {
+        "id": "EK-0131",
+        "work_id": "EIKYOUKI",
+        "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+        "chapter_id": "kyoto_battle",
+        "chapter": "京都軍之事",
+        "source_order": 131,
+        "original_date": "記載なし",
+        "era": null,
+        "era_year": null,
+        "western_year": null,
+        "lunar_month": null,
+        "lunar_day": null,
+        "date_precision": "unknown",
+        "date_interpretation": "「其比」「其後」は伝聞内の相対表現。各行為・意向・合戦焼失の日付は明記されず、前記事の日付を補完しない。",
+        "date_kind": "described_event",
+        "summary": "語り手は合戦の由来を伝聞として述べる。義政公に後継の子がなく、浄土寺殿を還俗させ養子として公方を継がせようとしたが、その後実子の若子が生まれ、義政公はその子を立てて継がせたいと思い、御台所の方から山名右衛門佐持豊入道宗全を頼ったという。続いて浄土寺殿を挙げ、管領細川右京兆勝元が京極・武田以下の同心する大名を率い、「謀叛」を起こして今出川殿を公方に仰ごうとし、山名入道・畠山義就以下は若君を立てようとして、京都で大合戦となり洛中が焼き払われたと聞いたと記す。",
+        "location_in_text": "京都、洛中",
+        "people_in_text": "公方義政公、浄土寺殿、御台所、山名右衛門佐持豊入道宗全、管領細川右京兆勝元、京極、武田、今出川殿、山名入道、畠山義就、若子、若君",
+        "short_locator": "其由来を伝聞くに、其比公方義政",
+        "source_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-13",
+        "editorial_note": "Unicode範囲[58,300)。「其由来を伝聞くに」から「とそ聞えし」までを一続きに保ち、因果・意向・陣営・焼失を独立事件へ分断しない。義政の意向・動機および「謀叛」は伝聞内の説明・評価で、本人の確定した内心や史実認定ではない。浄土寺殿と今出川殿の対応は割注〈号今出川義視〉を参照する本文上の読み。義視という名は割注層へ分離。若子/若君を足利義尚とする現代同定や御台所の固有名は本文へ補わず、今回同定未検証。細川・京極・武田と山名・畠山の叙述を現代の陣営知識で訂正しない。冒頭EK-0130の合戦を由来・帰結として再叙述する参照であり、同一事件の独立実証ではない。 原文・注記・要約・編集解釈を分離。底本・異本・校訂・史実認定NOT_TESTED。",
+        "full_original_text": "其由来を伝聞くに、其比公方義政公、可㆑続㆓御代㆒無㆓御子㆒、而浄土寺殿を還俗せさせ奉り、為㆓御養子㆒奉㆑為㆑続㆓公方㆒しに、其後実子の若子出来給へしかは、公方是を取立申て、御代を続せ参らせんと思召て、御台所の御方より、山名右衛門佐持豊入道宗全を憑せ給へは、浄土寺殿〈号今出川義視〉管領細川右京兆勝元、京極武田以下一味同心の大名を引率し、謀叛を起して、今出川殿を取立公方に仰き申さんとす、山名入道畠山義就以下一味して、若君を取立申さんとて、京都に有て大合戦あり、洛中焼払けるとそ聞えし、",
+        "entry_status": "仮登録・公開翻刻照合済み・底本未照合",
+        "historic_calendar": "宣明暦",
+        "lunar_is_leap": null,
+        "julian_start": null,
+        "julian_end": null,
+        "gregorian_start": null,
+        "gregorian_end": null,
+        "gregorian_calendar": "先発グレゴリオ暦",
+        "date_conversion_status": "unresolved",
+        "date_conversion_source_url": null,
+        "date_conversion_note": "この叙述単位に明示月日がない。近接記事から自動伝播しない。",
+        "research_date_start": null,
+        "research_date_end": null,
+        "research_date_basis": null
+      },
+      "publication": {
+        "revision": 218476,
+        "retrieved_at": "2026-11-08T20:04:41.496999+00:00",
+        "current_view_checked_at": null,
+        "acquisition": "第8便保存原HTMLをSHA-256照合して再利用。第13便の再取得は403。今回の新規取得成功や現行版の固定照合を意味しない。",
+        "annotation_note": "割注〈号今出川義視〉を地の文から分離し、返り点は保持。割注の成立主体は未確認。「其由来を伝聞くに」から「とそ聞えし」までを一続きに保ち、因果・意向・陣営・焼失を独立事件へ分断しない。義政の意向・動機および「謀叛」は伝聞内の説明・評価で、本人の確定した内心や史実認定ではない。浄土寺殿と今出川殿の対応は割注〈号今出川義視〉を参照する本文上の読み。義視という名は割注層へ分離。若子/若君を足利義尚とする現代同定や御台所の固有名は本文へ補わず、今回同定未検証。細川・京極・武田と山名・畠山の叙述を現代の陣営知識で訂正しない。冒頭EK-0130の合戦を由来・帰結として再叙述する参照であり、同一事件の独立実証ではない。",
+        "base_image": "NOT_TESTED",
+        "variants": "NOT_TESTED",
+        "transcription_emendation": "NOT_TESTED",
+        "historical_recognition": "NOT_TESTED",
+        "location": "UNRESOLVED",
+        "narrative_text": "其由来を伝聞くに、其比公方義政公、可㆑続㆓御代㆒無㆓御子㆒、而浄土寺殿を還俗せさせ奉り、為㆓御養子㆒奉㆑為㆑続㆓公方㆒しに、其後実子の若子出来給へしかは、公方是を取立申て、御代を続せ参らせんと思召て、御台所の御方より、山名右衛門佐持豊入道宗全を憑せ給へは、浄土寺殿管領細川右京兆勝元、京極武田以下一味同心の大名を引率し、謀叛を起して、今出川殿を取立公方に仰き申さんとす、山名入道畠山義就以下一味して、若君を取立申さんとて、京都に有て大合戦あり、洛中焼払けるとそ聞えし、",
+        "annotations": [
+          {
+            "kind": "inline_note",
+            "text": "〈号今出川義視〉",
+            "start_offset": 190,
+            "end_offset": 198
+          }
+        ]
+      },
+      "layers": {
+        "SOURCE_STATEMENT": "其由来を伝聞くに、其比公方義政公、可㆑続㆓御代㆒無㆓御子㆒、而浄土寺殿を還俗せさせ奉り、為㆓御養子㆒奉㆑為㆑続㆓公方㆒しに、其後実子の若子出来給へしかは、公方是を取立申て、御代を続せ参らせんと思召て、御台所の御方より、山名右衛門佐持豊入道宗全を憑せ給へは、浄土寺殿〈号今出川義視〉管領細川右京兆勝元、京極武田以下一味同心の大名を引率し、謀叛を起して、今出川殿を取立公方に仰き申さんとす、山名入道畠山義就以下一味して、若君を取立申さんとて、京都に有て大合戦あり、洛中焼払けるとそ聞えし、",
+        "MODERN_SUMMARY": "語り手は合戦の由来を伝聞として述べる。義政公に後継の子がなく、浄土寺殿を還俗させ養子として公方を継がせようとしたが、その後実子の若子が生まれ、義政公はその子を立てて継がせたいと思い、御台所の方から山名右衛門佐持豊入道宗全を頼ったという。続いて浄土寺殿を挙げ、管領細川右京兆勝元が京極・武田以下の同心する大名を率い、「謀叛」を起こして今出川殿を公方に仰ごうとし、山名入道・畠山義就以下は若君を立てようとして、京都で大合戦となり洛中が焼き払われたと聞いたと記す。",
+        "HISTORICAL_RECOGNITION": "NOT_TESTED"
+      }
+    }
+  ],
+  "narrative_references": [
+    {
+      "reference_id": "B13-R01",
+      "from": "EK-0131",
+      "to": "EK-0130",
+      "kind": "narrative_continuity",
+      "evidence_note": "冒頭の京都合戦開始に対し「其由来を伝聞くに」以下が由来・帰結を述べ、末尾の京都大合戦・洛中焼失は重複する話題を再叙述する。2つの独立合戦とは扱わず、同一事件・因果の史実認定も行わない。",
+      "status": "EDITORIAL_REFERENCE_ONLY",
+      "historical_identity": "NOT_TESTED"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+name: Atlas WebKit isolation (diagnostic only)
+on:
+  pull_request:
+    paths:
+      - 'diagnostics/webkit-isolation/**'
+      - '.github/workflows/webkit-isolation.yml'
+permissions:
+  contents: read
+jobs:
+  isolate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Dedicated temp preflight
+        run: |
+          ATLAS_TEMP="$GITHUB_WORKSPACE/.isolation-temp-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          mkdir "$ATLAS_TEMP"
+          test -w "$ATLAS_TEMP"
+          df -Pk "$ATLAS_TEMP" /tmp
+          df -Pi "$ATLAS_TEMP" /tmp
+          printf 'TMPDIR=%s\nTMP=%s\nTEMP=%s\n' "$ATLAS_TEMP" "$ATLAS_TEMP" "$ATLAS_TEMP" >> "$GITHUB_ENV"
+      - run: npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Non-browser contract tests
+        run: |
+          node diagnostics/webkit-isolation/guard.cjs
+          node --test diagnostics/webkit-isolation/test.cjs diagnostics/webkit-isolation/test-v1.cjs diagnostics/webkit-isolation/test-v3.cjs diagnostics/webkit-isolation/test-v4.cjs diagnostics/webkit-isolation/test-v5.cjs diagnostics/webkit-isolation/test-v6.cjs
+      - name: Fixed isolation experiment (not acceptance)
+        continue-on-error: true
+        run: |
+          ulimit -c 0
+          node diagnostics/webkit-isolation/isolate-v6.cjs evidence/webkit-isolation-v6
+      - name: Evidence inventory even on failure
+        if: always()
+        run: python diagnostics/webkit-isolation/manifest.py evidence/webkit-isolation-v6
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: webkit-isolation-v6-${{ github.event.pull_request.head.sha }}-${{ github.run_attempt }}
+          path: evidence/webkit-isolation-v6
+          if-no-files-found: error
