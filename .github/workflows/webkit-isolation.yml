@@ -1,4 +1,4 @@
-name: Atlas WebKit isolation (diagnostic only)
+name: Atlas native stack (independent diagnostic)
 on:
   pull_request:
     paths:
@@ -29,23 +29,25 @@ jobs:
           df -Pk "$ATLAS_TEMP" /tmp
           df -Pi "$ATLAS_TEMP" /tmp
           printf 'TMPDIR=%s\nTMP=%s\nTEMP=%s\n' "$ATLAS_TEMP" "$ATLAS_TEMP" "$ATLAS_TEMP" >> "$GITHUB_ENV"
+      - name: Install official distribution debugger
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends gdb
       - run: npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
       - run: npx playwright install --with-deps chromium webkit
       - name: Non-browser contract tests
         run: |
           node diagnostics/webkit-isolation/guard.cjs
-          node --test diagnostics/webkit-isolation/test.cjs diagnostics/webkit-isolation/test-v1.cjs diagnostics/webkit-isolation/test-v3.cjs diagnostics/webkit-isolation/test-v4.cjs diagnostics/webkit-isolation/test-v5.cjs diagnostics/webkit-isolation/test-v6.cjs
-      - name: Fixed isolation experiment (not acceptance)
+          node --test diagnostics/webkit-isolation/test.cjs diagnostics/webkit-isolation/test-v1.cjs diagnostics/webkit-isolation/test-v3.cjs diagnostics/webkit-isolation/test-v4.cjs diagnostics/webkit-isolation/test-v5.cjs diagnostics/webkit-isolation/test-v6.cjs diagnostics/webkit-isolation/test-native-gdb.cjs diagnostics/webkit-isolation/test-native-stack.cjs
+      - name: Fixed four native trials (preflight gates all browsers)
         continue-on-error: true
         run: |
           ulimit -c 0
-          node diagnostics/webkit-isolation/isolate-v6.cjs evidence/webkit-isolation-v6
+          node diagnostics/webkit-isolation/native-stack.cjs evidence/native-stack-v1
       - name: Evidence inventory even on failure
         if: always()
-        run: python diagnostics/webkit-isolation/manifest.py evidence/webkit-isolation-v6
+        run: python diagnostics/webkit-isolation/manifest.py evidence/native-stack-v1
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: webkit-isolation-v6-${{ github.event.pull_request.head.sha }}-${{ github.run_attempt }}
-          path: evidence/webkit-isolation-v6
+          name: native-stack-v1-${{ github.event.pull_request.head.sha }}-${{ github.run_attempt }}
+          path: evidence/native-stack-v1
           if-no-files-found: error
