@@ -34,18 +34,18 @@ jobs:
       - name: Non-browser contract tests
         run: |
           node diagnostics/webkit-isolation/guard.cjs
-          node --test diagnostics/webkit-isolation/test.cjs diagnostics/webkit-isolation/test-v1.cjs diagnostics/webkit-isolation/test-v3.cjs
+          node --test diagnostics/webkit-isolation/test.cjs diagnostics/webkit-isolation/test-v1.cjs diagnostics/webkit-isolation/test-v3.cjs diagnostics/webkit-isolation/test-v4.cjs
       - name: Fixed isolation experiment (not acceptance)
         continue-on-error: true
         run: |
           ulimit -c 0
-          node diagnostics/webkit-isolation/isolate-v3.cjs evidence/webkit-isolation-v3
+          node diagnostics/webkit-isolation/isolate-v4.cjs evidence/webkit-isolation-v4
       - name: Evidence inventory even on failure
         if: always()
-        run: python diagnostics/webkit-isolation/manifest.py evidence/webkit-isolation-v3
+        run: python diagnostics/webkit-isolation/manifest.py evidence/webkit-isolation-v4
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: webkit-isolation-v3-${{ github.event.pull_request.head.sha }}-${{ github.run_attempt }}
-          path: evidence/webkit-isolation-v3
+          name: webkit-isolation-v4-${{ github.event.pull_request.head.sha }}-${{ github.run_attempt }}
+          path: evidence/webkit-isolation-v4
           if-no-files-found: error
