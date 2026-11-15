@@ -2,7 +2,15 @@
 // Diagnostic-only sibling attach. No privilege escalation, ptrace policy change, core or memory capture.
 const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-function executable(file){const real=fs.realpathSync(file),bytes=fs.readFileSync(real);let buildId='NOT_OBTAINED';try{buildId=cp.execFileSync('readelf',['-n',real],{encoding:'utf8',timeout:5000,maxBuffer:131072,stdio:['ignore','pipe','pipe']}).match(/Build ID: (\S+)/)?.[1]||'NOT_OBTAINED';}catch{}return {path:real,sha256:sha(bytes),size:bytes.length,buildId};}
+function executable(file){const real=fs.realpathSync(file),bytes=fs.readFileSync(file);let buildId='NOT_OBTAINED';try{buildId=cp.execFileSync('readelf',['-n',file],{encoding:'utf8',timeout:5000,maxBuffer:131072,stdio:['ignore','pipe','pipe']}).match(/Build ID: (\S+)/)?.[1]||'NOT_OBTAINED';}catch{}return {path:real,sha256:sha(bytes),size:bytes.length,buildId};}
+function assertNonRoot(){
+ assert.equal(typeof process.getuid,'function','UID_METADATA_UNAVAILABLE');
+ assert.equal(typeof process.geteuid,'function','UID_METADATA_UNAVAILABLE');
+ const uid=process.getuid(),euid=process.geteuid();
+ assert(Number.isSafeInteger(uid)&&uid>0,'NONROOT_UID_REQUIRED');
+ assert(Number.isSafeInteger(euid)&&euid>0,'NONROOT_EUID_REQUIRED');
+ return {uid,euid};
+}
 function parseStat(s,pid){const end=s.lastIndexOf(')');assert(end>0,'invalid process stat');assert.equal(Number(s.slice(0,s.indexOf(' '))),pid,'stat PID mismatch');const a=s.slice(end+2).trim().split(/\s+/),ppid=Number(a[1]);assert(Number.isSafeInteger(pid)&&pid>1,'valid PID');assert(Number.isSafeInteger(ppid)&&ppid>=0,'valid PPID');assert(typeof a[19]==='string'&&/^\d+$/.test(a[19]),'startTicks missing or invalid');return {pid,ppid,startTicks:a[19]};}
 function stat(pid){return parseStat(fs.readFileSync(`/proc/${pid}/stat`,'utf8'),pid);}
 function captureIdentity(pid,options={}){
@@ -14,7 +22,7 @@ function captureIdentity(pid,options={}){
  if(options.expectedLibrarySha){assert.equal(libraries.length,1,'unique WebKit library');assert.equal(libraries[0].sha256,options.expectedLibrarySha,'target library mismatch');}
  const last=stat(pid);assert.deepEqual(last,first,'PID changed during identity capture');return {...first,ancestorPid,ancestors,exe,libraries,options};
 }
-function sameIdentity(a,b){for(const x of [a,b]){assert(Number.isSafeInteger(x.pid)&&x.pid>1,'valid PID');assert(Number.isSafeInteger(x.ppid)&&x.ppid>=0,'valid PPID');assert(typeof x.startTicks==='string'&&/^\d+$/.test(x.startTicks),'startTicks missing or invalid');assert(typeof x.exe?.sha256==='string'&&x.exe.sha256.length>0,'executable hash missing');}assert.equal(b.pid,a.pid,'PID mismatch');assert.equal(b.ppid,a.ppid,'parent mismatch');assert.equal(b.startTicks,a.startTicks,'PID reused');assert.equal(b.exe.path,a.exe.path,'executable path changed');assert.equal(b.exe.size,a.exe.size,'executable size changed');assert.equal(b.exe.sha256,a.exe.sha256,'executable changed');assert.equal(b.exe.buildId,a.exe.buildId,'build changed');assert.deepEqual(b.libraries,a.libraries,'libraries changed');return true;}
+function sameIdentity(a,b){for(const x of [a,b]){assert(Number.isSafeInteger(x.pid)&&x.pid>1,'valid PID');assert(Number.isSafeInteger(x.ppid)&&x.ppid>=0,'valid PPID');assert(typeof x.startTicks==='string'&&/^\d+$/.test(x.startTicks),'startTicks missing or invalid');assert(typeof x.exe?.path==='string'&&x.exe.path.length>0,'executable path missing');assert(Number.isSafeInteger(x.exe.size)&&x.exe.size>0,'executable size missing');assert(typeof x.exe.sha256==='string'&&x.exe.sha256.length>0,'executable hash missing');assert(typeof x.exe.buildId==='string'&&x.exe.buildId.length>0&&x.exe.buildId!=='NOT_OBTAINED','executable build ID missing');assert(Array.isArray(x.libraries),'libraries missing');for(const lib of x.libraries){assert(lib&&typeof lib.path==='string'&&lib.path.length>0,'library path missing');assert(Number.isSafeInteger(lib.size)&&lib.size>0,'library size missing');assert(typeof lib.sha256==='string'&&lib.sha256.length>0,'library hash missing');assert(typeof lib.buildId==='string'&&lib.buildId.length>0&&lib.buildId!=='NOT_OBTAINED','library build ID missing');}}assert.equal(b.pid,a.pid,'PID mismatch');assert.equal(b.ppid,a.ppid,'parent mismatch');assert.equal(b.startTicks,a.startTicks,'PID reused');assert.equal(b.exe.path,a.exe.path,'executable path changed');assert.equal(b.exe.size,a.exe.size,'executable size changed');assert.equal(b.exe.sha256,a.exe.sha256,'executable changed');assert.equal(b.exe.buildId,a.exe.buildId,'build changed');assert.deepEqual(b.libraries,a.libraries,'libraries changed');return true;}
 function parseRecord(line){const m=line.match(/^(\d+)?([\^*=])(\w[\w-]*)(?:,(.*))?$/);return m?{token:m[1]?Number(m[1]):null,kind:m[2],class:m[3],payload:m[4]||'',raw:line}:null;}
 function field(r,name){return r.payload.match(new RegExp('(?:^|,)'+name+'="((?:[^"\\\\]|\\\\.)*)"'))?.[1];}
 function hasRawStack(text){return text.split('\n').filter(l=>l.startsWith('~')).some(l=>/#0(?:\s|\\t|\\n)/.test(l));}
@@ -29,8 +37,8 @@ async function identityAsync(pid,options,scope,evidence){
  const first=await readStat(pid),ancestorPid=options.ancestorPid||process.pid,ancestors=[];let at=first;
  for(let i=0;i<64&&at.pid!==ancestorPid;i++){assert(at.ppid>1,'target not descendant');at=await readStat(at.ppid);ancestors.push(at);}
  assert.equal(at.pid,ancestorPid,'target ancestry');
- const image=async file=>{const real=await scope.wait(fs.promises.realpath(file));const bytes=await scope.wait(fs.promises.readFile(real));scope.check();
-  const notes=await scope.environment('readelf',['-n',real],evidence);return {path:real,sha256:sha(bytes),size:bytes.length,buildId:notes.match(/Build ID: (\S+)/)?.[1]||'NOT_OBTAINED'};};
+ const image=async file=>{const real=await scope.wait(fs.promises.realpath(file));const bytes=await scope.wait(fs.promises.readFile(file));scope.check();
+  const notes=await scope.environment('readelf',['-n',file],evidence);return {path:real,sha256:sha(bytes),size:bytes.length,buildId:notes.match(/Build ID: (\S+)/)?.[1]||'NOT_OBTAINED'};};
  const exe=await image(`/proc/${pid}/exe`);if(options.expectedExeSha)assert.equal(exe.sha256,options.expectedExeSha,'target executable mismatch');
  if(options.requireBuildId||options.expectedExeSha)assert.notEqual(exe.buildId,'NOT_OBTAINED','required executable build ID');
  if(options.expectedBuildId)assert.equal(exe.buildId,options.expectedBuildId,'executable build ID mismatch');
@@ -139,6 +147,7 @@ async function preflight(outDir,options={}){
  const saveIdentity=async phase=>{const id=await identityAsync(target.pid,{ancestorPid:process.pid,requireBuildId:true},scope,evidence);if(result.identity)sameIdentity(result.identity,id);else result.identity=id;result.identityChecks.push({phase,identity:id});evidence.event('identity',{phase,identity:id});return id;};
  try{
   assert.equal(process.platform,'linux','Linux preflight only');
+  result.credentials=assertNonRoot();
   assert(/^Max core file size\s+0\s/m.test(await scope.wait(fs.promises.readFile('/proc/self/limits','utf8'))),'core limit must be zero');
   result.gdbVersion=await scope.environment('gdb',['--version'],evidence);
   const stdout=evidence.stream('child-stdout.bin',LIMITS.childBytes),stderr=evidence.stream('child-stderr.bin',LIMITS.childBytes);
@@ -170,5 +179,5 @@ async function preflight(outDir,options={}){
  }
  const saved=evidence.finish('preflight.json',result);scope.finish();saved.lifecycle.finalElapsedIncludingSaveMs=mono()-scope.started;if(saved.error)saved.status='BLOCKED';return saved;
 }
-module.exports={sha,stat,executable,captureIdentity,sameIdentity,parseRecord,field,hasRawStack,outcome,startCapture,validatePreflightCapture,preflight,identityAsync,LIMITS};
+module.exports={sha,stat,executable,assertNonRoot,captureIdentity,sameIdentity,parseRecord,field,hasRawStack,outcome,startCapture,validatePreflightCapture,preflight,identityAsync,LIMITS};
 if(require.main===module)preflight(path.resolve(process.argv[2]||'native-preflight')).then(r=>{console.log(JSON.stringify(r));process.exitCode=r.status==='PASS'?0:1}).catch(e=>{console.error(e.message);process.exitCode=1});
