@@ -32,3 +32,9 @@ local640の `diagnostics/webkit-isolation/PLAN-native-ABA.md`、`native-image.cj
 文書branchは現mainから作成し、未push2596/640も既存隔離branchも祖先へ取り込まない。差分はこのディレクトリのみ。PR base mainの別Draft PRで文書のみ提出しPR35へリンクする。正本branch/main変更・cherry-pick・mergeなし。追加コードpush HOLD。
 
 GitHub APIの登録workflowは3件で、canonical branchのnative workflowも登録済み。ただし現mainおよび今回文書branchの実ファイルは2件のみ。canonical nativeはpull_requestのdiagnostics/webkit-isolation/**等path対象で、今回文書pathは対象外。登録一覧とbranch実ファイルを区別した。現mainのworkflowはacceptance(push/pull_request/dispatch)とpages(pull_request/dispatch)の2つ。Draftだけでは実行抑止にならないため全提出commitに `[skip ci]`。PR_target/workflow_run等の非対象イベントなしを原文で点検した。[GitHub公式skip仕様](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs)に従いpush/PRを抑止し、実際のrun/jobを読取り確認する。pending/skippedをCI PASSとしない。workflow変更、dispatch/rerunはしない。
+
+## 2026-11-16 文書補訂（版1.1）
+
+[追加レビュー5912312048](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5912312048)のP2-R1/P3-R2に対応。validation-planの02/03/10–12でresume失効Rと変更追跡Vを分離し、世代/集合更新と再停止後の新証明への帰属・正常受理を検査契約へ追加。08/09の表も適格入力PASS/0・前提不足は実行前NOT_READYへ統一した。L19/M4・各1回・総1160秒を維持する。
+
+independent-review.mdは旧版の審査原票として保持し、その「未解決なし」を本補訂へ自動継承しない。本補訂は修正担当による静的整合確認であり、補訂版の独立再審査・live実証は未実施。旧ZIPとその照合結果も更新版の保全へ転用しない。B実証UNKNOWN、環境/恒久保全BLOCKED、実測未承認、総合PARTIAL、Draft・マージNOを維持する。
