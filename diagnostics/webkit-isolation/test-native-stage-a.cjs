@@ -164,3 +164,46 @@ test('root and GDB evidence share one event and one result budget',()=>{
  const rb=b.finish('native-result.json',{status:'PASS',body:'z'.repeat(2000)}),ra=a.finish('preflight.json',{status:'PASS'});
  assert.equal(rb.status,'BLOCKED');assert.equal(ra.evidenceComplete,false);assert.equal(a.eventBudget,b.eventBudget);assert.equal(ra.resultOutput,rb.resultOutput);assert(a.eventBudget.retained<500);assert(ra.resultOutput.retained<2048);
 });
+
+
+test('required identity attributes missing on both sides are rejected (CLI candidate)',()=>{
+ const n=require('./native-gdb.cjs'),valid={pid:4100,ppid:4000,startTicks:'100',exe:{path:'/mock/node',size:25,sha256:'abc',buildId:'synthetic-build-id'},libraries:[]};
+ for(const [name,change] of [
+  ['exe.path',x=>delete x.exe.path],
+  ['exe.size',x=>delete x.exe.size],
+  ['exe.buildId',x=>delete x.exe.buildId],
+  ['libraries',x=>delete x.libraries],
+  ['library.buildId',x=>{x.libraries=[{path:'/mock/lib.so',size:15,sha256:'def'}]}]
+ ]){
+  const a=structuredClone(valid),b=structuredClone(valid);change(a);change(b);
+  assert.throws(()=>n.sameIdentity(a,b),undefined,name+' missing on both sides');
+ }
+ assert(n.sameIdentity(valid,structuredClone(valid)),'valid identity unchanged');
+});
+
+test('real/effective root or unavailable UID blocks preflight before spawning (CLI candidate)',async()=>{
+ for(const [name,uid,euid] of [
+  ['real-root',0,1000],['effective-root',1000,0],['uid-missing',undefined,1000],['euid-missing',1000,undefined]
+ ]){
+  const {dir,mock}=setup('uid-'+name);
+  mock.context.process.getuid=uid===undefined?undefined:()=>uid;
+  mock.context.process.geteuid=euid===undefined?undefined:()=>euid;
+  const r=await mock.clock.until(load(mock).preflight(dir));
+  assert.equal(r.status,'BLOCKED',name);
+  assert.match(r.reason,/UID|ROOT/i,name);
+  assert.equal(mock.trace.filter(x=>x.kind==='spawn').length,0,name+' must not spawn children');
+ }
+});
+
+test('executable identity bytes are read through /proc/PID/exe rather than resolved disk path (CLI candidate)',()=>{
+ const {mock}=setup('proc-exe'),old=mock.require.bind(mock),io=old('node:fs'),cp=old('node:child_process');
+ const procBytes=Buffer.from('running-process-executable'),diskBytes=Buffer.from('replacement-on-disk');
+ const proxy=new Proxy(io,{get(t,k){
+  if(k==='readFileSync')return (p,...args)=>String(p)==='/proc/4100/exe'?procBytes:String(p)==='/mock/node'?diskBytes:t.readFileSync(p,...args);
+  return Reflect.get(t,k);
+ }});
+ mock.require=n=>n==='node:fs'?proxy:old(n);
+ const n=load(mock),actual=n.executable('/proc/4100/exe');
+ assert.equal(actual.sha256,n.sha(procBytes));
+ assert(mock.trace.some(x=>x.kind==='environment-command'&&x.exe==='readelf'&&x.args[1]==='/proc/4100/exe'),'readelf must target proc executable');
+});
