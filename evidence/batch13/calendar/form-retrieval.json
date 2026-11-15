@@ -1,0 +1,18 @@
+{
+  "url": "https://eco.mtk.nao.ac.jp/cgi-bin/koyomi/caldb.cgi",
+  "requested_at": "2026-11-12T20:13:44.331232+00:00",
+  "status": 200,
+  "headers": {
+    "Date": "Thu, 12 Nov 2026 20:13:43 GMT",
+    "Server": "Apache",
+    "X-Content-Type-Options": "nosniff",
+    "X-XSS-Protection": "1; mode=block",
+    "Accept-CH": "Sec-CH-UA, Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+    "Content-Length": "17494",
+    "Content-Type": "text/html; charset=EUC-JP",
+    "Connection": "close"
+  },
+  "file": "evidence\\batch13\\calendar\\form.html",
+  "sha256": "2212b1b813143c24d9f3240a1ba2bee440b3c9f31ad1d93900f0c665bf7b03a3",
+  "bytes": 17494
+}

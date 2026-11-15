@@ -1,0 +1,18 @@
+{
+  "id": "02-denied",
+  "kind": "SYNTHETIC_VM_ONLY_NO_NATIVE_ATTACH",
+  "mode": "denied",
+  "expectedStatus": "BLOCKED",
+  "expectedExitCode": 1,
+  "stopCondition": "Fail closed on denied; retain raw records; cleanup only synthetic owned child/GDB; never claim renderer signal from cleanup",
+  "deadlineVirtualMs": 60000,
+  "outputBytes": 0,
+  "protocol": {
+    "configuration": "token^done",
+    "attach": "token^error,msg=\"ptrace: Operation not permitted.\"",
+    "resume": "token^running\\n*running,thread-id=\"all\"",
+    "signalStop": "*stopped,reason=\"signal-received\",signal-name=\"SIGABRT\"",
+    "stack": "~\"#0  0x1234 in abort ()\\\\n\"",
+    "termination": "*stopped,reason=\"exited-signalled\",signal-name=\"SIGABRT\""
+  }
+}

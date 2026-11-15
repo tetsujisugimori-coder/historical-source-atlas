@@ -16,6 +16,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Check dedicated temporary directory
+        env:
+          ATLAS_TEMP: ${{ runner.temp }}/atlas13-${{ github.run_id }}-${{ github.run_attempt }}-acceptance
+        run: |
+          export TMPDIR="$ATLAS_TEMP" TEMP="$ATLAS_TEMP" TMP="$ATLAS_TEMP"
+          mkdir -p "$TMPDIR"
+          test -w "$TMPDIR"
+          df -Pk "$TMPDIR"
+          node -e "const fs=require('fs'),os=require('os');console.log(fs.mkdtempSync(os.tmpdir()+'/atlas13-probe-'))"
+          printf 'TMPDIR=%s\nTEMP=%s\nTMP=%s\n' "$ATLAS_TEMP" "$ATLAS_TEMP" "$ATLAS_TEMP" >> "$GITHUB_ENV"
       - run: python prototype/eikyouki/build.py
       - run: python prototype/eikyouki/run_checks.py evidence/ci-checks
       - run: npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
@@ -29,4 +39,44 @@ jobs:
         with:
           name: atlas-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_attempt }}
           path: evidence/
+          if-no-files-found: error
+  reload-diagnostics:
+    # Separate runner; no needs/gate relation to formal acceptance. One PR run only.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check diagnostic temporary directory
+        env:
+          ATLAS_TEMP: ${{ runner.temp }}/atlas13-${{ github.run_id }}-${{ github.run_attempt }}-diagnostics
+        run: |
+          export TMPDIR="$ATLAS_TEMP" TEMP="$ATLAS_TEMP" TMP="$ATLAS_TEMP"
+          mkdir -p "$TMPDIR"
+          test -w "$TMPDIR"
+          df -Pk "$TMPDIR"
+          node -e "const fs=require('fs'),os=require('os');console.log(fs.mkdtempSync(os.tmpdir()+'/atlas13-probe-'))"
+          printf 'TMPDIR=%s\nTEMP=%s\nTMP=%s\n' "$ATLAS_TEMP" "$ATLAS_TEMP" "$ATLAS_TEMP" >> "$GITHUB_ENV"
+      - run: npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Diagnose Linux WebKit repeated fragment reload
+        continue-on-error: true
+        run: node prototype/eikyouki/reload_diagnostics.cjs evidence/ci-reload-diagnostics
+      - name: Diagnostic manifest
+        if: always()
+        run: python prototype/eikyouki/evidence_manifest.py evidence/ci-reload-diagnostics
+      - name: Preserve independent reload diagnosis
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reload-diagnostics-${{ github.event.pull_request.head.sha }}-${{ github.run_attempt }}
+          path: evidence/ci-reload-diagnostics
           if-no-files-found: error

@@ -1,0 +1,18 @@
+# v4 fixed style-only comparison (diagnostic, not product acceptance)
+
+## Prerequisites and preservation
+User authorized Library actual-byte readback as replacement for Windows prerequisite on 2026-11-14. Windows transfer is not required to launch this comparison. Independent re-download of Library `libfile_05bbef0f2afc81918a5fb676a4b942a8` verified handoff ZIP 705303 bytes (SHA256 730ba2d2900857fb42fbd6d31d4f953cd81591764905d43b2f7e30ab4171027c), nested original artifact14080132745 480329 bytes, SHA256 512025693113eeb25b2c0ba6a2d87a361e1f44ed2ef822a226462b856bc9b9a9, 53 CRC entries and internal manifest52. Original v3 source HEAD d0546c466be00cc84a148f006be7dca1f37f0c04. Access inventory and retention remain UNKNOWN; Windows NOT_TESTED. Historical review text retained unchanged via byte-identical rename to the allowed diagnostic reviews directory.
+
+## Fixed factors
+A: exact v3 three-record HTML (EK-0120/0130/0131), 107012 bytes, SHA256 4c88617fdb127306e228ecdee153b209f97c19a4308740444814595fe4603179.
+B: remove its sole style element, byte range [225,5246); 101991 bytes, SHA256 11dc7201c04c2c4fe271f2a64774a5b3a1512de201cb046f5fb58bd7c428da14. All other bytes identical. Inline styles, JS, provenance, restoration and values/order untouched. Unknown source hash or transform range aborts before launch.
+
+Exactly 8 slots: WebKit A1 B1 A2 B2 A3 B3, Chromium A1 B1. New worker/browser/context each slot. No retries or replacements. Playwright1.56.1, viewport375x1000, normal motion, API/navigation30s, worker150s. v3's bridge-no-filters route: reference navigation, prior reload, five clause operations, final C05 reload and post-state. Existing measurement code is byte-identical, no extra screenshot/sampling/debugger. Four exact WebKit executable hashes copied from v3; mismatch preserves actual identities and all slots NOT_RUN. Matching these does not establish full environment equality; record OS/kernel/Node/runner image/dependencies.
+
+## Limits and classification
+No v1/v2/v3 execution. No followup experiments based on results. Worker watchdog, output overflow, spawn failure or lingering descendants stops the remaining slots NOT_RUN. Output caps stdout4MiB/stderr8MiB/events4MiB per worker. 2GiB free and1024 inodes minimum before run; estimate256MiB output; dedicated TMPDIR. Permission/capacity failures stop without deleting old evidence or other projects.
+
+Classify matching native assertion after target start, pre-target assertion, other crash, precondition timeout, NOT_COMPARABLE, target timeout/error, incomplete collection and NO_REPRODUCTION separately. Action logs identify the first unmet step; hidden/nonclickable B is not evidence of a fix. Target reload start/completion and post-state completion are separate. Native stack/renderer termination remain NOT_OBTAINED. Collection success is not product PASS. Few non-reproductions cannot prove CSS necessity/sufficiency or root cause. Root cause UNKNOWN.
+
+## Submission and evidence
+Independent code review and immutable commit before launch. Workflow replaced with v4 invocation so a push does not rerun v3; official acceptance/Pages/product files untouched. Existing non-browser tests plus v4 tests, unchanged guard. One diagnostic run with separate v4 artifact; retain original ZIP, GitHub metadata/digest, CRC/internal manifest, source/HEAD/tree/run/attempt, input HTML, events/actions/stderr and actual results. Independent audit and Library upload followed by real-byte re-download. Record formal CI separately at submitted HEAD; do not hand-rerun unchanged formal CI or claim old results. Draft retained; no merge, public deployment or product fix.
