@@ -1,0 +1,18 @@
+{
+  "id": "01-normal",
+  "kind": "SYNTHETIC_VM_ONLY_NO_NATIVE_ATTACH",
+  "mode": "normal",
+  "expectedStatus": "PASS",
+  "expectedExitCode": 0,
+  "stopCondition": "Complete attach/stop/running/SIGABRT/stack/pass/exited-signalled plus child actual SIGABRT exit",
+  "deadlineVirtualMs": 60000,
+  "outputBytes": 0,
+  "protocol": {
+    "configuration": "token^done",
+    "attach": "token^done\\n*stopped,reason=\"signal-received\",signal-name=\"SIGSTOP\"",
+    "resume": "token^running\\n*running,thread-id=\"all\"",
+    "signalStop": "*stopped,reason=\"signal-received\",signal-name=\"SIGABRT\"",
+    "stack": "~\"#0  0x1234 in abort ()\\\\n\"",
+    "termination": "*stopped,reason=\"exited-signalled\",signal-name=\"SIGABRT\""
+  }
+}

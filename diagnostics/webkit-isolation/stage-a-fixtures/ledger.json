@@ -1,0 +1,56 @@
+{
+  "kind": "FIXED_SYNTHETIC_INPUT_LEDGER",
+  "fixedBeforeRunnerChanges": true,
+  "sevenInputs": [
+    {
+      "path": "01-normal.json",
+      "bytes": 731,
+      "sha256": "cc4d4fb0b0a0d13f9573551e453e1842eb1f55eddd2eb0ab4a24c05c6b42b3f6",
+      "expectedStatus": "PASS",
+      "expectedExitCode": 0
+    },
+    {
+      "path": "02-denied.json",
+      "bytes": 742,
+      "sha256": "cc7c9e5a9f304cecad0af65eac8fc03fa8a3410e7fc40ffb45fa68aed3e7b85e",
+      "expectedStatus": "BLOCKED",
+      "expectedExitCode": 1
+    },
+    {
+      "path": "03-identity-mismatch.json",
+      "bytes": 795,
+      "sha256": "23e454bc9e7e603dde2499a770cf0696e5115f6d1307290f78bab9288340c665",
+      "expectedStatus": "BLOCKED",
+      "expectedExitCode": 1
+    },
+    {
+      "path": "04-missing-notification.json",
+      "bytes": 775,
+      "sha256": "99b1d618db6aeb1b39963b10d37eb05456fdcafea0f154f65dcbf766bc722eb6",
+      "expectedStatus": "BLOCKED",
+      "expectedExitCode": 1
+    },
+    {
+      "path": "05-timeout.json",
+      "bytes": 765,
+      "sha256": "9d5c26c36e41d62dc2505ac235a6ec6b9b32e6f6ef1a1fcf0a7cff41d793253a",
+      "expectedStatus": "BLOCKED",
+      "expectedExitCode": 1
+    },
+    {
+      "path": "06-output-limit.json",
+      "bytes": 786,
+      "sha256": "7e63796336aa7ac932866f7c55cace75fd82c1c2a6a7a74ad1abdb4a8eb1f3ae",
+      "expectedStatus": "BLOCKED",
+      "expectedExitCode": 1
+    },
+    {
+      "path": "07-early-exit.json",
+      "bytes": 774,
+      "sha256": "2c852bff68e1cbfb6678928dc3816b0b5e7f2c00bc5fb00eb2cc90e6c078f970",
+      "expectedStatus": "BLOCKED",
+      "expectedExitCode": 1
+    }
+  ],
+  "syntheticSuccessIsNotLinuxAttach": true
+}
