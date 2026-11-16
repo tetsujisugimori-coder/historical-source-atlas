@@ -50,3 +50,9 @@ independent-review.mdは旧版の審査原票として保持し、その「未�
 [成立性審査と残余条件](stage-bp-assessment.md)、[TCB/因果実使用](stage-bp-tcb.md)、[Linux/安全終了](stage-bp-environment.md)、[入力/予算台帳](stage-bp-inputs.md)を追加。正FD/receipt/hash一致だけでDの実使用由来を認定せず、同値旧Bufferの識別限界をUNKNOWNとして保持。全23slot未生成/NOT_READY、実装・実測未承認、恒久保全BLOCKED。旧仕様/独立原票/正常期待/1160秒を変更しない。Stage B-Pは未成立理由と必要証拠を整理する文書審査であり保証B実証ではない。
 
 [Stage B-P独立静的レビュー](stage-bp-independent-review-20261116.md)は、未成立理由/必要証拠の整理として文書限定完了可能と判断。P3-BP1は補訂確認、BP-U1–6と実装開始NOT_READY/B_use UNKNOWNを維持。Git/manifest/ZIP/投稿の実物照合は別受領原票で確認し、実装・実測承認へ昇格しない。
+
+## Stage B-Q 決定（版1.4・2026-11-17）
+
+[実現可能性・開始判定](stage-bq-decision.md)へ今回の決定を集約。Q0現観測/Q1入口hookのみ/Q4scope縮小は不適格、Q2実operand/provenance監視は条件付き仮説、Q3全経路証明chainは未立証。採用YESなし、一般実現性UNKNOWN、現backend実装開始NO/NOT_READY、実測開始NO/NOT_READY。旧台帳と保証/正常期待/1160秒を変えず、追加証拠のない文書反復で成立扱いにしない。
+
+[Stage B-Q独立静的レビュー](stage-bq-independent-review-20261117.md)は、設計審査限定完了YES、現実装開始NO/NOT_READY、実測開始NOを支持。確認範囲で新規未解決文書P1/P2/P3なし、BP-U1–U6の技術未成立は継続。Git/manifest/新ZIP/最新COMMENTの実物受領は別原票、保証B実証/実装/実測承認へ転用しない。
