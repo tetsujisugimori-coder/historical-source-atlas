@@ -25,3 +25,7 @@ source attributionはGit blobのraw bytesとworkspace readの差を改行含め�
 文書専用branchはmain3e56を親にし、提出差分をdocs/pr35-binding-preflightだけに限定。全commit `[skip ci]`、workflow二件原文を保存してトリガ確認、CI抑止が不確実ならpushしない。独立review後のみ通常push、新Draft PR。main/PR35/隔離code branchにpushしない。PR35へ文書PRリンクと未解決事項をコメントする。投稿後HEAD/tree/Draft/merge状態・run/jobを読取り照合し、CI未実施をPASSとしない。
 
 独立照合や恒久保全が未完了なら全体PARTIAL/BLOCKEDのまま。設計整理完了は実装実測許可でもB実証でもない。次工程は環境・権限・実入力・backend別審査・保存条件が成立してから別途判断する。
+
+## 2026-11-16 具体化工程の追補
+
+[原票lane・保管先・cleanup責任](evidence-cleanup-contract.md)を追加。Archiveの過去拒否を保持、Hachibei-Evidence-Vaultは承認証拠の指定先であって成果物Archiveの自動代替ではない。今回workspace文書保存は恒久保全と別。独立oracle実測rawは未生成、旧ZIPの監査は新版へ転用しない。今回文書変更は既存PR36に集約し、新PR作成や正本変更は行わない（上記初回提出手順は履歴）。

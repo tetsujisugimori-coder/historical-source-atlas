@@ -67,3 +67,7 @@ L上限は1slot全体60秒（起動・待機・close/cleanup込み）、19slot�
 |Linux依存8|NOT_TESTED|認可済み通常権限/所有/保存/実行許可を満たすものだけ。実GDB/renderer signal/browserを回帰名目で追加しない|
 
 旧CLI88は今回成功件数へ加算しない。今回は原テスト・期待・fixture・mock一切変更なし。今後mock変更は固定bytes/hashと元の故障機構/成功条件を対照に別差分レビューする。early gateを迂回したstubだけでlive B成立を宣言しない。
+
+## 2026-11-16 入力/oracle具体化の参照
+
+[oracle-contract](oracle-contract.md)が02/03/10–12等の取得主体・kernel原情報・独立比較値を、[input-ledger](input-ledger.md)が全23slotの入力schemaとphase配分を、[evidence-cleanup-contract](evidence-cleanup-contract.md)が終了/close/残存/保存の別判定を定める。既存case ID/順序/期待/上限は不変更。実体/hash/予算成立根拠が未生成のためNOT_READY。静的反例は[別台帳](static-counterexamples.md)で、実行成功件数ではない。

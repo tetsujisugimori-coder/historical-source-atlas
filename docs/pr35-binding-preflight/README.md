@@ -38,3 +38,9 @@ GitHub APIの登録workflowは3件で、canonical branchのnative workflowも登
 [追加レビュー5912312048](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5912312048)のP2-R1/P3-R2に対応。validation-planの02/03/10–12でresume失効Rと変更追跡Vを分離し、世代/集合更新と再停止後の新証明への帰属・正常受理を検査契約へ追加。08/09の表も適格入力PASS/0・前提不足は実行前NOT_READYへ統一した。L19/M4・各1回・総1160秒を維持する。
 
 independent-review.mdは旧版の審査原票として保持し、その「未解決なし」を本補訂へ自動継承しない。本補訂は修正担当による静的整合確認であり、補訂版の独立再審査・live実証は未実施。旧ZIPとその照合結果も更新版の保全へ転用しない。B実証UNKNOWN、環境/恒久保全BLOCKED、実測未承認、総合PARTIAL、Draft・マージNOを維持する。
+
+## 2026-11-16 Oracle/入力/環境の具体化（版1.2）
+
+[実装前審査インデックス](implementation-preflight.md)から独立oracle、23slot入力台帳、環境gate、cleanup/保全、静的反例を参照する。O-KはTCBとDを明示分離した条件付き参照設計、GDBをsole tracerとするO-Gは別adapter審査までHOLD。実取得/実入力/実環境はUNKNOWN/NOT_READY、B実証UNKNOWN、実装/実測未承認、恒久保全BLOCKED、総合PARTIAL、両PR Draft/マージNO。旧独立原票を上書きせず、今回独立結果は別文書/COMMENTで帰属を示す。
+
+今回の[独立静的レビュー](oracle-design-review-20261116.md)はD1/D2の文書P2とD3/D4のP3補訂を同反例で確認し、実装前審査資料として限定受入可能と判断した。最終commit/source/manifest/COMMENTの照合は別原票、実取得/実装/実測/恒久保全の承認とは別。

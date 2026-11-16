@@ -40,3 +40,7 @@ C1も一般のsystem libraryが不変と証明されるとは限らず、map_fil
 これは論理上の工程分離でありP2実装・制御取得の承認ではない。現640はP0でBLOCKEDのまま。新backend/ゲート契約変更は別審査・独立レビュー・承認が必要。
 
 取得主体は自分が所有するFD/controller/対象だけを管理し、解放ack・残存状態を原票に残す。予定resume前にleaseを破棄する。切断/停止失敗時に安全な自動resumeを仮定しない。復帰/終了操作は対象所有と別途固定した許可済みcleanup契約が必要。不明状態ではBLOCKEDと人への引継ぎ、任意PID kill・全体kill禁止。今回は解放/復帰操作も実施しない。
+
+## 2026-11-16 取得主体の具体化
+
+[oracle-contract](oracle-contract.md)のO-Kは唯一のtrusted trace brokerと独立observerをDから分離する条件付き参照設計。第二ptracer/GDB同時attachは不可、GDBを使うO-Gは別構成で未成立。TCBの正しさや実環境は未実証であり、C1の実現性は[backend-environment-gates](backend-environment-gates.md)の充足が必要、C2は引続きHOLD。現640ゲートやP0–P4の承認状態は変更しない。
