@@ -44,3 +44,9 @@ independent-review.mdは旧版の審査原票として保持し、その「未�
 [実装前審査インデックス](implementation-preflight.md)から独立oracle、23slot入力台帳、環境gate、cleanup/保全、静的反例を参照する。O-KはTCBとDを明示分離した条件付き参照設計、GDBをsole tracerとするO-Gは別adapter審査までHOLD。実取得/実入力/実環境はUNKNOWN/NOT_READY、B実証UNKNOWN、実装/実測未承認、恒久保全BLOCKED、総合PARTIAL、両PR Draft/マージNO。旧独立原票を上書きせず、今回独立結果は別文書/COMMENTで帰属を示す。
 
 今回の[独立静的レビュー](oracle-design-review-20261116.md)はD1/D2の文書P2とD3/D4のP3補訂を同反例で確認し、実装前審査資料として限定受入可能と判断した。最終commit/source/manifest/COMMENTの照合は別原票、実取得/実装/実測/恒久保全の承認とは別。
+
+## Stage B-P（版1.3・2026-11-16）
+
+[成立性審査と残余条件](stage-bp-assessment.md)、[TCB/因果実使用](stage-bp-tcb.md)、[Linux/安全終了](stage-bp-environment.md)、[入力/予算台帳](stage-bp-inputs.md)を追加。正FD/receipt/hash一致だけでDの実使用由来を認定せず、同値旧Bufferの識別限界をUNKNOWNとして保持。全23slot未生成/NOT_READY、実装・実測未承認、恒久保全BLOCKED。旧仕様/独立原票/正常期待/1160秒を変更しない。Stage B-Pは未成立理由と必要証拠を整理する文書審査であり保証B実証ではない。
+
+[Stage B-P独立静的レビュー](stage-bp-independent-review-20261116.md)は、未成立理由/必要証拠の整理として文書限定完了可能と判断。P3-BP1は補訂確認、BP-U1–6と実装開始NOT_READY/B_use UNKNOWNを維持。Git/manifest/ZIP/投稿の実物照合は別受領原票で確認し、実装・実測承認へ昇格しない。
