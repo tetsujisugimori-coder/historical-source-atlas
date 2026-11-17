@@ -1,0 +1,69 @@
+{
+  "artifacts": [
+    {
+      "bytes": 19,
+      "crc32": "0c1c8a1f",
+      "head": "1111111111111111111111111111111111111111",
+      "id": "text",
+      "kind": "external",
+      "path": "payload.txt",
+      "producer": "fixture generator",
+      "purpose": "synthetic test only",
+      "retrieval": "synthetic, not actual permanent storage",
+      "sha256": "b781ca4e3efcbf31178927825de855f45b7e52f0d652af03cfb236785de2fe48",
+      "verified_at": "2026-11-17T00:00:00Z"
+    },
+    {
+      "bytes": 432,
+      "crc32": "ec1b2957",
+      "entries": [
+        {
+          "bytes": 19,
+          "crc32": "0c1c8a1f",
+          "path": "payload.txt",
+          "sha256": "b781ca4e3efcbf31178927825de855f45b7e52f0d652af03cfb236785de2fe48"
+        },
+        {
+          "bytes": 191,
+          "crc32": "0150c7a9",
+          "path": "manifest.json",
+          "sha256": "49052a6f08319ce9406945c3c1f5e74a11cc9e7703bf5608675d380fa4a7d535"
+        }
+      ],
+      "head": "1111111111111111111111111111111111111111",
+      "id": "zip",
+      "internal_manifest": "manifest.json",
+      "kind": "zip",
+      "path": "original.zip",
+      "producer": "fixture generator",
+      "purpose": "synthetic test only",
+      "retrieval": "synthetic, not actual permanent storage",
+      "sha256": "30fc1f4519be8a8920b8a1d38200d512ea6cd3125ad03a8cb698c08692534fbd",
+      "verified_at": "2026-11-17T00:00:00Z"
+    }
+  ],
+  "closures": [
+    {
+      "after": [
+        "text"
+      ],
+      "before": [
+        "text"
+      ],
+      "finding": "synthetic wording",
+      "id": "synthetic-C1",
+      "reason": "wording narrowed",
+      "residual_unknown": "all runtime properties unknown",
+      "review": [
+        "zip"
+      ],
+      "scope": "static document only"
+    }
+  ],
+  "head": "1111111111111111111111111111111111111111",
+  "required_closures": [
+    "synthetic-C1"
+  ],
+  "support_heads": [],
+  "version": 1
+}
