@@ -1,5 +1,26 @@
 # Stage B-S：DFSan欠損の限定受容・Q2候補1方式の静的ソース審査
 
+## 最新判定追補：Stage B-S2 独立再審査の確定（2026-11-19 JST）
+
+**文書限定独立再審査 PASS。BS-P2-01（固定版の記述）と BS-P3-01（DFSan第6欠損の独立行）は文書指摘として CLOSED。** 根拠は [独立レビュー #5966316287](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5966316287)（審査対象HEAD `67739c34deb7e5379438e6b3b34587c19ccc95fa`、COMMENTED）。これは**文書についての閉鎖**であり、TaintgrindとValgrind 3.27.1の固定ペア互換性、ビルド／実行、保証B、DFSan歴史的欠損の技術的解消を意味しない。
+
+|最新の対象|判定|維持する境界|
+|---|---|---|
+|BS-P2-01|**CLOSED（文書）**|固定tag `v3.27.1` と固定README／DockerfileのValgrind **3.25.1** 記述を区別。Valgrind **3.27.1** の公式配布物の実在と固定ペア互換性を混同せず、互換性 **UNKNOWN**、ビルド・実行 **NOT_TESTED**|
+|BS-P3-01|**CLOSED（文書）**|改稿前byte、閉鎖専用原票、実作成主体、正確な原作成時刻、初期登録履歴、当時の原ファイル識別・版対応の**歴史的6欠損はすべて UNKNOWN**|
+|BS-P2-02|**OPEN（技術）**|K/Oから独立する偽造不能なorigin・epoch証明と独立checker未成立。taint状態・Dのclient request・値一致を`B_use=PASS`へ転用禁止|
+|BS-P2-03|**OPEN（技術）**|実FD/OFD→読取→SHA／ELF／proof各operandの完全追跡、未対応syscall・scatter-gather・native／JITの欠測検知・fail-closed未成立|
+
+**新しい一次根拠の有無：** この判定同期では、BS-P2-02／03を解除できる新しい固定source/build、独立trace原票、Good／旧Buffer Bad反例の検証結果は提示・取得されていない。既存の第2章に必要証拠と採用禁止条件があるため、同じ静的な一般論の重複審査を行わず**OPEN維持**とする。具体的な新証拠と別途承認が得られるまで実装・実測・技術的CLOSEDへ進めない。
+
+**中央規約 [v0.2.0](https://github.com/tetsujisugimori-coder/git-preservation-gate/blob/4695c3ce2d61e66df0dd36a4312373459e1557d4/docs/v0.2.0/policy.md) の適用：** 今回の公開GitHub文書追補は**Level 1**（Git履歴と案件別レビューで管理、追加Archive保存は非適用）。既存Stage B-R2の重要原票902単位は**Level 2の限定保存・再取得PASSを維持**し、再コピー・上書きしない。Level 1の追加Archive CUSTODY／VERIFICATION／INDEPENDENCEは **NOT_TESTED・非適用**であり、既存Level 2保全の判定を変更しない。人的独立性は `LIMITED_SHARED_OWNER` のまま。
+
+**PR #36全体：PARTIAL、保証B UNKNOWN、Q2一般実現性 UNKNOWN、現行Taintgrind単体の完成方式採用 NO、backend実装 NO、本実測 NO、正式CI NOT_TESTED、Open・Draft維持、マージ NO。** 本追補自体の別担当による独立再審査は未実施であり、先行B-S2の審査PASSを新HEAD全体の独立承認へ自動拡張しない。
+
+**履歴の扱い：** 以下の初期判定表や「独立再審査PENDING」は補訂前の状態を示す履歴として保持し、現行判断には本追補と上記固定レビューを優先する。
+
+---
+
 作成：2026-11-19 JST。対象：historical-source-atlas Draft PR #36、branch `docs/pr35-binding-feasibility-20261115`。開始HEAD `f47f1a1a3d2889c076961f0b879cd66e19f8090d`、tree `f24952f428b7f24a336f45398e0ec806ec6d78bb`、parent `0e74fde6b99300122a33561b838458d45ccb1169`。中央保全規約 `git-preservation-gate/docs/v0.2.0/policy.md`（正式採用commit `4695c3ce2d61e66df0dd36a4312373459e1557d4`）。本書は文書・公開source読取による**限定審査**であり、実装、Linux実試験、DFSan原証拠の回収、正式CI、保証Bの実証ではない。
 
 **総合判定：文書整理の継続は限定YES／歴史的欠損の事実認定・補完NO／Q2完成方式の採用NO／Q2一般実現性UNKNOWN／backend実装NO／本実測NO／PR #36 Draft・マージNO。** この段階の「欠損受容」は、欠損を無視して証明を完成扱いすることではなく、範囲を限定して将来の設計・資料検討を妨げないという所有者指示への適用である。
