@@ -15,10 +15,15 @@
 |DFSan現存版|従前Library保存2件の限定PASS、現存の審査本文・独立レビュー・既存原ZIPの内容識別は報告済|過去版や初期作成の同一性を証明しない|
 |DFSan改稿前byte|UNKNOWN|未回収。現存版・再生成版で代用しない|
 |閉鎖専用原票|UNKNOWN|未回収。既存レビュー内の閉鎖記述を専用原票と同一視しない|
-|当時の作成主体・正確な時刻・登録履歴|UNKNOWN|現在のGitHub所有者、現在の登録番号、現存版の時刻から推定しない|
+|当時の実作成主体|UNKNOWN|GitHubの投稿者・OWNER属性・既存の役割名から当時の作成主体を断定しない|
+|当時の正確な原作成時刻|UNKNOWN|現存版の保存日時・報告時刻を原作成時刻へ転用しない|
+|当時の初期登録履歴|UNKNOWN|現在のLibrary・GitHub登録記録だけから初回登録IDや登録経緯を復元しない|
+|当時の原ファイル識別・版対応|UNKNOWN|現存ファイル名・ZIP内entry・既知SHAから、当時の原ファイル識別子と改稿前／閉鎖時等の歴史版の一対一対応を認定しない。独立した原票や版対応表は未回収|
 |分離stderr、当時の実効Windows権限・正確なPython版|UNKNOWN|新しい検査や現在の環境値で過去実行を補完しない|
 
 根拠：[Stage B-R2独立監査 #5961724602](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5961724602)、[Stage B-R2限定閉鎖 #5964826899](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5964826899)、PR #36現行本文。
+
+補訂（2026-11-19 JST）：BS-P3-01対応で欠損A〜Fを独立6行へ整理した。現存のファイル名・hashが分かっても、当時の原ファイル識別や歴史版対応が立証されたとはしない。
 
 ### 1-2. 限定受容の許可範囲
 
@@ -31,16 +36,17 @@
 
 ## 2. 第2工程：Q2の固定候補（一方式のみ）
 
-**候補：Taintgrind v3.27.1 + Valgrind 3.27.1、x86/amd64/arm Linuxの動的命令・データ追跡。** Q2に必要な「同じDの実operand/provenanceを検査対象外に移さず監視する」構成に近い実在の資料候補として選定。**完成済みB_use oracleとしての採用ではない。**
+**静的審査用の固定候補：Taintgrind tag `v3.27.1`（commit `2f7f792f0e99838508970d0f18181aeff8b9ad76`）＋Valgrind 3.27.1。** 両者の**配布・ソースの実在は確認済み**だが、**この固定ペアの互換性はUNKNOWN、ビルド・実行はNOT_TESTED**。固定READMEに記載のLinux x86／amd64／ARM32対応はValgrind **3.25.1** の行に属し、3.27.1との組合せの動作証拠として利用しない。Q2に必要な実operand/provenance観測に近い資料候補として扱うが、**完成済みB_use oracleとして採用しない**。
 
 |証拠ID|実在する資料・固定版|読取で確認できる事項|読取では証明できない事項|
 |---|---|---|---|
-|Q2-S1|Taintgrind GitHub tag [v3.27.1](https://github.com/wmkhoo/taintgrind/tree/v3.27.1)、commit `2f7f792f0e99838508970d0f18181aeff8b9ad76`、[README](https://github.com/wmkhoo/taintgrind/blob/v3.27.1/README.md)|2026-06-15にValgrind 3.27.1/x86_linux/amd64_linux/arm_linux対応を記載。ソース・使い方・明記された制限を確認|この対象D/OS/ABIでのbuild成功、実命令・JIT・暗号ライブラリ全範囲のcoverage|
+|Q2-S1|Taintgrind GitHub [tag v3.27.1](https://github.com/wmkhoo/taintgrind/tree/2f7f792f0e99838508970d0f18181aeff8b9ad76)、commit `2f7f792f0e99838508970d0f18181aeff8b9ad76`、[そのcommitのREADME](https://github.com/wmkhoo/taintgrind/blob/2f7f792f0e99838508970d0f18181aeff8b9ad76/README.md)|tag/ソースの実在。固定README冒頭で明記されるのは**2025-05-27付のValgrind 3.25.1** とx86_linux／amd64_linux／arm_linuxへの対応であり、3.27.1対応の記載ではない|固定候補とValgrind 3.27.1の互換性、対象D/OS/ABIでのビルド成功、実命令・JIT・暗号ライブラリ全経路のcoverage|
 |Q2-S2|[tnt_translate.c](https://github.com/wmkhoo/taintgrind/blob/v3.27.1/tnt_translate.c)、[tnt_main.c](https://github.com/wmkhoo/taintgrind/blob/v3.27.1/tnt_main.c)、[tnt_syswrap.c](https://github.com/wmkhoo/taintgrind/blob/v3.27.1/tnt_syswrap.c)|VEX IR上の汚染値伝播、shadow状態、syscall wrapperの実ソースを識別|今回epoch/task/sourceを区別する非改変・非迂回のorigin-ID証明、独立checker、全経路完全性|
 |Q2-S3|Valgrind公式の[tool作成仕様](https://valgrind.org/docs/manual/manual-writing-tools.html)、[v3.27.1配布元](https://sourceware.org/pub/valgrind/valgrind-3.27.1.tar.bz2)|tool `instrument()` とVEX IRの観測機構。バージョンが存在すること|Taintgrindが元Dと意味的に同一の実行を保証すること、ソースから実物への対応、時間成立|
-|Q2-S4|[Taintgrind READMEのNotes](https://github.com/wmkhoo/taintgrind/blob/v3.27.1/README.md)|explicit data flowのみ追跡。制御フローの依存、および汚染ポインタを間接参照した場合の依存は追跡しないと明記|全D命令の追跡可能性、制御依存・間接参照・native/JIT経路欠測時の適正拒否|
+|Q2-S4|[固定Taintgrind READMEのNotes](https://github.com/wmkhoo/taintgrind/blob/2f7f792f0e99838508970d0f18181aeff8b9ad76/README.md)|explicit data flowのみ追跡。制御フロー依存、tainted pointerの間接参照の依存は追跡しないと明記|全D命令の追跡可能性、制御依存・間接参照・native/JIT経路欠測時の適正拒否|
+|Q2-S5|[固定Dockerfile](https://github.com/wmkhoo/taintgrind/blob/2f7f792f0e99838508970d0f18181aeff8b9ad76/Dockerfile)、[build_taintgrind.sh](https://github.com/wmkhoo/taintgrind/blob/2f7f792f0e99838508970d0f18181aeff8b9ad76/build_taintgrind.sh)|DockerfileはValgrind **3.25.1** をダウンロードし、Taintgrindをtag/commit未指定でclone。ビルドはValgrindソース・Autotools・Capstone取得とパッチ適用に依存|固定tagとValgrind 3.27.1を再現可能に組み立てられること、依存版の一致、認可Linuxでの成功|
 
-Valgrind全体の2026-10-23最新安定版は3.28.0だが、**Taintgrindの当該tagが対応を明記する3.27.1**に固定し、3.28.0との互換性は推定しない。対象Linux環境への取得・導入・実行はしていない。
+**BS-P2-01の訂正：** Taintgrindのtag名が`v3.27.1`であることと、固定README/DockerfileがそのValgrind版との互換性を明記・再現することは別。固定README・Dockerfileは3.25.1を示す。Valgrind 3.27.1の**公式配布物の実在と公表SHA-512との一致は別担当の独立静的レビューで報告済み**（署名検証NOT_TESTED）だが、固定Taintgrind tagとの**ペア互換性UNKNOWN、ビルド/動作NOT_TESTED**。3.28.0等ほかの版の互換性も推定しない。実環境への取得・導入・実行は今回行わない。[Stage B-S独立レビュー #5965496603](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5965496603)。
 
 ### 2-1. 既知の不適格点：同値の旧Buffer反例
 
@@ -48,6 +54,14 @@ Valgrind全体の2026-10-23最新安定版は3.28.0だが、**Taintgrindの当�
 - Bad：Dは新しいhandoffのXを一度読んでも捨て、別由来の旧Buffer X（同じbyte列）をSHA/ELF/proofに使い、現在のreceipt等と組み合わせる。
 - **現行Taintgrind単体の不足：** `TAINTED/UNTAINTED` 等の伝播状態と「その値が今回のFD/epochから来たこと」の厳密な識別は別命題。旧Bufferも以前の追跡対象としてtaintedなら、両方のoutputはtaintedになり得る。単純な汚染到達だけではGoodとBadを必ず識別できない。control-flow/汚染ポインタ由来はREADMEが対象外とする。
 - **判定：** *現行Taintgrind単体を完成済みB_use判定器とみなす方式は不適格（採用NO）*。これはQ2全般が数学的に不可能という結論ではなく、今回固定した実在版での完成性の不足である。
+
+### 2-1a. BS-P2-02（独立origin／epoch真正性）OPEN
+
+**原因：** 現行Taintgrindのshadow/taint伝播は、当期のK pin→trusted read→handoffという**真正な入力由来**と自動的に同義ではない。[固定tnt_main.cのclient request](https://github.com/wmkhoo/taintgrind/blob/2f7f792f0e99838508970d0f18181aeff8b9ad76/tnt_main.c#L3777-L3794)には`TAINT`／`TAINT_NAMED`／`UNTAINT`によるshadow操作入口があり、D側の要求や命名を独立したepoch証明と認定すると循環する。Goodで正常copyしたXと、Badで当期Xを読んで捨て既にtaintedな旧Xを利用する場合を、taint有無と値一致だけでは必ずしも分離できない。
+
+**欠損証拠：** K/OがDの自己申告から独立に採取・保持するtask/case/epoch/FD/OFDの識別、当期handoffに対する偽造不能なorigin付与・失効、実read-from/store/copyからSHA・ELF・proofの各sinkへの連続的依存、およびDから変更できない収録経路・独立checkerの固定source/build/実物とGood/Bad反例の判定原票。
+
+**採用禁止条件：** `tainted=true`、名付きtaint、Dが発したclient request、Dの自己申告receipt・ログ、SHA一致だけで`B_use=PASS`としない。K/Oの由来認証と独立検証が未成立の間、**BS-P2-02=OPEN、現行候補のB_use受入NO**を維持する。文書補訂は技術閉鎖ではない。
 
 ### 2-2. Q2を再検討できるための具体的解除条件
 
@@ -58,6 +72,14 @@ Valgrind全体の2026-10-23最新安定版は3.28.0だが、**Taintgrindの当�
 5. **反例と時間：** 同値旧Bufferを含む偽陽性をFAILにし、正当な別Buffer copyと正常受理をPASSにする独立反例。固定23slot（L19/M4）と総上限1160秒の変更なしで成立する時間/出力量/後片付けの証拠。
 6. **実データ/採用：** 対象Dの実source/build・instance lineage・task/epoch/leaseに結び付く実入力・独立検証を得た後、**別の実装／実測開始承認**を取る。
 
+### 2-2a. BS-P2-03（追跡経路欠測・fail-closed不足）OPEN
+
+**原因：** [固定tnt_main.cのsyscall dispatch](https://github.com/wmkhoo/taintgrind/blob/2f7f792f0e99838508970d0f18181aeff8b9ad76/tnt_main.c#L3596-L3719)ではpre-syscall handlerは空で、post-syscallの許可確認呼出しの結果をここで拒否として適用せず、未列挙syscallのdefault拒否も見えない。[固定tnt_syswrap.cのrecvmsg](https://github.com/wmkhoo/taintgrind/blob/2f7f792f0e99838508970d0f18181aeff8b9ad76/tnt_syswrap.c#L654-L665)にはscatter-gather／`readv`未対応の注記があり、`msg_control`にtaintを付す処理は交付されたOFDとDが実消費したoperandの由来を証明しない。IR命令側のpanicとsyscall全経路のfail-closedは別の主張である。
+
+**欠損証拠：** `SCM_RIGHTS`で交付された実FD／OFDから実readした各byte範囲・consumer operandまでの証拠、`readv`／scatter-gather／`recvmsg`を含む全利用経路の追跡coverage、未対応命令・syscall・helper・native/JIT経路の欠測検知と拒否、通常の正当copyを許容した反例と旧Bufferの拒否原票。これらの独立source/実測は未取得。
+
+**採用禁止条件：** unsupported syscallや追跡欠測を無視して全経路観測済みと認定しない。`recvmsg`のtaintや一部IR命令の追跡成功を全FD→sinkのorigin証明に転用しない。**BS-P2-03=OPEN、完全coverage・fail-closedの受入NO**を維持する。文書補訂は技術閉鎖ではない。
+
 今回確認できたのは**実在ソース・版・機構の一部・既知の適用限界**だけ。Q2の完全成立構成、非迂回性、独立checker、対象Dの実instrumentation、23枠予算、終了安全性、適格Linuxの存在はすべて**UNKNOWN/NOT_READY**。候補採用YESは0、backend実装NO、本実測NO。
 
 ## 3. 判定と変更禁止境界
@@ -66,7 +88,11 @@ Valgrind全体の2026-10-23最新安定版は3.28.0だが、**Taintgrindの当�
 |---|---|
 |第1工程：欠損付き資料整理・公開source読取の継続|**限定YES**。不足は個別UNKNOWNのまま|
 |改稿前byte/閉鎖専用原票/作成・登録来歴の存在・完全性|**UNKNOWN**。欠損受容でPASSにしない|
-|第2工程：Taintgrind v3.27.1の実source/版調査|**資料確認PASS（部分）**。source全経路の独立レビューは未実施|
+|第2工程：Taintgrind v3.27.1の実source/版調査|**実在資料の限定静的再審査PASS**。Valgrind 3.27.1ペア互換性UNKNOWN、全経路の実証NOT_TESTED|
+|BS-P2-01（固定tagの対応版記述）|**文書補訂済／独立再審査PENDING**。固定ペア互換性UNKNOWN、ビルド・実行NOT_TESTED。旧レビュー指摘OPENの閉鎖は別担当が判定|
+|BS-P3-01（6番目のDFSan欠損）|**文書補訂済／独立再審査PENDING**。当時の原ファイル識別・版対応UNKNOWNは不変更|
+|BS-P2-02（origin・epochの真正性）|**OPEN／技術未成立**。taintとDのclient requestを独立証拠として採用禁止|
+|BS-P2-03（全経路欠測時拒否）|**OPEN／技術未成立**。syscall・scatter-gather等の欠測を隠して完全coverageと認定禁止|
 |現行Taintgrind単体を完成済みB_use oracleとして採用|**NO（不適格）**|
 |拡張を含むQ2一般実現可能性|**UNKNOWN**|
 |Linux環境・終了・時間・全依存経路|**BLOCKED／NOT_READY**|
@@ -78,4 +104,6 @@ Valgrind全体の2026-10-23最新安定版は3.28.0だが、**Taintgrindの当�
 
 ## 4. 検証範囲の透明性
 
-公開資料とGitHubの既存記録を静的に読んだ結果である。Taintgrind/Valgrindの全ソースの完全解析、tarballのハッシュ再計算、署名検証、ローカル取得・ビルド・実行、Linux能力試験、性能試験、実物rawの新規採取、正式CI、作成担当からの照会は**未実施**。独立した別担当によるStage B-S文書レビューも未実施。ユーザーが承認したのは「欠損UNKNOWNを保持した限定資料審査の推進」であり、実験・技術採用・マージ等の新承認はしていない。
+公開資料とGitHubの既存記録を静的に読んだ結果である。[別担当の独立静的レビュー #5965496603](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5965496603)により、Taintgrind固定5ソースの取得・Git blob照合、Valgrind 3.27.1公式tarballのSHA-512照合と内包仕様の確認、BS-P2-01〜03・BS-P3-01の指摘が報告された。これは**静的資料審査**であり、固定ペアの互換性・ビルド・実行、全経路の技術的保証の証拠ではない。本補訂はその指摘を対象文書に反映したもので、独立した**補訂後の再審査はPENDING**。
+
+Taintgrind/Valgrindの全ソースの完全解析、署名検証、固定ペアのビルド・実行、Linux能力試験、性能試験、保証Bのraw実測、正式CI、歴史的作成担当への追加照会は本工程で**未実施**。所有者が認めたのは「欠損UNKNOWNを保持した限定資料審査」であり、実験・技術採用・マージの新承認ではない。旧文書・独立レビューの本文と固定HEADはGit履歴上に保持し、改稿前の誤認を削除してなかったことにしない。
