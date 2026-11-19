@@ -8,14 +8,14 @@
 |---|---|---|
 |BS-P2-01|**CLOSED（文書）**|固定tag `v3.27.1` と固定README／DockerfileのValgrind **3.25.1** 記述を区別。Valgrind **3.27.1** の公式配布物の実在と固定ペア互換性を混同せず、互換性 **UNKNOWN**、ビルド・実行 **NOT_TESTED**|
 |BS-P3-01|**CLOSED（文書）**|改稿前byte、閉鎖専用原票、実作成主体、正確な原作成時刻、初期登録履歴、当時の原ファイル識別・版対応の**歴史的6欠損はすべて UNKNOWN**|
-|BS-P2-02|**OPEN（技術）**|K/Oから独立する偽造不能なorigin・epoch証明と独立checker未成立。taint状態・Dのclient request・値一致を`B_use=PASS`へ転用禁止|
+|BS-P2-02|**OPEN（技術）**|K/OがDの自己申告から独立して取得・保持する、偽造不能なorigin・epoch証拠と、Dが改変できない収録経路および独立checkerは未成立。taint状態・Dのclient request・値一致を`B_use=PASS`へ転用禁止|
 |BS-P2-03|**OPEN（技術）**|実FD/OFD→読取→SHA／ELF／proof各operandの完全追跡、未対応syscall・scatter-gather・native／JITの欠測検知・fail-closed未成立|
 
 **新しい一次根拠の有無：** この判定同期では、BS-P2-02／03を解除できる新しい固定source/build、独立trace原票、Good／旧Buffer Bad反例の検証結果は提示・取得されていない。既存の第2章に必要証拠と採用禁止条件があるため、同じ静的な一般論の重複審査を行わず**OPEN維持**とする。具体的な新証拠と別途承認が得られるまで実装・実測・技術的CLOSEDへ進めない。
 
 **中央規約 [v0.2.0](https://github.com/tetsujisugimori-coder/git-preservation-gate/blob/4695c3ce2d61e66df0dd36a4312373459e1557d4/docs/v0.2.0/policy.md) の適用：** 今回の公開GitHub文書追補は**Level 1**（Git履歴と案件別レビューで管理、追加Archive保存は非適用）。既存Stage B-R2の重要原票902単位は**Level 2の限定保存・再取得PASSを維持**し、再コピー・上書きしない。Level 1の追加Archive CUSTODY／VERIFICATION／INDEPENDENCEは **NOT_TESTED・非適用**であり、既存Level 2保全の判定を変更しない。人的独立性は `LIMITED_SHARED_OWNER` のまま。
 
-**PR #36全体：PARTIAL、保証B UNKNOWN、Q2一般実現性 UNKNOWN、現行Taintgrind単体の完成方式採用 NO、backend実装 NO、本実測 NO、正式CI NOT_TESTED、Open・Draft維持、マージ NO。** 本追補自体の別担当による独立再審査は未実施であり、先行B-S2の審査PASSを新HEAD全体の独立承認へ自動拡張しない。
+**PR #36全体：PARTIAL、保証B UNKNOWN、Q2一般実現性 UNKNOWN、現行Taintgrind単体の完成方式採用 NO、backend実装 NO、本実測 NO、正式CI NOT_TESTED、Open・Draft維持、マージ NO。** 本追補の旧HEAD `5e576c9dbf4fc33c8638f641a133d0518afa7a48` に対する独立レビューは [#5967172974](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/36#pullrequestreview-5967172974) により**実施済み／PARTIAL**。その指摘に基づく今回の文書修正後HEADに対する独立確認は未実施であり、先行B-S2の文書限定PASSを新HEAD全体の技術受入へ自動拡張しない。
 
 **履歴の扱い：** 以下の初期判定表や「独立再審査PENDING」は補訂前の状態を示す履歴として保持し、現行判断には本追補と上記固定レビューを優先する。
 
