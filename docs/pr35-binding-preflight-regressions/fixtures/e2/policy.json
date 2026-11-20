@@ -1,0 +1,36 @@
+{
+  "approval": {
+    "approved_at": "2026-11-17T00:00:00Z",
+    "approver": "test user",
+    "artifacts": [
+      "text",
+      "zip"
+    ],
+    "decision": "APPROVED",
+    "destination": "synthetic-private",
+    "privacy": "synthetic",
+    "record": "synthetic approval: no real permission",
+    "reviewer": "test auditor",
+    "scope": "synthetic fixture"
+  },
+  "readbacks": [
+    {
+      "acquisition_record": "synthetic separate retrieval",
+      "actor": "synthetic auditor",
+      "artifact": "text",
+      "destination": "synthetic-private",
+      "path": "readback-payload.txt",
+      "retrieved_at": "2026-11-17T00:00:00Z",
+      "storage_actor": ""
+    },
+    {
+      "acquisition_record": "synthetic separate retrieval",
+      "actor": "synthetic auditor",
+      "artifact": "zip",
+      "destination": "synthetic-private",
+      "path": "readback-original.zip",
+      "retrieved_at": "2026-11-17T00:00:00Z",
+      "storage_actor": "synthetic saver"
+    }
+  ]
+}
