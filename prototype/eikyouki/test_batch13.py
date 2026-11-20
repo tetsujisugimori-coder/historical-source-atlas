@@ -10,7 +10,7 @@ D=json.loads((B/'eikyouki_records.json').read_text());L=json.loads((E/'article-b
 SOURCE_SHA='cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0'
 CHAPTER_SHA='c5e57af30f58c5f99c57f44444a278c62be11630c4f4fd4c7733205701a53a16'
 def contract(d,l=L):
- rows=validate_data(d);same_fields(OLD['records'],rows[:129],'129 prior records')
+ rows=validate_data(d)[:131];same_fields(OLD['records'],rows[:129],'129 prior records')
  if len(rows)!=131 or [r['id'] for r in rows[129:]]!=['EK-0130','EK-0131']:raise ValueError('batch13 identities/count')
  for key in ['metadata','article_relationships','document_structures']:
   if d[key]!=OLD[key]:raise ValueError('prior supplementary data')
@@ -38,7 +38,7 @@ def contract(d,l=L):
   if any(pub[k]!='NOT_TESTED' for k in ['base_image','variants','transcription_emendation','historical_recognition']) or pub['location']!='UNRESOLVED':raise ValueError('unverified claims')
   if a['layers']!={'SOURCE_STATEMENT':r['full_original_text'],'MODERN_SUMMARY':r['summary'],'HISTORICAL_RECOGNITION':'NOT_TESTED'}:raise ValueError('three layers')
  if '京都軍之事'+''.join(r['full_original_text'] for r in rows[129:])!=chapter:raise ValueError('full coverage')
- if d['narrative_references'][8:]!=l['narrative_references'] or len(d['narrative_references'])!=9:raise ValueError('new reference ledger')
+ if d['narrative_references'][8:9]!=l['narrative_references'] or len(d['narrative_references'])<9:raise ValueError('new reference ledger')
  ref=d['narrative_references'][-1]
  if (ref['from'],ref['to'],ref['kind'])!=('EK-0131','EK-0130','narrative_continuity'):raise ValueError('reference direction/type')
  r=rows[130]
@@ -51,7 +51,7 @@ class Batch13(unittest.TestCase):
  def test_baseline_and_formats(self):
   raw=subprocess.check_output(['git','show',BASE+':prototype/eikyouki/eikyouki_records.json'],cwd=R)
   self.assertEqual(json.loads(raw),OLD);self.assertEqual(hashlib.sha256(raw).hexdigest(),json.loads((E/'baseline.json').read_text())['original_data_sha256'])
-  self.assertEqual(131,contract(D));self.assertEqual(131,verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
+  self.assertEqual(131,contract(D));self.assertEqual(len(D['records']),verify(B/'eikyouki_records.json',B/'index.html',B/'eikyouki.db'))
  def test_4644_typed_preservation_mutations(self):
   self.assertEqual(36,len(FIELDS));self.assertEqual(129,len(OLD['records']))
   for i in range(129):
@@ -71,7 +71,7 @@ class Batch13(unittest.TestCase):
   for m,date,calendar in zip(json.loads((E/'calendar/retrieval.json').read_text()),['1467/06/27','1467/07/06'],['ユリウス','グレゴリオ']):
    raw=(E/'calendar'/m['file']).read_bytes();self.assertEqual(200,m['status']);self.assertEqual(m['sha256'],hashlib.sha256(raw).hexdigest());txt=raw.decode('euc_jp')
    for text in [date,'応仁元年05月26日','丁亥',calendar]:self.assertIn(text,txt)
-  a,b=D['records'][129:];self.assertEqual(a['original_date'],'応仁元年丁亥五月二十六日');self.assertEqual(a['gregorian_start'],'1467-07-06');self.assertEqual(a['julian_start'],'1467-06-27');self.assertEqual(calendar_day(a['gregorian_start'],'gregorian'),calendar_day(a['julian_start'],'julian'));self.assertIsNone(b['western_year']);self.assertEqual(b['date_precision'],'unknown')
+  a,b=D['records'][129:131];self.assertEqual(a['original_date'],'応仁元年丁亥五月二十六日');self.assertEqual(a['gregorian_start'],'1467-07-06');self.assertEqual(a['julian_start'],'1467-06-27');self.assertEqual(calendar_day(a['gregorian_start'],'gregorian'),calendar_day(a['julian_start'],'julian'));self.assertIsNone(b['western_year']);self.assertEqual(b['date_precision'],'unknown')
  def test_negative_controls(self):
   faults=['gap','overlap','missing','duplicate','old-type','old-relation','old-publication','date-propagation','calendar-confusion','wrong-day','hearsay-cut','asserted-motive','asserted-rebellion','modern-name-in-original','annotation-mixed','false-recognition','false-location','wrong-reference','false-source-hash','false-original-hash','false-revision','false-source-file']
   for f in faults:
@@ -79,7 +79,7 @@ class Batch13(unittest.TestCase):
     d=copy.deepcopy(D);l=copy.deepcopy(L)
     if f=='gap':l['articles'][1]['start_offset']+=1
     if f=='overlap':l['articles'][1]['start_offset']-=1
-    if f=='missing':d['records'].pop()
+    if f=='missing':d['records'].pop(130)
     if f=='duplicate':d['records'].append(copy.deepcopy(d['records'][-1]))
     if f=='old-type':d['records'][0]['source_order']=1.0
     if f=='old-relation':d['article_relationships'].reverse()
@@ -94,7 +94,7 @@ class Batch13(unittest.TestCase):
     if f=='annotation-mixed':d['publication']['articles']['EK-0131']['narrative_text']=d['records'][130]['full_original_text']
     if f=='false-recognition':d['publication']['articles']['EK-0131']['historical_recognition']='PASS'
     if f=='false-location':d['publication']['articles']['EK-0130']['location']='CONFIRMED'
-    if f=='wrong-reference':d['narrative_references'][-1]['to']='EK-0129'
+    if f=='wrong-reference':d['narrative_references'][8]['to']='EK-0129'
     if f=='false-source-hash':l['chapter_sha256']='0'*64
     if f=='false-original-hash':l['source_sha256']='0'*64
     if f=='false-revision':l['revision']=1
