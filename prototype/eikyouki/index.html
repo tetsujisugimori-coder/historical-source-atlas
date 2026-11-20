@@ -43,7 +43,18 @@ function referenceLink(className, label, id) {
   });
   return link;
 }
-function applyFragment(){const id=decodeURIComponent(location.hash.slice(1));if(id)openReference(id)}
+function applyFragment() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id) return;
+  const url = new URL(location.href);
+  // A reader can edit the fragment of a reference URL. Restore the document navigation for the new target.
+  if (url.searchParams.has('ref') && url.searchParams.get('ref') !== id) {
+    url.searchParams.set('ref', id);
+    location.replace(url.href);
+    return;
+  }
+  openReference(id);
+}
 window.addEventListener('hashchange',applyFragment);
 
 for(const k of ['search','year','chapter'])$(k).addEventListener(k==='search'?'input':'change',render);

@@ -101,6 +101,15 @@ async function main(){
     await p.locator('#search').fill('');await p.locator('.article summary').first().focus();await p.keyboard.press('Space');check('Space detail toggle',await p.locator('.article').first().getAttribute('open'),'');
     c.geometry=await p.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overflow:[...document.querySelectorAll('.article,.toolbar,button,input,select')].filter(e=>{const r=e.getBoundingClientRect();return r.left<0||r.right>innerWidth+1}).map(e=>e.tagName)}));
     check('no horizontal overflow',c.geometry.scrollWidth<=width&&c.geometry.overflow.length===0,true);
+    await p.goto(url+'?ref=EK-0130#EK-0130');
+    await p.reload();
+    const editedReference = new URL(p.url());
+    editedReference.hash = 'EK-0138';
+    await p.goto(editedReference.href);
+    await p.waitForURL(value => value.searchParams.get('ref') === 'EK-0138' && value.hash === '#EK-0138');
+    await p.locator('#EK-0138[open]').waitFor({state:'visible'});
+    await p.reload();
+    check('edited reference reload opens batch14 article',await p.locator('#EK-0138').getAttribute('open'),'');
     check('pageerror',c.pageerrors,[]);check('console errors',c.consoleErrors,[]);c.status='PASS';
    }catch(e){c.status='FAIL';c.error=e.stack;await p.screenshot({path:path.join(out,`${name}-${width}-${motion}-failure.png`),fullPage:false}).catch(()=>{});}
    finally{await context.close()}
