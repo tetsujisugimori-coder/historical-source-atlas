@@ -155,7 +155,7 @@ async function main(){
     await p.locator('#year').selectOption('1487');check('batch17 1487 year',await ids(p),['EK-0168']);
     await p.locator('#year').selectOption('1488');check('batch17 1488 year',await ids(p),['EK-0173']);
     await p.locator('#EK-0173 summary').click();check('batch17 original lunar date',(await p.locator('#EK-0173').innerText()).includes('長亨二年戊申二月五日'),true);check('batch17 converted date unresolved',await p.locator('#EK-0173 .cal-modern').innerText(),'未換算');
-    await p.locator('#year').selectOption('all');await p.locator('#search').fill('古河公方政氏');check('batch17 prose search',await ids(p),['EK-0171']);
+    await p.locator('#year').selectOption('all');await p.locator('#search').fill('御動座');check('batch17 prose search beyond the locator',await ids(p),['EK-0171']);
     await p.locator('#search').fill('EK-0175');await p.locator('#EK-0175 summary').click();check('batch17 page marker separate',(await p.locator('#EK-0175 .editorial-annotations').innerText()).includes('NDLJP:385'),true);check('batch17 page marker absent from narrative',(await p.locator('#EK-0175 .narrative-text').innerText()).includes('NDLJP:385'),false);
     check('pageerror',c.pageerrors,[]);check('console errors',c.consoleErrors,[]);c.status='PASS';
    }catch(e){c.status='FAIL';c.error=e.stack;await p.screenshot({path:path.join(out,`${name}-${width}-${motion}-failure.png`),fullPage:false}).catch(()=>{});}
