@@ -46,7 +46,8 @@ def extracted_chapter():
 
 
 def contract(d, ledger=L):
-    rows = validate_data(d)
+    all_rows = validate_data(d)
+    rows = all_rows[:138]
     same_fields(OLD["records"], rows[:131], "131 previous articles")
     if len(rows) != 138 or [r["id"] for r in rows[131:]] != [
         f"EK-{x:04d}" for x in range(132, 139)
@@ -62,7 +63,8 @@ def contract(d, ledger=L):
                     raise ValueError("prior publication changed: " + ident)
         elif d["publication"][key] != value:
             raise ValueError("prior publication metadata changed: " + key)
-    if set(d["publication"]["articles"]) != set(OLD["publication"]["articles"]) | {
+    later_ids = {r["id"] for r in all_rows if r["source_order"] > 138}
+    if d["publication"]["articles"].keys() - later_ids != set(OLD["publication"]["articles"]) | {
         x["id"] for x in ledger["articles"]
     }:
         raise ValueError("unexpected publication entries")
@@ -154,7 +156,7 @@ class Batch14(unittest.TestCase):
         self.assertEqual(36, len(FIELDS))
         self.assertEqual(131, len(OLD["records"]))
         self.assertEqual(138, contract(D))
-        self.assertEqual(138, verify(B/"eikyouki_records.json", B/"index.html", B/"eikyouki.db"))
+        self.assertEqual(len(D["records"]), verify(B/"eikyouki_records.json", B/"index.html", B/"eikyouki.db"))
 
     def test_exact_source_and_annotation_boundaries(self):
         chapter = extracted_chapter()
@@ -188,9 +190,9 @@ class Batch14(unittest.TestCase):
             ledger = copy.deepcopy(L)
             with self.subTest(fault=fault):
                 if fault == "missing":
-                    d["records"].pop()
+                    d["records"].pop(137)
                 elif fault == "duplicate":
-                    d["records"].append(copy.deepcopy(d["records"][-1]))
+                    d["records"].append(copy.deepcopy(d["records"][137]))
                 elif fault == "prior-order":
                     d["records"][0]["source_order"] = 131
                 elif fault == "prior-null":
@@ -206,7 +208,7 @@ class Batch14(unittest.TestCase):
                 elif fault == "source-hash":
                     ledger["source_sha256"] = "0"*64
                 elif fault == "wrong-original":
-                    d["records"][-1]["full_original_text"] += "追記"
+                    d["records"][137]["full_original_text"] += "追記"
                 elif fault == "wrong-ledger":
                     ledger["articles"][3]["source_text"] += "追記"
                 elif fault == "wrong-annotation":
@@ -214,7 +216,7 @@ class Batch14(unittest.TestCase):
                 elif fault == "false-recognition":
                     d["publication"]["articles"]["EK-0138"]["historical_recognition"] = "PASS"
                 elif fault == "date-propagation":
-                    d["records"][-1]["western_year"] = 1477
+                    d["records"][137]["western_year"] = 1477
                 elif fault == "unverified-conversion":
                     d["records"][133]["gregorian_start"] = "1477-09-03"
                 elif fault == "missing-publication":
