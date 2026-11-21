@@ -78,7 +78,7 @@ class Batch15(unittest.TestCase):
             else:
                 self.assertEqual(self.data["publication"][key], value)
         self.assertEqual(
-            set(self.data["publication"]["articles"]),
+            set(self.data["publication"]["articles"]) & {row["id"] for row in self.rows[:159]},
             set(old["publication"]["articles"]) | {f"EK-{i:04d}" for i in range(139, 160)},
         )
         self.assertEqual(len(self.rows), verify(

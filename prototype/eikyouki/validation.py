@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
 CHAPTERS = [
+    ("ota_death", "太田最後之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-16"),
     ("ota_dokan", "太田道灌之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-15"),
     ("koga_castle", "古河城の事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-14"),
     ("kyoto_battle", "京都軍之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-13"),
@@ -46,7 +47,7 @@ FIXED_ERA_YEARS = {
     ("応仁", 1, 1467), ("嘉吉", 1, 1441), ("寛正", 2, 1461), ("享徳", 3, 1454),
     ("康正", 2, 1456), ("長禄", 1, 1457),
     ("文明", 3, 1471), ("文明", 8, 1476), ("文明", 9, 1477), ("文明", 10, 1478),
-    ("文明", 11, 1479), ("文明", 15, 1483),
+    ("文明", 11, 1479), ("文明", 15, 1483), ("文明", 18, 1486),
 }
 INTEGERS = {"source_order": (1, 2147483647), "era_year": (1, 9999),
             "western_year": (1, 9999), "lunar_month": (1, 12), "lunar_day": (1, 30)}
