@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
 CHAPTERS = [
+    ("yamanouchi_ogigayatsu_discord", "山内扇谷不和之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-17"),
     ("ota_death", "太田最後之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-16"),
     ("ota_dokan", "太田道灌之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-15"),
     ("koga_castle", "古河城の事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-14"),
@@ -44,6 +45,7 @@ NULLABLE_TEXT = {
 }
 # Corresponding years are usable for filtering without claiming a converted date.
 FIXED_ERA_YEARS = {
+    ("長享", 1, 1487), ("長享", 2, 1488),
     ("応仁", 1, 1467), ("嘉吉", 1, 1441), ("寛正", 2, 1461), ("享徳", 3, 1454),
     ("康正", 2, 1456), ("長禄", 1, 1457),
     ("文明", 3, 1471), ("文明", 8, 1476), ("文明", 9, 1477), ("文明", 10, 1478),
