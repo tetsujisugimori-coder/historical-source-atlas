@@ -16,7 +16,7 @@ BASE = "86e9127184cd5cf08da3555dfa2f6193b137d617"
 SOURCE_SHA = "cd120c44ccd7fbd69fbad81d1d5578c91574bdd2e70f21e5c086e915fe2abae0"
 CHAPTER_SHA = "1828ff0f591e322256053f654e49eeecf0adee679ab435bca7af46ed1a0381be"
 BOUNDS = (
-    6, 95, 198, 367, 474, 659, 825, 943, 956, 985, 1352, 1473, 1549,
+    6, 95, 198, 367, 474, 659, 825, 943, 956, 985, 1369, 1473, 1549,
     1727, 1778, 1814, 1892, 1943, 2005, 2045, 2092, 2231,
 )
 DATES = {
@@ -139,6 +139,12 @@ class Batch15(unittest.TestCase):
                 for field in ("base_image", "variants", "transcription_emendation", "historical_recognition"):
                     self.assertEqual(pub[field], "NOT_TESTED")
                 self.assertEqual(pub["location"], "UNRESOLVED")
+
+        poems, waka = articles[9:11]
+        self.assertTrue(poems["source_text"].endswith("見（有イ）人聞者賞歎するに堪たり、"))
+        self.assertEqual(poems["annotations"][-1]["text"], "（有イ）")
+        self.assertTrue(waka["source_text"].startswith("太田資長、"))
+        self.assertEqual(waka["annotations"], [])
 
         self.assertEqual(sum(len(item["annotations"]) for item in articles), 15)
         final = articles[-1]

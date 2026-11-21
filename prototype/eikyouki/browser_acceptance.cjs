@@ -117,7 +117,11 @@ async function main(){
     check('batch15 year filter keeps distinct castles',await ids(p),['EK-0147','EK-0150']);
     await p.locator('#year').selectOption('all');
     await p.locator('#search').fill('富士見亭');
-    check('batch15 waka search',await ids(p),['EK-0149']);
+    check('batch15 Fuji viewing pavilion search',await ids(p),['EK-0149']);
+    await p.locator('#search').fill('我庵は松原遠く海近し');
+    check('batch15 waka text search',await ids(p),['EK-0149']);
+    await p.locator('#search').fill('兵鼓声中築');
+    check('batch15 Chinese poem text search',await ids(p),['EK-0148']);
     await p.goto(url+'?ref=EK-0147#EK-0147');
     await p.reload();
     check('batch15 fixed reference reloads',await p.locator('#EK-0147').getAttribute('open'),'');
