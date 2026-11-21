@@ -68,7 +68,20 @@ async function main(){
      await p.locator('#search').fill('');await p.locator('#year').selectOption('1461');check('batch12 year only document',await ids(p),['EK-0120']);await p.locator('#year').selectOption('all');
     await p.locator('#chapter').selectOption('horikoshi');check('batch12 chapter chronology',await ids(p),['EK-0120','EK-0118','EK-0119','EK-0121','EK-0122','EK-0123','EK-0124','EK-0125','EK-0126','EK-0127','EK-0128','EK-0129']);await p.locator('#chapter').selectOption('all');
     const doc=JSON.parse(fs.readFileSync(path.join(__dirname,'eikyouki_records.json'),'utf8')).document_structures[0];
-    for(const clause of doc.clauses){await p.locator('#search').fill(clause.clause_id);check(clause.clause_id+' searchable',await ids(p),['EK-0120']);await p.locator('.article summary').click();check(clause.clause_id+' exact text',await p.locator('#'+clause.clause_id+' .clause-original').textContent(),clause.original_text);check(clause.clause_id+' independent summary',await p.locator('#'+clause.clause_id+' .clause-summary').textContent(),clause.summary);await p.locator('#'+clause.clause_id+' a').click();check(clause.clause_id+' fragment',new URL(p.url()).hash,'#'+clause.clause_id);check(clause.clause_id+' focus',await p.evaluate(()=>document.activeElement.id),clause.clause_id);check(clause.clause_id+' no overflow',await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}
+    for (const clause of doc.clauses) {
+     const id=clause.clause_id;
+     await p.locator('#search').fill(id);
+     check(id+' searchable',await ids(p),['EK-0120']);
+     await p.locator('.article summary').click();
+     check(id+' exact text',await p.locator('#'+id+' .clause-original').textContent(),clause.original_text);
+     check(id+' independent summary',await p.locator('#'+id+' .clause-summary').textContent(),clause.summary);
+     await p.locator('#'+id+' a').click();
+     check(id+' fragment',new URL(p.url()).hash,'#'+id);
+     // A committed URL can precede the inline script that restores focus.
+     await p.waitForLoadState('domcontentloaded');
+     check(id+' focus',await p.evaluate(()=>document.activeElement.id),id);
+     check(id+' no overflow',await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    }
     await p.reload();check('clause reload opens parent',await p.locator('#EK-0120').getAttribute('open'),'');check('clause reload target',await p.evaluate(()=>document.activeElement.id),'EK-0120-C05');
     await p.goBack();
     check('clause Back target',new URL(p.url()).hash,'#EK-0120-C04');
