@@ -26,7 +26,8 @@ function appendProvenance(body,r){const pub=PROVENANCE.publication.articles?.[r.
 
 function sourceTextSearch(r) {
   // Search the narrative text for these chapters and verse articles.
-  if (r.chapter_id === 'takami_hara_battle' ||
+  if (r.chapter_id === 'soun_chapter' ||
+      r.chapter_id === 'takami_hara_battle' ||
       r.chapter_id === 'yamanouchi_ogigayatsu_discord' ||
       r.id === 'EK-0148' || r.id === 'EK-0149' || r.id === 'EK-0164') {
     return PROVENANCE.publication.articles[r.id].narrative_text;
