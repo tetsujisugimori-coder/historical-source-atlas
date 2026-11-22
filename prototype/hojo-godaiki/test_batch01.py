@@ -51,6 +51,7 @@ class FirstBatch(unittest.TestCase):
         h=copy.deepcopy(self.h);h["records"][0]["western_year"]=1492;cases.append((h,self.p))
         h=copy.deepcopy(self.h);h["records"][2]["full_original_text"]="uncertified";cases.append((h,self.p))
         h=copy.deepcopy(self.h);h["metadata"]["historical_recognition"]="VERIFIED";cases.append((h,self.p))
+        h=copy.deepcopy(self.h);h["metadata"]["revision_id"]=None;cases.append((h,self.p))
         p=copy.deepcopy(self.p);p["mentions"][0]["article_id"]="HG-9999";cases.append((self.h,p))
         p=copy.deepcopy(self.p);p["mentions"].append(p["mentions"][0]);cases.append((self.h,p))
         p=copy.deepcopy(self.p);p["mentions"][2]["surface_form"]="nonexistent";cases.append((self.h,p))

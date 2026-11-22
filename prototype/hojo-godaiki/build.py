@@ -35,6 +35,7 @@ def validate(hojo, eik, persons):
         if r["date_conversion_status"] != "unresolved" or any(r[f] is not None for f in
             ("western_year","era","era_year","lunar_month","lunar_day","julian_start","julian_end","gregorian_start","gregorian_end","research_date_start","research_date_end")):
             raise ValueError("date propagation")
+    if hojo["metadata"]["revision_id"] != 217784: raise ValueError("fixed revision required")
     if hojo["metadata"]["transcription_check"] != "NOT_TESTED" or hojo["metadata"]["historical_recognition"] != "NOT_TESTED":
         raise ValueError("verification escalation")
     identities = persons["people"]

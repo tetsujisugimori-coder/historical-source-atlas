@@ -11,4 +11,4 @@ python prototype/hojo-godaiki/test_batch01.py
 python prototype/hojo-godaiki/build.py
 ```
 
-出典：https://ja.wikisource.org/wiki/北条五代記/巻第一 （博文館1899年刊行本に基づく公開翻刻）。固定版・出典画像照合・再利用条件の最終確定は別途実施。節内の日時を記事全体へ転写しない。学術的な正しさとCIの成功は別の判定です。
+出典：https://ja.wikisource.org/w/index.php?oldid=217784&title=北条五代記/巻第一 （博文館1899年刊行本に基づく公開翻刻）。固定版oldid=217784を参照済み。原HTML全量・SHA・出典画像照合・再利用条件の最終確定は別途実施。節内の日時を記事全体へ転写しない。学術的な正しさとCIの成功は別の判定です。
