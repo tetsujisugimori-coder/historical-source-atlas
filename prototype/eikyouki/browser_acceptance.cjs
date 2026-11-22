@@ -93,7 +93,13 @@ async function main(){
     await p.locator('#search').fill('分限に応じた忠節');check('clause summary search',await ids(p),['EK-0120']);
     const docDownloadEvent=p.waitForEvent('download');await p.locator('#export').click();const docDownload=await docDownloadEvent;const docFile=path.join(out,`${name}-${width}-${motion}-document-download.json`);await docDownload.saveAs(docFile);check('document export includes 5 clauses',JSON.parse(fs.readFileSync(docFile,'utf8')).document_structures,[doc]);
     await p.locator('#search').fill('定政');check('person-name search includes new evaluation',(await ids(p)).includes('EK-0126'),true);
-    await p.goto(url+'#EK-0119');await p.locator('.narrative-reference').filter({hasText:'EK-0120'}).click();check('quote reference opens independent document',await ids(p),['EK-0120']);check('quote reference document open',await p.locator('#EK-0120').getAttribute('open'),'');
+    await p.goto(url+'#EK-0119');
+    await Promise.all([
+      p.waitForURL(u=>u.searchParams.get('ref')==='EK-0120'&&u.hash==='#EK-0120',{waitUntil:'domcontentloaded'}),
+      p.locator('.narrative-reference').filter({hasText:'EK-0120'}).click(),
+    ]);
+    check('quote reference opens independent document',await ids(p),['EK-0120']);
+    check('quote reference document open',await p.locator('#EK-0120').getAttribute('open'),'');
     await p.locator('#search').fill('EK-0057');await p.locator('.article summary').click();await p.locator('.related-link').filter({hasText:'EK-0058'}).click();check('related separate Koga article',await ids(p),['EK-0058']);check('related detail opens',await p.locator('.article').getAttribute('open'),'');
     await p.locator('#search').fill('');
     await p.locator('#year').selectOption('1437');check('year filter',await ids(p),records.filter(r=>r.western_year===1437).map(r=>r.id));
