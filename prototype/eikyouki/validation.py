@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 WORK = "EIKYOUKI"
 EDITION = "SHISEKI-SHURAN-12-WIKISOURCE"
 CHAPTERS = [
+    ("takami_hara_battle", "高見原合戦之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-18"),
     ("yamanouchi_ogigayatsu_discord", "山内扇谷不和之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-17"),
     ("ota_death", "太田最後之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-16"),
     ("ota_dokan", "太田道灌之事", "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-15"),

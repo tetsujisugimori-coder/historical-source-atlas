@@ -44,8 +44,7 @@ class Batch17(unittest.TestCase):
             if key=="articles":
                 current={i:pub for i,pub in current.items() if i in old}
             self.assertEqual(json.dumps(old,sort_keys=True),json.dumps(current,sort_keys=True),key)
-        self.assertEqual(len(self.data["records"]),175)
-        self.assertEqual(verify(ROOT/RECORDS,PROTOTYPE/"index.html",PROTOTYPE/"eikyouki.db"),175)
+        self.assertEqual(verify(ROOT/RECORDS,PROTOTYPE/"index.html",PROTOTYPE/"eikyouki.db"),len(self.data["records"]))
     def test_fixed_source_exact_boundaries_and_annotation(self):
         raw=(ROOT/SOURCE).read_bytes()
         self.assertEqual(hashlib.sha256(raw).hexdigest(),SOURCE_SHA)
