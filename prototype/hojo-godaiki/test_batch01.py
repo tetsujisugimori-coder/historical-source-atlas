@@ -37,6 +37,8 @@ class FirstBatch(unittest.TestCase):
                 self.assertEqual(len(rows),197)
                 for expected,actual in zip(self.e["records"]+self.h["records"],rows):
                     for k,v in expected.items():
+                        if k in ("work_id","edition_id","chapter","source_url"):
+                            continue  # normalized into works/editions/chapters or retained in immutable JSON
                         got=actual["article_id"] if k=="id" else actual[k]
                         if k=="lunar_is_leap" and v is not None:v=int(v)
                         self.assertEqual(got,v,(expected["id"],k))

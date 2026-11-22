@@ -79,7 +79,7 @@ def build(destination=DB, hojo=None, persons=None):
             chapters[cid]=row
         con.executemany("INSERT INTO chapters VALUES (?,?,?,?)",chapters.values())
         fields=[x[1] for x in con.execute("PRAGMA table_info(articles)")]
-        if set(fields) != (set(old[0]) - {"id"} | {"article_id"}):
+        if set(fields) != (set(old[0]) - {"id","work_id","edition_id","chapter","source_url"} | {"article_id"}):
             raise ValueError("underlying 36-field schema mismatch")
         sql = "INSERT INTO articles ("+",".join(fields)+") VALUES ("+",".join("?" for _ in fields)+")"
         for r in old+new:
