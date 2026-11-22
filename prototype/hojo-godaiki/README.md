@@ -1,0 +1,14 @@
+# 北条五代記：第1便（巻第一5記事）
+
+- `hojo_godaiki_records.json`：5つの節見出しに対応するHG-0001〜0005。要約と出典リンクを仮登録。**原文全文は未収録**。
+- `person_links.json`：暫定人物ID、史料固有表記、旧『永享記』EK記事への参照（人物評価・史実認定なし）。
+- `index.html`：5記事の簡易表示。既存『永享記』画面は変更しない。
+- `build.py`：『永享記』192記事を読み取り専用で取り込み、計197記事・人物参照を**独立した別SQLite**へ生成。『永享記』専用DBには書き込まない。
+- `test_batch01.py`：192件×全項目の同値性・新ID・リンク正当性・検証状態・反例を確認。
+
+```sh
+python prototype/hojo-godaiki/test_batch01.py
+python prototype/hojo-godaiki/build.py
+```
+
+出典：https://ja.wikisource.org/wiki/北条五代記/巻第一 （博文館1899年刊行本に基づく公開翻刻）。固定版・出典画像照合・再利用条件の最終確定は別途実施。節内の日時を記事全体へ転写しない。学術的な正しさとCIの成功は別の判定です。

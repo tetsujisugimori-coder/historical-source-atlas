@@ -28,13 +28,16 @@ jobs:
         run: |
           python prototype/eikyouki/build.py
           python prototype/eikyouki/run_checks.py /tmp/atlas-pages-checks
+          python prototype/hojo-godaiki/test_batch01.py
       - name: Stage self-contained viewer only
         run: |
           mkdir -p _site
           cp prototype/eikyouki/index.html _site/index.html
+          mkdir -p _site/hojo-godaiki
+          cp prototype/hojo-godaiki/index.html _site/hojo-godaiki/index.html
           touch _site/.nojekyll
           cmp prototype/eikyouki/index.html _site/index.html
-          test "$(find _site -type f | wc -l)" -eq 2
+          test "$(find _site -type f | wc -l)" -eq 3
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:

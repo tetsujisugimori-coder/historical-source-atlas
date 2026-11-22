@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "policy": "人物IDは史料の原表記を置換しない。史料横断の同一人対応は暫定編集リンクであり、史実・系譜の確定でも人物評価でもない。",
+  "people": [
+    {
+      "person_id": "P-ISE-SHINKURO-0001",
+      "display_label": "伊勢新九郎（早雲・宗瑞）",
+      "identity_status": "EDITORIAL_CORRESPONDENCE_PROVISIONAL",
+      "historical_identity": "NOT_TESTED",
+      "aliases_not_canonical": [
+        "いせ新九郎氏茂",
+        "伊勢新九郡氏茂",
+        "北条早雲宗瑞",
+        "伊勢新九郎長氏入道宗瑞",
+        "伊勢守新九郎",
+        "早雲",
+        "宗瑞"
+      ],
+      "editorial_note": "『北条五代記』の氏茂と『永享記』の長氏は、原表記として別々に保持。字面の差を同一表記へ正規化しない。"
+    }
+  ],
+  "mentions": [
+    {
+      "mention_id": "M-HG-0001",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "HG-0001",
+      "surface_form": "いせ新九郎氏茂",
+      "source": "巻第一・一",
+      "verification": "PROVISIONAL_HEADER_SECTION_READING"
+    },
+    {
+      "mention_id": "M-HG-0002",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "HG-0002",
+      "surface_form": "伊勢新九郡氏茂",
+      "source": "巻第一・二",
+      "verification": "PROVISIONAL_HEADER_SECTION_READING"
+    },
+    {
+      "mention_id": "M-EK-0184",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "EK-0184",
+      "surface_form": "伊勢新九郎長氏入道宗瑞",
+      "source": "永享記・早雲蜂記之事",
+      "verification": "FIXED_TRANSCRIPTION_MENTION"
+    },
+    {
+      "mention_id": "M-EK-0186",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "EK-0186",
+      "surface_form": "早雲",
+      "source": "永享記・早雲蜂記之事",
+      "verification": "FIXED_TRANSCRIPTION_MENTION"
+    },
+    {
+      "mention_id": "M-EK-0187",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "EK-0187",
+      "surface_form": "伊勢守新九郎",
+      "source": "永享記・早雲蜂記之事",
+      "verification": "FIXED_TRANSCRIPTION_MENTION"
+    },
+    {
+      "mention_id": "M-EK-0189",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "EK-0189",
+      "surface_form": "宗瑞",
+      "source": "永享記・早雲蜂記之事",
+      "verification": "FIXED_TRANSCRIPTION_MENTION"
+    },
+    {
+      "mention_id": "M-EK-0190",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "EK-0190",
+      "surface_form": "早雲",
+      "source": "永享記・早雲蜂記之事",
+      "verification": "FIXED_TRANSCRIPTION_MENTION"
+    },
+    {
+      "mention_id": "M-EK-0192",
+      "person_id": "P-ISE-SHINKURO-0001",
+      "article_id": "EK-0192",
+      "surface_form": "早雲",
+      "source": "永享記・早雲蜂記之事",
+      "verification": "FIXED_TRANSCRIPTION_MENTION"
+    }
+  ]
+}
