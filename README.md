@@ -24,7 +24,7 @@ python prototype/eikyouki/build.py
 python prototype/eikyouki/test_dates.py
 ```
 
-**ご注意：** 現在の167件は史料記事の「仮登録候補」です。全文翻刻や伝本・原画像との照合は未了で、暦換算も暫定値です。展示・研究で確定した史実として再利用しないでください。
+**ご注意：** 現在の192件は史料記事の「仮登録候補」です。Wikisource固定版（oldid=218476）の最終物語章まで採録しましたが、初期記事には原文未収録のものがあり、底本画像・異本・伝本所属との全文対照および史実認定は未了です。暦換算も一部暫定・未照合です。展示・研究で確定した史実として再利用しないでください。
 
 ## 開発状況
 
@@ -68,3 +68,7 @@ python prototype/eikyouki/test_dates.py
 ## 第16便
 
 「太田最後之事」8記事（EK-0160〜0167）を仮登録し、[第15便](docs/eikyouki-intake-batch15.md)までの159記事を加えて全167記事。文明18年（1486）の対応年を1記事に登録し、現代暦への換算値は未登録。前章末の終記と後続本文に関する校合注を踏まえ、後続章の所属は未確認として扱う。[第16便採録台帳](docs/eikyouki-intake-batch16.md)を参照。
+
+## 第17〜19便：Wikisource固定翻刻の最終物語章まで
+
+第17便「山内扇谷不和之事」8記事（EK-0168〜0175）、第18便「高見原合戦之事」8記事（EK-0176〜0183）、第19便「早雲蜂記之事」9記事（EK-0184〜0192）を追加し、**合計192記事**を仮登録。第19便は[PR #49](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/49)でmainに統合済みです。固定翻刻の最終物語章まで採録した状態であり、底本・異本・伝本所属や史実の検証完了を意味しません。詳細は[第17便](docs/eikyouki-intake-batch17.md)・[第18便](docs/eikyouki-intake-batch18.md)・[第19便](docs/eikyouki-intake-batch19.md)の各台帳と、[底本画像対照の準備](docs/eikyouki-post-intake-preflight.md)を参照。
