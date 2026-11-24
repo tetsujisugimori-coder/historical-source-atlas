@@ -18,7 +18,7 @@ async function checkOne(viewer, record, context) {
   const link = viewer.locator(`article[id="${record.id}"] a`, { hasText: "Wikisource原節を読む" });
   assert((await link.count()) === 1, `${record.id}: missing/duplicated viewer link`);
   const href = await link.getAttribute("href");
-  const expected = record.source_url.replaceAll("&", "&");
+  const expected = record.source_url;
   assert(href === expected, `${record.id}: HTML link != article source_url`);
 
   const desired = new URL(expected);

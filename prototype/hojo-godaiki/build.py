@@ -32,9 +32,7 @@ def validate(hojo, eik, persons):
         if not r["source_url"].startswith("https://ja.wikisource.org/wiki/北条五代記/巻第一#"):
             raise ValueError("chapter navigation permalink")
         if unquote(r["source_url"].split("#", 1)[1]) != [
-            "一_伊豆早雲平氏茂由来之事", "二_関東天文乱之事",
-            "三_上杉朝成を生捕事", "四_小田原北条家旗馬じるしの事",
-            "五_犬也入道弓馬に達者の事"
+            "一-一", "一-二", "一-三", "一-四", "一-五"
         ][i-1]:
             raise ValueError("wrong chapter navigation anchor")
         if r["full_original_text"] is not None or r["date_precision"] != "unknown":

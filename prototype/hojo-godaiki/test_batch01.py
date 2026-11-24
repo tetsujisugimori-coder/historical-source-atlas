@@ -34,6 +34,10 @@ class FirstBatch(unittest.TestCase):
             self.assertIn(r["source_url"].replace("&","&amp;"),html)
             self.assertTrue(r["source_url"].startswith("https://ja.wikisource.org/wiki/北条五代記/巻第一#"))
         self.assertIn("oldid=217784", html)
+        self.assertEqual(
+            [r["source_url"].rsplit("#", 1)[1] for r in self.h["records"]],
+            ["一-一", "一-二", "一-三", "一-四", "一-五"]
+        )
     def test_sqlite_round_trip_all_197_articles(self):
         with tempfile.TemporaryDirectory() as d:
             path=build(Path(d)/"multi.db")
