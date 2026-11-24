@@ -62,6 +62,14 @@ async function checkOne(viewer, record, context) {
   } catch (error) {
     const state = await popup.evaluate(() => ({
       href: location.href, title: document.title,
+      bodyLength: (document.body?.innerText || "").length,
+      bodyStart: (document.body?.innerText || "").slice(0, 800),
+      targetIDs: [...document.querySelectorAll("[id]")].map(x => x.id)
+        .filter(x => /伊豆|早雲|関東|天文|上杉|生捕|小田原|旗馬|犬也|弓馬/.test(x)).slice(0, 30),
+      tocLinks: [...document.querySelectorAll('a[href*="#"]')]
+        .map(x=>({text:(x.textContent||"").trim().slice(0,75), href:x.getAttribute("href")}))
+        .filter(x=>/伊豆|早雲|関東|天文|上杉|生捕|小田原|旗馬|犬也|弓馬/.test(x.text))
+        .slice(0, 25),
       headings: [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")]
         .map(x => ({text: (x.textContent || "").trim().slice(0,90),
           ids: [x.id, ...[...x.querySelectorAll("[id]")].map(n=>n.id)]}))
@@ -84,7 +92,7 @@ async function checkOne(viewer, record, context) {
     const context = await browser.newContext({ viewport: { width: 1280, height: 780 } });
     const viewer = await context.newPage();
     await viewer.goto(pathToFileURL(path.join(HERE, "index.html")).href);
-    for (const record of data.records) {
+    for (const record of data.records.filter(r => !process.env.ONLY_HG_ID || r.id === process.env.ONLY_HG_ID)) {
       try { await checkOne(viewer, record, context); }
       catch (err) { failed++; console.error(`FAIL: ${err.stack || err}`); }
     }
