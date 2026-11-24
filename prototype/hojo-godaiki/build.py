@@ -4,6 +4,7 @@ import json
 import os
 import sqlite3
 from pathlib import Path
+from urllib.parse import unquote
 from tempfile import mkstemp
 
 HERE = Path(__file__).resolve().parent
@@ -30,7 +31,7 @@ def validate(hojo, eik, persons):
             raise ValueError("edition or chapter")
         if not r["source_url"].startswith("https://ja.wikisource.org/wiki/北条五代記/巻第一#"):
             raise ValueError("chapter navigation permalink")
-        if r["source_url"].split("#", 1)[1] != [
+        if unquote(r["source_url"].split("#", 1)[1]) != [
             "一_伊豆早雲平氏茂由来之事", "二_関東天文乱之事",
             "三_上杉朝成を生捕事", "四_小田原北条家旗馬じるしの事",
             "五_犬也入道弓馬に達者の事"
