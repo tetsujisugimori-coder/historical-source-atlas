@@ -28,14 +28,21 @@ def validate(hojo, eik, persons):
             raise ValueError("schema, order or work mismatch")
         if r["edition_id"] != "HAKUBUNKAN-1899-WIKISOURCE" or r["chapter_id"] != f"HG-V1-{i:02d}":
             raise ValueError("edition or chapter")
-        if not r["source_url"].startswith(hojo["metadata"]["base_url"] + "#"):
-            raise ValueError("article permalink")
+        if not r["source_url"].startswith("https://ja.wikisource.org/wiki/北条五代記/巻第一#"):
+            raise ValueError("chapter navigation permalink")
+        if r["source_url"].split("#", 1)[1] != [
+            "一_伊豆早雲平氏茂由来之事", "二_関東天文乱之事",
+            "三_上杉朝成を生捕事", "四_小田原北条家旗馬じるしの事",
+            "五_犬也入道弓馬に達者の事"
+        ][i-1]:
+            raise ValueError("wrong chapter navigation anchor")
         if r["full_original_text"] is not None or r["date_precision"] != "unknown":
             raise ValueError("uncertified original text/date")
         if r["date_conversion_status"] != "unresolved" or any(r[f] is not None for f in
             ("western_year","era","era_year","lunar_month","lunar_day","julian_start","julian_end","gregorian_start","gregorian_end","research_date_start","research_date_end")):
             raise ValueError("date propagation")
-    if hojo["metadata"]["revision_id"] != 217784: raise ValueError("fixed revision required")
+    if hojo["metadata"]["revision_id"] != 217784 or hojo["metadata"]["base_url"] != "https://ja.wikisource.org/w/index.php?oldid=217784&title=北条五代記/巻第一":
+        raise ValueError("fixed revision provenance required")
     if hojo["metadata"]["transcription_check"] != "NOT_TESTED" or hojo["metadata"]["historical_recognition"] != "NOT_TESTED":
         raise ValueError("verification escalation")
     identities = persons["people"]
@@ -52,6 +59,15 @@ def validate(hojo, eik, persons):
                 raise ValueError("Eikyouki mention not grounded in exact source")
         elif m["verification"] != "PROVISIONAL_HEADER_SECTION_READING":
             raise ValueError("unverified Hojo source marked as fixed")
+        if m["article_id"].startswith("HG-"):
+            expected_ndl = {
+                "HG-0001": "https://dl.ndl.go.jp/api/iiif/1882605/R0000441/full/full/0/default.jpg",
+                "HG-0002": "https://dl.ndl.go.jp/api/iiif/1882605/R0000447/full/full/0/default.jpg",
+            }
+            if m["evidence_url"] != expected_ndl.get(m["article_id"]) or m["evidence_scope"] != "NDL_IMAGE_SURFACE_ONLY":
+                raise ValueError("unverified or mismatched NDL image evidence")
+        elif m["evidence_url"] != by_id[m["article_id"]]["source_url"] or m["evidence_scope"] != "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT":
+            raise ValueError("Eikyouki mention evidence not matching fixed article URL")
     return old, new
 
 def build(destination=DB, hojo=None, persons=None):
@@ -87,6 +103,16 @@ def build(destination=DB, hojo=None, persons=None):
             row={**r,"article_id":r["id"]}
             if row["lunar_is_leap"] is not None: row["lunar_is_leap"]=int(row["lunar_is_leap"])
             con.execute(sql,[row[f] for f in fields])
+        # Store one exact URL per article, rather than reconstructing it from the
+        # chapter URL (which discards individual fragments and mixed work bases).
+        con.executescript("""CREATE TABLE article_source_urls (
+          article_id TEXT PRIMARY KEY REFERENCES articles(article_id),
+          source_url TEXT NOT NULL CHECK(substr(source_url,1,8)='https://')
+        ) STRICT;""")
+        con.executemany(
+            "INSERT INTO article_source_urls (article_id, source_url) VALUES (?,?)",
+            [(r["id"], r["source_url"]) for r in old+new]
+        )
         con.executescript("""CREATE TABLE persons (
           person_id TEXT PRIMARY KEY, display_label TEXT NOT NULL,
           identity_status TEXT NOT NULL CHECK(identity_status='EDITORIAL_CORRESPONDENCE_PROVISIONAL'),
@@ -95,14 +121,17 @@ def build(destination=DB, hojo=None, persons=None):
           CREATE TABLE person_mentions (
           mention_id TEXT PRIMARY KEY, person_id TEXT NOT NULL REFERENCES persons(person_id),
           article_id TEXT NOT NULL REFERENCES articles(article_id), surface_form TEXT NOT NULL,
-          verification TEXT NOT NULL, payload TEXT NOT NULL CHECK(json_valid(payload))) STRICT;""")
+          verification TEXT NOT NULL, evidence_url TEXT NOT NULL CHECK(substr(evidence_url,1,8)='https://'),
+          payload TEXT NOT NULL CHECK(json_valid(payload))) STRICT;""")
         for p in persons["people"]:
             con.execute("INSERT INTO persons VALUES (?,?,?,?,?)",(p["person_id"],p["display_label"],p["identity_status"],p["historical_identity"],json.dumps(p,ensure_ascii=False)))
         for m in persons["mentions"]:
-            con.execute("INSERT INTO person_mentions VALUES (?,?,?,?,?,?)",(m["mention_id"],m["person_id"],m["article_id"],m["surface_form"],m["verification"],json.dumps(m,ensure_ascii=False)))
+            con.execute("INSERT INTO person_mentions VALUES (?,?,?,?,?,?,?)",(m["mention_id"],m["person_id"],m["article_id"],m["surface_form"],m["verification"],m["evidence_url"],json.dumps(m,ensure_ascii=False)))
         con.commit()
         if con.execute("PRAGMA foreign_key_check").fetchall(): raise ValueError("broken SQLite links")
         if con.execute("SELECT COUNT(*) FROM articles").fetchone()[0]!=197: raise ValueError("197 records expected")
+        if con.execute("SELECT COUNT(*) FROM article_source_urls").fetchone()[0]!=197:
+            raise ValueError("197 individual source URLs expected")
         con.close();con=None
         temp.replace(destination)
     finally:

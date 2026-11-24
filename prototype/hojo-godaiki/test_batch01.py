@@ -28,6 +28,12 @@ class FirstBatch(unittest.TestCase):
             self.assertIn(r["summary"],html)
         self.assertIn("../index.html?ref=EK-0184#EK-0184",html)
         self.assertNotIn("<script",html)
+        self.assertIn("指定2箇所のみ画像照合済み、全文未照合", html)
+        self.assertIn("EDITORIAL_CORRESPONDENCE_PROVISIONAL", json.dumps(self.p,ensure_ascii=False))
+        for r in self.h["records"]:
+            self.assertIn(r["source_url"].replace("&","&amp;"),html)
+            self.assertTrue(r["source_url"].startswith("https://ja.wikisource.org/wiki/北条五代記/巻第一#"))
+        self.assertIn("oldid=217784", html)
     def test_sqlite_round_trip_all_197_articles(self):
         with tempfile.TemporaryDirectory() as d:
             path=build(Path(d)/"multi.db")
@@ -43,6 +49,12 @@ class FirstBatch(unittest.TestCase):
                         if k=="lunar_is_leap" and v is not None:v=int(v)
                         self.assertEqual(got,v,(expected["id"],k))
                 self.assertEqual(con.execute("PRAGMA foreign_key_check").fetchall(),[])
+                stored_urls=dict(con.execute("SELECT article_id,source_url FROM article_source_urls"))
+                expected_urls={r["id"]:r["source_url"] for r in self.e["records"]+self.h["records"]}
+                self.assertEqual(len(stored_urls),197)
+                self.assertEqual(stored_urls,expected_urls)
+                stored_evidence=dict(con.execute("SELECT mention_id,evidence_url FROM person_mentions"))
+                self.assertEqual(stored_evidence,{m["mention_id"]:m["evidence_url"] for m in self.p["mentions"]})
                 self.assertEqual(con.execute("SELECT COUNT(*) FROM person_mentions").fetchone()[0],len(self.p["mentions"]))
                 self.assertEqual([x[0] for x in con.execute("SELECT article_id FROM person_mentions WHERE article_id LIKE 'HG-%' ORDER BY article_id")],["HG-0001","HG-0002"])
     def test_negative_controls(self):
@@ -56,6 +68,12 @@ class FirstBatch(unittest.TestCase):
         p=copy.deepcopy(self.p);p["mentions"].append(p["mentions"][0]);cases.append((self.h,p))
         p=copy.deepcopy(self.p);p["mentions"][2]["surface_form"]="nonexistent";cases.append((self.h,p))
         p=copy.deepcopy(self.p);p["people"][0]["historical_identity"]="VERIFIED";cases.append((self.h,p))
+        p=copy.deepcopy(self.p);p["mentions"][0]["evidence_url"]=None;cases.append((self.h,p))
+        p=copy.deepcopy(self.p);p["mentions"][1]["evidence_url"]=p["mentions"][0]["evidence_url"];cases.append((self.h,p))
+        p=copy.deepcopy(self.p);p["mentions"][2]["evidence_url"]="https://invalid.example/source";cases.append((self.h,p))
+        p=copy.deepcopy(self.p);p["mentions"][2].pop("evidence_scope");cases.append((self.h,p))
+        h=copy.deepcopy(self.h);h["records"][0]["source_url"]=h["records"][1]["source_url"];cases.append((h,self.p))
+        h=copy.deepcopy(self.h);h["metadata"]["base_url"]="https://ja.wikisource.org/wiki/北条五代記/巻第一";cases.append((h,self.p))
         for h,p in cases:
             with self.subTest(reason=str((h["records"][0]["id"],p["people"][0]["historical_identity"]))):
                 with self.assertRaises(ValueError):

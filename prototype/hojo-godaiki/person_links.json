@@ -26,7 +26,9 @@
       "article_id": "HG-0001",
       "surface_form": "いせ新九郎氏茂",
       "source": "巻第一・一",
-      "verification": "PROVISIONAL_HEADER_SECTION_READING"
+      "verification": "PROVISIONAL_HEADER_SECTION_READING",
+      "evidence_url": "https://dl.ndl.go.jp/api/iiif/1882605/R0000441/full/full/0/default.jpg",
+      "evidence_scope": "NDL_IMAGE_SURFACE_ONLY"
     },
     {
       "mention_id": "M-HG-0002",
@@ -34,7 +36,9 @@
       "article_id": "HG-0002",
       "surface_form": "伊勢新九郡氏茂",
       "source": "巻第一・二",
-      "verification": "PROVISIONAL_HEADER_SECTION_READING"
+      "verification": "PROVISIONAL_HEADER_SECTION_READING",
+      "evidence_url": "https://dl.ndl.go.jp/api/iiif/1882605/R0000447/full/full/0/default.jpg",
+      "evidence_scope": "NDL_IMAGE_SURFACE_ONLY"
     },
     {
       "mention_id": "M-EK-0184",
@@ -42,7 +46,9 @@
       "article_id": "EK-0184",
       "surface_form": "伊勢新九郎長氏入道宗瑞",
       "source": "永享記・早雲蜂記之事",
-      "verification": "FIXED_TRANSCRIPTION_MENTION"
+      "verification": "FIXED_TRANSCRIPTION_MENTION",
+      "evidence_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-19",
+      "evidence_scope": "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT"
     },
     {
       "mention_id": "M-EK-0186",
@@ -50,7 +56,9 @@
       "article_id": "EK-0186",
       "surface_form": "早雲",
       "source": "永享記・早雲蜂記之事",
-      "verification": "FIXED_TRANSCRIPTION_MENTION"
+      "verification": "FIXED_TRANSCRIPTION_MENTION",
+      "evidence_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-19",
+      "evidence_scope": "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT"
     },
     {
       "mention_id": "M-EK-0187",
@@ -58,7 +66,9 @@
       "article_id": "EK-0187",
       "surface_form": "伊勢守新九郎",
       "source": "永享記・早雲蜂記之事",
-      "verification": "FIXED_TRANSCRIPTION_MENTION"
+      "verification": "FIXED_TRANSCRIPTION_MENTION",
+      "evidence_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-19",
+      "evidence_scope": "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT"
     },
     {
       "mention_id": "M-EK-0189",
@@ -66,7 +76,9 @@
       "article_id": "EK-0189",
       "surface_form": "宗瑞",
       "source": "永享記・早雲蜂記之事",
-      "verification": "FIXED_TRANSCRIPTION_MENTION"
+      "verification": "FIXED_TRANSCRIPTION_MENTION",
+      "evidence_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-19",
+      "evidence_scope": "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT"
     },
     {
       "mention_id": "M-EK-0190",
@@ -74,7 +86,9 @@
       "article_id": "EK-0190",
       "surface_form": "早雲",
       "source": "永享記・早雲蜂記之事",
-      "verification": "FIXED_TRANSCRIPTION_MENTION"
+      "verification": "FIXED_TRANSCRIPTION_MENTION",
+      "evidence_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-19",
+      "evidence_scope": "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT"
     },
     {
       "mention_id": "M-EK-0192",
@@ -82,7 +96,9 @@
       "article_id": "EK-0192",
       "surface_form": "早雲",
       "source": "永享記・早雲蜂記之事",
-      "verification": "FIXED_TRANSCRIPTION_MENTION"
+      "verification": "FIXED_TRANSCRIPTION_MENTION",
+      "evidence_url": "https://ja.wikisource.org/w/index.php?oldid=218476&title=永享記#ei-19",
+      "evidence_scope": "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT"
     }
   ]
 }
