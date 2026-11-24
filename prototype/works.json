@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "works": [
+    {
+      "work_id": "EIKYOUKI",
+      "title": "永享記",
+      "edition_id": "SHISEKI-SHURAN-12-WIKISOURCE",
+      "article_count": 192,
+      "records_path": "eikyouki/eikyouki_records.json",
+      "viewer_path": "eikyouki/index.html",
+      "status": "仮登録・底本未校訂"
+    },
+    {
+      "work_id": "HOJO-GODAIKI",
+      "title": "北条五代記",
+      "edition_id": "HAKUBUNKAN-1899-WIKISOURCE",
+      "article_count": 5,
+      "records_path": "hojo-godaiki/hojo_godaiki_records.json",
+      "viewer_path": "hojo-godaiki/index.html",
+      "status": "第1便仮登録・本文全文未収録"
+    }
+  ],
+  "person_index_path": "hojo-godaiki/person_links.json"
+}
