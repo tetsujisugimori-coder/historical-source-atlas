@@ -65,9 +65,9 @@ def validate(hojo, eik, persons):
                 "HG-0001": "https://dl.ndl.go.jp/api/iiif/1882605/R0000441/full/full/0/default.jpg",
                 "HG-0002": "https://dl.ndl.go.jp/api/iiif/1882605/R0000447/full/full/0/default.jpg",
             }
-            if m["evidence_url"] != expected_ndl.get(m["article_id"]) or m["evidence_scope"] != "NDL_IMAGE_SURFACE_ONLY":
+            if m.get("evidence_url") != expected_ndl.get(m["article_id"]) or m.get("evidence_scope") != "NDL_IMAGE_SURFACE_ONLY":
                 raise ValueError("unverified or mismatched NDL image evidence")
-        elif m["evidence_url"] != by_id[m["article_id"]]["source_url"] or m["evidence_scope"] != "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT":
+        elif m.get("evidence_url") != by_id[m["article_id"]]["source_url"] or m.get("evidence_scope") != "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT":
             raise ValueError("Eikyouki mention evidence not matching fixed article URL")
     return old, new
 
