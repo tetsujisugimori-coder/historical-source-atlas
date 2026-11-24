@@ -4,17 +4,15 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
-const { chromium } = require("playwright");
 
 const HERE = __dirname;
-const data = JSON.parse(fs.readFileSync(path.join(HERE, "hojo_godaiki_records.json"), "utf8"));
 const expectedIds = Array.from({ length: 5 }, (_, n) => `HG-${String(n + 1).padStart(4, "0")}`);
 
 function assert(value, message) {
   if (!value) throw new Error(message);
 }
 
-async function checkOne(viewer, record, context) {
+async function checkOne(viewer, record) {
   const link = viewer.locator(`article[id="${record.id}"] a`, { hasText: "Wikisource原節を読む" });
   assert((await link.count()) === 1, `${record.id}: missing/duplicated viewer link`);
   const href = await link.getAttribute("href");
@@ -82,24 +80,61 @@ async function checkOne(viewer, record, context) {
   }
 }
 
-(async () => {
-  assert(data.records.length === 5 &&
-    data.records.every((r, i) => r.id === expectedIds[i]),
+function selectRecords(records, onlyId) {
+  assert(records.length === expectedIds.length &&
+    records.every((record, index) => record.id === expectedIds[index]),
     "exactly five ordered Hojo articles required");
+  if (onlyId === undefined) return records;
+  assert(expectedIds.includes(onlyId),
+    `FAIL limited: 0 checks attempted; unknown ONLY_HG_ID ${JSON.stringify(onlyId)}`);
+  return records.filter(record => record.id === onlyId);
+}
+
+async function checkSections(records, onlyId, check) {
+  const mode = onlyId === undefined ? "full" : "limited";
+  const expected = new Set(onlyId === undefined ? expectedIds : [onlyId]);
+  const attempted = new Set();
+  const succeeded = new Set();
+
+  for (const record of records) {
+    const id = record.id;
+    assert(expected.has(id) && !attempted.has(id), `unexpected or duplicate section check: ${id}`);
+    attempted.add(id);
+    try {
+      await check(record);
+      succeeded.add(id);
+    } catch (error) {
+      console.error(`FAIL ${id}: ${error.stack || error}`);
+    }
+  }
+
+  const counts = `${succeeded.size}/${expected.size} passed, ${attempted.size} attempted`;
+  assert(attempted.size === expected.size && succeeded.size === expected.size,
+    `FAIL ${mode}: ${counts}`);
+  return `PASS ${mode}: ${counts} in Chromium`;
+}
+
+async function main() {
+  const data = JSON.parse(fs.readFileSync(path.join(HERE, "hojo_godaiki_records.json"), "utf8"));
+  const onlyId = process.env.ONLY_HG_ID;
+  const records = selectRecords(data.records, onlyId);
+  const { chromium } = require("playwright");
   const browser = await chromium.launch({headless: true});
-  let failed = 0;
+  let summary;
   try {
     const context = await browser.newContext({ viewport: { width: 1280, height: 780 } });
     const viewer = await context.newPage();
     await viewer.goto(pathToFileURL(path.join(HERE, "index.html")).href);
-    for (const record of data.records.filter(r => !process.env.ONLY_HG_ID || r.id === process.env.ONLY_HG_ID)) {
-      try { await checkOne(viewer, record, context); }
-      catch (err) { failed++; console.error(`FAIL: ${err.stack || err}`); }
-    }
+    summary = await checkSections(records, onlyId, record => checkOne(viewer, record));
     await context.close();
   } finally {
     await browser.close();
   }
-  if (failed) throw new Error(`${failed}/5 Wikisource section links did not pass real browser navigation`);
-  console.log("All 5/5 external section link clicks verified in Chromium.");
-})().catch(err => { console.error(err.stack || err); process.exitCode = 1; });
+  console.log(summary);
+}
+
+if (require.main === module) {
+  main().catch(error => { console.error(error.stack || error); process.exitCode = 1; });
+}
+
+module.exports = { selectRecords, checkSections };
