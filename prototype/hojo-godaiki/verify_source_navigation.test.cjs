@@ -34,23 +34,23 @@ test("limited and full runs reject a failed click with accurate counts", async t
   await assert.rejects(checkSections(selectRecords(records, onlyId), onlyId, check),
     /FAIL limited: 0\/1 passed, 1 attempted/);
   await assert.rejects(checkSections(records, undefined, check),
-    /FAIL full: 4\/5 passed, 5 attempted/);
+    /FAIL full: 11\/12 passed, 12 attempted/);
   assert.equal(console.error.mock.callCount(), 2);
 });
 
 test("duplicate IDs and incomplete full runs cannot pass", async () => {
-  const duplicate = [...records.slice(0, 4), records[0]];
-  assert.throws(() => selectRecords(duplicate), /exactly five ordered Hojo articles/);
+  const duplicate = [...records.slice(0, -1), records[0]];
+  assert.throws(() => selectRecords(duplicate), /exactly 12 ordered Hojo articles/);
   await assert.rejects(checkSections(duplicate, undefined, async () => {}),
     /unexpected or duplicate section check: HG-0001/);
-  await assert.rejects(checkSections(records.slice(0, 4), undefined, async () => {}),
-    /FAIL full: 4\/5 passed, 4 attempted/);
+  await assert.rejects(checkSections(records.slice(0, -1), undefined, async () => {}),
+    /FAIL full: 11\/12 passed, 11 attempted/);
 });
 
-test("full mode reports 5/5 after visiting all five distinct IDs", async () => {
+test("full mode reports 12/12 after visiting both volumes", async () => {
   const visited = [];
   const summary = await checkSections(selectRecords(records), undefined,
     async record => { visited.push(record.id); });
-  assert.deepEqual(visited, ["HG-0001", "HG-0002", "HG-0003", "HG-0004", "HG-0005"]);
-  assert.equal(summary, "PASS full: 5/5 passed, 5 attempted in Chromium");
+  assert.deepEqual(visited, records.map(record => record.id));
+  assert.equal(summary, "PASS full: 12/12 passed, 12 attempted in Chromium");
 });

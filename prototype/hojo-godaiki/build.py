@@ -13,6 +13,11 @@ DATA = HERE / "hojo_godaiki_records.json"
 PERSONS = HERE / "person_links.json"
 DB = HERE / "hojo_godaiki.db"
 SCHEMA = (EIK / "schema.sql").read_text(encoding="utf-8")
+WIKISOURCE = "https://ja.wikisource.org"
+VOLUMES = (
+    (1, "巻第一", "一", "一二三四五", 217784),
+    (2, "巻第二", "二", "一二三四五六七", 214082),
+)
 # Only these two spellings were checked against the printed pages.
 NDL_SPELLINGS = {
     "HG-0001": ("いせ新九郎氏茂", "R0000441"),  # p. 843
@@ -26,29 +31,45 @@ def validate(hojo, eik, persons):
     old, new = eik["records"], hojo["records"]
     if len(old) != 192 or [r["id"] for r in old] != [f"EK-{i:04d}" for i in range(1,193)]:
         raise ValueError("Eikyouki baseline must be 192 ordered articles")
-    if [r["id"] for r in new] != [f"HG-{i:04d}" for i in range(1,6)]:
-        raise ValueError("five non-colliding HG article IDs required")
+    metadata = hojo["metadata"]
+    additional_volumes = metadata.get("additional_volumes", {})
+    if additional_volumes.keys() not in (set(), {"巻第二"}):
+        raise ValueError("unexpected Hojo volumes")
+    sections = []
+    for number, volume, ordinal, section_ordinals, revision in VOLUMES:
+        if number == 1:
+            source = metadata
+        elif volume in additional_volumes:
+            source = additional_volumes[volume]
+        else:
+            continue
+        title = f"北条五代記/{volume}"
+        fixed_url = f"{WIKISOURCE}/w/index.php?oldid={revision}&title={title}"
+        if source["revision_id"] != revision or source["base_url"] != fixed_url:
+            raise ValueError("fixed revision provenance required")
+        if any(source[key] != "NOT_TESTED" for key in
+               ("transcription_check", "base_image_check", "variant_check", "historical_recognition")):
+            raise ValueError("verification escalation")
+        for section_number, section in enumerate(section_ordinals, 1):
+            chapter_id = f"HG-V{number}-{section_number:02d}"
+            source_url = f"{WIKISOURCE}/wiki/{title}#{ordinal}-{section}"
+            sections.append((chapter_id, source_url))
+    if [r["id"] for r in new] != [f"HG-{i:04d}" for i in range(1, len(sections) + 1)]:
+        raise ValueError("ordered, non-colliding HG article IDs required")
     expected_fields = set(old[0])
-    for i, r in enumerate(new, 1):
+    for i, (r, (chapter_id, source_url)) in enumerate(zip(new, sections), 1):
         if set(r) != expected_fields or r["source_order"] != i or r["work_id"] != "HOJO-GODAIKI":
             raise ValueError("schema, order or work mismatch")
-        if r["edition_id"] != "HAKUBUNKAN-1899-WIKISOURCE" or r["chapter_id"] != f"HG-V1-{i:02d}":
+        if r["edition_id"] != "HAKUBUNKAN-1899-WIKISOURCE" or r["chapter_id"] != chapter_id:
             raise ValueError("edition or chapter")
-        if not r["source_url"].startswith("https://ja.wikisource.org/wiki/北条五代記/巻第一#"):
-            raise ValueError("chapter navigation permalink")
-        if unquote(r["source_url"].split("#", 1)[1]) != [
-            "一-一", "一-二", "一-三", "一-四", "一-五"
-        ][i-1]:
+        page, marker, anchor = r["source_url"].partition("#")
+        if page + marker + unquote(anchor) != source_url:
             raise ValueError("wrong chapter navigation anchor")
         if r["full_original_text"] is not None or r["date_precision"] != "unknown":
             raise ValueError("uncertified original text/date")
         if r["date_conversion_status"] != "unresolved" or any(r[f] is not None for f in
-            ("western_year","era","era_year","lunar_month","lunar_day","julian_start","julian_end","gregorian_start","gregorian_end","research_date_start","research_date_end")):
+            ("western_year","era","era_year","lunar_month","lunar_day","lunar_is_leap","julian_start","julian_end","gregorian_start","gregorian_end","research_date_start","research_date_end")):
             raise ValueError("date propagation")
-    if hojo["metadata"]["revision_id"] != 217784 or hojo["metadata"]["base_url"] != "https://ja.wikisource.org/w/index.php?oldid=217784&title=北条五代記/巻第一":
-        raise ValueError("fixed revision provenance required")
-    if hojo["metadata"]["transcription_check"] != "NOT_TESTED" or hojo["metadata"]["historical_recognition"] != "NOT_TESTED":
-        raise ValueError("verification escalation")
     identities = persons["people"]
     if len(identities) != 1 or identities[0]["identity_status"] != "EDITORIAL_CORRESPONDENCE_PROVISIONAL" or identities[0]["historical_identity"] != "NOT_TESTED":
         raise ValueError("identity status")
@@ -98,7 +119,7 @@ def build(destination=DB, hojo=None, persons=None):
         con = sqlite3.connect(temp)
         con.executescript(SCHEMA)
         con.execute("INSERT INTO works VALUES (?,?,?,?,?)",("EIKYOUKI","永享記","不詳","軍記物語","既存192記事・原文と付随情報は元JSONを参照"))
-        con.execute("INSERT INTO works VALUES (?,?,?,?,?)",("HOJO-GODAIKI","北条五代記","三浦茂正（三浦浄心）","仮名草子","巻第一5節、全文未収録、史実未認定"))
+        con.execute("INSERT INTO works VALUES (?,?,?,?,?)",("HOJO-GODAIKI","北条五代記","三浦茂正（三浦浄心）","仮名草子",f"{len(new)}節、全文未収録、史実未認定"))
         con.execute("INSERT INTO editions VALUES (?,?,?,?,?)",("SHISEKI-SHURAN-12-WIKISOURCE","EIKYOUKI",eik["metadata"]["edition"],eik["metadata"]["base_url"],eik["metadata"]["transcription_note"]))
         con.execute("INSERT INTO editions VALUES (?,?,?,?,?)",("HAKUBUNKAN-1899-WIKISOURCE","HOJO-GODAIKI",hojo["metadata"]["edition"],hojo["metadata"]["base_url"],hojo["metadata"]["transcription_policy"]))
         chapters = {}
@@ -127,6 +148,26 @@ def build(destination=DB, hojo=None, persons=None):
             "INSERT INTO article_source_urls (article_id, source_url) VALUES (?,?)",
             [(r["id"], r["source_url"]) for r in old+new]
         )
+        # One bibliographic edition can span several Wikisource revisions.
+        # Keep the existing edition and live links, and record the actual
+        # fixed reference used for each Hojo article.
+        metadata = hojo["metadata"]
+        fixed_urls = {
+            f"HG-V{number}": source["base_url"]
+            for number, source in (
+                (1, metadata),
+                (2, metadata.get("additional_volumes", {}).get("巻第二")),
+            )
+            if source is not None
+        }
+        con.execute("""CREATE TABLE article_fixed_sources (
+          article_id TEXT PRIMARY KEY REFERENCES articles(article_id),
+          fixed_source_url TEXT NOT NULL CHECK(substr(fixed_source_url,1,8)='https://')
+        ) STRICT""")
+        con.executemany(
+            "INSERT INTO article_fixed_sources VALUES (?,?)",
+            [(r["id"], fixed_urls[r["chapter_id"].rsplit("-", 1)[0]]) for r in new],
+        )
         con.executescript("""CREATE TABLE persons (
           person_id TEXT PRIMARY KEY, display_label TEXT NOT NULL,
           identity_status TEXT NOT NULL CHECK(identity_status='EDITORIAL_CORRESPONDENCE_PROVISIONAL'),
@@ -143,9 +184,11 @@ def build(destination=DB, hojo=None, persons=None):
             con.execute("INSERT INTO person_mentions VALUES (?,?,?,?,?,?,?)",(m["mention_id"],m["person_id"],m["article_id"],m["surface_form"],m["verification"],m["evidence_url"],json.dumps(m,ensure_ascii=False)))
         con.commit()
         if con.execute("PRAGMA foreign_key_check").fetchall(): raise ValueError("broken SQLite links")
-        if con.execute("SELECT COUNT(*) FROM articles").fetchone()[0]!=197: raise ValueError("197 records expected")
-        if con.execute("SELECT COUNT(*) FROM article_source_urls").fetchone()[0]!=197:
-            raise ValueError("197 individual source URLs expected")
+        total = len(old) + len(new)
+        if con.execute("SELECT COUNT(*) FROM articles").fetchone()[0] != total:
+            raise ValueError(f"{total} records expected")
+        if con.execute("SELECT COUNT(*) FROM article_source_urls").fetchone()[0] != total:
+            raise ValueError(f"{total} individual source URLs expected")
         con.close();con=None
         temp.replace(destination)
     finally:
@@ -154,5 +197,6 @@ def build(destination=DB, hojo=None, persons=None):
     return destination
 
 if __name__=="__main__":
-    path=build()
-    print("Created",path.name,": 192 preserved EK records + 5 new HG records")
+    hojo = read_json(DATA)
+    path = build(hojo=hojo)
+    print(f"Created {path.name}: 192 preserved EK records + {len(hojo['records'])} HG records")

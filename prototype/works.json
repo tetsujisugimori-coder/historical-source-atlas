@@ -14,10 +14,10 @@
       "work_id": "HOJO-GODAIKI",
       "title": "北条五代記",
       "edition_id": "HAKUBUNKAN-1899-WIKISOURCE",
-      "article_count": 5,
+      "article_count": 12,
       "records_path": "hojo-godaiki/hojo_godaiki_records.json",
       "viewer_path": "hojo-godaiki/index.html",
-      "status": "第1便仮登録・本文全文未収録"
+      "status": "巻第一・巻第二を仮登録・本文全文未収録"
     }
   ],
   "person_index_path": "hojo-godaiki/person_links.json"
