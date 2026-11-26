@@ -1,50 +1,49 @@
-"""First Hojo batch: preservation, source-state, person-link and DB negative controls."""
+"""Hojo intake: preservation, source-state, person-link and SQLite checks."""
 import copy
 import json
+import re
 import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
 from build import build, validate, read_json, DATA, PERSONS, EIK, HERE
 
-class FirstBatch(unittest.TestCase):
+class HojoIntake(unittest.TestCase):
     def setUp(self):
         self.h=read_json(DATA)
         self.p=read_json(PERSONS)
         self.e=read_json(EIK/"eikyouki_records.json")
-    def test_exact_five_and_preserved_192(self):
+    def test_ordered_articles_and_preserved_192(self):
         a,b=validate(self.h,self.e,self.p)
         self.assertEqual(len(a),192)
-        self.assertEqual(len(b),5)
-        self.assertEqual(len(set(x["id"] for x in a+b)),197)
+        self.assertEqual(len(b),12)
+        self.assertEqual(len(set(x["id"] for x in a+b)),204)
         self.assertTrue(all(x["full_original_text"] is None for x in b))
     def test_catalog_and_static_view(self):
         c=read_json(HERE.parent/"works.json")
-        self.assertEqual([(v["work_id"],v["article_count"]) for v in c["works"]],[("EIKYOUKI",192),("HOJO-GODAIKI",5)])
+        self.assertEqual([(v["work_id"],v["article_count"]) for v in c["works"]],[("EIKYOUKI",192),("HOJO-GODAIKI",12)])
         html=(HERE/"index.html").read_text(encoding="utf-8")
-        for r in self.h["records"]:
-            self.assertIn('id="'+r["id"]+'"',html)
-            self.assertIn(r["chapter"],html)
-            self.assertIn(r["summary"],html)
+        cards = re.findall(r'<article id="([^"]+)">(.*?)</article>', html, re.DOTALL)
+        self.assertEqual([article_id for article_id, _ in cards], [r["id"] for r in self.h["records"]])
+        for (_, card), r in zip(cards, self.h["records"]):
+            self.assertIn(r["chapter"], card)
+            self.assertIn(r["summary"], card)
+            self.assertIn(r["source_url"].replace("&", "&amp;"), card)
         self.assertIn("../index.html?ref=EK-0184#EK-0184",html)
         self.assertNotIn("<script",html)
         self.assertIn("指定2箇所のみ画像照合済み、全文未照合", html)
         self.assertIn("EDITORIAL_CORRESPONDENCE_PROVISIONAL", json.dumps(self.p,ensure_ascii=False))
-        for r in self.h["records"]:
-            self.assertIn(r["source_url"].replace("&","&amp;"),html)
-            self.assertTrue(r["source_url"].startswith("https://ja.wikisource.org/wiki/北条五代記/巻第一#"))
-        self.assertIn("oldid=217784", html)
-        self.assertEqual(
-            [r["source_url"].rsplit("#", 1)[1] for r in self.h["records"]],
-            ["一-一", "一-二", "一-三", "一-四", "一-五"]
-        )
-    def test_sqlite_round_trip_all_197_articles(self):
+        sources = (self.h["metadata"], self.h["metadata"]["additional_volumes"]["巻第二"])
+        for source in sources:
+            self.assertIn(source["base_url"].replace("&", "&amp;"), html)
+
+    def test_sqlite_round_trip_all_204_articles(self):
         with tempfile.TemporaryDirectory() as d:
             path=build(Path(d)/"multi.db")
             with sqlite3.connect(path) as con:
                 con.row_factory=sqlite3.Row
                 rows=[dict(x) for x in con.execute("SELECT * FROM articles ORDER BY CASE WHEN article_id LIKE 'EK-%' THEN 0 ELSE 1 END, article_id")]
-                self.assertEqual(len(rows),197)
+                self.assertEqual(len(rows),204)
                 for expected,actual in zip(self.e["records"]+self.h["records"],rows):
                     for k,v in expected.items():
                         if k in ("work_id","edition_id","chapter","source_url"):
@@ -55,8 +54,18 @@ class FirstBatch(unittest.TestCase):
                 self.assertEqual(con.execute("PRAGMA foreign_key_check").fetchall(),[])
                 stored_urls=dict(con.execute("SELECT article_id,source_url FROM article_source_urls"))
                 expected_urls={r["id"]:r["source_url"] for r in self.e["records"]+self.h["records"]}
-                self.assertEqual(len(stored_urls),197)
+                self.assertEqual(len(stored_urls),204)
                 self.assertEqual(stored_urls,expected_urls)
+                chapter_rows = con.execute("""
+                    SELECT a.article_id, c.heading, c.edition_id, e.work_id
+                    FROM articles a JOIN chapters c USING (chapter_id)
+                    JOIN editions e USING (edition_id)
+                """)
+                self.assertEqual(
+                    {row[0]: tuple(row)[1:] for row in chapter_rows},
+                    {r["id"]: (r["chapter"], r["edition_id"], r["work_id"])
+                     for r in self.e["records"] + self.h["records"]},
+                )
                 stored_evidence=dict(con.execute("SELECT mention_id,evidence_url FROM person_mentions"))
                 self.assertEqual(stored_evidence,{m["mention_id"]:m["evidence_url"] for m in self.p["mentions"]})
                 self.assertEqual(con.execute("SELECT COUNT(*) FROM person_mentions").fetchone()[0],len(self.p["mentions"]))
@@ -102,5 +111,21 @@ class FirstBatch(unittest.TestCase):
             with self.subTest(reason=str((h["records"][0]["id"],p["people"][0]["historical_identity"]))):
                 with self.assertRaises(ValueError):
                     validate(h,self.e,p)
+
+    def test_second_volume_negative_controls(self):
+        data = copy.deepcopy(self.h)
+        data["records"][5]["source_url"] = data["records"][0]["source_url"]
+        with self.assertRaisesRegex(ValueError, "wrong chapter navigation anchor"):
+            validate(data, self.e, self.p)
+
+        data = copy.deepcopy(self.h)
+        data["metadata"]["additional_volumes"]["巻第二"]["revision_id"] = 217784
+        with self.assertRaisesRegex(ValueError, "fixed revision provenance required"):
+            validate(data, self.e, self.p)
+
+        data = copy.deepcopy(self.h)
+        data["records"].pop()
+        with self.assertRaisesRegex(ValueError, "ordered, non-colliding HG article IDs required"):
+            validate(data, self.e, self.p)
 
 if __name__=="__main__":unittest.main()

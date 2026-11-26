@@ -1,14 +1,15 @@
-# 北条五代記：第1便（巻第一5記事）
+# 北条五代記 巻第一・巻第二
 
-- `hojo_godaiki_records.json`：5つの節見出しに対応するHG-0001〜0005。要約と出典リンクを仮登録。**原文全文は未収録**。
-- `person_links.json`：暫定人物ID、史料固有表記、旧『永享記』EK記事への参照（人物評価・史実認定なし）。
-- `index.html`：5記事の簡易表示。既存『永享記』画面は変更しない。
-- `build.py`：『永享記』192記事を読み取り専用で取り込み、計197記事・人物参照を**独立した別SQLite**へ生成。記事単位の出典URL197件を `article_source_urls`、人物言及8件の根拠URLを `person_mentions.evidence_url` に保存する。『永享記』専用DBには書き込まない。
-- `test_batch01.py`：192件×全項目の同値性・新ID・リンク正当性・検証状態・反例を確認。
+- `hojo_godaiki_records.json` に巻第一5節（HG-0001〜0005）と巻第二7節（HG-0006〜0012）の見出し・要約・閲覧リンクを収録。巻第一の固定版情報は既存の `metadata`、巻第二は `metadata.additional_volumes` に保存。本文欄はNULL。
+- `person_links.json` に巻第一と『永享記』の暫定人物対応、史料ごとの表記、根拠URLを保存。底本画像を照合した範囲は巻第一の指定表記2箇所。
+- `index.html` で各巻の節と固定版参照を閲覧可能。
+- `build.py` で両作品204記事の独立SQLiteを生成。記事単位の閲覧URLは `article_source_urls`、人物言及8件の根拠URLは `person_mentions.evidence_url` に保存。
+- `test_batch01.py` で両巻のJSON・HTML・SQLiteと出典対応を検査。節リンク専用CIではChromiumで全12節を実際に開く。
 
 ```sh
 python prototype/hojo-godaiki/test_batch01.py
 python prototype/hojo-godaiki/build.py
+node --test prototype/hojo-godaiki/verify_source_navigation.test.cjs
 ```
 
-出典：https://ja.wikisource.org/w/index.php?oldid=217784&title=北条五代記/巻第一 （博文館1899年刊行本に基づく公開翻刻）。固定版oldid=217784を参照済み。節への閲覧リンクは現行Wikisourceの見出しアンカーを利用し、固定版は出典として別に保持する。HG2件はNDL画像の該当字面のみ照合済み（全篇未照合）。原HTML全量・SHA・出典画像照合・再利用条件の最終確定は別途実施。節内の日時を記事全体へ転写しない。学術的な正しさとCIの成功は別の判定です。
+採録の基準は[巻第一の固定版217784](https://ja.wikisource.org/w/index.php?oldid=217784&title=北条五代記/巻第一)と[巻第二の固定版214082](https://ja.wikisource.org/w/index.php?oldid=214082&title=北条五代記/巻第二)。記事の閲覧リンクはWikisource現行ページの該当節を開く。両巻とも全文、暦換算、異本、史実認定の照合状態は各採録台帳に記録する。

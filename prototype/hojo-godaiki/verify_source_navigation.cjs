@@ -1,12 +1,12 @@
 "use strict";
-// Verify the five REAL hyperlinks in the HOJO viewer by clicking them in a
+// Verify the hyperlinks in the Hojo viewer by clicking them in a
 // browser, not by merely comparing href strings or trusting URL fragments.
 const fs = require("node:fs");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
 const HERE = __dirname;
-const expectedIds = Array.from({ length: 5 }, (_, n) => `HG-${String(n + 1).padStart(4, "0")}`);
+const expectedIds = Array.from({ length: 12 }, (_, n) => `HG-${String(n + 1).padStart(4, "0")}`);
 
 function assert(value, message) {
   if (!value) throw new Error(message);
@@ -34,9 +34,12 @@ async function checkOne(viewer, record) {
       const target = document.getElementById(fragment);
       if (!target) return false;
       const heading = target.closest("h1,h2,h3,h4,h5,h6");
-      const label = heading?.textContent || target.textContent ||
-        target.parentElement?.textContent || "";
-      return label.includes(chapter) && document.body.textContent.includes(chapter);
+      const label = heading?.textContent.trim() || target.textContent.trim();
+      if (label) return label.endsWith(chapter);
+      // Wikisource also uses an empty span followed by the section heading.
+      let sibling = target.nextElementSibling;
+      while (sibling && !sibling.textContent.trim()) sibling = sibling.nextElementSibling;
+      return Boolean(sibling?.textContent.trim().endsWith(chapter));
     }, { fragment, chapter: record.chapter }, { timeout: 15000 });
 
     await popup.waitForFunction(fragment => {
@@ -83,7 +86,7 @@ async function checkOne(viewer, record) {
 function selectRecords(records, onlyId) {
   assert(records.length === expectedIds.length &&
     records.every((record, index) => record.id === expectedIds[index]),
-    "exactly five ordered Hojo articles required");
+    `exactly ${expectedIds.length} ordered Hojo articles required`);
   if (onlyId === undefined) return records;
   assert(expectedIds.includes(onlyId),
     `FAIL limited: 0 checks attempted; unknown ONLY_HG_ID ${JSON.stringify(onlyId)}`);

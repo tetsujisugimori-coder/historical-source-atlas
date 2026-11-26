@@ -73,11 +73,11 @@ python prototype/eikyouki/test_dates.py
 
 第17便「山内扇谷不和之事」8記事（EK-0168〜0175）、第18便「高見原合戦之事」8記事（EK-0176〜0183）、第19便「早雲蜂記之事」9記事（EK-0184〜0192）を追加し、**合計192記事**を仮登録。第19便は[PR #49](https://github.com/tetsujisugimori-coder/historical-source-atlas/pull/49)でmainに統合済みです。固定翻刻の最終物語章まで採録した状態であり、底本・異本・伝本所属や史実の検証完了を意味しません。詳細は[第17便](docs/eikyouki-intake-batch17.md)・[第18便](docs/eikyouki-intake-batch18.md)・[第19便](docs/eikyouki-intake-batch19.md)の各台帳と、[底本画像対照の準備](docs/eikyouki-post-intake-preflight.md)を参照。
 
-## 第二作品：『北条五代記』第1便
+## 第二作品『北条五代記』
 
-巻第一の5節を HG-0001〜0005 として仮登録しました。人物 `P-ISE-SHINKURO-0001` で『永享記』の関連記述へ暫定的にリンクできます。原文全文・底本画像・人物同定は未検証です。『永享記』192記事の内容・画面は変更していません。
+巻第一の5節（HG-0001〜0005）と巻第二の7節（HG-0006〜0012）を仮登録しました。巻第一では人物 `P-ISE-SHINKURO-0001` から『永享記』の関連記述へ暫定的にリンクできます。両巻とも本文全文は未収録で、底本画像は巻第一の指定表記2箇所を照合済みです。
 
-- [第1便5記事の簡易閲覧](prototype/hojo-godaiki/index.html)
+- [両巻12記事の簡易閲覧](prototype/hojo-godaiki/index.html)
 - [採録データ・検証手順](prototype/hojo-godaiki/README.md)
 - [作品目録](prototype/works.json)
-- [採録台帳・未検証事項](docs/hojo-godaiki-intake-batch01.md)
+- 採録台帳 [第1便](docs/hojo-godaiki-intake-batch01.md)・[第2便](docs/hojo-godaiki-intake-batch02.md)
