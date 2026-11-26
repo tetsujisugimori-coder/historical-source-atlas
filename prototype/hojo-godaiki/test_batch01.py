@@ -6,6 +6,7 @@ import sqlite3
 import tempfile
 import unittest
 from html import unescape
+from html.parser import HTMLParser
 from pathlib import Path
 from build import build, validate, read_json, DATA, PERSONS, EIK, HERE
 
@@ -22,6 +23,46 @@ REVIEWED_TEXT = HERE / "batch02_reviewed_text.json"
 
 def cards_in(html):
     return re.findall(r'<article id="([^"]+)">(.*?)</article>', html, re.DOTALL)
+
+
+class VolumeSources(HTMLParser):
+    """Read actual links and article IDs in each volume section."""
+
+    def __init__(self, html):
+        super().__init__()
+        self.sections = []
+        self.section = None
+        self.link = None
+        self.feed(html)
+        self.close()
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "section":
+            self.section = ([], [])
+            self.sections.append(self.section)
+        elif self.section is not None:
+            article_ids, _ = self.section
+            if tag == "article":
+                article_ids.append(attrs.get("id"))
+            elif tag == "a" and not article_ids:
+                self.link = (attrs.get("href"), [])
+
+    def handle_data(self, data):
+        if self.link is not None:
+            self.link[1].append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.link is not None:
+            href, label = self.link
+            if "".join(label).strip() in {
+                "採録時のWikisource固定版（巻第一）", "採録時のWikisource固定版（巻第二）"
+            }:
+                self.section[1].append(href)
+            self.link = None
+        elif tag == "section":
+            self.section = None
+            self.link = None
 
 
 class HojoIntake(unittest.TestCase):
@@ -65,14 +106,11 @@ class HojoIntake(unittest.TestCase):
         self.assertEqual(json_sources, EXPECTED_FIXED_SOURCES, "JSON fixed source by article ID")
 
         html_sources = {}
-        for section in re.findall(r"<section\b[^>]*>(.*?)</section>", html, re.DOTALL):
-            # The fixed link is scoped to the volume heading, above its cards.
-            heading = section.split("<article", 1)[0]
-            urls = re.findall(r'<a\b[^>]*href="([^"]+)"[^>]*>採録時のWikisource固定版（巻第[一二]）</a>', heading)
+        for article_ids, urls in VolumeSources(html).sections:
             self.assertEqual(len(urls), 1, "HTML volume fixed link missing or duplicated")
-            for article_id, _ in cards_in(section):
+            for article_id in article_ids:
                 self.assertNotIn(article_id, html_sources)
-                html_sources[article_id] = unescape(urls[0])
+                html_sources[article_id] = urls[0]
         self.assertEqual(html_sources, EXPECTED_FIXED_SOURCES, "HTML fixed source by article ID")
 
         sqlite_sources = dict(con.execute("SELECT article_id, fixed_source_url FROM article_fixed_sources"))
@@ -103,6 +141,15 @@ class HojoIntake(unittest.TestCase):
 
                 with self.assertRaisesRegex(AssertionError, "HTML fixed source by article ID"):
                     self.assert_fixed_sources(self.h, html.replace("oldid=214082", "oldid=217784"), con)
+
+                commented_html, count = re.subn(
+                    r'(<a href="[^"]*oldid=214082[^"]*"[^>]*>[^<]+</a>)',
+                    lambda match: f"<!-- {match[0]} -->",
+                    html,
+                )
+                self.assertEqual(count, 1)
+                with self.assertRaisesRegex(AssertionError, "HTML volume fixed link missing"):
+                    self.assert_fixed_sources(self.h, commented_html, con)
 
                 # All three outputs agree on the injected error. The checker
                 # still rejects it using its independently fixed expectations.
