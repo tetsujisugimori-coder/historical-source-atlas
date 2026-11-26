@@ -3,11 +3,12 @@ const {chromium,webkit}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto'),cp=require('node:child_process'),assert=require('node:assert/strict');
 const out=path.resolve(process.argv[2]||'evidence/browser');fs.mkdirSync(out,{recursive:true});
 const html=fs.readFileSync(path.join(__dirname,'index.html'));
+const hojoHtml=fs.readFileSync(path.join(__dirname,'../hojo-godaiki/index.html'));
 const records=JSON.parse(fs.readFileSync(path.join(__dirname,'eikyouki_records.json'),'utf8')).records;
 const expected=records.slice(0,12).map(r=>r.id).concat('EK-0015','EK-0016','EK-0019','EK-0017','EK-0018','EK-0013','EK-0014','EK-0025','EK-0026','EK-0027','EK-0030','EK-0031','EK-0032','EK-0040','EK-0042','EK-0046','EK-0049','EK-0050','EK-0051','EK-0052','EK-0054','EK-0060','EK-0062','EK-0067','EK-0063','EK-0066','EK-0064','EK-0065','EK-0068','EK-0069','EK-0070','EK-0071','EK-0074','EK-0073','EK-0082','EK-0075','EK-0091','EK-0092','EK-0097','EK-0098','EK-0099','EK-0100','EK-0105','EK-0111','EK-0146','EK-0147','EK-0150','EK-0120','EK-0130','EK-0132','EK-0156','EK-0134','EK-0153','EK-0157','EK-0158','EK-0159','EK-0163','EK-0168','EK-0173','EK-0177','EK-0188','EK-0020','EK-0021','EK-0022','EK-0023','EK-0024','EK-0028','EK-0029','EK-0033','EK-0034','EK-0035','EK-0036','EK-0037','EK-0038','EK-0039','EK-0041','EK-0043','EK-0044','EK-0045','EK-0047','EK-0048','EK-0053','EK-0055','EK-0056','EK-0057','EK-0058','EK-0059','EK-0061','EK-0072','EK-0076','EK-0077','EK-0078','EK-0079','EK-0080','EK-0081','EK-0083','EK-0084','EK-0085','EK-0086','EK-0087','EK-0088','EK-0089','EK-0090','EK-0093','EK-0094','EK-0095','EK-0096','EK-0101','EK-0102','EK-0103','EK-0104','EK-0106','EK-0107','EK-0108','EK-0109','EK-0110','EK-0112','EK-0113','EK-0114','EK-0115','EK-0116','EK-0117','EK-0118','EK-0119','EK-0121','EK-0122','EK-0123','EK-0124','EK-0125','EK-0126','EK-0127','EK-0128','EK-0129','EK-0131','EK-0133','EK-0135','EK-0136','EK-0137','EK-0138','EK-0139','EK-0140','EK-0141','EK-0142','EK-0143','EK-0144','EK-0145','EK-0148','EK-0149','EK-0151','EK-0152','EK-0154','EK-0155','EK-0160','EK-0161','EK-0162','EK-0164','EK-0165','EK-0166','EK-0167','EK-0169','EK-0170','EK-0171','EK-0172','EK-0174','EK-0175','EK-0176','EK-0178','EK-0179','EK-0180','EK-0181','EK-0182','EK-0183','EK-0184','EK-0185','EK-0186','EK-0187','EK-0189','EK-0190','EK-0191','EK-0192');
 const ids=p=>p.locator('.article .topline').evaluateAll(xs=>xs.map(x=>x.textContent.match(/EK-\d{4}/)[0]));
 const result={classification:'new execution',started:new Date().toISOString(),head:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:__dirname,encoding:'utf8'}).trim(),tree:cp.execFileSync('git',['rev-parse','HEAD^{tree}'],{cwd:__dirname,encoding:'utf8'}).trim(),inputMethod:'Playwright delivered keyboard/click/selectOption and fill; no physical device claim',dirty:cp.execFileSync('git',['status','--porcelain'],{cwd:__dirname,encoding:'utf8'}).trim(),sourceSha256:crypto.createHash('sha256').update(html).digest('hex'),node:process.version,os:process.platform,cases:[]};
-const server=http.createServer((req,res)=>{if(req.url==='/favicon.ico'){res.writeHead(204);return res.end()}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(html)});
+const server=http.createServer((req,res)=>{if(req.url==='/favicon.ico'){res.writeHead(204);return res.end()}res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});res.end(req.url==='/hojo-godaiki/index.html'?hojoHtml:html)});
 async function main(){
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url=`http://127.0.0.1:${server.address().port}`;
  try{for(const [name,engine] of Object.entries({chromium,webkit})){
@@ -212,6 +213,19 @@ async function main(){
     check('batch19 page marker separate',(await p.locator('#EK-0189 .editorial-annotations').innerText()).includes('NDLJP:386'),true);
     check('batch19 page marker absent from narrative',(await p.locator('#EK-0189 .narrative-text').innerText()).includes('NDLJP:386'),false);
     await p.locator('#search').fill('');await p.locator('#chapter').selectOption('all');
+    for (const id of ['HG-0001','HG-0002']) {
+     await p.goto(url+'/hojo-godaiki/index.html');
+     const article=p.locator('#'+id);
+     check(id+' provisional person label',
+      await article.locator('aside strong').textContent(),'人物リンク：伊勢新九郎（暫定）');
+     await Promise.all([
+      p.waitForURL(u=>u.pathname==='/index.html'&&u.searchParams.get('ref')==='EK-0184'&&u.hash==='#EK-0184',
+       {waitUntil:'domcontentloaded'}),
+      article.getByRole('link',{name:'『永享記』EK-0184の関連記述'}).click()
+     ]);
+     check(id+' linked Eikyouki article is selected',await ids(p),['EK-0184']);
+     check(id+' linked detail opens',await p.locator('#EK-0184').getAttribute('open'),'');
+    }
     check('pageerror',c.pageerrors,[]);check('console errors',c.consoleErrors,[]);c.status='PASS';
    }catch(e){c.status='FAIL';c.error=e.stack;await p.screenshot({path:path.join(out,`${name}-${width}-${motion}-failure.png`),fullPage:false}).catch(()=>{});}
    finally{await context.close()}

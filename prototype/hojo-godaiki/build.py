@@ -148,6 +148,26 @@ def build(destination=DB, hojo=None, persons=None):
             "INSERT INTO article_source_urls (article_id, source_url) VALUES (?,?)",
             [(r["id"], r["source_url"]) for r in old+new]
         )
+        # One bibliographic edition can span several Wikisource revisions.
+        # Keep the existing edition and live links, and record the actual
+        # fixed reference used for each Hojo article.
+        metadata = hojo["metadata"]
+        fixed_urls = {
+            f"HG-V{number}": source["base_url"]
+            for number, source in (
+                (1, metadata),
+                (2, metadata.get("additional_volumes", {}).get("巻第二")),
+            )
+            if source is not None
+        }
+        con.execute("""CREATE TABLE article_fixed_sources (
+          article_id TEXT PRIMARY KEY REFERENCES articles(article_id),
+          fixed_source_url TEXT NOT NULL CHECK(substr(fixed_source_url,1,8)='https://')
+        ) STRICT""")
+        con.executemany(
+            "INSERT INTO article_fixed_sources VALUES (?,?)",
+            [(r["id"], fixed_urls[r["chapter_id"].rsplit("-", 1)[0]]) for r in new],
+        )
         con.executescript("""CREATE TABLE persons (
           person_id TEXT PRIMARY KEY, display_label TEXT NOT NULL,
           identity_status TEXT NOT NULL CHECK(identity_status='EDITORIAL_CORRESPONDENCE_PROVISIONAL'),
