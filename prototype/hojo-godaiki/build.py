@@ -13,6 +13,11 @@ DATA = HERE / "hojo_godaiki_records.json"
 PERSONS = HERE / "person_links.json"
 DB = HERE / "hojo_godaiki.db"
 SCHEMA = (EIK / "schema.sql").read_text(encoding="utf-8")
+# Only these two spellings were checked against the printed pages.
+NDL_SPELLINGS = {
+    "HG-0001": ("いせ新九郎氏茂", "R0000441"),  # p. 843
+    "HG-0002": ("伊勢新九郡氏茂", "R0000447"),  # p. 854
+}
 
 def read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -49,6 +54,7 @@ def validate(hojo, eik, persons):
         raise ValueError("identity status")
     by_id = {r["id"]:r for r in old+new}
     mids = set()
+    checked_ndl_articles = set()
     for m in persons["mentions"]:
         if m["mention_id"] in mids or m["article_id"] not in by_id or m["person_id"] != identities[0]["person_id"]:
             raise ValueError("duplicate/dangling person mention")
@@ -59,14 +65,23 @@ def validate(hojo, eik, persons):
         elif m["verification"] != "PROVISIONAL_HEADER_SECTION_READING":
             raise ValueError("unverified Hojo source marked as fixed")
         if m["article_id"].startswith("HG-"):
-            expected_ndl = {
-                "HG-0001": "https://dl.ndl.go.jp/api/iiif/1882605/R0000441/full/full/0/default.jpg",
-                "HG-0002": "https://dl.ndl.go.jp/api/iiif/1882605/R0000447/full/full/0/default.jpg",
-            }
-            if m.get("evidence_url") != expected_ndl.get(m["article_id"]) or m.get("evidence_scope") != "NDL_IMAGE_SURFACE_ONLY":
+            article_id = m["article_id"]
+            if article_id not in NDL_SPELLINGS or article_id in checked_ndl_articles:
+                raise ValueError("unexpected or duplicate NDL spelling mention")
+            spelling, image_id = NDL_SPELLINGS[article_id]
+            image_url = f"https://dl.ndl.go.jp/api/iiif/1882605/{image_id}/full/full/0/default.jpg"
+            if m.get("evidence_url") != image_url or m.get("evidence_scope") != "NDL_IMAGE_SURFACE_ONLY":
                 raise ValueError("unverified or mismatched NDL image evidence")
+            if m.get("surface_form") != spelling:
+                raise ValueError("person spelling does not match the NDL image")
+            article_people = by_id[article_id]["people_in_text"] or ""
+            if spelling not in article_people.split("・"):
+                raise ValueError("NDL spelling missing from article people")
+            checked_ndl_articles.add(article_id)
         elif m.get("evidence_url") != by_id[m["article_id"]]["source_url"] or m.get("evidence_scope") != "FIXED_TRANSCRIPTION_CHAPTER_AND_ARTICLE_TEXT":
             raise ValueError("Eikyouki mention evidence not matching fixed article URL")
+    if checked_ndl_articles != NDL_SPELLINGS.keys():
+        raise ValueError("both NDL spelling mentions are required")
     return old, new
 
 def build(destination=DB, hojo=None, persons=None):

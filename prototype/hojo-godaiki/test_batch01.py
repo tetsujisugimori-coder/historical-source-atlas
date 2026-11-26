@@ -61,6 +61,26 @@ class FirstBatch(unittest.TestCase):
                 self.assertEqual(stored_evidence,{m["mention_id"]:m["evidence_url"] for m in self.p["mentions"]})
                 self.assertEqual(con.execute("SELECT COUNT(*) FROM person_mentions").fetchone()[0],len(self.p["mentions"]))
                 self.assertEqual([x[0] for x in con.execute("SELECT article_id FROM person_mentions WHERE article_id LIKE 'HG-%' ORDER BY article_id")],["HG-0001","HG-0002"])
+    def test_ndl_spelling_negative_controls(self):
+        persons = copy.deepcopy(self.p)
+        persons["mentions"][1]["surface_form"] = "伊勢新九郎氏茂"
+        with self.assertRaisesRegex(ValueError, "spelling does not match the NDL image"):
+            validate(self.h, self.e, persons)
+
+        hojo = copy.deepcopy(self.h)
+        article = hojo["records"][1]
+        article["people_in_text"] = article["people_in_text"].replace("九郡", "九郎")
+        with self.assertRaisesRegex(ValueError, "spelling missing from article"):
+            validate(hojo, self.e, self.p)
+        with self.assertRaisesRegex(ValueError, "spelling does not match the NDL image"):
+            validate(hojo, self.e, persons)
+
+        persons = copy.deepcopy(self.p)
+        first, second = persons["mentions"][:2]
+        first["evidence_url"], second["evidence_url"] = second["evidence_url"], first["evidence_url"]
+        with self.assertRaisesRegex(ValueError, "mismatched NDL image evidence"):
+            validate(self.h, self.e, persons)
+
     def test_negative_controls(self):
         cases=[]
         h=copy.deepcopy(self.h);h["records"][0]["id"]="EK-0184";cases.append((h,self.p))
